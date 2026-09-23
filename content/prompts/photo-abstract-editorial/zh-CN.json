@@ -1,0 +1,33 @@
+{
+  "title": "照片 × 抽象记忆面板",
+  "summary": "把一张照片变成竖向编辑作品：上方保留原照片，下方是从照片空间节奏与色彩中提炼出的极简抽象面板，并配一个诗意的英文标题。",
+  "seoTitle": "照片抽象编辑作品 Prompt | Image Prompt Book",
+  "seoDescription": "把照片转化为带极简抽象记忆面板与诗意标题的编辑海报。可调整比例、面板颜色、标记形式、抽象程度与标题版式，并复制完整 Prompt。",
+  "inputRequirement": "需要一张照片。请在生图工具中附上图片；本站不上传图片，也不直接生成图片。",
+  "howToUse": [
+    "调整 Prompt 中高亮的选项。",
+    "复制 Prompt，或直接在 ChatGPT 中打开。",
+    "附上想要处理的照片，再发送。"
+  ],
+  "exampleNotice": "作者分享的案例效果，非实时预览。",
+  "verificationNotice": "案例来自作者仓库，Image Prompt Book 尚未复现。",
+  "adaptationNotice": "根据作者的中英文 Prompt 规范排版并参数化；新增选项不等于作者的原始表述或认可。",
+  "licenseNotice": "Prompt 按作者条款：仅限个人与非商业用途，商业使用需获作者授权；案例图片的权利另行确认。",
+  "parameterLabels": {
+    "abstraction": "抽象程度",
+    "markFamily": "抽象形式",
+    "panelRatio": "照片与面板比例",
+    "panelColor": "面板颜色",
+    "motifScale": "母题大小",
+    "accentColors": "强调色",
+    "subtitle": "副标题",
+    "titleLayout": "标题版式"
+  },
+  "keywords": [
+    "摄影",
+    "海报",
+    "拼贴",
+    "抽象",
+    "记忆面板"
+  ]
+}

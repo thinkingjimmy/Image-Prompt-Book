@@ -1,0 +1,33 @@
+{
+  "title": "Photo + Abstract Memory Panel",
+  "summary": "Turn one photo into a vertical editorial piece: the original photograph above, a minimal abstract panel distilled from its spatial rhythm and colors below, and one poetic English title.",
+  "seoTitle": "Photo Abstract Editorial Prompt | Image Prompt Book",
+  "seoDescription": "Turn a photo into an editorial poster with a minimal abstract memory panel and a poetic title. Adjust ratio, panel color, marks, abstraction and title layout, then copy the prompt.",
+  "inputRequirement": "Requires one photo. Attach it in your image generation tool; this website does not upload or generate images.",
+  "howToUse": [
+    "Adjust the highlighted options in the prompt.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Attach the photo you want to transform, then send."
+  ],
+  "exampleNotice": "Example results shared by the author, not a live preview.",
+  "verificationNotice": "These examples come from the author's repository and have not been reproduced by Image Prompt Book.",
+  "adaptationNotice": "Formatting normalized and parameterized from the author's Chinese and English prompts. These options are not the author's wording or an endorsement.",
+  "licenseNotice": "Prompt: author's terms, personal and non-commercial use only; commercial use requires the author's permission. Example images have separate rights.",
+  "parameterLabels": {
+    "abstraction": "Abstraction",
+    "markFamily": "Mark style",
+    "panelRatio": "Photo / panel ratio",
+    "panelColor": "Panel color",
+    "motifScale": "Motif size",
+    "accentColors": "Accent colors",
+    "subtitle": "Subtitle",
+    "titleLayout": "Title layout"
+  },
+  "keywords": [
+    "photography",
+    "poster",
+    "collage",
+    "abstract art",
+    "memory panel"
+  ]
+}

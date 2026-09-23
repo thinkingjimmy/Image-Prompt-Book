@@ -1,0 +1,377 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "abstraction",
+      "type": "select",
+      "renderAs": "block",
+      "default": "balanced",
+      "options": [
+        {
+          "id": "balanced",
+          "labels": {
+            "en": "Relationships first",
+            "zh-CN": "关系优先"
+          },
+          "replacements": {
+            "en": "Default to relationships first, contours discarded, adapting to the subject:",
+            "zh-CN": "默认采用“关系优先、轮廓舍弃”的抽象方式，但根据照片主体自适应处理："
+          }
+        },
+        {
+          "id": "recognizable",
+          "labels": {
+            "en": "More recognizable",
+            "zh-CN": "更可辨识"
+          },
+          "replacements": {
+            "en": "Default to relationships first, but lean toward recognizability: when a subject has a distinctive form, use the upper end of the identity cues allowed below. Adapt to the subject:",
+            "zh-CN": "默认关系优先，但偏向可辨识：主体形状独特时，使用下文允许的身份特征上限。根据照片主体自适应处理："
+          }
+        },
+        {
+          "id": "abstract",
+          "labels": {
+            "en": "More abstract",
+            "zh-CN": "更抽象"
+          },
+          "replacements": {
+            "en": "Lean toward pure abstraction: keep relationships, discard contours, and use the lower end of the identity cues allowed below, or none when relationships alone are enough. Adapt to the subject:",
+            "zh-CN": "偏向纯粹抽象：保留关系、舍弃轮廓，使用下文允许的身份特征下限；仅凭关系已足够时可以不保留。根据照片主体自适应处理："
+          }
+        }
+      ]
+    },
+    {
+      "id": "markFamily",
+      "type": "select",
+      "renderAs": "block",
+      "default": "auto",
+      "options": [
+        {
+          "id": "auto",
+          "labels": {
+            "en": "Best fit for the photo",
+            "zh-CN": "按照片选择"
+          },
+          "replacements": {
+            "en": "Choose one primary family:\n\n- Flat or slightly organic color blocks\n- Soft circles or irregular masses\n- Arcing or tapered strokes\n- Continuous short bars or stacked color bands\n- Simplified architectural masses",
+            "zh-CN": "主要标记可从以下形式中选择一种：\n\n- 平面或微有机色块\n- 柔和圆形或不规则质量\n- 弧形或锥形笔触\n- 连续短条或层叠色带\n- 简化建筑质量"
+          }
+        },
+        {
+          "id": "color-blocks",
+          "labels": {
+            "en": "Color blocks",
+            "zh-CN": "色块"
+          },
+          "replacements": {
+            "en": "Use flat or slightly organic color blocks as the primary family.",
+            "zh-CN": "主要标记使用平面或微有机色块。"
+          }
+        },
+        {
+          "id": "soft-masses",
+          "labels": {
+            "en": "Soft masses",
+            "zh-CN": "柔和团块"
+          },
+          "replacements": {
+            "en": "Use soft circles or irregular masses as the primary family.",
+            "zh-CN": "主要标记使用柔和圆形或不规则质量。"
+          }
+        },
+        {
+          "id": "strokes",
+          "labels": {
+            "en": "Arcing strokes",
+            "zh-CN": "弧形笔触"
+          },
+          "replacements": {
+            "en": "Use arcing or tapered strokes as the primary family.",
+            "zh-CN": "主要标记使用弧形或锥形笔触。"
+          }
+        },
+        {
+          "id": "bands",
+          "labels": {
+            "en": "Bars and bands",
+            "zh-CN": "短条色带"
+          },
+          "replacements": {
+            "en": "Use continuous short bars or stacked color bands as the primary family.",
+            "zh-CN": "主要标记使用连续短条或层叠色带。"
+          }
+        },
+        {
+          "id": "architecture",
+          "labels": {
+            "en": "Architectural masses",
+            "zh-CN": "建筑体块"
+          },
+          "replacements": {
+            "en": "Use simplified architectural masses as the primary family.",
+            "zh-CN": "主要标记使用简化建筑质量。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "panelRatio",
+      "type": "select",
+      "renderAs": "block",
+      "default": "adaptive",
+      "options": [
+        {
+          "id": "adaptive",
+          "labels": {
+            "en": "Adapt to the photo",
+            "zh-CN": "按照片自适应"
+          },
+          "replacements": {
+            "en": "Do not mechanically make the two sections equal in height. Adapt the proportion to the source image's orientation, subject density, visual center of gravity, and negative space:\n\n- Landscape images or images with strong horizontal spread: photo area about 38%–52% of the final height; abstract panel about 48%–62%.\n- Vertical architecture, people, or tall subjects: photo area about 55%–68%; abstract panel about 32%–45%.\n- Near-square images or images with a balanced visual center: photo area about 48%–58%; abstract panel about 42%–52%.\n\nAllow these proportions to shift by about 8% when needed; overall harmony takes precedence.",
+            "zh-CN": "不得机械地采用上下各占一半。应根据原照片方向、主体密度、视觉重心和留白状况，自适应决定拼接比例：\n\n- 横向照片或具有强烈水平延展的照片：摄影区域约占成品高度的 38%–52%，抽象面板约占 48%–62%。\n- 纵向建筑、人物或高耸主体照片：摄影区域约占 55%–68%，抽象面板约占 32%–45%。\n- 接近方形或视觉重心均衡的照片：摄影区域约占 48%–58%，抽象面板约占 42%–52%。\n\n以上比例允许根据实际画面上下浮动约 8%，以整体协调为最高原则。"
+          }
+        },
+        {
+          "id": "photo-led",
+          "labels": {
+            "en": "More photo",
+            "zh-CN": "照片为主"
+          },
+          "replacements": {
+            "en": "Give the photograph more room: make the photo area about 58%–70% of the final height and the abstract panel about 30%–42%, adjusting slightly to the photo's orientation and subject.",
+            "zh-CN": "让照片占据更多空间：摄影区域约占成品高度的 58%–70%，抽象面板约占 30%–42%，并根据照片方向与主体略作调整。"
+          }
+        },
+        {
+          "id": "panel-led",
+          "labels": {
+            "en": "More panel",
+            "zh-CN": "面板为主"
+          },
+          "replacements": {
+            "en": "Give the abstract panel more room: make the photo area about 36%–46% of the final height and the abstract panel about 54%–64%, adjusting slightly to the photo's orientation and subject.",
+            "zh-CN": "让抽象面板占据更多空间：摄影区域约占成品高度的 36%–46%，抽象面板约占 54%–64%，并根据照片方向与主体略作调整。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "panelColor",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "ivory",
+      "options": [
+        {
+          "id": "ivory",
+          "labels": {
+            "en": "Ivory",
+            "zh-CN": "象牙白"
+          },
+          "replacements": {
+            "en": "neutral ivory (#F3F0E8, or a harmonious color from the same family)",
+            "zh-CN": "中性象牙色（#F3F0E8，或与抽象母题搭配和谐的同色系颜色）"
+          }
+        },
+        {
+          "id": "warm-sand",
+          "labels": {
+            "en": "Warm sand",
+            "zh-CN": "暖沙色"
+          },
+          "replacements": {
+            "en": "warm sand (#EDE3D1, or a harmonious color from the same family)",
+            "zh-CN": "暖沙色（#EDE3D1，或与抽象母题搭配和谐的同色系颜色）"
+          }
+        },
+        {
+          "id": "mist-gray",
+          "labels": {
+            "en": "Mist gray",
+            "zh-CN": "雾灰"
+          },
+          "replacements": {
+            "en": "soft mist gray (#E7E8E4, or a harmonious color from the same family)",
+            "zh-CN": "柔和雾灰色（#E7E8E4，或与抽象母题搭配和谐的同色系颜色）"
+          }
+        },
+        {
+          "id": "pale-sage",
+          "labels": {
+            "en": "Pale sage",
+            "zh-CN": "浅鼠尾草绿"
+          },
+          "replacements": {
+            "en": "pale sage (#E4E8DF, or a harmonious color from the same family)",
+            "zh-CN": "浅鼠尾草绿（#E4E8DF，或与抽象母题搭配和谐的同色系颜色）"
+          }
+        }
+      ]
+    },
+    {
+      "id": "motifScale",
+      "type": "select",
+      "renderAs": "block",
+      "default": "standard",
+      "options": [
+        {
+          "id": "standard",
+          "labels": {
+            "en": "Standard",
+            "zh-CN": "标准"
+          },
+          "replacements": {
+            "en": "Default scale:\n\n- Motif width: about 30%–42% of panel width.\n- Motif height: normally no more than 28%–34% of panel height.\n- Keep about 65%–80% clean white space.",
+            "zh-CN": "默认尺度：\n\n- 母题占面板宽度约 30%–42%。\n- 高度通常不超过面板高度的 28%–34%。\n- 保留约 65%–80% 的干净空白。"
+          }
+        },
+        {
+          "id": "compact",
+          "labels": {
+            "en": "Compact, more white space",
+            "zh-CN": "更小，更多留白"
+          },
+          "replacements": {
+            "en": "Default scale:\n\n- Motif width: about 22%–32% of panel width.\n- Motif height: normally no more than 20%–26% of panel height.\n- Keep about 75%–88% clean white space.",
+            "zh-CN": "默认尺度：\n\n- 母题占面板宽度约 22%–32%。\n- 高度通常不超过面板高度的 20%–26%。\n- 保留约 75%–88% 的干净空白。"
+          }
+        },
+        {
+          "id": "bold",
+          "labels": {
+            "en": "Larger motif",
+            "zh-CN": "更大母题"
+          },
+          "replacements": {
+            "en": "Default scale:\n\n- Motif width: about 40%–55% of panel width.\n- Motif height: normally no more than 34%–42% of panel height.\n- Keep about 55%–68% clean white space.",
+            "zh-CN": "默认尺度：\n\n- 母题占面板宽度约 40%–55%。\n- 高度通常不超过面板高度的 34%–42%。\n- 保留约 55%–68% 的干净空白。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "accentColors",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "one-two",
+      "options": [
+        {
+          "id": "one-two",
+          "labels": {
+            "en": "Up to two accents",
+            "zh-CN": "最多两个强调色"
+          },
+          "replacements": {
+            "en": "At most one or two small accent colors",
+            "zh-CN": "最多一个至两个小面积强调色"
+          }
+        },
+        {
+          "id": "one",
+          "labels": {
+            "en": "One accent",
+            "zh-CN": "一个强调色"
+          },
+          "replacements": {
+            "en": "At most one small accent color",
+            "zh-CN": "最多一个小面积强调色"
+          }
+        },
+        {
+          "id": "none",
+          "labels": {
+            "en": "No accents",
+            "zh-CN": "不用强调色"
+          },
+          "replacements": {
+            "en": "No accent colors; stay with the three color roles above",
+            "zh-CN": "不使用强调色，只用以上三个色彩角色"
+          }
+        }
+      ]
+    },
+    {
+      "id": "subtitle",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "optional",
+      "options": [
+        {
+          "id": "optional",
+          "labels": {
+            "en": "Only if it adds meaning",
+            "zh-CN": "有新意才加"
+          },
+          "replacements": {
+            "en": "Generate only one main title by default. Add a three-to-seven-word subtitle only if it adds a new layer of meaning rather than repeating the title.",
+            "zh-CN": "默认只生成一个主标题。仅当副标题能够增加新的语义层，而不是重复主标题时，才允许加入一个 3–7 个英文单词的短副标题。"
+          }
+        },
+        {
+          "id": "none",
+          "labels": {
+            "en": "No subtitle",
+            "zh-CN": "不要副标题"
+          },
+          "replacements": {
+            "en": "Generate only one main title and no subtitle.",
+            "zh-CN": "只生成一个主标题，不加副标题。"
+          }
+        },
+        {
+          "id": "always",
+          "labels": {
+            "en": "Always add one",
+            "zh-CN": "总是加入"
+          },
+          "replacements": {
+            "en": "Generate one main title plus a three-to-seven-word subtitle that adds a new layer of meaning rather than repeating the title.",
+            "zh-CN": "生成一个主标题，并加入一个能增加新语义层、而不重复主标题的 3–7 个英文单词短副标题。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "titleLayout",
+      "type": "select",
+      "renderAs": "block",
+      "default": "adaptive",
+      "options": [
+        {
+          "id": "adaptive",
+          "labels": {
+            "en": "Adapt to the motif",
+            "zh-CN": "按母题自适应"
+          },
+          "replacements": {
+            "en": "Adapt between these layouts:\n\n1. Lower-left aligned. Use when the motif is centered toward the right, spreads horizontally, or the overall weight leans right. The title may be vertical or horizontal, with about 6%–9% safe distance from the left and lower edges.\n2. Bottom centered. Use when the motif is essentially centered, the axis is clear, the architecture is symmetrical, or the image has a vertical echo. Align the title with the motif's central axis but do not place it too close to the motif.",
+            "zh-CN": "在以下两种布局中自适应选择：\n\n1. 左下对齐：适用于母题居中偏右、横向延展或整体重心偏右的画面。此时标题可以考虑竖版或横板，标题距左边和底边保留约 6%–9% 的安全距离。\n2. 底部居中：适用于母题基本居中、轴线明确、建筑对称或上下呼应的画面。标题与母题中心轴保持协调，但不要贴近母题。"
+          }
+        },
+        {
+          "id": "lower-left",
+          "labels": {
+            "en": "Lower left",
+            "zh-CN": "左下对齐"
+          },
+          "replacements": {
+            "en": "Use a lower-left aligned layout. The title may be vertical or horizontal, with about 6%–9% safe distance from the left and lower edges.",
+            "zh-CN": "使用左下对齐布局。标题可以是竖版或横版，距左边和底边保留约 6%–9% 的安全距离。"
+          }
+        },
+        {
+          "id": "bottom-center",
+          "labels": {
+            "en": "Bottom center",
+            "zh-CN": "底部居中"
+          },
+          "replacements": {
+            "en": "Use a bottom-centered layout. Align the title with the motif's central axis but do not place it too close to the motif.",
+            "zh-CN": "使用底部居中布局。标题与母题中心轴保持协调，但不要贴近母题。"
+          }
+        }
+      ]
+    }
+  ]
+}

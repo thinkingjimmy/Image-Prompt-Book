@@ -74,7 +74,7 @@ describe("content validation", () => {
 
   it("refuses to publish without review and real examples", () => {
     const { issues, entries } = setup((dir) => editJson(path.join(dir, "meta.json"), (value) => ({ ...value, status: "published", publishedAt: "2026-09-23" })));
-    expect(entries).toEqual([]);
+    expect(entries.find((entry) => entry.meta.slug === SLUG)).toBeUndefined();
     expect(issues.join("\n")).toContain("prompt usage review is not approved");
     expect(issues.join("\n")).toContain("example pink display rights are pending");
   });

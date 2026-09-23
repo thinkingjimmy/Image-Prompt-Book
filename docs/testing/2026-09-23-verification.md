@@ -9,10 +9,10 @@ Scope: first implementation of M0–M4 and the automatable part of M5. Executed 
 | `pnpm lint` | 0 problems |
 | `pnpm typecheck` | 0 errors |
 | `pnpm content:check` | `grokbot-capsule-icon [draft] not public (status is draft; publishedAt is missing; prompt usage review is not approved; at least one approved real example image is required)` — 1 entry valid |
-| `pnpm test` (Vitest) | 6 files, 67 tests passed (Short: 1,728 combinations × 2 languages; Full: 96 × 2) |
+| `pnpm test` (Vitest) | 7 files, 74 tests passed (Grokbot Short 1,728 × 2, Full 768 × 2; Photo Abstract Editorial 5,832 × 2) |
 | `pnpm build` | Success; `/en/about` etc. prerendered, detail pages SSG, listings dynamic |
 | `pnpm test:e2e` (Playwright, fixture build) | 71 passed, 2 skipped (mobile-only spec on desktop project); after the owner-requested redesign (jevable-style header, ImageFX-style minimal detail, v2 short template, Use in ChatGPT) two consecutive fresh-build runs with `CI=1 --retries=0` both passed across chromium, mobile (Pixel 7), firefox and webkit |
-| `pnpm links:check` | 4 links, 0 unreachable |
+| `pnpm links:check` | 23 links, 0 unreachable |
 | Fresh copy of the working tree → `pnpm install --frozen-lockfile && pnpm verify` without `SITE_URL` | Passed (no database, model key or token needed) |
 
 ## Acceptance criteria coverage

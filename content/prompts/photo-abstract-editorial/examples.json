@@ -1,0 +1,122 @@
+[
+  {
+    "id": "case-10",
+    "src": "/examples/photo-abstract-editorial/case-10.jpg",
+    "width": 1422,
+    "height": 1600,
+    "alt": {
+      "en": "Photo of a blooming pink azalea bush above a brick wall; below, a delicate azalea cluster on a pale panel",
+      "zh-CN": "照片：砖墙上盛开的粉色杜鹃；下方浅色面板上是一簇精致的杜鹃花"
+    },
+    "sourceUrl": "https://github.com/ZzzLc0405/photo-abstract-editorial/blob/49e55073d6d0330274d31f75d27f5dd6eb35fd6d/assets/examples/case-10.jpg",
+    "provenance": "source-reported",
+    "rights": {
+      "status": "pending",
+      "basis": "Imported from the author's repository at the owner's request (Jimmy Wong, 2026-09-23). The author states the source photos are their own; the repository terms allow personal and non-commercial use with attribution, but display permission for this site is not yet recorded.",
+      "evidence": "https://github.com/ZzzLc0405/photo-abstract-editorial/blob/49e55073d6d0330274d31f75d27f5dd6eb35fd6d/LICENSE.md",
+      "reviewedBy": null,
+      "reviewedAt": null
+    },
+    "recipe": null
+  },
+  {
+    "id": "case-3",
+    "src": "/examples/photo-abstract-editorial/case-3.jpg",
+    "width": 1200,
+    "height": 1600,
+    "alt": {
+      "en": "Photo of a balloon seller on a bridge before a tall building; below, soft color circles, a pale building mass and small figure marks, titled “A Bright Interlude”",
+      "zh-CN": "照片：桥上的气球小贩与高楼；下方是柔和色块、浅色建筑体块和小人影，标题“A Bright Interlude”"
+    },
+    "sourceUrl": "https://github.com/ZzzLc0405/photo-abstract-editorial/blob/49e55073d6d0330274d31f75d27f5dd6eb35fd6d/assets/examples/case-3.jpg",
+    "provenance": "source-reported",
+    "rights": {
+      "status": "pending",
+      "basis": "Imported from the author's repository at the owner's request (Jimmy Wong, 2026-09-23). The author states the source photos are their own; the repository terms allow personal and non-commercial use with attribution, but display permission for this site is not yet recorded.",
+      "evidence": "https://github.com/ZzzLc0405/photo-abstract-editorial/blob/49e55073d6d0330274d31f75d27f5dd6eb35fd6d/LICENSE.md",
+      "reviewedBy": null,
+      "reviewedAt": null
+    },
+    "recipe": null
+  },
+  {
+    "id": "case-1",
+    "src": "/examples/photo-abstract-editorial/case-1.jpg",
+    "width": 1065,
+    "height": 1600,
+    "alt": {
+      "en": "Photo of a red sunset over a dark horizon; below, thin red horizontal strokes on ivory, titled “Emberline”",
+      "zh-CN": "照片：暗色地平线上的红色落日；下方象牙色面板上是细长的红色横向笔触，标题“Emberline”"
+    },
+    "sourceUrl": "https://github.com/ZzzLc0405/photo-abstract-editorial/blob/49e55073d6d0330274d31f75d27f5dd6eb35fd6d/assets/examples/case-1.jpg",
+    "provenance": "source-reported",
+    "rights": {
+      "status": "pending",
+      "basis": "Imported from the author's repository at the owner's request (Jimmy Wong, 2026-09-23). The author states the source photos are their own; the repository terms allow personal and non-commercial use with attribution, but display permission for this site is not yet recorded.",
+      "evidence": "https://github.com/ZzzLc0405/photo-abstract-editorial/blob/49e55073d6d0330274d31f75d27f5dd6eb35fd6d/LICENSE.md",
+      "reviewedBy": null,
+      "reviewedAt": null
+    },
+    "recipe": null
+  },
+  {
+    "id": "case-11",
+    "src": "/examples/photo-abstract-editorial/case-11.jpg",
+    "width": 1166,
+    "height": 1600,
+    "alt": {
+      "en": "Night photo of a lit gate tower with a crowd; below, a simplified tower, small figure marks and an orange moon",
+      "zh-CN": "夜景照片：灯光下的城楼与人群；下方是简化城楼、小人影和一轮橙色月亮"
+    },
+    "sourceUrl": "https://github.com/ZzzLc0405/photo-abstract-editorial/blob/49e55073d6d0330274d31f75d27f5dd6eb35fd6d/assets/examples/case-11.jpg",
+    "provenance": "source-reported",
+    "rights": {
+      "status": "pending",
+      "basis": "Imported from the author's repository at the owner's request (Jimmy Wong, 2026-09-23). The author states the source photos are their own; the repository terms allow personal and non-commercial use with attribution, but display permission for this site is not yet recorded.",
+      "evidence": "https://github.com/ZzzLc0405/photo-abstract-editorial/blob/49e55073d6d0330274d31f75d27f5dd6eb35fd6d/LICENSE.md",
+      "reviewedBy": null,
+      "reviewedAt": null
+    },
+    "recipe": null
+  },
+  {
+    "id": "case-9",
+    "src": "/examples/photo-abstract-editorial/case-9.jpg",
+    "width": 1056,
+    "height": 1600,
+    "alt": {
+      "en": "Night photo of palace pavilions reflected in water; below, a fine line drawing of the pavilions and their reflection",
+      "zh-CN": "夜景照片：水面倒映的宫殿楼阁；下方是楼阁及倒影的细线描绘"
+    },
+    "sourceUrl": "https://github.com/ZzzLc0405/photo-abstract-editorial/blob/49e55073d6d0330274d31f75d27f5dd6eb35fd6d/assets/examples/case-9.jpg",
+    "provenance": "source-reported",
+    "rights": {
+      "status": "pending",
+      "basis": "Imported from the author's repository at the owner's request (Jimmy Wong, 2026-09-23). The author states the source photos are their own; the repository terms allow personal and non-commercial use with attribution, but display permission for this site is not yet recorded.",
+      "evidence": "https://github.com/ZzzLc0405/photo-abstract-editorial/blob/49e55073d6d0330274d31f75d27f5dd6eb35fd6d/LICENSE.md",
+      "reviewedBy": null,
+      "reviewedAt": null
+    },
+    "recipe": null
+  },
+  {
+    "id": "case-6",
+    "src": "/examples/photo-abstract-editorial/case-6.jpg",
+    "width": 807,
+    "height": 1600,
+    "alt": {
+      "en": "Photo of a round temple tower beneath eaves against blue sky; below, stacked arcs and bars, titled “A Vertical Dialogue”",
+      "zh-CN": "照片：蓝天下檐角与圆形楼阁；下方是层叠的弧形与短条，标题“A Vertical Dialogue”"
+    },
+    "sourceUrl": "https://github.com/ZzzLc0405/photo-abstract-editorial/blob/49e55073d6d0330274d31f75d27f5dd6eb35fd6d/assets/examples/case-6.jpg",
+    "provenance": "source-reported",
+    "rights": {
+      "status": "pending",
+      "basis": "Imported from the author's repository at the owner's request (Jimmy Wong, 2026-09-23). The author states the source photos are their own; the repository terms allow personal and non-commercial use with attribution, but display permission for this site is not yet recorded.",
+      "evidence": "https://github.com/ZzzLc0405/photo-abstract-editorial/blob/49e55073d6d0330274d31f75d27f5dd6eb35fd6d/LICENSE.md",
+      "reviewedBy": null,
+      "reviewedAt": null
+    },
+    "recipe": null
+  }
+]

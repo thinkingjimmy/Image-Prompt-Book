@@ -10,7 +10,7 @@ It does **not** cover:
 | Translations and parameterized adaptations of those prompts | `content/prompts/*/template.*.txt`, `parameters.json`, `en.json`, `zh-CN.json`, `docs/examples/*.md` | Same license as the original prompt, marked as adapted |
 | Example images | `public/examples/` | Recorded per image in `examples.json` → `rights`; never implied by the prompt license |
 
-For example, the first entry, `grokbot-capsule-icon`, is **CC BY-NC 4.0** by APG (@multi_serio_ai). Its Korean original, English and Chinese adaptations and all option texts keep that license, including its attribution and noncommercial conditions. Nothing in this repository is offered for unconditional commercial use unless its own record says so.
+For example, the first entry, `grokbot-capsule-icon`, is **CC BY-NC 4.0** by APG (@multi_serio_ai), and `photo-abstract-editorial` follows its author's non-commercial terms (AM., GitHub @ZzzLc0405; commercial use requires the author's permission). Its Korean original, English and Chinese adaptations and all option texts keep that license, including its attribution and noncommercial conditions. Nothing in this repository is offered for unconditional commercial use unless its own record says so.
 
 ---
 

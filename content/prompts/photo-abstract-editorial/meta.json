@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "id": "photo-abstract-editorial",
+  "slug": "photo-abstract-editorial",
+  "templateVersion": "1.0.0",
+  "status": "draft",
+  "createdAt": "2026-09-23",
+  "updatedAt": "2026-09-23",
+  "publishedAt": null,
+  "category": "photo-art",
+  "tags": [
+    "editorial",
+    "abstract",
+    "minimal",
+    "image-to-image"
+  ],
+  "originalLocale": "zh-CN",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.zh-CN.txt",
+  "templatePaths": {
+    "en": "template.en.txt",
+    "zh-CN": "template.zh-CN.txt"
+  },
+  "parametersPath": "parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": true,
+  "sourceRecommendedTools": [
+    "Codex"
+  ],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "repo",
+      "type": "github",
+      "role": "original",
+      "title": "photo-abstract-editorial",
+      "url": "https://github.com/ZzzLc0405/photo-abstract-editorial",
+      "author": {
+        "name": "AM.",
+        "handle": "@ZzzLc0405",
+        "url": "https://github.com/ZzzLc0405"
+      },
+      "checkedAt": "2026-09-23"
+    },
+    {
+      "id": "prompt-zh",
+      "type": "github",
+      "role": "supplementary",
+      "title": "photo-abstract-editorial-prompt.zh-CN.md",
+      "url": "https://github.com/ZzzLc0405/photo-abstract-editorial/blob/49e55073d6d0330274d31f75d27f5dd6eb35fd6d/references/photo-abstract-editorial-prompt.zh-CN.md",
+      "author": {
+        "name": "AM.",
+        "handle": "@ZzzLc0405",
+        "url": "https://github.com/ZzzLc0405"
+      },
+      "checkedAt": "2026-09-23"
+    },
+    {
+      "id": "prompt-en",
+      "type": "github",
+      "role": "supplementary",
+      "title": "photo-abstract-editorial-prompt.en.md",
+      "url": "https://github.com/ZzzLc0405/photo-abstract-editorial/blob/49e55073d6d0330274d31f75d27f5dd6eb35fd6d/references/photo-abstract-editorial-prompt.en.md",
+      "author": {
+        "name": "AM.",
+        "handle": "@ZzzLc0405",
+        "url": "https://github.com/ZzzLc0405"
+      },
+      "checkedAt": "2026-09-23"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-AM-NonCommercial",
+    "licenseUrl": "https://github.com/ZzzLc0405/photo-abstract-editorial/blob/49e55073d6d0330274d31f75d27f5dd6eb35fd6d/LICENSE.md",
+    "sourceLicenseUrl": "https://github.com/ZzzLc0405/photo-abstract-editorial/blob/49e55073d6d0330274d31f75d27f5dd6eb35fd6d/README.md",
+    "commercialUse": "restricted",
+    "releaseReview": {
+      "status": "pending",
+      "reviewedBy": null,
+      "reviewedAt": null,
+      "evidence": null
+    }
+  }
+}
