@@ -1,6 +1,6 @@
 /**
  * [INPUT]: 依赖 next 的 Metadata 类型，依赖 ./urls 的 localizedAlternates，依赖 @/lib/site 的 isProductionDeploy/siteUrl/SITE_NAME
- * [OUTPUT]: 对外提供 pageMetadata()/promptMetadata()，统一 title/description/canonical/hreflang/robots/OG
+ * [OUTPUT]: 对外提供 pageMetadata()/promptMetadata()，统一 title/description/canonical/hreflang/robots/OG（无封面时用 /media/og.png 站点分享图）
  * [POS]: lib/seo 的 metadata 工厂；首页、分类、详情、说明页与弹窗共用，避免各页各写一套索引规则
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -10,6 +10,11 @@ import { contentFor } from "@/lib/content/catalog";
 import type { PromptEntry } from "@/lib/content/load";
 import { absoluteUrl, isProductionDeploy, mediaUrl, SITE_NAME, siteUrl } from "@/lib/site";
 import { localizedAlternates, promptPath } from "./urls";
+
+/** Site share card from app/media/og.png; pages without their own cover use it. */
+const DEFAULT_IMAGE = { url: "/media/og.png", width: 1200, height: 630, alt: SITE_NAME };
+// Open Graph wants language_TERRITORY.
+const OG_LOCALES: Record<Locale, string> = { en: "en_US", "zh-CN": "zh_CN" };
 
 type PageMetadataInput = {
   locale: Locale;
@@ -42,10 +47,11 @@ export function pageMetadata({ locale, title, description, path, search = "", in
       title,
       description,
       url: alternates.canonical,
-      locale: locale.replace("-", "_"),
-      ...(image ? { images: [image] } : {}),
+      locale: OG_LOCALES[locale],
+      alternateLocale: (locales ?? LOCALES).filter((item) => item !== locale).map((item) => OG_LOCALES[item]),
+      images: [image ?? DEFAULT_IMAGE],
     },
-    twitter: { card: image ? "summary_large_image" : "summary", title, description },
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 

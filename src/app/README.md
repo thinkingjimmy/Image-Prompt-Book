@@ -19,6 +19,7 @@ icon.png / apple-icon.png: 站点图标（叠放卡片 + 图片，与顶部 bran
 [locale]/(site)/@modal/{default,page,[...rest]/page}.tsx: 空插槽分支，避免残留弹窗
 [locale]/(site)/{default.tsx,[...rest]/page.tsx,error.tsx}: children 兜底 404、未知路径 404、可重试错误边界
 [locale]/(site)/{about,contribute,licenses}/page.tsx: 说明页，内容来自 components/pages
+media/og.png/route.tsx: 站点分享图 1200×630（品牌 + 标语 + 已发布封面拼贴），构建期生成，无封面页面的 og:image
 media/[slug]/[file]/route.ts: 唯一图片通道 /media/<slug>/<file>，构建期预渲染，只提供可见条目在 examples.json 中登记的图片，其余 404
 
 [PROTOCOL]: Update this header when making changes, then check README.md.
