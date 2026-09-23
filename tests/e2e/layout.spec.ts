@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 @axe-core/playwright 的 AxeBuilder，依赖 ./helpers 的 test/SLUG
- * [OUTPUT]: 无障碍与响应式 E2E：axe WCAG A/AA 扫描（首页、详情、弹窗、说明页）、1/2/3/4/5 列断点、375/768 无横向溢出、超长查询截断（AC-17/AC-21，IPB-016/080/081/082）
- * [POS]: tests/e2e 的质量底线套件，只在桌面 Chromium 运行断点矩阵
+ * [INPUT]: 依赖 @axe-core/playwright 的 AxeBuilder，依赖 ./helpers 的 test/expect/SLUG
+ * [OUTPUT]: 无障碍与布局 E2E：axe WCAG A/AA 扫描（首页、详情、弹窗、说明页）、1–5 列断点、375/768 无横向溢出、超长查询截断；移动端无横向滚动、全屏弹窗与可达操作栏（AC-17/AC-21，IPB-016/080/081/082）
+ * [POS]: tests/e2e 的质量底线套件；断点矩阵只在桌面 Chromium 跑，移动端用例只在 mobile 项目跑
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import AxeBuilder from "@axe-core/playwright";
@@ -69,4 +69,42 @@ test("overlong queries are truncated to 100 characters in the canonical URL", as
   const q = new URL(page.url()).searchParams.get("q");
   expect(q).toHaveLength(100);
   expect(new URL(page.url()).searchParams.has("tags")).toBe(false);
+});
+
+test.describe("mobile", () => {
+  test.skip(({ isMobile }) => !isMobile, "mobile viewport only");
+
+  test("pages never scroll horizontally @mobile", async ({ page }) => {
+    for (const url of ["/en", "/zh-CN", `/en/prompts/${SLUG}`, `/zh-CN/prompts/${SLUG}`, "/en/licenses"]) {
+      await page.goto(url);
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+      expect(overflow, url).toBeLessThanOrEqual(0);
+    }
+  });
+
+  test("the modal is full screen with a reachable action bar @mobile", async ({ page }) => {
+    await page.goto("/en");
+    await page.locator(`main h2 a[href="/en/prompts/${SLUG}"]`).click();
+    const dialog = page.getByRole("dialog");
+    await expect(dialog).toBeVisible();
+    const viewport = page.viewportSize()!;
+    const box = (await dialog.boundingBox())!;
+    expect(box.width).toBeGreaterThanOrEqual(viewport.width - 1);
+    expect(box.height).toBeGreaterThanOrEqual(viewport.height - 1);
+
+    const copy = dialog.getByRole("button", { name: "Copy prompt" });
+    await expect(copy).toBeInViewport();
+    await expect(dialog.getByRole("button", { name: "Close" })).toBeInViewport();
+
+    // Content below the sticky bar is never permanently covered by it.
+    const improve = dialog.getByRole("link", { name: "CC BY-NC 4.0" });
+    await improve.scrollIntoViewIfNeeded();
+    await expect(improve).toBeInViewport();
+    const hit = await improve.evaluate((node) => {
+      const rect = node.getBoundingClientRect();
+      const top = document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2);
+      return node.contains(top);
+    });
+    expect(hit).toBe(true);
+  });
 });

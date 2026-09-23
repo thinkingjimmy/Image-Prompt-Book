@@ -306,10 +306,7 @@ src/
   lib/content/
   lib/prompt/
   lib/seo/
-  i18n/
-messages/
-  en.json
-  zh-CN.json
+  i18n/messages/            # en.json、zh-CN.json
 tests/
   fixtures/                 # 不从此目录生成生产内容
   unit/

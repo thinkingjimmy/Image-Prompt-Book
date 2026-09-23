@@ -137,7 +137,7 @@
 - [x] IPB-081 完成键盘、可见焦点、读屏名称、Select/Dialog Esc 层级与 reduced-motion 检查。（axe WCAG 2.2 A/AA、焦点约束与归还、Esc 分层、reduced-motion；未使用真实读屏软件）
 - [x] IPB-082 执行恶意 HTML/URL、未知 hash 参数、过长查询与 draft/fixture 访问测试。
 - [x] IPB-083 检查服务端 HTML、真实图片加载、metadata、canonical、hreflang、分页和 sitemap；记录结果。（在 fixture 生产构建上验证；正式域名上线后需复查）
-- [ ] IPB-084 在明确设备/网络条件下测量 LCP、CLS 与页面资源，处理大图与重复预取；不虚报未采样的现场 INP。（进度：`pnpm vitals` 已记录 fixture 基线，见 docs/testing；需真实案例图与生产环境复测）
+- [ ] IPB-084 在明确设备/网络条件下测量 LCP、CLS 与页面资源，处理大图与重复预取；不虚报未采样的现场 INP。（进度：`pnpm vitals` 已记录 fixture 基线，见 tests/README.md；需真实案例图与生产环境复测）
 
 ### 发布与开源
 

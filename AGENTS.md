@@ -5,13 +5,12 @@ Next.js 16 (App Router) + React 19 + TypeScript 5.9 + Tailwind CSS 4 + shadcn/ui
 `README.md` is for people (what the project is, how to contribute, licenses). This file is for anyone changing code or content files — humans and coding agents.
 
 <directory>
-src/ - Next.js app (4 subdirs: app routes, components UI, lib content/prompt/SEO logic, i18n)
+src/ - Next.js app (4 subdirs: app routes, components UI, lib content/prompt/SEO logic, i18n incl. UI messages)
 content/ - Prompt library as reviewed data files, validated at build time, never executed
-messages/ - Interface text in English and Simplified Chinese
 public/examples/ - Local example images, one folder per prompt
-scripts/ - Content import, validation, link check, fixtures, measurements
-tests/ - Vitest unit tests and Playwright end-to-end tests
-docs/ - Product spec (PRD), task list, first-entry appendix, verification records
+scripts/ - Content import, validation, link check, performance measurement
+tests/ - Vitest unit, Playwright E2E and the fixture builder (see tests/README.md)
+docs/ - Product spec (PRD), task list, first-entry appendix
 .github/ - CI, issue and pull request templates
 .claude/skills/ - Agent skills; add-prompt-case imports a new prompt end to end
 </directory>
@@ -22,6 +21,7 @@ package.json - Scripts and exact dependency pins; `packageManager` pins pnpm
 .env.example - SITE_URL, IPB_DEPLOY_ENV, IPB_PREVIEW_DRAFTS
 next.config.ts - Next.js config (honors IPB_DIST_DIR for the isolated E2E build)
 playwright.config.ts - E2E projects and the fixture webServer
+vitest.config.mts - Unit tests; globalSetup rebuilds fixtures
 eslint.config.mjs / postcss.config.mjs / components.json - Lint, Tailwind, shadcn/ui
 </config>
 
@@ -39,6 +39,7 @@ Open http://localhost:3000. Draft entries appear with `IPB_PREVIEW_DRAFTS=1 pnpm
 
 | Command | What it does |
 | --- | --- |
+| `pnpm test` | Unit tests (fixtures rebuilt automatically); `pnpm vitest` for watch mode |
 | `pnpm verify` | Lint, typecheck, unit tests, content check and production build — run before every PR |
 | `pnpm test:e2e` | Playwright on an isolated fixture build (Chromium, mobile, Firefox, WebKit) |
 | `pnpm content:check` | Validate every entry and print why it is or isn't public |
@@ -55,7 +56,7 @@ Coding agents: use the project skill [`.claude/skills/add-prompt-case`](./.claud
 1. Read [`content/README.md`](./content/README.md) for the file format.
 2. Create `content/prompts/<slug>/` with `meta.json`, `original.<lang>.txt`, `en.json`, `zh-CN.json`, `template.en.txt`, `template.zh-CN.txt`, `parameters.json`, `examples.json` and `ATTRIBUTION.md`. Keep `status: "draft"`.
 3. Put example images in `public/examples/<slug>/`; record true size, bilingual alt text, source and rights in `examples.json`.
-4. Run `pnpm content:check` and `pnpm test`.
+4. Run `pnpm content:check` and `pnpm test`. Every combination is checked automatically; add `tests/unit/prompts/<slug>.test.ts` only for prompt-specific rules.
 5. Open a PR with the template. CI checks structure only; a maintainer records reviewer, date and evidence in `meta.json` before switching to `published`.
 
 Content rules:
@@ -69,7 +70,7 @@ Content rules:
 ## Code conventions
 
 - TypeScript strict. Match the surrounding code. Files ≤ 800 lines, folders ≤ 8 files (split into subfolders beyond that).
-- Every user-facing string exists in both `messages/en.json` and `messages/zh-CN.json` as complete sentences; `tests/unit/i18n.test.ts` checks key and placeholder parity.
+- Every user-facing string exists in both `src/i18n/messages/en.json` and `zh-CN.json` as complete sentences; `tests/unit/i18n.test.ts` checks key and placeholder parity.
 - Commit messages: conventional prefix (`feat:`, `fix:`, `style:`, `content:`, `docs:` …), short imperative English.
 
 ### Documentation protocol (code and docs must stay isomorphic)

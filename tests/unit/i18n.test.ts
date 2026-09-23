@@ -1,5 +1,5 @@
 /**
- * [INPUT]: 依赖 messages/*.json，依赖 @/i18n/config 的 LOCALES，依赖 @/components/pages/static-copy
+ * [INPUT]: 依赖 src/i18n/messages/*.json，依赖 @/i18n/config 的 LOCALES，依赖 @/components/pages/static-copy
  * [OUTPUT]: 国际化完整性测试：各语言消息键完全一致且非空、ICU 占位符一致、说明页双语结构一致（AC-12，IPB-046）
  * [POS]: tests/unit 的文案闸门；缺失翻译在 CI 失败，而不是在运行时回退到英文
  * [PROTOCOL]: Update this header when making changes, then check README.md.
@@ -10,7 +10,7 @@ import { STATIC_COPY } from "@/components/pages/static-copy";
 import { LOCALES } from "@/i18n/config";
 
 type Tree = { [key: string]: string | Tree };
-const load = (locale: string) => JSON.parse(readFileSync(`messages/${locale}.json`, "utf8")) as Tree;
+const load = (locale: string) => JSON.parse(readFileSync(`src/i18n/messages/${locale}.json`, "utf8")) as Tree;
 
 function flatten(tree: Tree, prefix = ""): Record<string, string> {
   return Object.fromEntries(

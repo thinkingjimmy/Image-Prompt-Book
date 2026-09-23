@@ -28,16 +28,8 @@ jobs:
         run: corepack enable
       - name: Install
         run: pnpm install --frozen-lockfile
-      - name: Lint
-        run: pnpm lint
-      - name: Typecheck
-        run: pnpm typecheck
-      - name: Content validation
-        run: pnpm content:check
-      - name: Unit tests
-        run: pnpm test
-      - name: Production build
-        run: pnpm build
+      - name: Verify (lint, typecheck, unit tests, content check, build)
+        run: pnpm verify
       - name: Install Playwright browsers
         run: pnpm exec playwright install --with-deps chromium firefox webkit
       - name: End-to-end tests

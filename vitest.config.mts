@@ -6,5 +6,7 @@ export default defineConfig({
   test: {
     environment: "node",
     include: ["tests/unit/**/*.test.ts"],
+    // Content-validation cases read the synthetic images, so fixtures are rebuilt once per run.
+    globalSetup: ["tests/fixtures/build.ts"],
   },
 });

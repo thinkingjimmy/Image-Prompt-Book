@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 @/lib/content/load 的 loadContentLibrary/publicationBlockers，依赖 content/ 与生成的 fixture 目录
- * [OUTPUT]: 内容校验拒绝测试：未声明 token、坏默认值、非 HTTPS 来源、尺寸不符、无图发布、fixture 混入生产（AC-20/AC-21/AC-23）
- * [POS]: tests/unit 的内容闸门测试；每个用例在临时副本上注入一种错误
+ * [INPUT]: 依赖 @/lib/content/load 的 loadContentLibrary，依赖 ./helpers 的 library/combinations/composer，依赖 content/ 与生成的 fixture 目录
+ * [OUTPUT]: 内容闸门测试：①每个条目、每个版本的全部选项组合 × 输出语言都完整渲染且互不相同；②校验拒绝未声明 token、坏默认值、非 HTTPS 来源、尺寸不符、无审核发布、fixture 混入生产（AC-09/AC-20/AC-21/AC-23）
+ * [POS]: tests/unit 的内容级通用套件；新增条目自动被覆盖，条目专属的语义回归放在 prompts/<slug>.test.ts
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
@@ -9,6 +9,36 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
 import { loadContentLibrary } from "@/lib/content/load";
+import { combinations, composer, library } from "./helpers";
+
+describe("every entry renders every combination", () => {
+  it("loads the committed content without issues", () => {
+    expect(library.issues).toEqual([]);
+    expect(library.entries.length).toBeGreaterThan(0);
+  });
+
+  for (const entry of library.entries) {
+    for (const variant of entry.variants) {
+      it(`${entry.meta.slug} (${variant.id}): complete, single-language and distinct in every output locale`, () => {
+        const compose = composer(variant);
+        const combos = combinations(variant.parameters);
+        const outputs = new Set<string>();
+        for (const combo of combos) {
+          for (const locale of entry.meta.outputLocales) {
+            const text = compose(combo, locale);
+            // No unresolved tokens, missing replacements or leftover Markdown from the source.
+            expect(text).not.toMatch(/\{\{|\}\}|undefined|```|\*\*|^#/m);
+            expect(text.endsWith("\n") && !text.endsWith("\n\n")).toBe(true);
+            if (locale === "en") expect(text).not.toMatch(/[\u4e00-\u9fff]/);
+            outputs.add(`${locale}\n${text}`);
+          }
+        }
+        // Every option changes the prompt; otherwise it is a dead control.
+        expect(outputs.size).toBe(combos.length * entry.meta.outputLocales.length);
+      });
+    }
+  }
+});
 
 const SLUG = "grokbot-capsule-icon";
 let root = "";
@@ -27,7 +57,7 @@ afterEach(() => {
 });
 
 describe("content validation", () => {
-  it("accepts the committed content", () => {
+  it("accepts an untouched copy", () => {
     expect(setup(() => {}).issues).toEqual([]);
   });
 

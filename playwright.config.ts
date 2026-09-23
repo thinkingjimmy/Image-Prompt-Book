@@ -1,7 +1,7 @@
 /**
  * [INPUT]: 依赖 @playwright/test 的 defineConfig/devices
  * [OUTPUT]: 默认导出 E2E 配置：chromium 全量，mobile/firefox/webkit 跑 @mobile/@smoke，webServer 自动构建 fixture 站点
- * [POS]: 项目根的端到端测试入口，与 tests/e2e 配合
+ * [POS]: 项目根的端到端测试入口，与 tests/e2e 配合；fixture 由 tests/fixtures/build.ts 生成
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { defineConfig, devices } from "@playwright/test";
@@ -29,7 +29,7 @@ export default defineConfig({
   ],
   webServer: {
     // A production build against isolated fixture content, in its own dist dir so it never replaces a real build.
-    command: "pnpm e2e:serve",
+    command: "pnpm exec tsx tests/fixtures/build.ts && pnpm exec next build && pnpm exec next start --port 3200",
     url: `http://localhost:${PORT}/en`,
     timeout: 240_000,
     reuseExistingServer: !process.env.CI,

@@ -67,11 +67,11 @@ Write the generator as a throwaway Python script in the scratchpad that asserts 
 ```bash
 pnpm content:check          # must list the entry as valid (not public is expected)
 pnpm links:check            # every source/license/image link reachable
-pnpm test                   # add tests/unit/<slug>.test.ts, see below
+pnpm test                   # add tests/unit/prompts/<slug>.test.ts, see below
 pnpm verify && CI=1 pnpm exec playwright test --retries=0
 ```
 
-Unit test (copy `tests/unit/photo-abstract-editorial.test.ts`): loads with no issues; original matches the upstream hash; every option combination in both languages has no `{{`, `undefined`, `**` or leftover `#` headings and ends with one newline; core rules survive every combination; defaults reproduce the author; each contradiction you fixed stays fixed.
+Unit test: `tests/unit/content.test.ts` already renders every option combination of every entry in both languages (no `{{`, `undefined`, `**` or leftover `#` headings, one trailing newline, every option changes the text). Add `tests/unit/prompts/<slug>.test.ts` (copy `photo-abstract-editorial.test.ts`) only for what is specific: original matches the upstream hash; core rules survive every combination; defaults reproduce the author; each contradiction you fixed stays fixed.
 
 Preview with `IPB_PREVIEW_DRAFTS=1 pnpm dev`: check the card (cover, tags on one line, author), the detail at desktop and 375 px (chips wrap, block options lead their paragraph, notice above the buttons).
 
