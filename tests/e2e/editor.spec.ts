@@ -176,6 +176,8 @@ test("the detail stays minimal: image source and one credit line", async ({ page
   await expect(page.getByRole("heading", { name: "Source & license" })).toHaveCount(0);
 
   await expect(page.getByText("adapted", { exact: true })).toHaveCount(0);
+  // Prompts that need an image say so right above the actions.
+  await expect(page.getByTestId("attach-notice")).toContainText("Use with your own image.");
 
   // Fill by default; one tap shows the whole image, another fills again.
   const fitToggle = page.getByRole("button", { name: "View full image" });

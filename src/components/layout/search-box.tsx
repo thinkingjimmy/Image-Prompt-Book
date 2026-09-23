@@ -107,7 +107,10 @@ export function SearchBox({ className }: { className?: string }) {
           composing.current = false;
           schedule(event.currentTarget.value);
         }}
-        className="h-10 w-full rounded-full bg-transparent pr-9 pl-10 text-base outline-none transition-colors placeholder:text-muted-foreground hover:bg-muted/60 focus-visible:bg-muted/60 sm:text-[15px] [&::-webkit-search-cancel-button]:hidden"
+        className={cn(
+          "h-10 w-full rounded-full bg-transparent pl-10 text-base outline-none transition-colors placeholder:text-muted-foreground hover:bg-muted/60 focus-visible:bg-muted/60 sm:text-[15px] [&::-webkit-search-cancel-button]:hidden",
+          value ? "pr-9" : "pr-3",
+        )}
       />
       {value && (
         <button

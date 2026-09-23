@@ -35,7 +35,8 @@ export function SortSelect() {
     >
       <SelectTrigger
         aria-label={t("sort")}
-        className="h-10 shrink-0 gap-1.5 rounded-full border-0 bg-transparent px-3.5 text-[15px] font-medium text-foreground shadow-none hover:bg-muted data-[state=open]:bg-muted [&_svg:not([class*='text-'])]:text-muted-foreground"
+        // Phones sort from the filter menu, which keeps the one-row header roomy for search.
+        className="hidden h-10 shrink-0 gap-1.5 rounded-full border-0 bg-transparent px-3.5 text-[15px] font-medium text-foreground shadow-none hover:bg-muted data-[state=open]:bg-muted sm:inline-flex [&_svg:not([class*='text-'])]:text-muted-foreground"
       >
         <SelectValue />
       </SelectTrigger>

@@ -10,7 +10,7 @@
     "home": "Image Prompt Book home",
     "skip": "Skip to content",
     "search": "Search prompts",
-    "searchPlaceholder": "Search prompts…",
+    "searchPlaceholder": "Search",
     "clearSearch": "Clear search",
     "category": "Category",
     "allCategories": "All prompts",
@@ -84,7 +84,9 @@
     "fitFill": "Fill",
     "share": "Share link with my settings",
     "version": "Prompt version",
-    "shareTooltip": "Share"
+    "shareTooltip": "Share",
+    "attachTitle": "Use with your own image.",
+    "attachBody": "After copying or opening ChatGPT, attach one photo or character image, then send."
   },
   "notFound": {
     "title": "Page not found",

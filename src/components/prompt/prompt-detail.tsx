@@ -4,7 +4,7 @@
  * [POS]: components/prompt 的共用详情（参考 ImageFX）：左栏为按比例满铺的案例图；右栏标题 + 作者·许可一行 + Prompt 工具行（版本切换 + 修改后出现的重置） + 可编辑 Prompt（自绘滚动）+ 主操作（复制 / ChatGPT / 分享）。独立页与弹窗同一组件，只以 variant 区分尺寸与标题元素
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ImagePlus } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import type { CSSProperties } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -77,7 +77,8 @@ export async function PromptDetail({ entry, locale, variant }: { entry: PromptEn
           {t("backToGallery")}
         </Link>
       )}
-      <article style={frame} className={cn("flex flex-col md:h-[var(--detail-h)] md:flex-row", variant === "page" && "overflow-hidden rounded-[24px] bg-card ring-1 ring-black/[0.06]")}>
+      {/* overflow-clip (not hidden) rounds the card without becoming a scroll container, so the action bar can stay sticky. */}
+      <article style={frame} className={cn("flex flex-col md:h-[var(--detail-h)] md:flex-row", variant === "page" && "overflow-clip rounded-[24px] bg-card ring-1 ring-black/[0.06]")}>
         <ExampleGallery
           examples={toExampleViews(entry, locale)}
           unoptimized={contentConfig().isFixture}
@@ -110,6 +111,15 @@ export async function PromptDetail({ entry, locale, variant }: { entry: PromptEn
           </ScrollArea>
 
           <div className="sticky bottom-0 z-10 border-t border-border/70 bg-background/95 px-5 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur sm:px-6 md:static md:bg-transparent md:pb-4 md:backdrop-blur-none">
+            {entry.meta.requiresReferenceImage && (
+              // Placed where people act (copy / open ChatGPT), because forgetting the image is the most common failure.
+              <p data-testid="attach-notice" className="mb-3 flex items-start gap-2.5 rounded-2xl bg-param px-3.5 py-2.5 text-[13px] leading-snug text-param-foreground">
+                <ImagePlus className="mt-0.5 size-4 shrink-0" aria-hidden />
+                <span>
+                  <strong className="font-semibold">{t("attachTitle")}</strong> {t("attachBody")}
+                </span>
+              </p>
+            )}
             <PromptActions part="primary" />
           </div>
         </div>

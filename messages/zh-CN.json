@@ -10,7 +10,7 @@
     "home": "Image Prompt Book 首页",
     "skip": "跳到正文",
     "search": "搜索 Prompt",
-    "searchPlaceholder": "搜索 Prompt…",
+    "searchPlaceholder": "搜索",
     "clearSearch": "清除搜索",
     "category": "分类",
     "allCategories": "全部 Prompt",
@@ -84,7 +84,9 @@
     "fitFill": "撑满",
     "share": "分享带当前设置的链接",
     "version": "Prompt 版本",
-    "shareTooltip": "分享"
+    "shareTooltip": "分享",
+    "attachTitle": "需要搭配你的图片使用。",
+    "attachBody": "复制或打开 ChatGPT 后，记得同时附上一张照片或角色图再发送。"
   },
   "notFound": {
     "title": "页面不存在",
