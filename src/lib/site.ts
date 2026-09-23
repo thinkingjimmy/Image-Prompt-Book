@@ -1,5 +1,5 @@
 /**
- * [INPUT]: 依赖 process.env 的 SITE_URL/IPB_DEPLOY_ENV/IPB_CONTENT_DIR/IPB_PREVIEW_DRAFTS，依赖 @/i18n/config 的 Locale
+ * [INPUT]: 依赖 process.env 的 SITE_URL/VERCEL_URL/IPB_DEPLOY_ENV/IPB_CONTENT_DIR/IPB_PREVIEW_DRAFTS，依赖 @/i18n/config 的 Locale
  * [OUTPUT]: 对外提供 SITE_NAME/REPO_URL/AUTHOR_X_URL（按语言）/siteUrl()/isProductionDeploy()/contentConfig()/mediaUrl()/absoluteUrl()/repoFileUrl()/repoIssueUrl()/repoReadmeUrl()
  * [POS]: lib 的站点运行配置单一入口；SEO、内容目录选择、fixture 隔离与 GitHub 链接都从这里取值，浏览器端只拿到公开常量
  * [PROTOCOL]: Update this header when making changes, then check README.md.
@@ -18,7 +18,15 @@ export function isProductionDeploy(): boolean {
 }
 
 export function siteUrl(): URL {
-  const raw = process.env.SITE_URL ?? "http://localhost:3000";
+  // Hosts may define SITE_URL as an empty string; treat that as unset. Vercel previews fall back to their own URL.
+  const vercelUrl = process.env.VERCEL_URL?.trim();
+  const raw = process.env.SITE_URL?.trim() || (vercelUrl ? `https://${vercelUrl}` : "http://localhost:3000");
+  if (isProductionDeploy() && !process.env.SITE_URL?.trim()) {
+    throw new Error("SITE_URL is required when IPB_DEPLOY_ENV=production");
+  }
+  if (!URL.canParse(raw)) {
+    throw new Error(`SITE_URL is not a valid absolute URL (got "${raw}")`);
+  }
   const url = new URL(raw);
   if (isProductionDeploy() && url.protocol !== "https:") {
     throw new Error(`SITE_URL must be HTTPS in production (got ${raw})`);
