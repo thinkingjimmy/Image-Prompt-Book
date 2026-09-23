@@ -8,6 +8,8 @@ Image Prompt Book 的每个案例都来自作者的公开分享，感谢他们�
 | --- | --- | --- | --- |
 | Minimal Bot Icon — Grokbot Style<br>极简机器人头像 · Grokbot 风格 | APG ([@multi_serio_ai](https://x.com/multi_serio_ai)) | [Grokbot Icon](https://grokbot-icon-studio.serio-ai.chatgpt.site/en) | [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) |
 | Photo + Abstract Memory Panel<br>照片 × 抽象记忆面板 | AM. ([@ZzzLc0405](https://github.com/ZzzLc0405)) | [photo-abstract-editorial](https://github.com/ZzzLc0405/photo-abstract-editorial) | [Non-commercial / 非商业](https://github.com/ZzzLc0405/photo-abstract-editorial/blob/49e55073d6d0330274d31f75d27f5dd6eb35fd6d/LICENSE.md) |
+| Photo × Modernist Poster Diptych<br>照片 × 现代主义海报 · 上下双拼 | DAAI ([@daaihq](https://x.com/daaihq)) | [DAAI on X (2026-09-22)](https://x.com/daaihq/status/2102196849428058547) | [No license stated / 未声明许可](https://x.com/daaihq/status/2102196849428058547) |
+| Fuse Bead Editorial Poster<br>拼豆编辑海报 | Morry.AI ([@Morry4AI](https://x.com/Morry4AI)) | [Morry.AI on X (2026-09-23)](https://x.com/Morry4AI/status/2102659406580330647) | [No license stated / 未声明许可](https://x.com/Morry4AI/status/2102659406580330647) |
 
 The English and Chinese versions and the adjustable options on this site are our adaptations; they are not endorsed by the authors. See the [License](../README.md#license) section for what each license allows.
 
