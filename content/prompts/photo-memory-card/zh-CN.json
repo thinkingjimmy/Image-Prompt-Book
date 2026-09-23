@@ -9,8 +9,8 @@
     "复制 Prompt，或直接在 ChatGPT 中打开。",
     "附上想要使用的照片，再发送。"
   ],
-  "exampleNotice": "暂无案例图片。",
-  "verificationNotice": "Image Prompt Book 尚未复现。",
+  "exampleNotice": "作者分享的案例效果，非实时预览。",
+  "verificationNotice": "案例来自作者的帖子，Image Prompt Book 尚未复现。",
   "adaptationNotice": "中文翻译与可调选项由 Image Prompt Book 提供；不等于作者的原始表述或认可。",
   "licenseNotice": "作者未声明许可；在取得并记录授权前，全部权利归作者所有。",
   "parameterLabels": {

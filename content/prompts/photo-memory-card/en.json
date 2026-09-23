@@ -9,8 +9,8 @@
     "Copy the prompt, or open it directly in ChatGPT.",
     "Attach the photo you want to use, then send."
   ],
-  "exampleNotice": "No example images yet.",
-  "verificationNotice": "Not reproduced by Image Prompt Book.",
+  "exampleNotice": "Example results shared by the author, not a live preview.",
+  "verificationNotice": "These examples come from the author's post and have not been reproduced by Image Prompt Book.",
   "adaptationNotice": "Chinese translation and adjustable options by Image Prompt Book; not the author's wording or an endorsement.",
   "licenseNotice": "The author did not state a license. All rights stay with the author until permission is recorded.",
   "parameterLabels": {
