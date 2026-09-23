@@ -9,7 +9,7 @@
 import { ExternalLink, ImageIcon, Maximize2, Minimize2, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Dialog as DialogPrimitive } from "radix-ui";
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ExampleImage } from "@/components/gallery/example-image";
 import { cn } from "@/lib/utils";
 
@@ -79,20 +79,7 @@ export function ExampleGallery({ examples, unoptimized, className }: { examples:
 
       <figcaption className="pointer-events-none absolute inset-x-3 bottom-3 flex items-end justify-between gap-3">
         {examples.length > 1 ? (
-          <div className={cn("pointer-events-auto flex gap-1.5 overflow-x-auto rounded-full p-1.5 [scrollbar-width:none]", glass)} role="group" aria-label={t("examples")}>
-            {examples.map((example, itemIndex) => (
-              <button
-                key={example.id}
-                type="button"
-                aria-pressed={itemIndex === index}
-                aria-label={t("showExample", { index: itemIndex + 1 })}
-                onClick={() => setIndex(itemIndex)}
-                className={cn("size-10 shrink-0 overflow-hidden rounded-full ring-2 ring-transparent transition sm:size-11", itemIndex === index ? "ring-white" : "opacity-60 hover:opacity-90")}
-              >
-                <ExampleImage src={example.src} width={example.width} height={example.height} alt="" sizes="44px" unoptimized={unoptimized} className="size-full" />
-              </button>
-            ))}
-          </div>
+          <ThumbnailTray examples={examples} index={index} onSelect={setIndex} unoptimized={unoptimized} label={t("examples")} itemLabel={(n) => t("showExample", { index: n })} className={glass} />
         ) : (
           <span />
         )}
@@ -137,5 +124,91 @@ export function ExampleGallery({ examples, unoptimized, className }: { examples:
         </DialogPrimitive.Portal>
       </DialogPrimitive.Root>
     </figure>
+  );
+}
+
+/**
+ * Thumbnails that never outgrow the image: the tray shrinks to the free width, scrolls sideways
+ * (touch, trackpad or mouse wheel) and fades on whichever side still hides more examples.
+ */
+function ThumbnailTray({
+  examples,
+  index,
+  onSelect,
+  unoptimized,
+  label,
+  itemLabel,
+  className,
+}: {
+  examples: ExampleView[];
+  index: number;
+  onSelect: (index: number) => void;
+  unoptimized: boolean;
+  label: string;
+  itemLabel: (index: number) => string;
+  className: string;
+}) {
+  const scroller = useRef<HTMLDivElement>(null);
+  const [edges, setEdges] = useState({ start: false, end: false });
+
+  const measure = useCallback(() => {
+    const node = scroller.current;
+    if (!node) return;
+    const max = node.scrollWidth - node.clientWidth;
+    setEdges({ start: node.scrollLeft > 1, end: node.scrollLeft < max - 1 });
+  }, []);
+
+  useEffect(() => {
+    const node = scroller.current;
+    if (!node) return;
+    const observer = new ResizeObserver(measure);
+    observer.observe(node);
+    // A vertical wheel scrolls the tray sideways so mouse users can reach every example.
+    const onWheel = (event: WheelEvent) => {
+      if (node.scrollWidth <= node.clientWidth || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      event.preventDefault();
+      node.scrollLeft += event.deltaY;
+    };
+    node.addEventListener("wheel", onWheel, { passive: false });
+    return () => {
+      observer.disconnect();
+      node.removeEventListener("wheel", onWheel);
+    };
+  }, [measure]);
+
+  useEffect(() => {
+    scroller.current?.children[index]?.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "smooth" });
+  }, [index]);
+
+  const fade = 28;
+  const mask =
+    edges.start || edges.end
+      ? `linear-gradient(to right, ${edges.start ? "transparent" : "black"} 0, black ${edges.start ? fade : 0}px, black calc(100% - ${edges.end ? fade : 0}px), ${edges.end ? "transparent" : "black"} 100%)`
+      : undefined;
+
+  return (
+    <div className={cn("pointer-events-auto min-w-0 rounded-full p-1.5", className)}>
+      <div
+        ref={scroller}
+        role="group"
+        aria-label={label}
+        onScroll={measure}
+        style={{ maskImage: mask, WebkitMaskImage: mask }}
+        className="flex snap-x gap-1.5 overflow-x-auto rounded-full [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {examples.map((example, itemIndex) => (
+          <button
+            key={example.id}
+            type="button"
+            aria-pressed={itemIndex === index}
+            aria-label={itemLabel(itemIndex + 1)}
+            onClick={() => onSelect(itemIndex)}
+            className={cn("size-10 shrink-0 snap-start overflow-hidden rounded-full ring-2 ring-transparent ring-inset transition sm:size-11", itemIndex === index ? "ring-white" : "opacity-60 hover:opacity-90")}
+          >
+            <ExampleImage src={example.src} width={example.width} height={example.height} alt="" sizes="44px" unoptimized={unoptimized} className="size-full" />
+          </button>
+        ))}
+      </div>
+    </div>
   );
 }
