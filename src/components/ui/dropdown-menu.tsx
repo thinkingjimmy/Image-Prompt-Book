@@ -1,7 +1,7 @@
 /**
  * [INPUT]: 依赖 radix-ui 原语与 @/lib/utils 的 cn
  * [OUTPUT]: 对外提供 DropdownMenu 及其 Trigger/Content/Item 等组合件
- * [POS]: components/ui 的 shadcn/ui（new-york preset）生成组件，业务样式在调用处覆盖，本文件尽量保持上游原样便于升级
+ * [POS]: components/ui 的 shadcn/ui（new-york preset）生成组件，业务样式在调用处覆盖；唯一偏离上游：DropdownMenu 默认非模态（不锁页面滚动）
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 "use client"
@@ -11,10 +11,12 @@ import { cn } from "@/lib/utils"
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react"
 import { DropdownMenu as DropdownMenuPrimitive } from "radix-ui"
 
+// Non-modal by default (project override): a modal menu locks page scroll, and toggling body overflow makes every backdrop-blur layer flash.
 function DropdownMenu({
+  modal = false,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {
-  return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />
+  return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" modal={modal} {...props} />
 }
 
 function DropdownMenuPortal({

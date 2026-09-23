@@ -52,9 +52,9 @@ export function DetailModal({ children }: { children: ReactNode }) {
             ref={content}
             aria-describedby={undefined}
             // Long content: focus the title, never an input that would pop the mobile keyboard.
-            // Esc belongs to the innermost layer: never close the detail while a lightbox, menu or listbox sits above it.
+            // Esc belongs to the innermost layer: never close the detail while a lightbox or menu sits above it.
             onEscapeKeyDown={(event) => {
-              const nested = document.querySelectorAll('[role="dialog"][data-state="open"], [role="listbox"], [role="menu"]');
+              const nested = document.querySelectorAll('[role="dialog"][data-state="open"], [role="menu"]');
               if (nested.length > 1 || (nested.length === 1 && !content.current?.isSameNode(nested[0]!))) event.preventDefault();
             }}
             onOpenAutoFocus={(event) => {

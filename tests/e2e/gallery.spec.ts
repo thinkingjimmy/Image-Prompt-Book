@@ -125,8 +125,8 @@ test.describe("gallery", () => {
   test("featured and latest sorts are deterministic", async ({ page }) => {
     await page.goto("/en");
     await expect(cards(page).nth(1).getByRole("heading")).toHaveText("Fixture sample 2");
-    await page.getByRole("combobox", { name: "Sort" }).click();
-    await page.getByRole("option", { name: "Latest" }).click();
+    await page.getByRole("button", { name: /^Sort/ }).click();
+    await page.getByRole("menuitemradio", { name: "Latest" }).click();
     await expect(page).toHaveURL(/sort=latest/);
     await expect(cards(page).nth(1).getByRole("heading")).toHaveText("Fixture sample 27");
   });

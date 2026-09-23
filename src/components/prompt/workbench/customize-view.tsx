@@ -1,16 +1,16 @@
 /**
- * [INPUT]: 依赖 ./prompt-state 的 usePromptState，依赖 @/lib/prompt/template 的 parseTemplate/toParagraphs/replacementFor，依赖 radix-ui DropdownMenu 与 @/components/ui/dropdown-menu
+ * [INPUT]: 依赖 ./prompt-state 的 usePromptState，依赖 @/lib/prompt/template 的 parseTemplate/toParagraphs/replacementFor，依赖 @/components/ui/dropdown-menu 与 @/components/ui/menu-radio-item
  * [OUTPUT]: 对外提供 CustomizeView 客户端组件
  * [POS]: components/prompt/workbench 的 Prompt 正文（参考 ImageFX）：以站点语言呈现完整模板，短值为句内下拉 chip，整段参数以 chip 起首、所选段落与正文同色
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 "use client";
 
-import { Check, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { DropdownMenu as DropdownMenuPrimitive } from "radix-ui";
 import { Fragment, useMemo } from "react";
-import { DropdownMenuContent, DropdownMenuRadioGroup } from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { MenuRadioItem } from "@/components/ui/menu-radio-item";
 import type { Parameter } from "@/lib/content/schema";
 import { parseTemplate, replacementFor, toParagraphs } from "@/lib/prompt/template";
 import { cn } from "@/lib/utils";
@@ -24,10 +24,9 @@ function ParameterSelect({ parameter, variant }: { parameter: Parameter; variant
   const parameterLabel = data.parameterLabels[parameter.id] ?? parameter.id;
 
   return (
-    // Non-modal: a modal picker locks page scroll, and toggling body overflow makes every backdrop-blur layer flash.
-    <DropdownMenuPrimitive.Root modal={false}>
+    <DropdownMenu>
       {/* A span (not a button) so long options wrap like the sentence around them instead of forming a centered box. */}
-      <DropdownMenuPrimitive.Trigger asChild>
+      <DropdownMenuTrigger asChild>
         <span
           // Radix supplies aria-haspopup, aria-expanded and aria-controls on the child.
           role="button"
@@ -55,24 +54,17 @@ function ParameterSelect({ parameter, variant }: { parameter: Parameter; variant
             );
           })()}
         </span>
-      </DropdownMenuPrimitive.Trigger>
+      </DropdownMenuTrigger>
       <DropdownMenuContent align="start" collisionPadding={16} aria-label={parameterLabel} className="max-w-[min(22rem,calc(100vw-2rem))] rounded-2xl p-1.5">
         <DropdownMenuRadioGroup value={selected.id} onValueChange={(value) => setSelection(parameter.id, value)}>
           {parameter.options.map((option) => (
-            <DropdownMenuPrimitive.RadioItem
-              key={option.id}
-              value={option.id}
-              className="relative flex cursor-pointer items-center rounded-lg py-1.5 pr-8 pl-2 text-sm outline-hidden transition-colors select-none focus:bg-accent focus:text-accent-foreground"
-            >
+            <MenuRadioItem key={option.id} value={option.id}>
               {option.labels[locale]}
-              <DropdownMenuPrimitive.ItemIndicator className="absolute right-2 flex">
-                <Check aria-hidden className="size-4 text-muted-foreground" />
-              </DropdownMenuPrimitive.ItemIndicator>
-            </DropdownMenuPrimitive.RadioItem>
+            </MenuRadioItem>
           ))}
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
-    </DropdownMenuPrimitive.Root>
+    </DropdownMenu>
   );
 }
 
