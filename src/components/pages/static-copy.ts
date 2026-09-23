@@ -12,14 +12,20 @@ export type StaticLink = { label: string; href: string };
 export type StaticSection = { heading: string; paragraphs?: string[]; items?: string[]; links?: StaticLink[] };
 export type StaticCopy = { lead: string; sections: StaticSection[] };
 
-const CONTENT_DOCS = `${REPO_URL}/blob/main/content/README.md`;
 const LICENSE = `${REPO_URL}/blob/main/LICENSE`;
+const ACKNOWLEDGEMENTS = `${REPO_URL}/blob/main/ACKNOWLEDGEMENTS.md`;
 
 export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
   about: {
     en: {
       lead: "Image Prompt Book is an open-source gallery of image generation prompts. Start from a real example you like, adjust the options that matter, and copy the complete prompt in your language.",
       sections: [
+        {
+          heading: "A curated collection",
+          paragraphs: [
+            "This is a personal, curated collection. Every prompt is picked purely by my own taste, and only the ones I think are genuinely good go live — so a suggestion may not be added, and that's no judgment of your work.",
+          ],
+        },
         {
           heading: "How to use it",
           items: [
@@ -49,11 +55,20 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
             "The interface and every editable template are available in English and Simplified Chinese. The prompt always follows the site language you choose at the bottom of the page.",
           ],
         },
+        {
+          heading: "Thanks to the authors",
+          paragraphs: ["Every prompt here was shared by its author. Each prompt page credits its author, and the acknowledgements list who made each one."],
+          links: [{ label: "Acknowledgements", href: ACKNOWLEDGEMENTS }],
+        },
       ],
     },
     "zh-CN": {
       lead: "Image Prompt Book 是一个开源的生图 Prompt Gallery：从喜欢的真实案例出发，调整关键选项，再以自己的语言复制完整 Prompt。",
       sections: [
+        {
+          heading: "个人策展",
+          paragraphs: ["这是一个个人策展的合集。收录完全按照我个人的品味，只上线我认为真正好的 Prompt——所以推荐的内容不一定会被收录，这并不代表对你作品的评价。"],
+        },
         {
           heading: "如何使用",
           items: [
@@ -77,6 +92,11 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
           heading: "语言",
           paragraphs: ["界面与每个可编辑模板均提供英文与简体中文。Prompt 始终跟随页面底部选择的站点语言。"],
         },
+        {
+          heading: "致谢",
+          paragraphs: ["这里的每个 Prompt 都来自作者的分享。每个 Prompt 详情页都有作者署名，致谢名单列出了各案例的作者。"],
+          links: [{ label: "查看致谢名单", href: ACKNOWLEDGEMENTS }],
+        },
       ],
     },
   },
@@ -90,22 +110,14 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
           links: [{ label: "Suggest a source on GitHub", href: repoIssueUrl("source-lead.yml") }],
         },
         {
-          heading: "Submit a complete template",
-          items: [
-            "Create a new folder under content/prompts/<slug>/ with metadata, sources and license.",
-            "Add the original text plus complete English and Simplified Chinese templates.",
-            "Declare every option in parameters.json and add reviewed example images.",
-            "Open a pull request. CI validates structure; a maintainer reviews rights and quality.",
-          ],
-          links: [
-            { label: "Content format", href: CONTENT_DOCS },
-            { label: "Contributing guide", href: repoReadmeUrl("en", "submit") },
-          ],
+          heading: "Improve a translation",
+          paragraphs: ["Each language keeps complete sentences. Suggest better wording for a prompt or the interface through an issue."],
+          links: [{ label: "Report a translation issue", href: repoIssueUrl("translation.yml") }],
         },
         {
-          heading: "Improve a translation",
-          paragraphs: ["Each language keeps complete sentences. Suggest better wording through an issue or edit the template file directly in a pull request."],
-          links: [{ label: "Report a translation issue", href: repoIssueUrl("translation.yml") }],
+          heading: "Report a problem or idea",
+          paragraphs: ["Something broken, confusing or missing? Tell us in an issue. We don't accept pull requests — maintainers make every change, so rights and quality are reviewed in one place."],
+          links: [{ label: "Report a problem", href: repoIssueUrl("problem.yml") }],
         },
         {
           heading: "Rights or privacy concerns",
@@ -126,22 +138,14 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
           links: [{ label: "在 GitHub 提交来源线索", href: repoIssueUrl("source-lead.yml") }],
         },
         {
-          heading: "提交完整模板",
-          items: [
-            "在 content/prompts/<slug>/ 下新建目录，填写元信息、来源与许可。",
-            "提交原文，以及完整的英文与简体中文模板。",
-            "在 parameters.json 中声明所有选项，并添加经过审核的案例图。",
-            "发起 Pull Request。CI 校验结构，维护者审核权利与质量。",
-          ],
-          links: [
-            { label: "内容格式说明", href: CONTENT_DOCS },
-            { label: "贡献指南", href: repoReadmeUrl("zh-CN", "submit") },
-          ],
+          heading: "改进翻译",
+          paragraphs: ["每种语言都维护完整句式。Prompt 或界面有更好的表述，请通过 Issue 告诉我们。"],
+          links: [{ label: "反馈翻译问题", href: repoIssueUrl("translation.yml") }],
         },
         {
-          heading: "改进翻译",
-          paragraphs: ["每种语言都维护完整句式。你可以通过 Issue 提出更好的表述，或在 Pull Request 中直接修改模板文件。"],
-          links: [{ label: "反馈翻译问题", href: repoIssueUrl("translation.yml") }],
+          heading: "反馈问题或建议",
+          paragraphs: ["发现错误、不好用或缺少的功能？请提交 Issue。本项目不接受 Pull Request——所有修改由维护者完成，权利与质量在同一处审核。"],
+          links: [{ label: "反馈问题", href: repoIssueUrl("problem.yml") }],
         },
         {
           heading: "权利或隐私问题",

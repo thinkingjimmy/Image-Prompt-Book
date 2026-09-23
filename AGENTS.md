@@ -2,7 +2,7 @@
 
 Next.js 16 (App Router) + React 19 + TypeScript 5.9 + Tailwind CSS 4 + shadcn/ui + next-intl 4 + Zod 4 + Vitest + Playwright
 
-`README.md` is for people (what the project is, how to contribute, licenses). This file is for anyone changing code or content files — humans and coding agents.
+`README.md` is for people (what the project is, how to contribute, licenses). This file is for maintainers and coding agents changing code or content. Outside contributions arrive only as issues — pull requests are not accepted.
 
 <directory>
 src/ - Next.js app (4 subdirs: app routes, components UI, lib content/prompt/SEO logic, i18n incl. UI messages)
@@ -11,7 +11,7 @@ public/examples/ - Local example images, one folder per prompt
 scripts/ - Content import, validation, link check, performance measurement
 tests/ - Vitest unit, Playwright E2E and the fixture builder (see tests/README.md)
 docs/ - Product spec (PRD), task list, first-entry appendix
-.github/ - CI, issue and pull request templates
+.github/ - CI and issue templates (source lead, translation, problem, rights request)
 .claude/skills/ - Agent skills; add-prompt-case imports a new prompt end to end
 </directory>
 
@@ -40,7 +40,7 @@ Open http://localhost:3000. Draft entries appear with `IPB_PREVIEW_DRAFTS=1 pnpm
 | Command | What it does |
 | --- | --- |
 | `pnpm test` | Unit tests (fixtures rebuilt automatically); `pnpm vitest` for watch mode |
-| `pnpm verify` | Lint, typecheck, unit tests, content check and production build — run before every PR |
+| `pnpm verify` | Lint, typecheck, unit tests, content check and production build — run before every push |
 | `pnpm test:e2e` | Playwright on an isolated fixture build (Chromium, mobile, Firefox, WebKit) |
 | `pnpm content:check` | Validate every entry and print why it is or isn't public |
 | `pnpm content:import <slug>` | Import a normative appendix from `docs/examples/` verbatim |
@@ -57,7 +57,8 @@ Coding agents: use the project skill [`.claude/skills/add-prompt-case`](./.claud
 2. Create `content/prompts/<slug>/` with `meta.json`, `original.<lang>.txt`, `en.json`, `zh-CN.json`, `template.en.txt`, `template.zh-CN.txt`, `parameters.json`, `examples.json` and `ATTRIBUTION.md`. Keep `status: "draft"`.
 3. Put example images in `public/examples/<slug>/`; record true size, bilingual alt text, source and rights in `examples.json`.
 4. Run `pnpm content:check` and `pnpm test`. Every combination is checked automatically; add `tests/unit/prompts/<slug>.test.ts` only for prompt-specific rules.
-5. Open a PR with the template. CI checks structure only; a maintainer records reviewer, date and evidence in `meta.json` before switching to `published`.
+5. Commit and push. CI checks structure only; a maintainer records reviewer, date and evidence in `meta.json` before switching to `published`. If the entry came from an issue, link the issue in the commit.
+6. Credit the author: add a row to `ACKNOWLEDGEMENTS.md` (the READMEs and the About page link to it).
 
 Content rules:
 
@@ -65,7 +66,7 @@ Content rules:
 - Expose only options the prompt honestly supports; every `{{token}}` needs labels and replacements in both locales.
 - Never invent authors, URLs, licenses, models or "verified" claims — unknown is `null`.
 - No hot-linked images, no placeholder art as a result.
-- Contributed Markdown/MDX/JS is never executed; prompts are plain text.
+- Markdown/MDX/JS from sources is never executed; prompts are plain text.
 
 ## Code conventions
 
@@ -99,5 +100,5 @@ A change is not done until L3 → L2 → L1 are checked in that order. A source 
 - No accounts, database, uploads or model API keys; the only runtime config is the public `SITE_URL`.
 - Prompt text and sources are data: rendered as escaped text, never executed. Links must be absolute HTTPS; `javascript:` and `data:` URLs are rejected by content validation.
 - Share links carry only enumerated option IDs in the URL hash, which never reaches the server.
-- PR CI uses `pull_request` (not `pull_request_target`) with a read-only token and no production secrets.
+- CI uses a read-only token and no production secrets; it never runs on `pull_request_target`.
 - Fixture content (`IPB_CONTENT_DIR`) is confined to `tests/fixtures` and refused by production deploys.

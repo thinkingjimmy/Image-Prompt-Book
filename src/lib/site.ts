@@ -75,12 +75,12 @@ export function repoIssueUrl(template?: string): string {
 }
 
 /** Anchors are GitHub's slugs of the README headings; keep them in sync when renaming a section. */
-const README_SECTIONS: Record<Locale, { file: string; submit: string; security: string; license: string }> = {
-  en: { file: "README.md", submit: "submit-a-prompt", security: "security", license: "license" },
-  "zh-CN": { file: "README.zh-CN.md", submit: "提交-prompt", security: "安全问题", license: "许可" },
+const README_SECTIONS: Record<Locale, { file: string; security: string; license: string }> = {
+  en: { file: "README.md", security: "security", license: "license" },
+  "zh-CN": { file: "README.zh-CN.md", security: "安全问题", license: "许可" },
 };
 
-export function repoReadmeUrl(locale: Locale, section: "submit" | "security" | "license"): string {
+export function repoReadmeUrl(locale: Locale, section: "security" | "license"): string {
   const readme = README_SECTIONS[locale];
   return `${REPO_URL}/blob/main/${readme.file}#${readme[section]}`;
 }

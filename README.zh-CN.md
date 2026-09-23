@@ -6,11 +6,13 @@
 
 一个开源的生图 Prompt Gallery。从喜欢的真实案例出发，直接在 Prompt 中调整高亮选项，然后复制或在 ChatGPT 中打开。
 
+这是一个个人策展的合集。收录完全按照我个人的品味，只上线我认为真正好的 Prompt——所以推荐的内容不一定会被收录，这并不代表对你作品的评价。
+
 ## 提交 Prompt
 
-不需要会写代码，大多数贡献从一个 GitHub Issue 开始。
+所有贡献都通过 GitHub Issue 提交，不需要写代码，也不需要会用 Git。本项目不接受 Pull Request：所有修改由维护者完成，权利与质量在同一处审核。
 
-### 1. 推荐一个 Prompt（推荐方式）
+### 推荐一个 Prompt
 
 1. 打开 **[“提交来源线索” Issue](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=source-lead.yml)**。
 2. 粘贴 Prompt 的具体链接——帖子、网页或文件地址。
@@ -18,15 +20,12 @@
 4. 已知时填写作者的公开主页；不知道就留空，请不要猜测。
 5. 如果来源写明了许可或使用条款，请一并注明。
 
-维护者会核对许可，整理中英文版本，挑选值得开放调整的选项，并在记录权利后添加案例图。你会在对应的 Pull Request 中被致谢。
-
-### 2. 提交完整模板（Pull Request）
-
-熟悉 Git？在 `content/prompts/<slug>/` 下为每个 Prompt 建一个目录，包含原文、完整中英文模板、可调选项和经过审核的案例图。全部文件见[内容格式说明](./content/README.md)，环境与校验命令见 [AGENTS.md](./AGENTS.md)。条目保持草稿状态提交——CI 校验结构，维护者审核权利与质量后发布。
+维护者会核对许可，整理中英文版本，挑选值得开放调整的选项，并在记录权利后添加案例图。我们会在你的 Issue 中回复，并在上线时附上链接。
 
 ### 其他参与方式
 
-- **改进翻译**：提交[翻译问题](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=translation.yml)，或直接在 Pull Request 中修改模板。
+- **改进翻译**：提交[翻译问题](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=translation.yml)。
+- **网站有错误或缺少功能**：[反馈问题](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=problem.yml)。
 - **你的作品出现在这里但不应如此**：提交[权利反馈](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=rights-request.yml)，无需公开任何身份证明。
 
 ### 收录原则
@@ -35,6 +34,10 @@
 - 原文逐字导入；翻译是完整句子，不做缩写摘要。
 - 你有权分享的真实案例图，不接受冒充结果的占位图，也不外链图片。
 - 不虚构作者、链接、许可、模型或“已验证”说法；未知的信息保持未知。
+
+## 致谢
+
+这里的每个 Prompt 都来自作者的分享，各案例作者见 [ACKNOWLEDGEMENTS.md](./ACKNOWLEDGEMENTS.md)。
 
 ## 安全问题
 
@@ -54,9 +57,4 @@
 | 这些 Prompt 的翻译与可调版本 | `content/prompts/*/` 下的模板、选项与页面文案，`docs/examples/` | 与原文相同的许可，并标注为改编 |
 | 案例图片 | `public/examples/` | 逐张记录在 `examples.json`，不因 Prompt 的许可而默认授权 |
 
-当前条目：
-
-- **Grokbot Icon**，APG（[@multi_serio_ai](https://x.com/multi_serio_ai)）创作，CC BY-NC 4.0。韩文原文、中英文改编与全部选项文案均保留其署名与非商业条件；本站的改编不代表原作者认可。
-- **Photo Abstract Editorial**，AM.（GitHub [@ZzzLc0405](https://github.com/ZzzLc0405)）创作，仅限非商业使用，商用需获得作者许可。
-
-除非条目自身记录另有说明，本仓库内容均不提供无条件商用授权。贡献代码即同意以 MIT 授权；贡献内容即确认你有权按所记录的许可分享。
+除非条目自身记录另有说明，本仓库内容均不提供无条件商用授权。推荐内容即确认你有权分享，或其许可允许分享。

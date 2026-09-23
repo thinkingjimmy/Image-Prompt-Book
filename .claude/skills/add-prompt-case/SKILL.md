@@ -49,7 +49,7 @@ Silence is not permission: by default the author keeps all rights. You may still
 - `promptLicense: "LicenseRef-Unspecified"` (already mapped to "No license stated"), `licenseUrl`: the post or page where you checked for terms, `sourceLicenseUrl: null`, `commercialUse: "unknown"`, `releaseReview.status: "pending"`.
 - `licenseNotice` / `ATTRIBUTION.md`: "The author did not state a license. All rights remain with the author until permission is recorded; this entry stays a draft."
 - Images: `rights.status: "pending"`, basis naming who supplied them and that no license is stated.
-- Do **not** list it under "Current entries" in the READMEs or in the acknowledgements until permission is recorded — those lists describe what the site shows.
+- Do **not** add it to `ACKNOWLEDGEMENTS.md` until permission is recorded — that list describes what the site shows.
 - Publishing needs the author's written permission, linked as `releaseReview.evidence` (e.g. their reply). Offer the user this request to send:
 
   > Hi <name>, I run Image Prompt Book (https://github.com/thinkingjimmy/Image-Prompt-Book), an open-source, non-commercial gallery of editable image prompts. May I include your prompt from <post URL>, with credit and a link to your post, plus the example images from that post? I'd add an English/Chinese version with a few adjustable options, clearly marked as an adaptation.
@@ -107,7 +107,7 @@ Unit test: `tests/unit/content.test.ts` already renders every option combination
 
 Preview with `IPB_PREVIEW_DRAFTS=1 pnpm dev`: check the card (cover, tags on one line, author), the detail at desktop and 375 px (chips wrap, block options lead their paragraph, notice above the buttons).
 
-Then add the entry to "Current entries" under `## License` in both `README.md` and `README.zh-CN.md` (author, license, commercial terms) and a row to `ACKNOWLEDGEMENTS.md` (see "Acknowledgements" below), add one line to `docs/TODO.md` (source, commit, license status, what is pending), commit on a branch staging only your files (`git add <paths>`, never `-A` — other sessions may be editing), fast-forward `main`, push.
+Then add a row to `ACKNOWLEDGEMENTS.md` (see "Acknowledgements" below — the READMEs and the About page link to it instead of listing entries), add one line to `docs/TODO.md` (source, commit, license status, what is pending), commit on a branch staging only your files (`git add <paths>`, never `-A` — other sessions may be editing), fast-forward `main`, push.
 
 ### Acknowledgements
 
@@ -118,7 +118,7 @@ Then add the entry to "Current entries" under `## License` in both `README.md` a
 ```
 
 - Use the same author name and handle as `meta.json` and its `role: "original"` source (repo root or post URL); the license link is the one in `rights.licenseUrl`, labelled in both languages when it is custom (e.g. `Non-commercial / 非商业`).
-- A case with **no license stated** gets its row only once the author's permission is recorded (same rule as the README entries).
+- A case with **no license stated** gets its row only once the author's permission is recorded.
 - Keep the closing paragraphs (adaptations are not endorsed; rights-request link) untouched.
 
 ## Report to the user

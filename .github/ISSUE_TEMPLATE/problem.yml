@@ -1,0 +1,21 @@
+name: Report a problem or idea / 反馈问题或建议
+description: Something on the site is broken, confusing or missing. / 网站有错误、不好用或缺少功能。
+labels: ["feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We don't accept pull requests — maintainers make every change. Describe what you saw and we'll take it from there. Security issues go to the private advisory link instead.
+        本项目不接受 Pull Request，所有修改由维护者完成。请描述你遇到的情况即可。安全问题请使用私密报告链接。
+  - type: input
+    id: page
+    attributes:
+      label: Page / 页面
+      placeholder: https://imagepromptbook.com/...
+  - type: textarea
+    id: details
+    attributes:
+      label: What happened, or what would help / 发生了什么，或希望怎样改进
+      description: Steps, device and browser help for bugs. / 如果是错误，请附上步骤、设备与浏览器。
+    validations:
+      required: true

@@ -98,7 +98,7 @@
     "aboutTitle": "关于 Image Prompt Book",
     "aboutDescription": "Image Prompt Book 是什么、如何使用可编辑 Prompt，以及本站刻意不做的事情。",
     "contributeTitle": "贡献 Prompt",
-    "contributeDescription": "通过 GitHub 推荐来源线索，或提交完整的中英文 Prompt 模板。",
+    "contributeDescription": "通过 GitHub Issue 推荐 Prompt、改进措辞或反馈问题，无需写代码。",
     "licensesTitle": "许可说明",
     "licensesDescription": "开源代码、第三方 Prompt、翻译改编与案例图片分别适用的许可。",
     "breadcrumbHome": "Gallery"
@@ -109,9 +109,9 @@
     "sourceTitle": "推荐一个 Prompt",
     "sourceBody": "附上链接、效果说明和作者信息。我们会先确认许可再收录。",
     "sourceCta": "开 Issue",
-    "templateTitle": "提交完整模板",
-    "templateBody": "熟悉 Git？在 Pull Request 中提交原文、中英文模板与可调选项。",
-    "templateCta": "查看指南",
+    "wordingTitle": "改进措辞",
+    "wordingBody": "翻译或句子可以更好？在 Issue 中告诉我们。",
+    "wordingCta": "开 Issue",
     "guide": "贡献流程说明",
     "rights": "反馈权利问题"
   }
