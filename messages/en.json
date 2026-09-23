@@ -86,7 +86,8 @@
     "version": "Prompt version",
     "shareTooltip": "Share",
     "attachTitle": "Use with your own image.",
-    "attachBody": "After copying or opening ChatGPT, attach one photo or character image, then send."
+    "attachBody": "After copying or opening ChatGPT, attach one photo or character image, then send.",
+    "copyShort": "Copy"
   },
   "notFound": {
     "title": "Page not found",

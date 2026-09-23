@@ -1,5 +1,5 @@
 /**
- * [INPUT]: 依赖 @/components/ui/dialog，依赖 @/lib/site 的 repoIssueUrl/REPO_URL，依赖 @/i18n/navigation 的 Link
+ * [INPUT]: 依赖 @/components/ui/dialog，依赖 @/lib/site 的 repoIssueUrl/repoReadmeUrl，依赖 @/i18n/navigation 的 Link
  * [OUTPUT]: 对外提供 SubmitDialog（右上角 + 按钮与“提交 Prompt”弹窗）
  * [POS]: components/pages 的投稿入口：两条 GitHub 路径（开 Issue 推荐来源 / PR 提交完整模板）+ 权利反馈与完整说明链接，不要求会写代码
  * [PROTOCOL]: Update this header when making changes, then check README.md.
@@ -7,16 +7,18 @@
 "use client";
 
 import { ArrowUpRight, FileCode2, Lightbulb, Plus } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Link } from "@/i18n/navigation";
-import { REPO_URL, repoIssueUrl } from "@/lib/site";
+import type { Locale } from "@/i18n/config";
+import { repoIssueUrl, repoReadmeUrl } from "@/lib/site";
 
 export function SubmitDialog({ triggerClassName }: { triggerClassName: string }) {
   const t = useTranslations("submit");
+  const locale = useLocale() as Locale;
   const options = [
     { icon: Lightbulb, title: t("sourceTitle"), body: t("sourceBody"), cta: t("sourceCta"), href: repoIssueUrl("source-lead.yml") },
-    { icon: FileCode2, title: t("templateTitle"), body: t("templateBody"), cta: t("templateCta"), href: `${REPO_URL}/blob/main/CONTRIBUTING.md` },
+    { icon: FileCode2, title: t("templateTitle"), body: t("templateBody"), cta: t("templateCta"), href: repoReadmeUrl(locale, "submit") },
   ];
 
   return (

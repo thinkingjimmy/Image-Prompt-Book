@@ -86,7 +86,8 @@
     "version": "Prompt 版本",
     "shareTooltip": "分享",
     "attachTitle": "需要搭配你的图片使用。",
-    "attachBody": "复制或打开 ChatGPT 后，记得同时附上一张照片或角色图再发送。"
+    "attachBody": "复制或打开 ChatGPT 后，记得同时附上一张照片或角色图再发送。",
+    "copyShort": "复制"
   },
   "notFound": {
     "title": "页面不存在",

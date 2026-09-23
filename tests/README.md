@@ -1,6 +1,6 @@
 # tests/
 
-> L2 | 父级: ../README.md
+> L2 | 父级: ../AGENTS.md
 
 成员清单
 unit/: Vitest（node）——grokbot-prompt（96×2 组合、golden、语义回归）、content-fidelity（附录逐字导入、原文 SHA-256）、content-validation（错误内容被拒绝）、template、share-and-query、i18n（消息键与占位符一致）

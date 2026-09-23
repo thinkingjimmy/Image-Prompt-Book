@@ -1,6 +1,6 @@
 # src/app/
 
-> L2 | 父级: ../../README.md
+> L2 | 父级: ../../AGENTS.md
 
 App Router 路由树。根布局位于 `[locale]/`（使 `<html lang>` 随语言变化）；`/` → `/en` 的固定跳转在 `next.config.ts`。
 

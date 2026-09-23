@@ -22,56 +22,41 @@ A maintainer checks the license, writes the English and Chinese versions, picks 
 
 ### 2. Submit a complete template (pull request)
 
-Comfortable with Git? Follow [CONTRIBUTING.md](./CONTRIBUTING.md) and the [content format](./content/README.md): one folder per prompt under `content/prompts/<slug>/` with the original text, complete English and Chinese templates, the adjustable options and reviewed example images. CI validates the structure; a maintainer reviews rights and quality before publishing.
+Comfortable with Git? Add one folder per prompt under `content/prompts/<slug>/` with the original text, complete English and Chinese templates, the adjustable options and reviewed example images. The [content format](./content/README.md) lists every file; [AGENTS.md](./AGENTS.md) covers setup and checks. Keep the entry as a draft — CI validates the structure, and a maintainer reviews rights and quality before publishing.
 
 ### Other ways to help
 
-- **Better wording** — open a [translation issue](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=translation.yml).
+- **Better wording** — open a [translation issue](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=translation.yml), or edit the template in a pull request.
 - **Your work is here and shouldn't be** — open a [rights request](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=rights-request.yml). You never need to post identity documents publicly.
-- **Security issue** — report it privately, see [SECURITY.md](./SECURITY.md).
 
 ### What we accept
 
 - Prompts whose license allows sharing, with a clear author and source.
-- Real example images that you have the right to share — never placeholders presented as results.
-- No invented authors, links, models or “verified” claims. Unknown stays unknown.
+- The original imported word for word; translations are complete sentences, never shortened summaries.
+- Real example images that you have the right to share — no placeholders presented as results, no hot-linked images.
+- No invented authors, links, licenses, models or “verified” claims. Unknown stays unknown.
 
-## Run it locally
+## Security
 
-Node 22 and pnpm (pinned via `packageManager`). No database, accounts or API keys.
+Report vulnerabilities **privately** through [GitHub Security Advisories](https://github.com/thinkingjimmy/Image-Prompt-Book/security/advisories/new) — please don't open a public issue. Include the affected URL or file, steps to reproduce and the impact. We aim to reply within 7 days.
 
-```bash
-corepack enable
-pnpm install
-pnpm dev
-```
-
-Open http://localhost:3000. Entries that are still drafts appear with `IPB_PREVIEW_DRAFTS=1 pnpm dev`.
-
-| Command | What it does |
-| --- | --- |
-| `pnpm verify` | Lint, typecheck, unit tests, content check and production build |
-| `pnpm test:e2e` | Playwright on an isolated fixture build (Chromium, mobile, Firefox, WebKit) |
-| `pnpm content:check` | Validate every entry and show why it is or isn't public |
-| `pnpm links:check` | Report unreachable source links (never changes content) |
-
-Deploy with `pnpm build && pnpm start`, setting `SITE_URL=https://imagepromptbook.com` and `IPB_DEPLOY_ENV=production` on the production environment only. Every other environment is served `noindex`.
-
-## Project layout
-
-<directory>
-src/ - Next.js app (4 folders: app routes, components UI, lib content/prompt/SEO logic, i18n)
-content/ - The prompt library as reviewed files, validated at build time
-messages/ - Interface text in English and Simplified Chinese
-public/examples/ - Local example images, one folder per prompt
-scripts/ - Content import, validation, link check, fixtures, measurements
-tests/ - Vitest unit tests and Playwright end-to-end tests
-docs/ - Product spec, task list, first-entry appendix, verification records
-.github/ - CI, issue and pull request templates
-</directory>
-
-Stack: Next.js 16 (App Router) · React 19 · TypeScript 5.9 · Tailwind CSS 4 · shadcn/ui · next-intl 4 · Zod 4 · Vitest · Playwright.
+Concerns about rights or privacy of content aren't security issues; use the [rights request](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=rights-request.yml) instead.
 
 ## License
 
-The website code is [MIT](./LICENSE). **Prompts, their translations and adaptations, and example images keep their own licenses** — see [NOTICE.md](./NOTICE.md). The first entry, Grokbot Icon by APG ([@multi_serio_ai](https://x.com/multi_serio_ai)), is CC BY-NC 4.0; its adaptations here are not endorsed by the author.
+The [MIT License](./LICENSE) covers the **website source code only** — the app, scripts, tests (except fixture data), configuration and the project's own documentation.
+
+It does **not** cover the content the site shows:
+
+| Material | Where | License |
+| --- | --- | --- |
+| Third-party prompts (original text) | `content/prompts/*/original.*.txt` | The author's license, recorded in each entry's `meta.json` and `ATTRIBUTION.md` |
+| Translations and adjustable versions of those prompts | `content/prompts/*/` templates, options and page copy, `docs/examples/` | Same license as the original, marked as adapted |
+| Example images | `public/examples/` | Recorded per image in `examples.json`; never implied by the prompt's license |
+
+Current entries:
+
+- **Grokbot Icon** by APG ([@multi_serio_ai](https://x.com/multi_serio_ai)) — CC BY-NC 4.0. The Korean original, the English and Chinese adaptations and every option text keep its attribution and non-commercial terms. Our adaptations are not endorsed by the author.
+- **Photo Abstract Editorial** by AM. (GitHub [@ZzzLc0405](https://github.com/ZzzLc0405)) — non-commercial use; commercial use needs the author's permission.
+
+Nothing here is offered for unconditional commercial use unless its own record says so. By contributing code you license it under MIT; by contributing content you confirm you have the right to share it under the license you record.

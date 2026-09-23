@@ -1,6 +1,6 @@
 # scripts/
 
-> L2 | 父级: ../README.md
+> L2 | 父级: ../AGENTS.md
 
 成员清单
 import-appendix.ts: `pnpm content:import <slug>`，把规范性附录逐字导入 content/prompts/<slug>/

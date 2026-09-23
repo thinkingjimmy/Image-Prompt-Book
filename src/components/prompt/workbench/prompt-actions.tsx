@@ -38,10 +38,11 @@ export function PromptActions({ part }: { part: "primary" | "reset" }) {
     // Same handoff as the source site: ChatGPT pre-fills its composer from `?prompt=`.
     const chatgptUrl = `https://chatgpt.com/?prompt=${encodeURIComponent(output)}`;
     content = (
-      <div className="flex items-center gap-2">
+      <div className="@container flex items-center gap-2">
         <Button
           size="lg"
           data-testid="copy-prompt"
+          aria-label={t("copyPrompt")}
           className="h-10 min-w-0 flex-1 gap-1.5 rounded-full px-3 text-sm [&_svg]:size-4"
           onClick={async () => {
             if (await copy(output, t("copied"))) {
@@ -52,7 +53,9 @@ export function PromptActions({ part }: { part: "primary" | "reset" }) {
           }}
         >
           {justCopied ? <Check aria-hidden /> : <Copy aria-hidden />}
-          {t("copyPrompt")}
+          {/* Short labels whenever this row is narrow (phones, tight side panels); the accessible name stays complete. */}
+          <span className="truncate @sm:hidden">{t("copyShort")}</span>
+          <span className="hidden truncate @sm:inline">{t("copyPrompt")}</span>
         </Button>
         <Button asChild variant="outline" size="lg" className="h-10 min-w-0 flex-1 gap-1.5 rounded-full bg-card px-3 text-sm [&_svg]:size-4">
           <a
@@ -60,13 +63,15 @@ export function PromptActions({ part }: { part: "primary" | "reset" }) {
             target="_blank"
             rel="noopener noreferrer"
             data-testid="use-in-chatgpt"
+            aria-label={t("useInChatGPT")}
             onClick={() => {
               // Also on the clipboard, in case ChatGPT ignores the pre-fill (e.g. signed out).
               void copyText(output);
               notify(t("chatgptOpened"), "info");
             }}
           >
-            {t("useInChatGPT")}
+            <span className="truncate @sm:hidden">ChatGPT</span>
+            <span className="hidden truncate @sm:inline">{t("useInChatGPT")}</span>
             <ArrowUpRight aria-hidden />
           </a>
         </Button>

@@ -50,8 +50,10 @@ describe("UI messages", () => {
 describe("static pages", () => {
   it("every page has the same section structure in every locale", () => {
     for (const [page, copy] of Object.entries(STATIC_COPY)) {
+      // README links point at each locale's own README, so compare them without file and anchor.
+      const target = (href: string) => href.replace(/README(\.[\w-]+)?\.md#.*$/, "README");
       const shape = (locale: (typeof LOCALES)[number]) =>
-        copy[locale].sections.map((section) => [section.paragraphs?.length ?? 0, section.items?.length ?? 0, section.links?.map((link) => link.href) ?? []]);
+        copy[locale].sections.map((section) => [section.paragraphs?.length ?? 0, section.items?.length ?? 0, section.links?.map((link) => target(link.href)) ?? []]);
       for (const locale of LOCALES) expect(shape(locale), `${page}/${locale}`).toEqual(shape("en"));
     }
   });

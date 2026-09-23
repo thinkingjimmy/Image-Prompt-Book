@@ -1,8 +1,8 @@
 # content/
 
-> L2 | 父级: ../README.md
+> L2 | 父级: ../AGENTS.md
 
-Git-maintained prompt library. Every file here is data: validated by `src/lib/content/load.ts` at build time (`pnpm content:check`), never executed. Code is MIT; everything in this folder keeps the license recorded per entry — see [`../NOTICE.md`](../NOTICE.md).
+Git-maintained prompt library. Every file here is data: validated by `src/lib/content/load.ts` at build time (`pnpm content:check`), never executed. Code is MIT; everything in this folder keeps the license recorded per entry — see the License section of [`../README.md`](../README.md#license).
 
 成员清单
 taxonomy.json: 分类与标签词表，`categories[].labels/descriptions` 与 `tags[].labels` 均需 en/zh-CN；条目只能引用这里声明的 ID

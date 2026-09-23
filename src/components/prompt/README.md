@@ -1,6 +1,6 @@
 # src/components/prompt/
 
-> L2 | 父级: ../../../README.md
+> L2 | 父级: ../../../AGENTS.md
 
 详情内容（参考 ImageFX，极简）：左侧案例图，右侧标题 + 可编辑 Prompt + 操作。独立详情页与路由弹窗渲染同一 PromptDetail；编辑状态与操作在 workbench/。
 

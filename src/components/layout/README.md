@@ -1,6 +1,6 @@
 # src/components/layout/
 
-> L2 | 父级: ../../../README.md
+> L2 | 父级: ../../../AGENTS.md
 
 成员清单
 site-header.tsx: 顶部导航（参考 jevable.com）：左侧仅圆形图标｜居中合一筛选胶囊（搜索·分类/标签·排序）｜右侧 👋（x.com/hellojimmywong）与 + 提交；窄屏胶囊换行且不吸顶

@@ -1,6 +1,6 @@
 # src/components/gallery/
 
-> L2 | 父级: ../../../README.md
+> L2 | 父级: ../../../AGENTS.md
 
 成员清单
 gallery-view.tsx: 列表主视图（首页/分类复用，H1 与简介仅供读屏/爬虫，图片紧接导航），resolveListing() 规范化查询并重定向非规范 URL，超范围页 404，空态/目录为空

@@ -1,21 +1,19 @@
 /**
- * [INPUT]: 依赖 @/i18n/config 的 Locale，依赖 @/lib/site 的 REPO_URL/repoIssueUrl
+ * [INPUT]: 依赖 @/i18n/config 的 Locale，依赖 @/lib/site 的 REPO_URL/repoIssueUrl/repoReadmeUrl
  * [OUTPUT]: 对外提供 STATIC_COPY（About/Contribute/Licenses 的中英文完整正文）与 StaticSection 类型
  * [POS]: components/pages 的说明页文案；每种语言维护完整句式，不逐词拼接，链接只指向真实仓库与模板
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import type { Locale } from "@/i18n/config";
 import type { StaticPage } from "@/lib/seo/urls";
-import { REPO_URL, repoIssueUrl } from "@/lib/site";
+import { REPO_URL, repoIssueUrl, repoReadmeUrl } from "@/lib/site";
 
 export type StaticLink = { label: string; href: string };
 export type StaticSection = { heading: string; paragraphs?: string[]; items?: string[]; links?: StaticLink[] };
 export type StaticCopy = { lead: string; sections: StaticSection[] };
 
 const CONTENT_DOCS = `${REPO_URL}/blob/main/content/README.md`;
-const CONTRIBUTING = `${REPO_URL}/blob/main/CONTRIBUTING.md`;
 const LICENSE = `${REPO_URL}/blob/main/LICENSE`;
-const SECURITY = `${REPO_URL}/blob/main/SECURITY.md`;
 
 export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
   about: {
@@ -101,7 +99,7 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
           ],
           links: [
             { label: "Content format", href: CONTENT_DOCS },
-            { label: "Contributing guide", href: CONTRIBUTING },
+            { label: "Contributing guide", href: repoReadmeUrl("en", "submit") },
           ],
         },
         {
@@ -114,7 +112,7 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
           paragraphs: ["If content on this site involves your work or personal data, open a rights request. You never need to post sensitive identity documents publicly."],
           links: [
             { label: "Open a rights request", href: repoIssueUrl("rights-request.yml") },
-            { label: "Security policy", href: SECURITY },
+            { label: "Security policy", href: repoReadmeUrl("en", "security") },
           ],
         },
       ],
@@ -137,7 +135,7 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
           ],
           links: [
             { label: "内容格式说明", href: CONTENT_DOCS },
-            { label: "贡献指南", href: CONTRIBUTING },
+            { label: "贡献指南", href: repoReadmeUrl("zh-CN", "submit") },
           ],
         },
         {
@@ -150,7 +148,7 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
           paragraphs: ["如果本站内容涉及你的作品或个人信息，请提交权利反馈。你无需公开任何敏感身份证明。"],
           links: [
             { label: "提交权利反馈", href: repoIssueUrl("rights-request.yml") },
-            { label: "安全报告说明", href: SECURITY },
+            { label: "安全报告说明", href: repoReadmeUrl("zh-CN", "security") },
           ],
         },
       ],

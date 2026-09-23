@@ -1,6 +1,6 @@
 # docs/
 
-> L2 | 父级: ../README.md
+> L2 | 父级: ../AGENTS.md
 
 Planning, specifications and verification records. Code-level documentation lives next to the code in each folder's `README.md`.
 

@@ -1,10 +1,11 @@
 /**
- * [INPUT]: 依赖 process.env 的 SITE_URL/IPB_DEPLOY_ENV/IPB_CONTENT_DIR/IPB_PREVIEW_DRAFTS
- * [OUTPUT]: 对外提供 SITE_NAME/REPO_URL/AUTHOR_X_URL/siteUrl()/isProductionDeploy()/contentConfig()/mediaUrl()/absoluteUrl()/repoFileUrl()/repoIssueUrl()
+ * [INPUT]: 依赖 process.env 的 SITE_URL/IPB_DEPLOY_ENV/IPB_CONTENT_DIR/IPB_PREVIEW_DRAFTS，依赖 @/i18n/config 的 Locale
+ * [OUTPUT]: 对外提供 SITE_NAME/REPO_URL/AUTHOR_X_URL/siteUrl()/isProductionDeploy()/contentConfig()/mediaUrl()/absoluteUrl()/repoFileUrl()/repoIssueUrl()/repoReadmeUrl()
  * [POS]: lib 的站点运行配置单一入口；SEO、内容目录选择、fixture 隔离与 GitHub 链接都从这里取值，浏览器端只拿到公开常量
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import path from "node:path";
+import type { Locale } from "@/i18n/config";
 
 export const SITE_NAME = "Image Prompt Book";
 export const REPO_URL = "https://github.com/thinkingjimmy/Image-Prompt-Book";
@@ -71,4 +72,15 @@ export function repoFileUrl(repoPath: string): string {
 
 export function repoIssueUrl(template?: string): string {
   return template ? `${REPO_URL}/issues/new?template=${template}` : `${REPO_URL}/issues/new/choose`;
+}
+
+/** Anchors are GitHub's slugs of the README headings; keep them in sync when renaming a section. */
+const README_SECTIONS: Record<Locale, { file: string; submit: string; security: string; license: string }> = {
+  en: { file: "README.md", submit: "submit-a-prompt", security: "security", license: "license" },
+  "zh-CN": { file: "README.zh-CN.md", submit: "提交-prompt", security: "安全问题", license: "许可" },
+};
+
+export function repoReadmeUrl(locale: Locale, section: "submit" | "security" | "license"): string {
+  const readme = README_SECTIONS[locale];
+  return `${REPO_URL}/blob/main/${readme.file}#${readme[section]}`;
 }

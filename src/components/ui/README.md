@@ -1,6 +1,6 @@
 # src/components/ui/
 
-> L2 | 父级: ../../../README.md
+> L2 | 父级: ../../../AGENTS.md
 
 shadcn/ui 生成组件（`components.json`：style new-york、baseColor stone、CSS variables、lucide 图标，底层 radix-ui 1.x）。用 `pnpm dlx shadcn@4.21.0 add <name>` 添加，业务样式在调用处覆盖。
 

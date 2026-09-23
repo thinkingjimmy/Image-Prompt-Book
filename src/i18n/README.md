@@ -1,6 +1,6 @@
 # src/i18n/
 
-> L2 | 父级: ../../README.md
+> L2 | 父级: ../../AGENTS.md
 
 界面文案用 next-intl（`messages/*.json`）；Prompt 模板是独立内容资源，不在这里。
 
