@@ -39,6 +39,8 @@
 
 这里的每个 Prompt 都来自作者的分享，各案例作者见 [docs/ACKNOWLEDGEMENTS.md](./docs/ACKNOWLEDGEMENTS.md)。
 
+部分作者没有声明许可，这些 Prompt 会注明作者并链接原帖展示。如果你是作者并希望下架，请提交[权利反馈](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=rights-request.yml)，我们会移除。
+
 ## 安全问题
 
 请通过 [GitHub Security Advisories](https://github.com/thinkingjimmy/Image-Prompt-Book/security/advisories/new) **私下**报告漏洞，不要公开提交 Issue。请附上受影响的网址或文件、复现步骤与影响，我们会在 7 天内回复。

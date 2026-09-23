@@ -39,6 +39,8 @@ A maintainer checks the license, writes the English and Chinese versions, picks 
 
 Every prompt here was shared by its author. See [docs/ACKNOWLEDGEMENTS.md](./docs/ACKNOWLEDGEMENTS.md) for who made each one.
 
+Some authors didn't state a license; their prompts are shown with credit and a link to the original post. If you're the author and want yours taken down, open a [rights request](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=rights-request.yml) and we'll remove it.
+
 ## Security
 
 Report vulnerabilities **privately** through [GitHub Security Advisories](https://github.com/thinkingjimmy/Image-Prompt-Book/security/advisories/new) — please don't open a public issue. Include the affected URL or file, steps to reproduce and the impact. We aim to reply within 7 days.

@@ -57,8 +57,14 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
         },
         {
           heading: "Thanks to the authors",
-          paragraphs: ["Every prompt here was shared by its author. Each prompt page credits its author, and the acknowledgements list who made each one."],
-          links: [{ label: "Acknowledgements", href: ACKNOWLEDGEMENTS }],
+          paragraphs: [
+            "Every prompt here was shared by its author. Each prompt page credits its author, and the acknowledgements list who made each one.",
+            "Some authors didn't state a license; their prompts are shown with credit and a link to the original post. If you're the author and want yours taken down, open a rights request and we'll remove it.",
+          ],
+          links: [
+            { label: "Acknowledgements", href: ACKNOWLEDGEMENTS },
+            { label: "Request a takedown", href: repoIssueUrl("rights-request.yml") },
+          ],
         },
       ],
     },
@@ -94,8 +100,14 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
         },
         {
           heading: "致谢",
-          paragraphs: ["这里的每个 Prompt 都来自作者的分享。每个 Prompt 详情页都有作者署名，致谢名单列出了各案例的作者。"],
-          links: [{ label: "查看致谢名单", href: ACKNOWLEDGEMENTS }],
+          paragraphs: [
+            "这里的每个 Prompt 都来自作者的分享。每个 Prompt 详情页都有作者署名，致谢名单列出了各案例的作者。",
+            "部分作者没有声明许可，这些 Prompt 会注明作者并链接原帖展示。如果你是作者并希望下架，请提交权利反馈，我们会移除。",
+          ],
+          links: [
+            { label: "查看致谢名单", href: ACKNOWLEDGEMENTS },
+            { label: "申请下架", href: repoIssueUrl("rights-request.yml") },
+          ],
         },
       ],
     },
