@@ -1,6 +1,6 @@
 /**
- * [INPUT]: 依赖 next-intl 的 NextIntlClientProvider/setRequestLocale，依赖 @/i18n 的 routing/LOCALES，依赖 @/components/layout 的 SiteFooter 与 layout/header 的 SiteHeader，依赖 @/components/ui/scroll-area 的 PageScrollbar
- * [OUTPUT]: 默认导出根布局（<html lang>、js 标记、全站导航与页脚、自研整页滚动条），generateStaticParams
+ * [INPUT]: 依赖 next-intl 的 NextIntlClientProvider/setRequestLocale，依赖 @/i18n 的 routing/LOCALES，依赖 @/components/layout 的 SiteFooter/Analytics 与 layout/header 的 SiteHeader，依赖 @/components/ui/scroll-area 的 PageScrollbar
+ * [OUTPUT]: 默认导出根布局（<html lang>、js 标记、全站导航与页脚、自研整页滚动条、生产环境 Google Analytics），generateStaticParams
  * [POS]: app 的根布局位于 [locale] 下，使 lang 随语言变化；未知语言在此返回 404
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -10,6 +10,7 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
+import { Analytics } from "@/components/layout/analytics";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/header/site-header";
 import { PageScrollbar } from "@/components/ui/scroll-area";
@@ -47,6 +48,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
           <SiteFooter locale={locale} />
           <PageScrollbar />
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

@@ -9,7 +9,7 @@ globals.css: Tailwind v4 主题 token（暖白、近黑、淡紫参数色）、`
 sitemap.ts: 由统一发布谓词生成各语言首页/分类/详情/说明页 + hreflang，lastmod 取内容真实 updatedAt
 robots.ts: 允许抓取（筛选页需被读到 noindex），生产环境声明 sitemap
 icon.png / apple-icon.png: 站点图标（叠放卡片 + 图片，与顶部 brand-mark 同源；apple 版铺页面底色）
-[locale]/layout.tsx: 根布局，校验语言、NextIntlClientProvider、js 标记脚本、SiteHeader/SiteFooter
+[locale]/layout.tsx: 根布局，校验语言、NextIntlClientProvider、js 标记脚本、SiteHeader/SiteFooter、Analytics（仅生产）
 [locale]/not-found.tsx: 本地化 404（真实 404 状态）
 [locale]/(site)/layout.tsx: children + @modal 并行插槽，承载拦截路由弹窗
 [locale]/(site)/page.tsx: Gallery 首页 + generateMetadata（索引矩阵）

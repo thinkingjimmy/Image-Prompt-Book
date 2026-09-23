@@ -1,6 +1,6 @@
 /**
  * [INPUT]: 依赖 process.env 的 SITE_URL/VERCEL_URL/IPB_DEPLOY_ENV/IPB_CONTENT_DIR/IPB_PREVIEW_DRAFTS，依赖 @/i18n/config 的 Locale
- * [OUTPUT]: 对外提供 SITE_NAME/REPO_URL/AUTHOR_X_URL（按语言）/siteUrl()/isProductionDeploy()/contentConfig()/mediaUrl()/absoluteUrl()/repoFileUrl()/repoIssueUrl()/repoReadmeUrl()
+ * [OUTPUT]: 对外提供 SITE_NAME/REPO_URL/GA_MEASUREMENT_ID/AUTHOR_X_URL（按语言）/siteUrl()/isProductionDeploy()/contentConfig()/mediaUrl()/absoluteUrl()/repoFileUrl()/repoIssueUrl()/repoReadmeUrl()
  * [POS]: lib 的站点运行配置单一入口；SEO、内容目录选择、fixture 隔离与 GitHub 链接都从这里取值，浏览器端只拿到公开常量
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -9,6 +9,7 @@ import type { Locale } from "@/i18n/config";
 
 export const SITE_NAME = "Image Prompt Book";
 export const REPO_URL = "https://github.com/thinkingjimmy/Image-Prompt-Book";
+export const GA_MEASUREMENT_ID = "G-9XPFRGZTK3";
 // The author posts in English and Chinese from separate accounts; each locale greets the matching one.
 export const AUTHOR_X_URL: Record<Locale, string> = { en: "https://x.com/hellojimmywong", "zh-CN": "https://x.com/thinkingjimmy" };
 const FIXTURE_ROOT = path.join("tests", "fixtures");

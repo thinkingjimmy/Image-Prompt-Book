@@ -95,6 +95,7 @@ A change is not done until L3 → L2 → L1 are checked in that order. A source 
 ## Security model
 
 - No accounts, database, uploads or model API keys; the only runtime config is the public `SITE_URL`.
+- Google Analytics (`GA_MEASUREMENT_ID` in `src/lib/site.ts`) loads only when `IPB_DEPLOY_ENV=production`; previews, local and E2E builds send nothing.
 - Prompt text and sources are data: rendered as escaped text, never executed. Links must be absolute HTTPS; `javascript:` and `data:` URLs are rejected by content validation.
 - Share links carry only enumerated option IDs in the URL hash, which never reaches the server.
 - CI uses a read-only token and no production secrets; it never runs on `pull_request_target`.
