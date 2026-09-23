@@ -58,7 +58,7 @@ export async function SiteHeader({ locale }: { locale: Locale }) {
         </div>
 
         <div className="flex shrink-0 items-center gap-2 sm:gap-2.5">
-          <a href={AUTHOR_X_URL} target="_blank" rel="noopener noreferrer" aria-label={t("hello")} title={t("hello")} className={`${circle} text-xl sm:text-[22px]`}>
+          <a href={AUTHOR_X_URL[locale]} target="_blank" rel="noopener noreferrer" aria-label={t("hello")} title={t("hello")} className={`${circle} text-xl sm:text-[22px]`}>
             <span aria-hidden>👋</span>
           </a>
           <SubmitDialog triggerClassName={circle} />

@@ -3,7 +3,7 @@
 > L2 | 父级: ../README.md
 
 成员清单
-site-header.tsx: 顶部导航（参考 jevable.com）：左侧仅圆形图标｜居中合一筛选胶囊（搜索·分类/标签·排序）｜右侧 👋（x.com/hellojimmywong）与 + 提交；所有宽度单行吸顶，悬浮于内容之上（半透明渐变 + 渐隐模糊），滚动后按钮与胶囊转为毛玻璃
+site-header.tsx: 顶部导航（参考 jevable.com）：左侧仅圆形图标｜居中合一筛选胶囊（搜索·分类/标签·排序）｜右侧 👋（en → x.com/hellojimmywong，zh-CN → x.com/thinkingjimmy）与 + 提交；所有宽度单行吸顶，悬浮于内容之上（半透明渐变 + 渐隐模糊），滚动后按钮与胶囊转为毛玻璃
 header-shell.tsx: 客户端吸顶外壳，渲染 <header>，页面滚动后设 data-scrolled（group/header），被 site-header 的半透明样式消费
 search-box.tsx: 搜索框，300ms debounce、Enter 立即提交、IME 组合期间不提交、replace 写 URL 并重置页码，无 JS 退化为 GET 表单
 filter-menu.tsx: 合一筛选下拉：分类单选（路由链接，保留搜索）+ 标签多选 AND（词表顺序写入 tags，菜单保持打开）+ 手机端排序，手机上触发器收为图标，isListingPath()

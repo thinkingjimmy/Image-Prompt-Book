@@ -118,6 +118,8 @@ test.describe("gallery", () => {
     await expect(header.getByRole("link", { name: "Image Prompt Book home" })).toHaveText("");
     await expect(header.getByRole("link", { name: "Say hi to Jimmy on X" })).toHaveAttribute("href", "https://x.com/hellojimmywong");
     await expect(header.getByRole("navigation", { name: "Language" })).toHaveCount(0);
+    await page.goto("/zh-CN");
+    await expect(page.locator("header").getByRole("link", { name: "在 X 上和 Jimmy 打招呼" })).toHaveAttribute("href", "https://x.com/thinkingjimmy");
   });
 
   test("featured and latest sorts are deterministic", async ({ page }) => {
