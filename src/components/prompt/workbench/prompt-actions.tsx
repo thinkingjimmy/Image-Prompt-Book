@@ -42,7 +42,7 @@ export function PromptActions({ part }: { part: "primary" | "reset" }) {
         <Button
           size="lg"
           data-testid="copy-prompt"
-          className="h-11 min-w-0 flex-1 rounded-full px-4 text-[15px]"
+          className="h-10 min-w-0 flex-1 gap-1.5 rounded-full px-3 text-sm [&_svg]:size-4"
           onClick={async () => {
             if (await copy(output, t("copied"))) {
               setJustCopied(true);
@@ -54,7 +54,7 @@ export function PromptActions({ part }: { part: "primary" | "reset" }) {
           {justCopied ? <Check aria-hidden /> : <Copy aria-hidden />}
           {t("copyPrompt")}
         </Button>
-        <Button asChild variant="outline" size="lg" className="h-11 min-w-0 flex-1 rounded-full bg-card px-4 text-[15px]">
+        <Button asChild variant="outline" size="lg" className="h-10 min-w-0 flex-1 gap-1.5 rounded-full bg-card px-3 text-sm [&_svg]:size-4">
           <a
             href={chatgptUrl}
             target="_blank"
@@ -76,7 +76,7 @@ export function PromptActions({ part }: { part: "primary" | "reset" }) {
               <Button
                 variant="outline"
                 size="icon"
-                className="size-11 shrink-0 rounded-full bg-card [&_svg]:size-[18px]"
+                className="size-10 shrink-0 rounded-full bg-card [&_svg]:size-4"
                 aria-label={t("share")}
                 onClick={() => void copy(shareUrl(), t("linkCopied"))}
               >

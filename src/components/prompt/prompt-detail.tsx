@@ -99,7 +99,8 @@ export async function PromptDetail({ entry, locale, variant }: { entry: PromptEn
             </p>
           </header>
 
-          <div className="mx-5 flex h-9 items-center justify-between sm:mx-6">
+          {/* The version switch separates this row on its own; single-version prompts get a divider instead. */}
+          <div className={cn("mx-5 flex items-center justify-between sm:mx-6", entry.variants.length > 1 ? "h-9" : "h-11 border-t border-border/60 pt-1")}>
             <VariantTabs />
             <PromptActions part="reset" />
           </div>
