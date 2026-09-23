@@ -83,7 +83,8 @@
     "fitFull": "View full image",
     "fitFill": "Fill",
     "share": "Share link with my settings",
-    "version": "Prompt version"
+    "version": "Prompt version",
+    "shareTooltip": "Share"
   },
   "notFound": {
     "title": "Page not found",

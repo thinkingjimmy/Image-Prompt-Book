@@ -1,6 +1,6 @@
 /**
  * [INPUT]: 依赖 ./prompt-state 的状态与提示，依赖 @/lib/prompt/clipboard，依赖 @/components/ui 的 Button/Dialog
- * [OUTPUT]: 对外提供 PromptActions 客户端组件：part=primary（复制 Prompt、在 ChatGPT 中使用）/ reset（仅在修改后出现）/ share（复制带当前设置的链接）
+ * [OUTPUT]: 对外提供 PromptActions 客户端组件：part=primary（复制 Prompt、在 ChatGPT 中使用、分享图标按钮带悬停提示）/ reset（仅在修改后出现）
  * [POS]: components/prompt/workbench 的操作集合；复制内容始终来自同一 selections 状态，剪贴板失败时给出可全选文本，不虚报成功
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -8,6 +8,7 @@
 
 import { ArrowUpRight, Check, Copy, RotateCcw, Share2 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Tooltip as TooltipPrimitive } from "radix-ui";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -16,7 +17,7 @@ import { usePromptState } from "./prompt-state";
 
 const quietIcon = "size-8 rounded-full text-muted-foreground hover:text-foreground [&_svg]:size-4";
 
-export function PromptActions({ part }: { part: "primary" | "reset" | "share" }) {
+export function PromptActions({ part }: { part: "primary" | "reset" }) {
   const t = useTranslations("detail");
   const { output, edited, reset, shareUrl, notify } = usePromptState();
   const [manual, setManual] = useState<string | null>(null);
@@ -69,9 +70,33 @@ export function PromptActions({ part }: { part: "primary" | "reset" | "share" })
             <ArrowUpRight aria-hidden />
           </a>
         </Button>
+        <TooltipPrimitive.Provider delayDuration={150}>
+          <TooltipPrimitive.Root>
+            <TooltipPrimitive.Trigger asChild>
+              <Button
+                variant="outline"
+                size="icon"
+                className="size-11 shrink-0 rounded-full bg-card [&_svg]:size-[18px]"
+                aria-label={t("share")}
+                onClick={() => void copy(shareUrl(), t("linkCopied"))}
+              >
+                <Share2 aria-hidden />
+              </Button>
+            </TooltipPrimitive.Trigger>
+            <TooltipPrimitive.Portal>
+              <TooltipPrimitive.Content
+                side="top"
+                sideOffset={8}
+                className="z-[80] rounded-full bg-foreground px-3 py-1.5 text-xs font-medium text-background shadow-lg data-[state=delayed-open]:animate-in data-[state=delayed-open]:fade-in-0"
+              >
+                {t("shareTooltip")}
+              </TooltipPrimitive.Content>
+            </TooltipPrimitive.Portal>
+          </TooltipPrimitive.Root>
+        </TooltipPrimitive.Provider>
       </div>
     );
-  } else if (part === "reset") {
+  } else {
     content = edited ? (
       <Button
         variant="ghost"
@@ -87,12 +112,6 @@ export function PromptActions({ part }: { part: "primary" | "reset" | "share" })
         <RotateCcw aria-hidden />
       </Button>
     ) : null;
-  } else {
-    content = (
-      <Button variant="ghost" size="icon" className={quietIcon} aria-label={t("share")} title={t("share")} onClick={() => void copy(shareUrl(), t("linkCopied"))}>
-        <Share2 aria-hidden />
-      </Button>
-    );
   }
 
   return (

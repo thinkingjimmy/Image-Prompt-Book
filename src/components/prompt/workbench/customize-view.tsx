@@ -1,7 +1,7 @@
 /**
  * [INPUT]: 依赖 ./prompt-state 的 usePromptState，依赖 @/lib/prompt/template 的 parseTemplate/toParagraphs/replacementFor，依赖 radix-ui Select 与 @/components/ui/select
  * [OUTPUT]: 对外提供 CustomizeView 客户端组件
- * [POS]: components/prompt/workbench 的 Prompt 正文（参考 ImageFX）：以站点语言呈现完整模板，短值为句内下拉 chip，整段参数以 chip 起首并着色所选段落
+ * [POS]: components/prompt/workbench 的 Prompt 正文（参考 ImageFX）：以站点语言呈现完整模板，短值为句内下拉 chip，整段参数以 chip 起首、所选段落与正文同色
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 "use client";
@@ -65,12 +65,12 @@ function ParameterSelect({ parameter, variant }: { parameter: Parameter; variant
   );
 }
 
-/** A whole-paragraph option: the chip leads the paragraph and the chosen text is tinted as variable. */
+/** A whole-paragraph option: the chip leads the paragraph; the chosen text reads like the rest of the prompt. */
 function BlockParameter({ parameter }: { parameter: Parameter }) {
   const { data, selections } = usePromptState();
   const paragraphs = replacementFor(parameter, selections[parameter.id] ?? parameter.default, data.uiLocale).split(/\n{2,}/);
   return (
-    <div className="flex flex-col gap-3 text-param-foreground/90">
+    <div className="flex flex-col gap-3">
       {paragraphs.map((paragraph, index) => (
         <p key={index} className="whitespace-pre-line">
           {index === 0 && <ParameterSelect parameter={parameter} variant="block" />}

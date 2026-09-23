@@ -1,7 +1,7 @@
 /**
  * [INPUT]: 依赖 @/lib/content 的 PromptEntry/Taxonomy，依赖同目录 CardLink/ExampleImage，依赖 @/lib/site 的 mediaUrl
  * [OUTPUT]: 对外提供 PromptCard 服务端组件
- * [POS]: components/gallery 的卡片：主图 → 标题 → 统一样式的标签（含需参考图）→ 作者名（链接）；一个 Prompt 只占一张卡片
+ * [POS]: components/gallery 的卡片：主图 → 标题 → 单行统一样式的标签（含需参考图，溢出渐隐）→ 作者名（链接）；一个 Prompt 只占一张卡片
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { ImageIcon, ImagePlus } from "lucide-react";
@@ -16,7 +16,7 @@ import { promptPath } from "@/lib/seo/urls";
 import { CardLink } from "./card-link";
 import { ExampleImage } from "./example-image";
 
-const tagClass = "inline-flex h-6 items-center gap-1 rounded-full border border-border bg-card/60 px-2.5 text-xs text-muted-foreground";
+const tagClass = "inline-flex h-6 shrink-0 items-center gap-1 whitespace-nowrap rounded-full border border-border bg-card/60 px-2.5 text-xs text-muted-foreground";
 const CARD_SIZES = "(max-width: 479px) 100vw, (max-width: 767px) 50vw, (max-width: 1023px) 33vw, (max-width: 1439px) 25vw, 20vw";
 
 export async function PromptCard({ entry, locale, taxonomy, eager }: { entry: PromptEntry; locale: Locale; taxonomy: Taxonomy; eager: boolean }) {
@@ -65,7 +65,8 @@ export async function PromptCard({ entry, locale, taxonomy, eager }: { entry: Pr
               {content.title}
             </CardLink>
           </h2>
-          <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
+          {/* One line only: extra tags are clipped behind a soft fade instead of wrapping. */}
+          <div className="mt-2.5 flex items-center gap-1.5 overflow-hidden [mask-image:linear-gradient(to_right,black_85%,transparent)]">
             {entry.meta.requiresReferenceImage && (
               <span className={tagClass}>
                 <ImagePlus className="size-3" aria-hidden />

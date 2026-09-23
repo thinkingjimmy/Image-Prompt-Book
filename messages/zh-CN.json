@@ -83,7 +83,8 @@
     "fitFull": "查看完整图",
     "fitFill": "撑满",
     "share": "分享带当前设置的链接",
-    "version": "Prompt 版本"
+    "version": "Prompt 版本",
+    "shareTooltip": "分享"
   },
   "notFound": {
     "title": "页面不存在",

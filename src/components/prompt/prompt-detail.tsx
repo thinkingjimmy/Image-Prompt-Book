@@ -1,7 +1,7 @@
 /**
  * [INPUT]: 依赖 @/lib/content 的 PromptEntry/contentFor，依赖同目录 ExampleGallery/ModalTitle 与 workbench/ 的 PromptStateProvider/CustomizeView/PromptActions，依赖 @/components/ui/scroll-area
  * [OUTPUT]: 对外提供 PromptDetail 服务端组件与 toPromptData()（服务端 → 客户端的最小可序列化数据）
- * [POS]: components/prompt 的共用详情（参考 ImageFX）：左栏为按比例满铺的案例图；右栏标题（右侧分享按钮）+ 作者·许可一行 + Prompt 工具行（版本切换 + 修改后出现的重置） + 可编辑 Prompt（自绘滚动）+ 主操作。独立页与弹窗同一组件，只以 variant 区分尺寸与标题元素
+ * [POS]: components/prompt 的共用详情（参考 ImageFX）：左栏为按比例满铺的案例图；右栏标题 + 作者·许可一行 + Prompt 工具行（版本切换 + 修改后出现的重置） + 可编辑 Prompt（自绘滚动）+ 主操作（复制 / ChatGPT / 分享）。独立页与弹窗同一组件，只以 variant 区分尺寸与标题元素
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { ArrowLeft } from "lucide-react";
@@ -86,10 +86,7 @@ export async function PromptDetail({ entry, locale, variant }: { entry: PromptEn
 
         <div className={cn("flex min-h-0 min-w-0 flex-col", variant === "modal" ? "md:w-[440px]" : "md:flex-1")}>
           <header className="flex flex-col gap-1.5 px-5 pt-5 pb-4 sm:px-6 md:pt-6">
-            <div className={cn("flex items-start justify-between gap-2", variant === "modal" && "pr-10")}>
-              {variant === "modal" ? <ModalTitle>{title}</ModalTitle> : <h1>{title}</h1>}
-              <PromptActions part="share" />
-            </div>
+            <div className={cn(variant === "modal" && "pr-10")}>{variant === "modal" ? <ModalTitle>{title}</ModalTitle> : <h1>{title}</h1>}</div>
             {/* The license requires credit wherever the adapted prompt is shown; it lives here, next to the title. */}
             <p className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[13px] text-muted-foreground">
               <a href={author?.url ?? source.url} target="_blank" rel="noopener noreferrer nofollow" className={link}>
