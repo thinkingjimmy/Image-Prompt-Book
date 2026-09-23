@@ -37,10 +37,11 @@ export default async function LocaleLayout({ children, params }: { children: Rea
         {/* Marks JS availability before paint: without it every prompt view stays visible and readable. */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
-      <body className="min-h-dvh">
+      {/* Column layout: main grows, so the footer stays at the bottom even when there is little content. */}
+      <body className="flex min-h-dvh flex-col">
         <NextIntlClientProvider>
           <SiteHeader locale={locale} />
-          <main id="main" tabIndex={-1} className="outline-none">
+          <main id="main" tabIndex={-1} className="flex-1 outline-none">
             {children}
           </main>
           <SiteFooter locale={locale} />

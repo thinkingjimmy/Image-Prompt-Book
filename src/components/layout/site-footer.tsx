@@ -15,7 +15,7 @@ export async function SiteFooter({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale, namespace: "nav" });
   const link = "rounded-sm hover:text-foreground";
   return (
-    <footer className="mt-16 border-t border-border/70">
+    <footer className="mt-16 border-t border-border/60">
       <div className="mx-auto flex max-w-[1800px] flex-col gap-4 px-4 py-8 text-sm text-muted-foreground sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
         <div className="flex flex-col gap-2">
           <p>{t("footerNote")}</p>
