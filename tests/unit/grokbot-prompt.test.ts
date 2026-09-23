@@ -1,6 +1,6 @@
 /**
  * [INPUT]: 依赖 content/ 真实首个案例（经 loadContentLibrary）、@/lib/prompt/template 的 composePrompt、tests/unit/golden 基线
- * [OUTPUT]: 首个案例 v2（短版）的确定性测试：全部 1728 组合 × 2 语言、golden snapshot、构图/腮红/上色/描边语义回归（AC-06–AC-10）
+ * [OUTPUT]: 首个案例的确定性测试：精简版 1728 组合 × 2 语言与完整版 96 组合 × 2 语言、golden snapshot、构图/腮红/上色/描边语义回归（AC-06–AC-10）
  * [POS]: tests/unit 的内容级回归套件；只证明模板编排，不证明生图质量
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -124,5 +124,63 @@ describe("semantic regressions", () => {
     expect(withOption("coloring", "vivid", "en")).not.toContain("pastel");
     expect(withOption("outline", "thin", "zh-CN")).toContain("细而柔和的描边");
     expect(withOption("outline", "thin", "zh-CN")).not.toContain("不加描边");
+  });
+});
+
+describe("full variant (v1.0.0)", () => {
+  const full = entry.variants.find((variant) => variant.id === "full")!;
+  const composeFull = (selections: Selections, outputLocale: Locale) => composePrompt({ record: full, selections, outputLocale });
+  const fullDefaults = () => defaultSelections(full.parameters);
+  const combos = full.parameters.reduce<Selections[]>((all, parameter) => all.flatMap((combo) => parameter.options.map((option) => ({ ...combo, [parameter.id]: option.id }))), [{}]);
+
+  it("is the second variant with its own seven parameters", () => {
+    expect(entry.variants.map((variant) => variant.id)).toEqual(["short", "full"]);
+    expect(full.templateVersion).toBe("1.1.0");
+    expect(full.parameters.map((parameter) => parameter.id)).toEqual(["composition", "background", "faceColor", "blush", "shading", "outline", "featureBudget"]);
+  });
+
+  it("renders all 768 combinations × 2 locales completely", () => {
+    expect(combos).toHaveLength(768);
+    for (const combo of combos) {
+      for (const locale of LOCALES) {
+        const text = composeFull(combo, locale);
+        expect(text).not.toMatch(/\{\{|\}\}|undefined/);
+        expect(text.endsWith("\n") && !text.endsWith("\n\n")).toBe(true);
+      }
+      expect(composeFull(combo, "en")).toContain("Draw exactly two solid capsule shapes in a single near-black color.");
+    }
+  });
+
+  for (const locale of LOCALES) {
+    it(`matches its golden default (${locale})`, () => {
+      expect(composeFull(fullDefaults(), locale)).toBe(readFileSync(path.join("tests", "unit", "golden", `grokbot-capsule-icon.full.${locale}.txt`), "utf8"));
+    });
+  }
+
+  it("swaps whole paragraphs without contradictions", () => {
+    const right = composeFull({ ...fullDefaults(), composition: "right-gentle" }, "en");
+    expect(right).toContain("from the lower-right corner");
+    expect(right).toContain("approximately 10–15 degrees counterclockwise");
+    expect(right).not.toMatch(/lower-left|upper-right/);
+    expect(composeFull({ ...fullDefaults(), blush: "none" }, "en")).not.toContain("oval blush on each cheek");
+    expect(composeFull({ ...fullDefaults(), shading: "flat" }, "zh-CN")).not.toContain("一层宽阔而微弱的阴影");
+    expect(composeFull({ ...fullDefaults(), featureBudget: "two" }, "zh-CN")).toContain("最多保留两项关键识别特征");
+  });
+
+  it("face color never contradicts a 'keep the original skin' rule", () => {
+    const cream = composeFull({ ...fullDefaults(), faceColor: "cream" }, "en");
+    expect(cream).toContain("Draw the face as broad, smooth areas of color in cream.");
+    expect(cream).not.toMatch(/standardize skin|original skin tone or surface color/);
+    expect(composeFull(fullDefaults(), "en")).toContain("in the subject's original skin tone or surface color (never a preset color).");
+    expect(composeFull({ ...fullDefaults(), outline: "thin" }, "zh-CN")).toContain("细而柔和的描边");
+    expect(composeFull({ ...fullDefaults(), outline: "thin" }, "zh-CN")).not.toContain("几乎没有轮廓线");
+  });
+
+  it("uses natural section headings", () => {
+    const en = composeFull(fullDefaults(), "en");
+    for (const heading of ["[Goal]", "[What to keep from the original]", "[Face]", "[Eyes]", "[Composition]", "[Hair, accessories and color]", "[Background and what to avoid]", "[When rules conflict]", "[Output and follow-up edits]"]) {
+      expect(en).toContain(heading);
+    }
+    expect(composeFull(fullDefaults(), "zh-CN")).toContain("[规则冲突时]");
   });
 });

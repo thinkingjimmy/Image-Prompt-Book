@@ -6,7 +6,7 @@
 - 仓库：`thinkingjimmy/Image-Prompt-Book`
 - 预期生产域名：`https://imagepromptbook.com`
 - 任务清单：[TODO.md](./TODO.md)
-- 规范性内容附录：[首个 Grokbot 案例](./docs/examples/grokbot-capsule-icon.md)
+- 规范性内容附录：[首个 Grokbot 案例](./examples/grokbot-capsule-icon.md)
 
 > 本文与案例附录共同构成完整需求。附录已经提供首个案例的完整韩文原文、中英文参数化全文、全部参数选项和使用文案。开发者负责导入、实现和测试，不需要重新编写 Prompt，也不能用省略版替换完整模板。
 
@@ -361,7 +361,7 @@ Draft 允许 `examples=[]` 并用于内容开发；Production 发布校验不能
 
 不得因为名字里有 Grokbot 就把“由 Grok 生成”作为事实。来源网站推荐了 ChatGPT，但这只是来源说明，不是本站已验证模型。具体模型版本与生成参数未知时保持未知。
 
-**完整原文、可定制全文、所有选项替换段落、现成中英文使用说明、图片候选与验收组合都见[规范性附录](./docs/examples/grokbot-capsule-icon.md)。不得将这项任务改写为“开发者自行整理 Prompt”。**
+**完整原文、可定制全文、所有选项替换段落、现成中英文使用说明、图片候选与验收组合都见[规范性附录](./examples/grokbot-capsule-icon.md)。不得将这项任务改写为“开发者自行整理 Prompt”。**
 
 ## 10. 来源、署名与许可
 

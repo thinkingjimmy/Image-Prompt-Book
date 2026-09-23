@@ -20,6 +20,8 @@
     "composition": "构图",
     "tilt": "倾斜",
     "coloring": "上色",
-    "outline": "描边"
+    "outline": "描边",
+    "shading": "上色方式",
+    "featureBudget": "关键特征"
   }
 }

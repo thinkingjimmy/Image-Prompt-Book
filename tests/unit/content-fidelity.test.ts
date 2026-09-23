@@ -28,6 +28,12 @@ describe("appendix §12 import fidelity", () => {
     expect(read("template.zh-CN.txt")).toBe(`${appendix.templates["zh-CN"]}\n`);
   });
 
+  it("the full variant files equal appendix §6–§8", () => {
+    expect(read("full/template.en.txt")).toBe(`${appendix.full.templates.en}\n`);
+    expect(read("full/template.zh-CN.txt")).toBe(`${appendix.full.templates["zh-CN"]}\n`);
+    expect(JSON.parse(read("full/parameters.json"))).toEqual(appendix.full.parameters);
+  });
+
   it("parameters.json and examples.json equal the appendix", () => {
     expect(JSON.parse(read("parameters.json"))).toEqual(appendix.parameters);
     expect(JSON.parse(read("examples.json"))).toEqual(appendix.examples);

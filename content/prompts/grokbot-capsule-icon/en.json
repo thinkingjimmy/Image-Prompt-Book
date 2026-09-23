@@ -20,6 +20,8 @@
     "composition": "Composition",
     "tilt": "Tilt",
     "coloring": "Coloring",
-    "outline": "Outline"
+    "outline": "Outline",
+    "shading": "Shading",
+    "featureBudget": "Key features"
   }
 }

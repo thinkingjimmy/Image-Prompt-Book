@@ -28,7 +28,9 @@ test("one prompt occupies exactly one card, with +N for extra examples", async (
   const card = cards(page).first();
   await expect(card.getByText("+1", { exact: true })).toBeVisible();
   await expect(card.getByText("Needs a reference image")).toBeVisible();
-  await expect(card.getByRole("link", { name: "by APG" })).toHaveAttribute("href", "https://x.com/multi_serio_ai");
+  await expect(card.getByRole("link", { name: "APG", exact: true })).toHaveAttribute("href", "https://x.com/multi_serio_ai");
+  // Image-first cards: no summary text.
+  await expect(card.getByText("Turn a person or character")).toHaveCount(0);
 });
 
 test("pagination uses real links and normalizes page numbers", async ({ page }) => {
@@ -95,6 +97,17 @@ test("the filter menu switches categories and keeps the search", async ({ page }
   await page.getByRole("menuitem", { name: "Illustration" }).click();
   await expect(page).toHaveURL(/\/en\/categories\/illustration\?q=fixture$/);
   await expect(page.getByRole("button", { name: "Filter by category and tags" })).toContainText("Illustration");
+});
+
+test("the + button opens the submit dialog with the issue link", async ({ page }) => {
+  await page.goto("/en");
+  await page.locator("header").getByRole("button", { name: "Submit a prompt" }).click();
+  const dialog = page.getByRole("dialog", { name: "Submit a prompt" });
+  await expect(dialog).toBeVisible();
+  await expect(dialog.getByRole("link", { name: /Suggest a prompt/ })).toHaveAttribute("href", "https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=source-lead.yml");
+  await page.keyboard.press("Escape");
+  await expect(dialog).toHaveCount(0);
+  await expect(page).toHaveURL(/\/en$/);
 });
 
 test("the header shows only the icon, the combined filter and the 👋 link", async ({ page }) => {

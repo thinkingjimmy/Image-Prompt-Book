@@ -1,12 +1,12 @@
 /**
  * [INPUT]: 依赖 @/components/gallery/example-image，依赖 radix-ui Dialog 作大图层
  * [OUTPUT]: 对外提供 ExampleGallery 客户端组件与 ExampleView 类型
- * [POS]: components/prompt 的图片区：图片即左栏（满铺 cover、按图片比例定宽），缩略图与来源链接悬浮其上，可放大；参数变化绝不替换或伪造图片
+ * [POS]: components/prompt 的图片区：图片即左栏（满铺 cover、按图片比例定宽），缩略图、来源链接与“完整图/撑满”切换悬浮其上，可放大；参数变化绝不替换或伪造图片
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 "use client";
 
-import { ExternalLink, ImageIcon, X } from "lucide-react";
+import { ExternalLink, ImageIcon, Maximize2, Minimize2, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Dialog as DialogPrimitive } from "radix-ui";
 import { useState } from "react";
@@ -30,6 +30,8 @@ export function ExampleGallery({ examples, unoptimized, className }: { examples:
   const t = useTranslations("detail");
   const [index, setIndex] = useState(0);
   const [zoomed, setZoomed] = useState(false);
+  // "cover" fills the pane edge to edge; "contain" shows the whole image over a blurred copy of itself.
+  const [fit, setFit] = useState<"cover" | "contain">("cover");
   const current = examples[index];
 
   if (!current) {
@@ -46,8 +48,13 @@ export function ExampleGallery({ examples, unoptimized, className }: { examples:
   const glass = "bg-black/35 text-white ring-1 ring-white/10 backdrop-blur-md";
   return (
     <figure className={cn("relative overflow-hidden bg-muted", className)} style={{ aspectRatio: `${current.width} / ${current.height}` }}>
+      {fit === "contain" && (
+        // eslint-disable-next-line @next/next/no-img-element -- decorative blurred backdrop reuses the already-loaded image
+        <img src={current.src} alt="" aria-hidden className="absolute inset-0 size-full scale-110 object-cover opacity-70 blur-2xl" />
+      )}
       <button type="button" onClick={() => setZoomed(true)} className="absolute inset-0 cursor-zoom-in" aria-label={`${t("viewLarge")}: ${current.alt}`}>
         <ExampleImage
+          fit={fit}
           key={current.id}
           src={current.src}
           width={current.width}
@@ -56,8 +63,18 @@ export function ExampleGallery({ examples, unoptimized, className }: { examples:
           eager={index === 0}
           unoptimized={unoptimized}
           sizes="(max-width: 767px) 100vw, 60vw"
-          className="h-full w-full"
+          className="h-full w-full bg-transparent"
         />
+      </button>
+
+      <button
+        type="button"
+        onClick={() => setFit(fit === "cover" ? "contain" : "cover")}
+        aria-pressed={fit === "contain"}
+        className={cn("absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-medium transition-colors hover:bg-black/50", glass)}
+      >
+        {fit === "cover" ? <Maximize2 className="size-3.5" aria-hidden /> : <Minimize2 className="size-3.5" aria-hidden />}
+        {fit === "cover" ? t("fitFull") : t("fitFill")}
       </button>
 
       <figcaption className="pointer-events-none absolute inset-x-3 bottom-3 flex items-end justify-between gap-3">
@@ -92,7 +109,7 @@ export function ExampleGallery({ examples, unoptimized, className }: { examples:
 
       <DialogPrimitive.Root open={zoomed} onOpenChange={setZoomed}>
         <DialogPrimitive.Portal>
-          <DialogPrimitive.Overlay className="fixed inset-0 z-[60] grid place-items-center overflow-auto bg-black/85 p-4 data-[state=open]:animate-in data-[state=open]:fade-in-0">
+          <DialogPrimitive.Overlay className="fixed inset-0 z-[60] grid place-items-center overflow-auto bg-black/70 p-4 backdrop-blur-xl data-[state=open]:animate-in data-[state=open]:fade-in-0">
             <DialogPrimitive.Content
               aria-describedby={undefined}
               // Closing on our own keydown keeps Esc on the innermost layer even if the layer stack is momentarily out of order.

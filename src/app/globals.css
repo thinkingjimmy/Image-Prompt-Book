@@ -74,6 +74,11 @@
   }
   html {
     -webkit-text-size-adjust: 100%;
+    /* The system scrollbar is replaced by <PageScrollbar />; scrolling itself stays native. */
+    scrollbar-width: none;
+  }
+  html::-webkit-scrollbar {
+    display: none;
   }
   body {
     @apply bg-background text-foreground antialiased;
@@ -116,6 +121,12 @@
 }
 
 @layer components {
+  /* Shared frosted-glass backdrop for every modal layer. */
+  .glass-overlay {
+    background: rgb(40 38 34 / 0.28);
+    backdrop-filter: blur(14px) saturate(120%);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+  }
   /* Gallery masonry: CSS columns keep DOM/keyboard order = column-by-column reading order. */
   .masonry {
     column-gap: 1rem;

@@ -47,7 +47,7 @@ export function DetailModal({ children }: { children: ReactNode }) {
   return (
     <DialogPrimitive.Root open onOpenChange={(open) => !open && close()}>
       <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="fixed inset-0 z-50 grid place-items-center bg-black/45 data-[state=open]:animate-in data-[state=open]:fade-in-0 md:p-6">
+        <DialogPrimitive.Overlay className="glass-overlay fixed inset-0 z-50 grid place-items-center data-[state=open]:animate-in data-[state=open]:fade-in-0 md:p-6">
           <DialogPrimitive.Content
             ref={content}
             aria-describedby={undefined}

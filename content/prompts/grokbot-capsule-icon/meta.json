@@ -61,5 +61,33 @@
       "reviewedAt": null,
       "evidence": null
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "short",
+      "labels": {
+        "en": "Short",
+        "zh-CN": "精简版"
+      },
+      "templateVersion": "2.0.0",
+      "templatePaths": {
+        "en": "template.en.txt",
+        "zh-CN": "template.zh-CN.txt"
+      },
+      "parametersPath": "parameters.json"
+    },
+    {
+      "id": "full",
+      "labels": {
+        "en": "Full",
+        "zh-CN": "完整版"
+      },
+      "templateVersion": "1.1.0",
+      "templatePaths": {
+        "en": "full/template.en.txt",
+        "zh-CN": "full/template.zh-CN.txt"
+      },
+      "parametersPath": "full/parameters.json"
+    }
+  ]
 }

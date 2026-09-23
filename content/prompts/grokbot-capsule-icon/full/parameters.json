@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "composition",
+      "type": "select",
+      "renderAs": "block",
+      "default": "left-standard",
+      "options": [
+        {
+          "id": "left-standard",
+          "labels": {
+            "en": "Lower left · 15–20°",
+            "zh-CN": "左下探头 · 15–20°"
+          },
+          "replacements": {
+            "en": "Place one character on a 1:1 square canvas. Enlarge the face and hair or outer head shape to fill most of the frame.\n\nThe character leans into view from the lower-left corner. Tilt the head approximately 15–20 degrees clockwise so that the eye on the left side of the image appears slightly higher than the eye on the right. The face, both eyes, hair and attached accessories must share the same tilt.\n\nCrop the left and bottom edges of the head naturally at the canvas boundary. The chin touches the bottom edge or extends partially outside the frame. Leave dark background negative space in the upper-right corner.\n\nBoth eyes must remain fully visible, unobstructed by bangs or accessories. Avoid a centered passport-photo composition with a small complete head, and avoid left-right symmetry.\n\nDo not draw a torso or hands. Leave only a small part of the neck or collar at the bottom when essential for recognition. The extreme close-up and edge cropping are intentional.",
+            "zh-CN": "在 1:1 正方形画布中放置一个角色。将脸部及头发或头部外轮廓大幅放大，占据画面的大部分区域。\n\n角色从画面左下角倾斜探头。头部顺时针倾斜约 15～20 度，使画面左侧的眼睛略高于右侧。脸部、双眼、头发和附着的装饰保持相同倾斜。\n\n头部左侧和下侧边缘在画布边界自然裁切。下巴触及画面底边或部分超出画面，右上角保留深色背景的留白。\n\n双眼必须完整可见，不被刘海或装饰遮住。避免将完整头部缩小放在正中的证件照式构图，也避免左右对称。\n\n不画身体和手。只有在识别主体必需时，才在画面底部保留很小一部分脖子或衣领。脸部放大和边缘裁切是有意的构图。"
+          }
+        },
+        {
+          "id": "right-standard",
+          "labels": {
+            "en": "Lower right · 15–20°",
+            "zh-CN": "右下探头 · 15–20°"
+          },
+          "replacements": {
+            "en": "Place one character on a 1:1 square canvas. Enlarge the face and hair or outer head shape to fill most of the frame.\n\nThe character leans into view from the lower-right corner. Tilt the head approximately 15–20 degrees counterclockwise so that the eye on the right side of the image appears slightly higher than the eye on the left. The face, both eyes, hair and attached accessories must share the same tilt.\n\nCrop the right and bottom edges of the head naturally at the canvas boundary. The chin touches the bottom edge or extends partially outside the frame. Leave dark background negative space in the upper-left corner.\n\nBoth eyes must remain fully visible, unobstructed by bangs or accessories. Avoid a centered passport-photo composition with a small complete head, and avoid left-right symmetry.\n\nDo not draw a torso or hands. Leave only a small part of the neck or collar at the bottom when essential for recognition. The extreme close-up and edge cropping are intentional.",
+            "zh-CN": "在 1:1 正方形画布中放置一个角色。将脸部及头发或头部外轮廓大幅放大，占据画面的大部分区域。\n\n角色从画面右下角倾斜探头。头部逆时针倾斜约 15～20 度，使画面右侧的眼睛略高于左侧。脸部、双眼、头发和附着的装饰保持相同倾斜。\n\n头部右侧和下侧边缘在画布边界自然裁切。下巴触及画面底边或部分超出画面，左上角保留深色背景的留白。\n\n双眼必须完整可见，不被刘海或装饰遮住。避免将完整头部缩小放在正中的证件照式构图，也避免左右对称。\n\n不画身体和手。只有在识别主体必需时，才在画面底部保留很小一部分脖子或衣领。脸部放大和边缘裁切是有意的构图。"
+          }
+        },
+        {
+          "id": "left-gentle",
+          "labels": {
+            "en": "Lower left · 10–15°",
+            "zh-CN": "左下探头 · 10–15°"
+          },
+          "replacements": {
+            "en": "Place one character on a 1:1 square canvas. Enlarge the face and hair or outer head shape to fill most of the frame.\n\nThe character leans into view from the lower-left corner. Tilt the head approximately 10–15 degrees clockwise so that the eye on the left side of the image appears slightly higher than the eye on the right. The face, both eyes, hair and attached accessories must share the same tilt.\n\nCrop the left and bottom edges of the head naturally at the canvas boundary. The chin touches the bottom edge or extends partially outside the frame. Leave dark background negative space in the upper-right corner.\n\nBoth eyes must remain fully visible, unobstructed by bangs or accessories. Avoid a centered passport-photo composition with a small complete head, and avoid left-right symmetry.\n\nDo not draw a torso or hands. Leave only a small part of the neck or collar at the bottom when essential for recognition. The extreme close-up and edge cropping are intentional.",
+            "zh-CN": "在 1:1 正方形画布中放置一个角色。将脸部及头发或头部外轮廓大幅放大，占据画面的大部分区域。\n\n角色从画面左下角倾斜探头。头部顺时针倾斜约 10～15 度，使画面左侧的眼睛略高于右侧。脸部、双眼、头发和附着的装饰保持相同倾斜。\n\n头部左侧和下侧边缘在画布边界自然裁切。下巴触及画面底边或部分超出画面，右上角保留深色背景的留白。\n\n双眼必须完整可见，不被刘海或装饰遮住。避免将完整头部缩小放在正中的证件照式构图，也避免左右对称。\n\n不画身体和手。只有在识别主体必需时，才在画面底部保留很小一部分脖子或衣领。脸部放大和边缘裁切是有意的构图。"
+          }
+        },
+        {
+          "id": "right-gentle",
+          "labels": {
+            "en": "Lower right · 10–15°",
+            "zh-CN": "右下探头 · 10–15°"
+          },
+          "replacements": {
+            "en": "Place one character on a 1:1 square canvas. Enlarge the face and hair or outer head shape to fill most of the frame.\n\nThe character leans into view from the lower-right corner. Tilt the head approximately 10–15 degrees counterclockwise so that the eye on the right side of the image appears slightly higher than the eye on the left. The face, both eyes, hair and attached accessories must share the same tilt.\n\nCrop the right and bottom edges of the head naturally at the canvas boundary. The chin touches the bottom edge or extends partially outside the frame. Leave dark background negative space in the upper-left corner.\n\nBoth eyes must remain fully visible, unobstructed by bangs or accessories. Avoid a centered passport-photo composition with a small complete head, and avoid left-right symmetry.\n\nDo not draw a torso or hands. Leave only a small part of the neck or collar at the bottom when essential for recognition. The extreme close-up and edge cropping are intentional.",
+            "zh-CN": "在 1:1 正方形画布中放置一个角色。将脸部及头发或头部外轮廓大幅放大，占据画面的大部分区域。\n\n角色从画面右下角倾斜探头。头部逆时针倾斜约 10～15 度，使画面右侧的眼睛略高于左侧。脸部、双眼、头发和附着的装饰保持相同倾斜。\n\n头部右侧和下侧边缘在画布边界自然裁切。下巴触及画面底边或部分超出画面，左上角保留深色背景的留白。\n\n双眼必须完整可见，不被刘海或装饰遮住。避免将完整头部缩小放在正中的证件照式构图，也避免左右对称。\n\n不画身体和手。只有在识别主体必需时，才在画面底部保留很小一部分脖子或衣领。脸部放大和边缘裁切是有意的构图。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "background",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "charcoal",
+      "options": [
+        {
+          "id": "charcoal",
+          "labels": {
+            "en": "Near-black charcoal",
+            "zh-CN": "近黑炭灰"
+          },
+          "replacements": {
+            "en": "near-black dark charcoal",
+            "zh-CN": "接近黑色的深炭灰色"
+          }
+        },
+        {
+          "id": "midnight-blue",
+          "labels": {
+            "en": "Midnight blue",
+            "zh-CN": "午夜深蓝"
+          },
+          "replacements": {
+            "en": "near-black midnight blue",
+            "zh-CN": "接近黑色的午夜深蓝色"
+          }
+        },
+        {
+          "id": "deep-plum",
+          "labels": {
+            "en": "Deep plum",
+            "zh-CN": "深梅紫"
+          },
+          "replacements": {
+            "en": "near-black deep plum",
+            "zh-CN": "接近黑色的深梅紫色"
+          }
+        }
+      ]
+    },
+    {
+      "id": "faceColor",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "original-skin",
+      "options": [
+        {
+          "id": "original-skin",
+          "labels": {
+            "en": "Original skin tone",
+            "zh-CN": "原图肤色"
+          },
+          "replacements": {
+            "en": "the subject's original skin tone or surface color (never a preset color)",
+            "zh-CN": "原图的肤色或表面颜色（不要统一成预设颜色）"
+          }
+        },
+        {
+          "id": "cream",
+          "labels": {
+            "en": "Cream",
+            "zh-CN": "奶油色"
+          },
+          "replacements": {
+            "en": "cream",
+            "zh-CN": "奶油色"
+          }
+        },
+        {
+          "id": "pale-peach",
+          "labels": {
+            "en": "Pale peach",
+            "zh-CN": "浅桃色"
+          },
+          "replacements": {
+            "en": "pale peach",
+            "zh-CN": "浅桃色"
+          }
+        },
+        {
+          "id": "cool-gray",
+          "labels": {
+            "en": "Light cool gray",
+            "zh-CN": "浅冷灰"
+          },
+          "replacements": {
+            "en": "light cool gray",
+            "zh-CN": "浅冷灰色"
+          }
+        }
+      ]
+    },
+    {
+      "id": "blush",
+      "type": "select",
+      "renderAs": "block",
+      "default": "subtle",
+      "options": [
+        {
+          "id": "subtle",
+          "labels": {
+            "en": "Subtle blush",
+            "zh-CN": "淡腮红"
+          },
+          "replacements": {
+            "en": "Add a small, pale, low-saturation oval blush on each cheek that suits the skin tone. Render the blush as flat areas of color without lines or sparkles.",
+            "zh-CN": "在两侧脸颊各加入一小块与肤色协调、低饱和度的浅椭圆形腮红。腮红使用平面的色块表现，不加线条或闪光。"
+          }
+        },
+        {
+          "id": "none",
+          "labels": {
+            "en": "No blush",
+            "zh-CN": "无腮红"
+          },
+          "replacements": {
+            "en": "Do not add blush or decorative cheek marks. Keep the cheeks as clean areas of the original skin tone or facial surface color.",
+            "zh-CN": "不添加腮红或装饰性脸颊标记。脸颊保持原始肤色或脸部表面颜色的干净色块。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "shading",
+      "type": "select",
+      "renderAs": "block",
+      "default": "soft",
+      "options": [
+        {
+          "id": "soft",
+          "labels": {
+            "en": "Soft shading",
+            "zh-CN": "轻柔阴影"
+          },
+          "replacements": {
+            "en": "Use the original representative colors in a flat, soft rendering. Add only one broad, subtle level of shading to the base colors. If hair highlights are needed, limit them to one or two large areas of color.",
+            "zh-CN": "以原图的代表色进行平面、柔和的上色。仅在基础颜色上增加一层宽阔而微弱的阴影；如果需要头发高光，限制为一到两个大的色块。"
+          }
+        },
+        {
+          "id": "flat",
+          "labels": {
+            "en": "Fully flat",
+            "zh-CN": "完全平涂"
+          },
+          "replacements": {
+            "en": "Use the original representative colors as uniform flat areas. Do not add shading, gradients, highlights or gloss to the face, hair or accessories. Separate forms only through adjacent flat colors.",
+            "zh-CN": "使用原图代表色进行均匀平涂。脸部、头发和装饰均不添加阴影、渐变、高光或光泽；仅通过相邻的平面色块区分形体。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "outline",
+      "type": "select",
+      "renderAs": "block",
+      "default": "none",
+      "options": [
+        {
+          "id": "none",
+          "labels": {
+            "en": "No outlines",
+            "zh-CN": "无描边"
+          },
+          "replacements": {
+            "en": "Use minimal 2D rendering based on areas of color with almost no outlines. Separate forms through differences between adjacent colors rather than thick black contours.",
+            "zh-CN": "使用几乎没有轮廓线、以色块为主的极简 2D 表现。通过相邻色块的差异区分形体，而不是使用粗黑描边。"
+          }
+        },
+        {
+          "id": "thin",
+          "labels": {
+            "en": "Thin soft outlines",
+            "zh-CN": "细柔描边"
+          },
+          "replacements": {
+            "en": "Use minimal 2D rendering based on areas of color with thin, soft outlines around the main shapes. Never use thick black contours.",
+            "zh-CN": "使用以色块为主的极简 2D 表现，主要形体外加细而柔和的描边；不要使用粗黑描边。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "featureBudget",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "three",
+      "options": [
+        {
+          "id": "three",
+          "labels": {
+            "en": "Up to three features",
+            "zh-CN": "最多三项特征"
+          },
+          "replacements": {
+            "en": "three",
+            "zh-CN": "三"
+          }
+        },
+        {
+          "id": "two",
+          "labels": {
+            "en": "Up to two features",
+            "zh-CN": "最多两项特征"
+          },
+          "replacements": {
+            "en": "two",
+            "zh-CN": "两"
+          }
+        }
+      ]
+    }
+  ]
+}

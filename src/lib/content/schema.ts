@@ -27,8 +27,11 @@ const isoDate = z
 const httpsUrl = z.string().refine(isHttpsUrl, "must be an absolute HTTPS URL");
 const slug = z.string().regex(SLUG_PATTERN, "must be lowercase kebab-case");
 const nonEmpty = z.string().trim().min(1);
-/** Content file names live next to meta.json; no nesting or traversal. */
-const siblingFile = z.string().regex(/^[A-Za-z0-9._-]+$/, "must be a sibling file name").refine((name) => !name.startsWith("."), "hidden files are not allowed");
+/** Content files live next to meta.json or one folder below it (e.g. a variant's `full/`); no traversal. */
+const siblingFile = z
+  .string()
+  .regex(/^(?:[A-Za-z0-9_-]+\/)?[A-Za-z0-9._-]+$/, "must be a file in the entry folder or one subfolder")
+  .refine((name) => !name.split("/").some((part) => part.startsWith(".")), "hidden files are not allowed");
 
 const localeEnum = z.enum(LOCALES);
 function localized<T extends z.ZodType>(value: T) {
@@ -63,6 +66,15 @@ const reviewSchema = z
     "an approved review needs reviewedBy, reviewedAt and evidence",
   );
 
+/** One editable version of a prompt (e.g. short / full), each with its own template and options. */
+const variantSchema = z.strictObject({
+  id: slug,
+  labels: localized(nonEmpty),
+  templateVersion: z.string().regex(SEMVER_PATTERN, "must be MAJOR.MINOR.PATCH"),
+  templatePaths: z.partialRecord(localeEnum, siblingFile),
+  parametersPath: siblingFile,
+});
+
 export const metaSchema = z.strictObject({
   schemaVersion: z.literal(1),
   id: slug,
@@ -86,6 +98,8 @@ export const metaSchema = z.strictObject({
   originalPath: siblingFile,
   templatePaths: z.partialRecord(localeEnum, siblingFile),
   parametersPath: siblingFile,
+  /** Optional list of versions; the first one must match the top-level template and is the default. */
+  variants: z.array(variantSchema).min(2).optional(),
   examplesPath: siblingFile,
   requiresReferenceImage: z.boolean(),
   /** What the source recommends. Never rendered as a "verified" claim. */
@@ -191,3 +205,4 @@ export type Taxonomy = z.infer<typeof taxonomySchema>;
 export type TaxonomyTerm = Taxonomy["tags"][number];
 export type Category = Taxonomy["categories"][number];
 export type Source = z.infer<typeof sourceSchema>;
+export type VariantMeta = z.infer<typeof variantSchema>;

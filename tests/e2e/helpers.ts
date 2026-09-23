@@ -30,8 +30,9 @@ export const FIXTURE_CONTENT = path.resolve("tests/fixtures/.generated/content")
 const library = loadContentLibrary({ root: FIXTURE_CONTENT, mediaRoot: path.join(FIXTURE_CONTENT, "public"), allowFixtures: true });
 export const grokbot = library.entries.find((entry) => entry.meta.slug === SLUG)!;
 
-export function expectedPrompt(selections: Partial<Selections>, outputLocale: Locale): string {
-  return composePrompt({ record: grokbot, selections: { ...defaultSelections(grokbot.parameters), ...selections }, outputLocale });
+export function expectedPrompt(selections: Partial<Selections>, outputLocale: Locale, variantId = "short"): string {
+  const variant = grokbot.variants.find((item) => item.id === variantId)!;
+  return composePrompt({ record: variant, selections: { ...defaultSelections(variant.parameters), ...selections }, outputLocale });
 }
 
 export async function captureClipboard(page: Page) {

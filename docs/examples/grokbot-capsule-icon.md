@@ -2,7 +2,7 @@
 
 - 状态：需求与内容基线；尚未导入运行中的网站，也未在本项目中生图验证。
 - 日期：2026-09-23
-- 对应 [PRD](../../PRD.md) 第 6–10 节；本文件是规范性附录，不是可省略的参考链接。
+- 对应 [PRD](../PRD.md) 第 6–10 节；本文件是规范性附录，不是可省略的参考链接。
 - 条目 ID / slug：`grokbot-capsule-icon`
 - 参数模板版本：`1.0.0`（完整版，第 3–10 节）；当前站点模板为 `2.0.0`（短版，见第 12 节）
 
@@ -754,7 +754,7 @@ Image Prompt Book 的修改：规范所提供韩文文本的排版；提供英�
 ## 12. v2.0.0：短版作为主模板
 
 - 决定：项目所有者（Jimmy Wong）于 2026-09-23 决定以来源站的**短版 Prompt**作为可编辑主模板，并开放更多配置点；界面与复制只使用站点语言。
-- 第 5–8 节的完整版（v1.0.0）保留为来源与改编记录，不再是站点展示的模板。
+- 第 5–8 节的完整版（v1.0.0）为来源改编记录；站点的“完整版”（`variants[1]`，文件位于 `full/`）使用 §12.11–12.13 的 v1.1.0（7 个参数、改写后的章节标题）。短版为默认版本。
 - 短版原文通过来源站页面的“Copy short prompt”同一接口获取（2026-09-23），同样标注为 CC BY-NC 4.0（APG / @multi_serio_ai）。
 - 默认选项逐项对应短版原文：奶油色脸、淡椭圆腮红、炭灰背景、左下探头、15°、粉彩平涂；“无描边”为新增的明确化表述。
 - 案例图：来源站 Short prompt results 的 5 张图，已按所有者要求下载为本地 JPEG；来源站许可页说明图片不自动适用 Prompt 许可，因此 `rights.status` 为 `pending`，仅在本地草稿预览中显示，发布前必须取得并记录展示许可。
@@ -831,7 +831,35 @@ Image Prompt Book 的修改：规范所提供韩文文本的排版；提供英�
       "reviewedAt": null,
       "evidence": null
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "short",
+      "labels": {
+        "en": "Short",
+        "zh-CN": "精简版"
+      },
+      "templateVersion": "2.0.0",
+      "templatePaths": {
+        "en": "template.en.txt",
+        "zh-CN": "template.zh-CN.txt"
+      },
+      "parametersPath": "parameters.json"
+    },
+    {
+      "id": "full",
+      "labels": {
+        "en": "Full",
+        "zh-CN": "完整版"
+      },
+      "templateVersion": "1.1.0",
+      "templatePaths": {
+        "en": "full/template.en.txt",
+        "zh-CN": "full/template.zh-CN.txt"
+      },
+      "parametersPath": "full/parameters.json"
+    }
+  ]
 }
 ```
 
@@ -860,7 +888,9 @@ Image Prompt Book 的修改：规范所提供韩文文本的排版；提供英�
     "composition": "Composition",
     "tilt": "Tilt",
     "coloring": "Coloring",
-    "outline": "Outline"
+    "outline": "Outline",
+    "shading": "Shading",
+    "featureBudget": "Key features"
   }
 }
 ```
@@ -890,7 +920,9 @@ Image Prompt Book 的修改：规范所提供韩文文本的排版；提供英�
     "composition": "构图",
     "tilt": "倾斜",
     "coloring": "上色",
-    "outline": "描边"
+    "outline": "描边",
+    "shading": "上色方式",
+    "featureBudget": "关键特征"
   }
 }
 ```
@@ -1345,4 +1377,470 @@ These adaptations are not endorsed or independently verified by the original aut
 来源站许可说明：https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license
 Image Prompt Book 的修改：将韩文短版翻译为英文与简体中文；将构图、倾斜、脸色、腮红、背景、上色和描边整理为参数选项。
 以上改编不代表原作者认可或独立验证。本 Prompt 不保证输出质量或特定用途适用性，请查看所链接的许可和来源说明。案例图片具有单独的权利条件，不自动适用 Prompt 许可。
+```
+
+
+### 12.11 完整版 v1.1.0 英文模板
+
+- 相对第 6 节：章节标题改写为更自然的表述；脸色与描边改为可选项（`{{faceColor}}`、`{{outline}}`）；“不统一肤色”的约束移入脸色的默认选项，避免与其他脸色选项矛盾。
+
+```text
+[Goal]
+
+Reinterpret the person or character in the image supplied by the user as a single minimal 2D bot icon with black capsule eyes.
+
+Take the appearance details needed to recognize the subject from the original image. Follow the specifications below for facial structure, eyes, expression, composition and coloring. In these instructions, “Grok bot icon” refers to this visual specification.
+
+[What to keep from the original]
+
+Identify the subject's skin tone or base facial surface color, hair color and hair silhouette. Base the hair length, parting, curl, characteristic bangs and tied-up shapes on the original image.
+
+Select the distinctive ears, hat, glasses, facial hair, accessories or mechanical parts needed for recognition. Preserve their base colors and retain at most {{featureBudget}} key distinguishing features in their shapes. Prioritize the overall silhouette over small details.
+
+Do not standardize hair to predetermined colors. If the hair is absent or covered, preserve that state. Do not add bangs, jewelry or mechanical parts that are not present in the original.
+
+Do not copy the original expression or realistic facial anatomy. Keep only the parts of complex clothing and equipment needed for recognition.
+
+Even if a separate style reference image is provided, take the character's appearance information only from the subject image. Do not transfer skin color, hair color, hairstyle or accessories from the style reference.
+
+[Face]
+
+Combine a large, round bot face with simplified hair and identifying features. Express cuteness through rounded proportions and the tilted composition rather than decorative facial expressions.
+
+Draw the face as broad, smooth areas of color in {{faceColor}}. Connect the cheeks and chin softly. Avoid a pointed or angular chin and realistic skeletal structure.
+
+Do not draw a mouth or nose. Do not add a smiling mouth, a tiny dot mouth or a cat-shaped mouth.
+
+{{blush}}
+
+Leave plenty of empty facial area around the eyes and, when present, the blush. If glasses or facial hair are essential identifying features, they may be retained in minimal form. Glasses must not hide either eye. Facial hair must not be drawn in a way that depicts a mouth or realistic facial anatomy.
+
+[Eyes]
+
+Draw exactly two solid capsule shapes in a single near-black color. When the face is upright, each eye is a vertically elongated bar with rounded ends. Its height is approximately 2.5–3 times its width. Make both eyes the same size and parallel to each other.
+
+The long axis of each eye must be perpendicular to the line connecting the centers of the two eyes. Preserve this relationship while tilting the head and both eyes together in the direction and at the angle specified under [Composition]. Do not draw horizontal bars or closed-eye shapes.
+
+Fill each capsule completely with one uniform color. The shape itself is the eye; do not draw a separate eyeball or pupil inside it.
+
+Do not add irises, eye whites, reflections, sparkles, gradients, eyelashes, eyelids, eyebrows or decorative borders. Do not add hooks or base strokes resembling the numeral 1.
+
+Prioritize this specification over the shape and color of the original eyes.
+
+[Composition]
+
+{{composition}}
+
+[Hair, accessories and color]
+
+Simplify hair into a few large, smooth masses instead of individual strands. Preserve the original direction of the bangs, the sense of length and the overall silhouette.
+
+{{outline}}
+
+{{shading}}
+
+Retain only the silhouettes and major connections of accessories and mechanical parts. Omit small screws, wiring, circuits, dense panel lines and complex patterns.
+
+Even when reduced to a small profile icon, the two black capsule eyes and the original subject's key silhouette must remain immediately legible.
+
+[Background and what to avoid]
+
+Use {{background}} as a solid background across the entire canvas. Do not include background objects or patterns.
+
+Exclude circular frames, badge borders, text, numbers, logos, watermarks, speech bubbles, exclamation marks, glitter, particles, glow and lens flare.
+
+Avoid photorealism, 3D rendering, oil-paint texture, rough sketch lines, excessive gloss, complex light and shadow, individual flyaway hairs and overcrowded decoration.
+
+[When rules conflict]
+
+If rules conflict, apply the following priority order.
+
+1. Two undecorated black capsule eyes.
+2. A round bot face without a mouth or nose.
+3. A tilted extreme close-up composition in which both eyes are fully visible.
+4. The original base colors and key identifying features.
+5. Other details.
+
+If bangs cover an eye, adjust their length, width or position while preserving their characteristic flow. If an essential accessory would disappear completely in the crop, slightly adjust its size and position so a recognizable part remains. Do not invent features absent from the original during these adjustments.
+
+[Output and follow-up edits]
+
+When the user requests generation or transformation, respond with one actually generated, finished icon and no explanation or wording. If the user attaches only one image to transform and asks no separate question, treat it as a default transformation request.
+
+If the subject image is unavailable, ask the user to attach it. If the image contains multiple people and no subject is specified, ask which person to transform.
+
+If the user asks only for prompt editing, an explanation of the rules, result analysis or usage instructions, respond in text and do not generate a new image. Provide the production specification in text only when requested, and never put it inside the image.
+
+For follow-up edits, change only the requested parts. Preserve the style specifications and character features unless the user explicitly requests changes to them.
+
+Do not describe a result as generated or verified unless it has actually been generated or checked.
+```
+
+### 12.12 完整版 v1.1.0 简体中文模板
+
+```text
+[目标]
+
+将用户提供的图片中的人物或角色，重新诠释为一张带黑色胶囊眼的极简 2D 机器人头像。
+
+从原图中提取识别该主体所必需的外形特征；脸部结构、眼睛、表情、构图和上色遵循以下规范。本说明中的 Grok bot icon 指的是这套视觉规范。
+
+[保留原图的哪些特征]
+
+确认转换对象的肤色或脸部表面的基础颜色、发色和头发轮廓。头发长度、分缝、卷曲程度、标志性刘海和束发形式均以原图为准。
+
+从有辨识度的耳朵、帽子、眼镜、胡须、装饰和机械部件中，选择识别主体所必需的元素。保留基础颜色，形态上最多保留{{featureBudget}}项关键识别特征。优先保留整体轮廓，而非细小细节。
+
+不要把发色统一成预设颜色。没有头发或头发被遮住时，应保留这种状态；不要添加原图中不存在的刘海、首饰或机械部件。
+
+不要照搬原图的表情和写实脸部结构。复杂服装和装备只保留识别主体所必需的部分。
+
+即使另有风格参考图，也只能从待转换主体的图片中提取角色外形信息。不要把风格参考图中的肤色、发色、发型或装饰移植到主体上。
+
+[脸部]
+
+将大而圆润的机器人脸，与简化的头发及识别特征结合。通过圆润比例和倾斜构图表现可爱感，而不是依靠表情装饰。
+
+脸部使用{{faceColor}}，以宽阔、平滑的色块绘制。让脸颊与下巴柔和连接，避免尖下巴、棱角分明的下巴和写实骨骼结构。
+
+不画嘴巴和鼻子。不要添加笑嘴、点状小嘴或猫嘴。
+
+{{blush}}
+
+在眼睛周围以及存在腮红时的腮红周围，留出充分的空白脸部区域。如果眼镜或胡须是关键识别特征，可以保留最简形式。眼镜不得遮挡双眼；不要通过胡须描绘出嘴巴或写实脸部结构。
+
+[眼睛]
+
+准确绘制两个接近黑色、单色实心的胶囊形眼睛。脸部摆正时，眼睛为两端圆润的竖长条，纵向长度约为横向宽度的 2.5～3 倍。两个眼睛大小相同，彼此平行。
+
+每只眼睛的长轴，与两只眼睛中心连线垂直。在保持这种关系的同时，让头部与双眼一起按[构图]规定的方向和角度倾斜。不要画成横躺的长条或闭眼形状。
+
+用同一种颜色无缝填满每个胶囊。这个图形本身就是眼睛，不要在内部另画眼球或瞳孔。
+
+不要添加虹膜、眼白、反光、闪光、渐变、睫毛、眼皮、眉毛或边框装饰，也不要出现类似数字 1 的弯钩或底部横线。
+
+这套眼睛规范优先于原图的眼形和眼睛颜色。
+
+[构图]
+
+{{composition}}
+
+[头发、装饰与配色]
+
+将头发简化为几个大而平滑的块面，而不是逐根发丝。保留原图刘海的方向、长度感和整体轮廓。
+
+{{outline}}
+
+{{shading}}
+
+装饰和机械部件只保留外轮廓与主要连接结构。省略小螺丝、布线、电路、密集面板线和复杂花纹。
+
+即使缩小为很小的个人头像，也应立即看清两个黑色胶囊眼和原图主体的关键轮廓。
+
+[背景与禁止元素]
+
+背景使用覆盖整个画布的{{background}}纯色。不要加入背景物体或图案。
+
+排除圆形框、徽章边框、文字、数字、标志、水印、对话气泡、感叹符号、亮片、粒子、光晕和镜头眩光。
+
+避免写实、3D 渲染、油画纹理、粗糙草图线、过度光泽、复杂明暗、零碎发丝和过于密集的装饰。
+
+[规则冲突时]
+
+规则冲突时，按以下顺序优先处理。
+
+1. 两个没有装饰的黑色胶囊眼。
+2. 没有嘴巴和鼻子的圆润机器人脸。
+3. 双眼完整可见的倾斜超近景构图。
+4. 原图的基础颜色和关键识别特征。
+5. 其他细节。
+
+如果刘海遮住眼睛，在保留代表性走向的前提下调整其长度、宽度或位置。如果关键装饰会被裁切得完全消失，小幅调整其大小与位置，让可识别的部分留在画面中。此过程中不要创造原图里不存在的特征。
+
+[生成与后续修改]
+
+当用户要求生成或转换时，只返回一张实际生成完成的头像，不附解释或文字。如果用户只附上一张待转换图片，没有提出其他问题，则按默认转换请求处理。
+
+如果无法查看待转换图片，请用户附图。如果图片中有多人而用户没有指定目标，先确认需要转换谁。
+
+如果用户只询问 Prompt 修改、规则解释、结果分析或使用方法，则用文字回答，不生成新图片。只有在用户要求时才用文字提供制作规范，不要把规范放进图片中。
+
+后续修改只改变用户要求的部分；没有被明确要求修改的风格规范和角色特征应保持不变。
+
+对于没有实际生成或检查过的结果，不要声称已经生成完成或验证完成。
+```
+
+### 12.13 完整版 v1.1.0 参数
+
+```json
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "composition",
+      "type": "select",
+      "renderAs": "block",
+      "default": "left-standard",
+      "options": [
+        {
+          "id": "left-standard",
+          "labels": {
+            "en": "Lower left · 15–20°",
+            "zh-CN": "左下探头 · 15–20°"
+          },
+          "replacements": {
+            "en": "Place one character on a 1:1 square canvas. Enlarge the face and hair or outer head shape to fill most of the frame.\n\nThe character leans into view from the lower-left corner. Tilt the head approximately 15–20 degrees clockwise so that the eye on the left side of the image appears slightly higher than the eye on the right. The face, both eyes, hair and attached accessories must share the same tilt.\n\nCrop the left and bottom edges of the head naturally at the canvas boundary. The chin touches the bottom edge or extends partially outside the frame. Leave dark background negative space in the upper-right corner.\n\nBoth eyes must remain fully visible, unobstructed by bangs or accessories. Avoid a centered passport-photo composition with a small complete head, and avoid left-right symmetry.\n\nDo not draw a torso or hands. Leave only a small part of the neck or collar at the bottom when essential for recognition. The extreme close-up and edge cropping are intentional.",
+            "zh-CN": "在 1:1 正方形画布中放置一个角色。将脸部及头发或头部外轮廓大幅放大，占据画面的大部分区域。\n\n角色从画面左下角倾斜探头。头部顺时针倾斜约 15～20 度，使画面左侧的眼睛略高于右侧。脸部、双眼、头发和附着的装饰保持相同倾斜。\n\n头部左侧和下侧边缘在画布边界自然裁切。下巴触及画面底边或部分超出画面，右上角保留深色背景的留白。\n\n双眼必须完整可见，不被刘海或装饰遮住。避免将完整头部缩小放在正中的证件照式构图，也避免左右对称。\n\n不画身体和手。只有在识别主体必需时，才在画面底部保留很小一部分脖子或衣领。脸部放大和边缘裁切是有意的构图。"
+          }
+        },
+        {
+          "id": "right-standard",
+          "labels": {
+            "en": "Lower right · 15–20°",
+            "zh-CN": "右下探头 · 15–20°"
+          },
+          "replacements": {
+            "en": "Place one character on a 1:1 square canvas. Enlarge the face and hair or outer head shape to fill most of the frame.\n\nThe character leans into view from the lower-right corner. Tilt the head approximately 15–20 degrees counterclockwise so that the eye on the right side of the image appears slightly higher than the eye on the left. The face, both eyes, hair and attached accessories must share the same tilt.\n\nCrop the right and bottom edges of the head naturally at the canvas boundary. The chin touches the bottom edge or extends partially outside the frame. Leave dark background negative space in the upper-left corner.\n\nBoth eyes must remain fully visible, unobstructed by bangs or accessories. Avoid a centered passport-photo composition with a small complete head, and avoid left-right symmetry.\n\nDo not draw a torso or hands. Leave only a small part of the neck or collar at the bottom when essential for recognition. The extreme close-up and edge cropping are intentional.",
+            "zh-CN": "在 1:1 正方形画布中放置一个角色。将脸部及头发或头部外轮廓大幅放大，占据画面的大部分区域。\n\n角色从画面右下角倾斜探头。头部逆时针倾斜约 15～20 度，使画面右侧的眼睛略高于左侧。脸部、双眼、头发和附着的装饰保持相同倾斜。\n\n头部右侧和下侧边缘在画布边界自然裁切。下巴触及画面底边或部分超出画面，左上角保留深色背景的留白。\n\n双眼必须完整可见，不被刘海或装饰遮住。避免将完整头部缩小放在正中的证件照式构图，也避免左右对称。\n\n不画身体和手。只有在识别主体必需时，才在画面底部保留很小一部分脖子或衣领。脸部放大和边缘裁切是有意的构图。"
+          }
+        },
+        {
+          "id": "left-gentle",
+          "labels": {
+            "en": "Lower left · 10–15°",
+            "zh-CN": "左下探头 · 10–15°"
+          },
+          "replacements": {
+            "en": "Place one character on a 1:1 square canvas. Enlarge the face and hair or outer head shape to fill most of the frame.\n\nThe character leans into view from the lower-left corner. Tilt the head approximately 10–15 degrees clockwise so that the eye on the left side of the image appears slightly higher than the eye on the right. The face, both eyes, hair and attached accessories must share the same tilt.\n\nCrop the left and bottom edges of the head naturally at the canvas boundary. The chin touches the bottom edge or extends partially outside the frame. Leave dark background negative space in the upper-right corner.\n\nBoth eyes must remain fully visible, unobstructed by bangs or accessories. Avoid a centered passport-photo composition with a small complete head, and avoid left-right symmetry.\n\nDo not draw a torso or hands. Leave only a small part of the neck or collar at the bottom when essential for recognition. The extreme close-up and edge cropping are intentional.",
+            "zh-CN": "在 1:1 正方形画布中放置一个角色。将脸部及头发或头部外轮廓大幅放大，占据画面的大部分区域。\n\n角色从画面左下角倾斜探头。头部顺时针倾斜约 10～15 度，使画面左侧的眼睛略高于右侧。脸部、双眼、头发和附着的装饰保持相同倾斜。\n\n头部左侧和下侧边缘在画布边界自然裁切。下巴触及画面底边或部分超出画面，右上角保留深色背景的留白。\n\n双眼必须完整可见，不被刘海或装饰遮住。避免将完整头部缩小放在正中的证件照式构图，也避免左右对称。\n\n不画身体和手。只有在识别主体必需时，才在画面底部保留很小一部分脖子或衣领。脸部放大和边缘裁切是有意的构图。"
+          }
+        },
+        {
+          "id": "right-gentle",
+          "labels": {
+            "en": "Lower right · 10–15°",
+            "zh-CN": "右下探头 · 10–15°"
+          },
+          "replacements": {
+            "en": "Place one character on a 1:1 square canvas. Enlarge the face and hair or outer head shape to fill most of the frame.\n\nThe character leans into view from the lower-right corner. Tilt the head approximately 10–15 degrees counterclockwise so that the eye on the right side of the image appears slightly higher than the eye on the left. The face, both eyes, hair and attached accessories must share the same tilt.\n\nCrop the right and bottom edges of the head naturally at the canvas boundary. The chin touches the bottom edge or extends partially outside the frame. Leave dark background negative space in the upper-left corner.\n\nBoth eyes must remain fully visible, unobstructed by bangs or accessories. Avoid a centered passport-photo composition with a small complete head, and avoid left-right symmetry.\n\nDo not draw a torso or hands. Leave only a small part of the neck or collar at the bottom when essential for recognition. The extreme close-up and edge cropping are intentional.",
+            "zh-CN": "在 1:1 正方形画布中放置一个角色。将脸部及头发或头部外轮廓大幅放大，占据画面的大部分区域。\n\n角色从画面右下角倾斜探头。头部逆时针倾斜约 10～15 度，使画面右侧的眼睛略高于左侧。脸部、双眼、头发和附着的装饰保持相同倾斜。\n\n头部右侧和下侧边缘在画布边界自然裁切。下巴触及画面底边或部分超出画面，左上角保留深色背景的留白。\n\n双眼必须完整可见，不被刘海或装饰遮住。避免将完整头部缩小放在正中的证件照式构图，也避免左右对称。\n\n不画身体和手。只有在识别主体必需时，才在画面底部保留很小一部分脖子或衣领。脸部放大和边缘裁切是有意的构图。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "background",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "charcoal",
+      "options": [
+        {
+          "id": "charcoal",
+          "labels": {
+            "en": "Near-black charcoal",
+            "zh-CN": "近黑炭灰"
+          },
+          "replacements": {
+            "en": "near-black dark charcoal",
+            "zh-CN": "接近黑色的深炭灰色"
+          }
+        },
+        {
+          "id": "midnight-blue",
+          "labels": {
+            "en": "Midnight blue",
+            "zh-CN": "午夜深蓝"
+          },
+          "replacements": {
+            "en": "near-black midnight blue",
+            "zh-CN": "接近黑色的午夜深蓝色"
+          }
+        },
+        {
+          "id": "deep-plum",
+          "labels": {
+            "en": "Deep plum",
+            "zh-CN": "深梅紫"
+          },
+          "replacements": {
+            "en": "near-black deep plum",
+            "zh-CN": "接近黑色的深梅紫色"
+          }
+        }
+      ]
+    },
+    {
+      "id": "faceColor",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "original-skin",
+      "options": [
+        {
+          "id": "original-skin",
+          "labels": {
+            "en": "Original skin tone",
+            "zh-CN": "原图肤色"
+          },
+          "replacements": {
+            "en": "the subject's original skin tone or surface color (never a preset color)",
+            "zh-CN": "原图的肤色或表面颜色（不要统一成预设颜色）"
+          }
+        },
+        {
+          "id": "cream",
+          "labels": {
+            "en": "Cream",
+            "zh-CN": "奶油色"
+          },
+          "replacements": {
+            "en": "cream",
+            "zh-CN": "奶油色"
+          }
+        },
+        {
+          "id": "pale-peach",
+          "labels": {
+            "en": "Pale peach",
+            "zh-CN": "浅桃色"
+          },
+          "replacements": {
+            "en": "pale peach",
+            "zh-CN": "浅桃色"
+          }
+        },
+        {
+          "id": "cool-gray",
+          "labels": {
+            "en": "Light cool gray",
+            "zh-CN": "浅冷灰"
+          },
+          "replacements": {
+            "en": "light cool gray",
+            "zh-CN": "浅冷灰色"
+          }
+        }
+      ]
+    },
+    {
+      "id": "blush",
+      "type": "select",
+      "renderAs": "block",
+      "default": "subtle",
+      "options": [
+        {
+          "id": "subtle",
+          "labels": {
+            "en": "Subtle blush",
+            "zh-CN": "淡腮红"
+          },
+          "replacements": {
+            "en": "Add a small, pale, low-saturation oval blush on each cheek that suits the skin tone. Render the blush as flat areas of color without lines or sparkles.",
+            "zh-CN": "在两侧脸颊各加入一小块与肤色协调、低饱和度的浅椭圆形腮红。腮红使用平面的色块表现，不加线条或闪光。"
+          }
+        },
+        {
+          "id": "none",
+          "labels": {
+            "en": "No blush",
+            "zh-CN": "无腮红"
+          },
+          "replacements": {
+            "en": "Do not add blush or decorative cheek marks. Keep the cheeks as clean areas of the original skin tone or facial surface color.",
+            "zh-CN": "不添加腮红或装饰性脸颊标记。脸颊保持原始肤色或脸部表面颜色的干净色块。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "shading",
+      "type": "select",
+      "renderAs": "block",
+      "default": "soft",
+      "options": [
+        {
+          "id": "soft",
+          "labels": {
+            "en": "Soft shading",
+            "zh-CN": "轻柔阴影"
+          },
+          "replacements": {
+            "en": "Use the original representative colors in a flat, soft rendering. Add only one broad, subtle level of shading to the base colors. If hair highlights are needed, limit them to one or two large areas of color.",
+            "zh-CN": "以原图的代表色进行平面、柔和的上色。仅在基础颜色上增加一层宽阔而微弱的阴影；如果需要头发高光，限制为一到两个大的色块。"
+          }
+        },
+        {
+          "id": "flat",
+          "labels": {
+            "en": "Fully flat",
+            "zh-CN": "完全平涂"
+          },
+          "replacements": {
+            "en": "Use the original representative colors as uniform flat areas. Do not add shading, gradients, highlights or gloss to the face, hair or accessories. Separate forms only through adjacent flat colors.",
+            "zh-CN": "使用原图代表色进行均匀平涂。脸部、头发和装饰均不添加阴影、渐变、高光或光泽；仅通过相邻的平面色块区分形体。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "outline",
+      "type": "select",
+      "renderAs": "block",
+      "default": "none",
+      "options": [
+        {
+          "id": "none",
+          "labels": {
+            "en": "No outlines",
+            "zh-CN": "无描边"
+          },
+          "replacements": {
+            "en": "Use minimal 2D rendering based on areas of color with almost no outlines. Separate forms through differences between adjacent colors rather than thick black contours.",
+            "zh-CN": "使用几乎没有轮廓线、以色块为主的极简 2D 表现。通过相邻色块的差异区分形体，而不是使用粗黑描边。"
+          }
+        },
+        {
+          "id": "thin",
+          "labels": {
+            "en": "Thin soft outlines",
+            "zh-CN": "细柔描边"
+          },
+          "replacements": {
+            "en": "Use minimal 2D rendering based on areas of color with thin, soft outlines around the main shapes. Never use thick black contours.",
+            "zh-CN": "使用以色块为主的极简 2D 表现，主要形体外加细而柔和的描边；不要使用粗黑描边。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "featureBudget",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "three",
+      "options": [
+        {
+          "id": "three",
+          "labels": {
+            "en": "Up to three features",
+            "zh-CN": "最多三项特征"
+          },
+          "replacements": {
+            "en": "three",
+            "zh-CN": "三"
+          }
+        },
+        {
+          "id": "two",
+          "labels": {
+            "en": "Up to two features",
+            "zh-CN": "最多两项特征"
+          },
+          "replacements": {
+            "en": "two",
+            "zh-CN": "两"
+          }
+        }
+      ]
+    }
+  ]
+}
 ```

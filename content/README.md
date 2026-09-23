@@ -16,6 +16,7 @@ prompts/<slug>/: 单个条目目录，目录名 = id = slug，稳定且跨语言
 | `original.<lang>.txt` | Untouched source prompt | UTF-8, LF, one trailing newline; changes are a source-version update |
 | `en.json`, `zh-CN.json` | Page copy: title, summary, SEO, input requirement, how-to, notices, parameter labels, optional `keywords` | Complete in every locale; missing translations keep the entry in draft |
 | `template.en.txt`, `template.zh-CN.txt` | Full adapted templates | Only `{{parameterId}}` tokens; every token declared, every parameter used |
+| `variants` (optional, in `meta.json`) | Several editable versions, e.g. Short and Full: each with `id`, `labels`, `templateVersion`, `templatePaths`, `parametersPath` (files may sit in one subfolder such as `full/`) | The first variant must match the top-level template and is the default; page labels must cover every variant's parameters |
 | `parameters.json` | `select` parameters (`renderAs` inline/block), default, options with `labels` (UI) and `replacements` (prompt text) per locale | Replacements are final plain strings — no tokens, HTML or includes |
 | `examples.json` | Approved example images | `[]` allowed for drafts; published entries need ≥1 with `rights.status: "approved"` (`pending` images show only in local draft preview). Local `/examples/<slug>/…` path, true width/height, bilingual alt, `provenance`, rights review, `recipe` (null unless project-verified) |
 | `ATTRIBUTION.md` | `## en` and `## zh-CN` blocks, each one ```text fence | Used by "Copy attribution"; keep author, source, license, changes |

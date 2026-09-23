@@ -1,7 +1,7 @@
 /**
  * [INPUT]: 依赖 @/lib/prompt 的 template/share/draft（默认值、hash 解码、草稿读写），依赖 next-intl 的 useTranslations
- * [OUTPUT]: 对外提供 PromptStateProvider、usePromptState()、PromptData 类型
- * [POS]: components/prompt/workbench 的唯一 selections 状态源（Prompt 语言固定为站点语言）；编辑视图、复制与分享都从这里读，初始化优先级：分享 hash → 当前版本草稿 → 默认值
+ * [OUTPUT]: 对外提供 PromptStateProvider、usePromptState()、PromptData/VariantData 类型
+ * [POS]: components/prompt/workbench 的唯一状态源：当前版本（精简/完整）与每个版本各自的 selections（Prompt 语言固定为站点语言）；编辑视图、复制、分享都从这里读，初始化优先级：分享 hash → 草稿 → 默认值
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 "use client";
@@ -11,31 +11,42 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import type { Locale } from "@/i18n/config";
 import type { Parameter } from "@/lib/content/schema";
 import { readDraft, writeDraft } from "@/lib/prompt/draft";
-import { decodeShareHash } from "@/lib/prompt/share";
+import { decodeShareHash, encodeShareHash } from "@/lib/prompt/share";
 import { composePrompt, defaultSelections, type Selections } from "@/lib/prompt/template";
 import { cn } from "@/lib/utils";
 
+export type VariantData = {
+  id: string;
+  /** Tab label; null for single-version prompts (no tabs are shown). */
+  label: string | null;
+  templateVersion: string;
+  parameters: Parameter[];
+  /** The template in the site language: the prompt is shown, edited and copied in that language only. */
+  template: string;
+};
+
 export type PromptData = {
   slug: string;
-  templateVersion: string;
-  /** The prompt is shown, edited and copied in the site language only. */
   uiLocale: Locale;
   outputLocales: Locale[];
-  parameters: Parameter[];
+  variants: VariantData[];
   parameterLabels: Record<string, string>;
-  templates: Partial<Record<Locale, string>>;
-  attribution: string;
 };
 
 type Notice = { id: number; message: string; tone: "success" | "info" | "warning" };
 
 type PromptState = {
   data: PromptData;
+  variant: VariantData;
   selections: Selections;
-  outputLocale: Locale;
+  /** True once any option of the active version differs from its default. */
+  edited: boolean;
   output: string;
+  setVariant: (variantId: string) => void;
   setSelection: (parameterId: string, optionId: string) => void;
   reset: () => void;
+  /** Clean URL when nothing is customized; otherwise a settings hash for the active version. */
+  shareUrl: () => string;
   notify: (message: string, tone?: Notice["tone"]) => void;
 };
 
@@ -47,14 +58,13 @@ export function usePromptState(): PromptState {
   return value;
 }
 
-function promptLocale(data: PromptData): Locale {
-  return data.outputLocales.includes(data.uiLocale) ? data.uiLocale : data.outputLocales[0]!;
-}
+const allDefaults = (variants: VariantData[]) => Object.fromEntries(variants.map((variant) => [variant.id, defaultSelections(variant.parameters)]));
 
 export function PromptStateProvider({ data, children }: { data: PromptData; children: ReactNode }) {
   const t = useTranslations("detail");
-  const [selections, setSelections] = useState<Selections>(() => defaultSelections(data.parameters));
-  const outputLocale = promptLocale(data);
+  const outputLocale = data.outputLocales.includes(data.uiLocale) ? data.uiLocale : data.outputLocales[0]!;
+  const [variantId, setVariantId] = useState(data.variants[0]!.id);
+  const [selectionsByVariant, setSelectionsByVariant] = useState<Record<string, Selections>>(() => allDefaults(data.variants));
   const [ready, setReady] = useState(false);
   const [notices, setNotices] = useState<Notice[]>([]);
   const noticeId = useRef(0);
@@ -67,7 +77,7 @@ export function PromptStateProvider({ data, children }: { data: PromptData; chil
   }, []);
 
   useEffect(() => {
-    const context = { templateVersion: data.templateVersion, parameters: data.parameters, outputLocales: data.outputLocales };
+    const context = { variants: data.variants, outputLocales: data.outputLocales };
     const dropHash = () => window.history.replaceState(window.history.state, "", window.location.pathname + window.location.search);
 
     /** Applies a settings hash; returns false when the URL carries none. */
@@ -75,11 +85,13 @@ export function PromptStateProvider({ data, children }: { data: PromptData; chil
       const shared = decodeShareHash(window.location.hash, context);
       if (shared.status === "none") return false;
       if (shared.status === "ok") {
-        setSelections(shared.selections);
+        setVariantId(shared.variantId);
+        setSelectionsByVariant((current) => ({ ...current, [shared.variantId]: shared.selections }));
         notify(shared.fallbacks.length ? t("hashFallback") : t("hashApplied"), shared.fallbacks.length ? "warning" : "info");
       } else {
         // A broken or outdated link shows defaults, never the recipient's unrelated draft.
-        setSelections(defaultSelections(data.parameters));
+        setVariantId(data.variants[0]!.id);
+        setSelectionsByVariant(allDefaults(data.variants));
         notify(shared.reason === "version" ? t("hashVersion") : t("hashInvalid"), "warning");
       }
       dropHash();
@@ -89,8 +101,11 @@ export function PromptStateProvider({ data, children }: { data: PromptData; chil
     /* eslint-disable react-hooks/set-state-in-effect -- one-time hydration from URL/sessionStorage, unavailable during SSR */
     // Runs once even when effects are replayed (dev strict mode), so a stale draft never overrides a shared link.
     if (!initialized.current && !applyHash()) {
-      const draft = readDraft(data.slug, data.templateVersion, data.parameters);
-      if (draft) setSelections(draft.selections);
+      const draft = readDraft(data.slug, data.variants);
+      if (draft) {
+        setVariantId(draft.variantId);
+        setSelectionsByVariant((current) => ({ ...current, ...draft.selections }));
+      }
     }
     initialized.current = true;
     setReady(true);
@@ -102,21 +117,31 @@ export function PromptStateProvider({ data, children }: { data: PromptData; chil
   }, [data, notify, t]);
 
   useEffect(() => {
-    if (ready) writeDraft(data.slug, data.templateVersion, { selections, outputLocale: null });
-  }, [ready, data.slug, data.templateVersion, selections]);
+    if (ready) writeDraft(data.slug, data.variants, { variantId, selections: selectionsByVariant });
+  }, [ready, data.slug, data.variants, variantId, selectionsByVariant]);
 
-  const value = useMemo<PromptState>(
-    () => ({
+  const value = useMemo<PromptState>(() => {
+    const variant = data.variants.find((item) => item.id === variantId) ?? data.variants[0]!;
+    const selections = selectionsByVariant[variant.id] ?? defaultSelections(variant.parameters);
+    const defaults = defaultSelections(variant.parameters);
+    const edited = variant.parameters.some((parameter) => selections[parameter.id] !== defaults[parameter.id]);
+    return {
       data,
+      variant,
       selections,
-      outputLocale,
-      output: composePrompt({ record: data, selections, outputLocale }),
-      setSelection: (parameterId, optionId) => setSelections((current) => ({ ...current, [parameterId]: optionId })),
-      reset: () => setSelections(defaultSelections(data.parameters)),
+      edited,
+      output: composePrompt({ record: { parameters: variant.parameters, templates: { [outputLocale]: variant.template } }, selections, outputLocale }),
+      setVariant: setVariantId,
+      setSelection: (parameterId, optionId) => setSelectionsByVariant((current) => ({ ...current, [variant.id]: { ...(current[variant.id] ?? defaults), [parameterId]: optionId } })),
+      reset: () => setSelectionsByVariant((current) => ({ ...current, [variant.id]: defaultSelections(variant.parameters) })),
+      shareUrl: () => {
+        const base = `${window.location.origin}/${data.uiLocale}/prompts/${data.slug}`;
+        const isDefault = !edited && variant.id === data.variants[0]!.id;
+        return isDefault ? base : `${base}${encodeShareHash({ variants: data.variants, outputLocales: data.outputLocales }, { variantId: variant.id, outputLocale, selections })}`;
+      },
       notify,
-    }),
-    [data, selections, outputLocale, notify],
-  );
+    };
+  }, [data, variantId, selectionsByVariant, outputLocale, notify]);
 
   return (
     <Context.Provider value={value}>

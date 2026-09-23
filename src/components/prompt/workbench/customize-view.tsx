@@ -82,17 +82,16 @@ function BlockParameter({ parameter }: { parameter: Parameter }) {
 }
 
 export function CustomizeView() {
-  const { data } = usePromptState();
-  const template = data.templates[data.uiLocale] ?? Object.values(data.templates)[0]!;
-  const paragraphs = useMemo(() => toParagraphs(parseTemplate(template)), [template]);
-  const byId = useMemo(() => new Map(data.parameters.map((parameter) => [parameter.id, parameter])), [data.parameters]);
+  const { data, variant } = usePromptState();
+  const paragraphs = useMemo(() => toParagraphs(parseTemplate(variant.template)), [variant.template]);
+  const byId = useMemo(() => new Map(variant.parameters.map((parameter) => [parameter.id, parameter])), [variant.parameters]);
 
   return (
     <div lang={data.uiLocale} data-testid="prompt-text" className="flex flex-col gap-3.5 text-[15px] leading-[1.9] text-foreground/85">
       {paragraphs.map((paragraph, index) => {
         if (paragraph.kind === "heading") {
           return (
-            <h3 key={index} className="mt-4 text-xs font-medium tracking-wide text-muted-foreground first:mt-0">
+            <h3 key={index} className="mt-3 text-[15px] font-semibold text-foreground first:mt-0">
               {paragraph.text}
             </h3>
           );

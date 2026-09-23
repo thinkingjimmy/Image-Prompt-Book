@@ -42,48 +42,70 @@ test("all seven parameters update the prompt text and the copied prompt identica
 test("the prompt is shown and copied in the site language only", async ({ page }) => {
   await page.goto(`/zh-CN/prompts/${SLUG}`);
   await expect(page.getByTestId("prompt-text")).toHaveAttribute("lang", "zh-CN");
-  await expect(page.getByRole("radio")).toHaveCount(0);
+  // No output-language picker: the only radio group is the Short/Full version switch.
+  await expect(page.getByRole("radiogroup")).toHaveCount(1);
+  await expect(page.getByRole("radiogroup", { name: "Prompt 版本" })).toBeVisible();
   await expect(page.getByRole("tab")).toHaveCount(0);
   await pickOption(page, "background", "午夜蓝");
   expect(await copyPrompt(page)).toBe(expectedPrompt({ background: "midnight-blue" }, "zh-CN"));
 });
 
-test("reset restores only this prompt's options", async ({ page }) => {
+test("reset appears only after an edit and restores this prompt's options", async ({ page }) => {
   await page.goto(DETAIL);
+  await expect(page.getByRole("button", { name: "Reset options" })).toHaveCount(0);
   await changeEverything(page);
   await page.getByRole("button", { name: "Reset options" }).click();
   await expect(page.getByRole("status")).toContainText("Options reset to defaults.");
   expect(await copyPrompt(page)).toBe(expectedPrompt({}, "en"));
+  await expect(page.getByRole("button", { name: "Reset options" })).toHaveCount(0);
 });
 
-test("a settings link restores the options in a new tab and then leaves a clean URL", async ({ page, context }) => {
-  await page.goto(DETAIL);
+test("share copies a clean link by default and a settings link after edits", async ({ page, context }) => {
+  await page.goto(`${DETAIL}?utm=1`);
+  const share = page.getByRole("button", { name: "Share link with my settings" });
+  await share.click();
+  expect((await copied(page)).at(-1)).toBe(`http://localhost:3200/en/prompts/${SLUG}`);
+
   await changeEverything(page);
-  await page.getByRole("button", { name: "Share and attribution" }).click();
-  await page.getByRole("menuitem", { name: "Copy link with my options" }).click();
-  const [link] = await copied(page);
+  await share.click();
+  const link = (await copied(page)).at(-1)!;
   expect(link).toBe(
     "http://localhost:3200/en/prompts/grokbot-capsule-icon#v=1&template=2.0.0&output=en&p.faceColor=pale-peach&p.blush=none&p.background=deep-plum&p.composition=lower-right&p.tilt=20&p.coloring=vivid&p.outline=thin",
   );
 
   const other = await context.newPage();
   await captureClipboard(other);
-  await other.goto(link!);
+  await other.goto(link);
   await expect(other.getByRole("status")).toContainText("Loaded the shared options.");
   expect(await copyPrompt(other)).toBe(expectedPrompt(ALL_CHANGED, "en"));
   await expect(other).toHaveURL(new RegExp(`/en/prompts/${SLUG}$`));
 });
 
-test("the template link is clean and attribution is copied separately", async ({ page }) => {
-  await page.goto(`${DETAIL}?utm=1`);
-  await page.getByRole("button", { name: "Share and attribution" }).click();
-  await page.getByRole("menuitem", { name: "Copy template link" }).click();
-  await page.getByRole("button", { name: "Share and attribution" }).click();
-  await page.getByRole("menuitem", { name: "Copy attribution" }).click();
-  const [link, attribution] = await copied(page);
-  expect(link).toBe(`http://localhost:3200/en/prompts/${SLUG}`);
-  expect(attribution).toContain("Author/licensor: APG (@multi_serio_ai)");
-  expect(attribution).toContain("License: CC BY-NC 4.0");
+test("Short and Full versions switch the prompt and keep their own options", async ({ page, context }) => {
+  await page.goto(DETAIL);
+  const versions = page.getByRole("radiogroup", { name: "Prompt version" });
+  await expect(versions.getByRole("radio", { name: "Short" })).toHaveAttribute("aria-checked", "true");
+  await pickOption(page, "tilt", "Strong 20°");
+
+  await versions.getByRole("radio", { name: "Full" }).click();
+  await expect(page.getByTestId("prompt-text")).toContainText("Draw exactly two solid capsule shapes in a single near-black color.");
+  await expect(page.getByRole("button", { name: "Reset options" })).toHaveCount(0);
+  expect(await copyPrompt(page)).toBe(expectedPrompt({}, "en", "full"));
+  await pickOption(page, "shading", "Fully flat");
+  expect(await copyPrompt(page)).toBe(expectedPrompt({ shading: "flat" }, "en", "full"));
+
+  await page.getByRole("button", { name: "Share link with my settings" }).click();
+  const link = (await copied(page)).at(-1)!;
+  expect(link).toContain("#v=1&variant=full&template=1.1.0&output=en");
+
+  await versions.getByRole("radio", { name: "Short" }).click();
+  expect(await copyPrompt(page)).toBe(expectedPrompt({ tilt: "20" }, "en"));
+
+  const other = await context.newPage();
+  await captureClipboard(other);
+  await other.goto(link);
+  await expect(other.getByRole("radiogroup", { name: "Prompt version" }).getByRole("radio", { name: "Full" })).toHaveAttribute("aria-checked", "true");
+  expect(await copyPrompt(other)).toBe(expectedPrompt({ shading: "flat" }, "en", "full"));
 });
 
 test("an outdated or broken hash shows defaults with a notice, never the old draft", async ({ page }) => {
@@ -152,6 +174,16 @@ test("the detail stays minimal: image source and one credit line", async ({ page
   await expect(page.getByRole("link", { name: "Image source" })).toHaveAttribute("href", "https://grokbot-icon-studio.serio-ai.chatgpt.site/en");
   await expect(page.getByRole("link", { name: "CC BY-NC 4.0" })).toHaveAttribute("href", "https://creativecommons.org/licenses/by-nc/4.0/");
   await expect(page.getByRole("heading", { name: "Source & license" })).toHaveCount(0);
+
+  await expect(page.getByText("adapted", { exact: true })).toHaveCount(0);
+
+  // Fill by default; one tap shows the whole image, another fills again.
+  const fitToggle = page.getByRole("button", { name: "View full image" });
+  await expect(page.locator("figure button img").first()).toHaveCSS("object-fit", "cover");
+  await fitToggle.click();
+  await expect(page.locator("figure button img").first()).toHaveCSS("object-fit", "contain");
+  await page.getByRole("button", { name: "Fill" }).click();
+  await expect(page.locator("figure button img").first()).toHaveCSS("object-fit", "cover");
 
   const src = await page.locator("figure button img").first().getAttribute("src");
   await pickOption(page, "background", "Deep plum");

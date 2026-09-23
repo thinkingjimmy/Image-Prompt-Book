@@ -1,16 +1,16 @@
 /**
  * [INPUT]: 依赖 @/lib/content/catalog 的 getActiveCategories/getLibrary/getVisibleEntries，依赖同目录 SearchBox/FilterMenu/SortSelect
  * [OUTPUT]: 对外提供 SiteHeader 服务端组件
- * [POS]: components/layout 的顶部导航（参考 jevable.com）：左侧仅图标｜居中合一筛选胶囊（搜索·分类/标签·排序）｜右侧 👋 与提交；窄屏胶囊换到第二行
+ * [POS]: components/layout 的顶部导航（参考 jevable.com）：左侧仅图标｜居中合一筛选胶囊（搜索·分类/标签·排序）｜右侧 👋 与 + 投稿弹窗（SubmitDialog）；窄屏胶囊换到第二行
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
-import { Plus } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 import type { Locale } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
 import { getActiveCategories, getLibrary, getVisibleEntries } from "@/lib/content/catalog";
 import { AUTHOR_X_URL } from "@/lib/site";
+import { SubmitDialog } from "@/components/pages/submit-dialog";
 import { FilterMenu } from "./filter-menu";
 import { SearchBox } from "./search-box";
 import { SortSelect } from "./sort-select";
@@ -50,9 +50,7 @@ export async function SiteHeader({ locale }: { locale: Locale }) {
           <a href={AUTHOR_X_URL} target="_blank" rel="noopener noreferrer" aria-label={t("hello")} title={t("hello")} className={`${circle} text-[22px]`}>
             <span aria-hidden>👋</span>
           </a>
-          <Link href="/contribute" aria-label={t("submit")} title={t("submit")} className={circle}>
-            <Plus className="size-5" aria-hidden />
-          </Link>
+          <SubmitDialog triggerClassName={circle} />
         </div>
       </div>
     </header>

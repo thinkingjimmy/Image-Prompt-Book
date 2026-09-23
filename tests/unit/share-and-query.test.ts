@@ -11,19 +11,29 @@ import { isIndexableListQuery, listQueryToSearch, matchesQuery, normalizeSearchT
 import { decodeShareHash, encodeShareHash } from "@/lib/prompt/share";
 
 const entry = loadContentLibrary({ root: path.resolve("content"), mediaRoot: path.resolve("public"), allowFixtures: false }).entries[0]!;
-const context = { templateVersion: entry.meta.templateVersion, parameters: entry.parameters, outputLocales: entry.meta.outputLocales };
+const context = { variants: entry.variants, outputLocales: entry.meta.outputLocales };
 const CANONICAL = "#v=1&template=2.0.0&output=en&p.faceColor=cream&p.blush=oval&p.background=charcoal&p.composition=lower-left&p.tilt=15&p.coloring=pastel&p.outline=none";
 
 describe("share hash", () => {
   it("encodes the PRD canonical form", () => {
     const selections = { outline: "none", coloring: "pastel", tilt: "15", composition: "lower-left", background: "charcoal", blush: "oval", faceColor: "cream" };
-    expect(encodeShareHash(context, { outputLocale: "en", selections })).toBe(CANONICAL);
+    expect(encodeShareHash(context, { variantId: "short", outputLocale: "en", selections })).toBe(CANONICAL);
   });
 
   it("round-trips", () => {
     const selections = { faceColor: "pale-peach", blush: "none", background: "deep-plum", composition: "centered", tilt: "20", coloring: "earthy", outline: "thin" };
-    const hash = encodeShareHash(context, { outputLocale: "zh-CN", selections });
-    expect(decodeShareHash(hash, context)).toEqual({ status: "ok", outputLocale: "zh-CN", selections, fallbacks: [] });
+    const hash = encodeShareHash(context, { variantId: "short", outputLocale: "zh-CN", selections });
+    expect(decodeShareHash(hash, context)).toEqual({ status: "ok", variantId: "short", outputLocale: "zh-CN", selections, fallbacks: [] });
+  });
+
+  it("records a non-default variant with its own template version", () => {
+    const selections = { composition: "right-gentle", background: "deep-plum", faceColor: "cream", blush: "none", shading: "flat", outline: "thin", featureBudget: "two" };
+    const hash = encodeShareHash(context, { variantId: "full", outputLocale: "en", selections });
+    expect(hash).toBe(
+      "#v=1&variant=full&template=1.1.0&output=en&p.composition=right-gentle&p.background=deep-plum&p.faceColor=cream&p.blush=none&p.shading=flat&p.outline=thin&p.featureBudget=two",
+    );
+    expect(decodeShareHash(hash, context)).toEqual({ status: "ok", variantId: "full", outputLocale: "en", selections, fallbacks: [] });
+    expect(decodeShareHash(hash.replace("variant=full", "variant=nope"), context)).toEqual({ status: "invalid", reason: "malformed" });
   });
 
   it("ignores unknown keys and falls back on invalid known values", () => {

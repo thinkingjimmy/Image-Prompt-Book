@@ -26,15 +26,15 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
           heading: "How to use it",
           items: [
             "Browse the gallery, search, or filter by category and tag.",
-            "Open a prompt to see its example images, source and license.",
+            "Open a prompt to see its example images, author and license.",
             "Change the highlighted options inside the text. The complete prompt updates immediately.",
-            "Pick the output language, copy the prompt, and paste it into the image tool you already use.",
+            "Switch between the short and full versions when both exist, then copy the prompt or open it directly in ChatGPT.",
           ],
         },
         {
           heading: "What the example images mean",
           paragraphs: [
-            "Example images show what the source or a maintainer actually produced. Changing options never regenerates, filters or swaps an image. Unless an image records the exact template version, language, options and model, it is labelled as not verified to match your current settings.",
+            "Example images show what the source or a maintainer actually produced. Changing options never regenerates, filters or swaps an image — the images show the style, not a preview of your current settings.",
           ],
         },
         {
@@ -48,7 +48,7 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
         {
           heading: "Languages",
           paragraphs: [
-            "The interface and every editable template are available in English and Simplified Chinese. Original prompts stay available in their source language, read-only, next to the adaptation.",
+            "The interface and every editable template are available in English and Simplified Chinese. The prompt always follows the site language you choose at the bottom of the page.",
           ],
         },
       ],
@@ -60,15 +60,15 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
           heading: "如何使用",
           items: [
             "浏览 Gallery，或通过搜索、分类与标签筛选。",
-            "打开一个 Prompt，查看案例图、来源与许可。",
+            "打开一个 Prompt，查看案例图、作者与许可。",
             "修改正文中高亮的选项，完整 Prompt 会立即同步更新。",
-            "选择输出语言并复制，粘贴到你正在使用的生图工具中。",
+            "有精简版与完整版时可以切换，然后复制 Prompt，或直接在 ChatGPT 中打开。",
           ],
         },
         {
           heading: "案例图代表什么",
           paragraphs: [
-            "案例图展示的是来源作者或维护者实际得到的结果。修改选项不会重新生成、加滤镜或替换图片。除非图片完整记录了模板版本、语言、选项与模型，否则都会标明“未验证与当前参数一致”。",
+            "案例图展示的是来源作者或维护者实际得到的结果。修改选项不会重新生成、加滤镜或替换图片——图片展示的是风格，而不是你当前设置的预览。",
           ],
         },
         {
@@ -77,7 +77,7 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
         },
         {
           heading: "语言",
-          paragraphs: ["界面与每个可编辑模板均提供英文与简体中文。原始 Prompt 以来源语言只读保留，与改编版本并列展示。"],
+          paragraphs: ["界面与每个可编辑模板均提供英文与简体中文。Prompt 始终跟随页面底部选择的站点语言。"],
         },
       ],
     },
@@ -178,7 +178,7 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
         },
         {
           heading: "Sharing a prompt",
-          paragraphs: ["When you publish or share a prompt, include its attribution. Every prompt page has a “Copy attribution” action for that purpose."],
+          paragraphs: ["When you publish or share a prompt, credit its author and license — both are shown right under the title on every prompt page — and note that it was adapted."],
         },
         {
           heading: "Report a rights issue",
@@ -208,7 +208,7 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
         },
         {
           heading: "分享 Prompt",
-          paragraphs: ["公开发布或转载 Prompt 时，请附上署名。每个 Prompt 详情页都提供“复制来源说明”。"],
+          paragraphs: ["公开发布或转载 Prompt 时，请注明作者与许可（每个 Prompt 详情页的标题下方都有），并说明内容经过改编。"],
         },
         {
           heading: "权利问题反馈",

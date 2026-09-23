@@ -10,3 +10,5 @@ playwright-report/
 test-results/
 tests/fixtures/.generated/
 .vercel
+# Local agent/editor settings
+.claude/

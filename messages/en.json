@@ -51,7 +51,6 @@
     "pageOf": "Page {page} of {total}",
     "requiresReference": "Needs a reference image",
     "sourceSite": "Source website",
-    "by": "by {name}",
     "moreImages": "+{count}",
     "moreImagesLabel": "{count, plural, one {# more example image} other {# more example images}}",
     "noImage": "No approved example image yet",
@@ -68,16 +67,11 @@
     "copyFailedBody": "Your browser blocked clipboard access. The text below is selected — press ⌘C or Ctrl+C.",
     "reset": "Reset options",
     "resetDone": "Options reset to defaults.",
-    "shareTemplate": "Copy template link",
-    "shareSettings": "Copy link with my options",
     "linkCopied": "Link copied.",
-    "copyAttribution": "Copy attribution",
-    "attributionCopied": "Attribution copied. Share it together with the prompt.",
     "hashInvalid": "The shared options link was damaged, so the defaults are shown.",
     "hashVersion": "The shared options were made for another template version, so the defaults are shown.",
     "hashFallback": "Some shared options were not recognized and use their defaults.",
     "hashApplied": "Loaded the shared options.",
-    "moreActions": "Share and attribution",
     "examples": "Example images",
     "viewLarge": "View larger image",
     "showExample": "Show example {index}",
@@ -86,17 +80,15 @@
     "lightboxTitle": "Example image",
     "useInChatGPT": "Use in ChatGPT",
     "chatgptOpened": "Opened ChatGPT. Attach your image there, then send.",
-    "adapted": "adapted"
+    "fitFull": "View full image",
+    "fitFill": "Fill",
+    "share": "Share link with my settings",
+    "version": "Prompt version"
   },
   "notFound": {
     "title": "Page not found",
     "body": "The page you are looking for does not exist.",
     "back": "Go to the gallery"
-  },
-  "languages": {
-    "en": "English",
-    "zh-CN": "Simplified Chinese",
-    "ko": "Korean"
   },
   "pages": {
     "aboutTitle": "About Image Prompt Book",
@@ -106,5 +98,17 @@
     "licensesTitle": "Licenses",
     "licensesDescription": "How the open-source code, third-party prompts, translations and example images are licensed.",
     "breadcrumbHome": "Gallery"
+  },
+  "submit": {
+    "title": "Submit a prompt",
+    "body": "Found a prompt worth sharing? No code needed — open a GitHub issue and we'll take it from there.",
+    "sourceTitle": "Suggest a prompt",
+    "sourceBody": "Share the link, what it makes and who made it. We check the license before adding anything.",
+    "sourceCta": "Open an issue",
+    "templateTitle": "Add a complete template",
+    "templateBody": "Comfortable with Git? Add the original, English and Chinese templates and options in a pull request.",
+    "templateCta": "Read the guide",
+    "guide": "How contributions work",
+    "rights": "Report a rights issue"
   }
 }

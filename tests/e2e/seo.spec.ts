@@ -29,7 +29,6 @@ test("detail HTML carries the title, default prompt, original, sources and image
     "APG",
     "CC BY-NC 4.0",
     "Fixture: solid dark square standing in for a bot icon",
-    "Needs a reference image",
   ]) {
     expect(html, needle).toContain(needle);
   }

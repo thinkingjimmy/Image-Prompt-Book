@@ -1,6 +1,6 @@
 /**
  * [INPUT]: 依赖 node:fs 读取 docs/examples/<slug>.md
- * [OUTPUT]: 对外提供 readAppendix()，按章节标题提取附录中的 JSON/text code fence（当前模板读 §12 v2，另附 v1 完整原文）
+ * [OUTPUT]: 对外提供 readAppendix()，按章节标题提取附录中的 JSON/text code fence（默认版本读 §12 v2 短版，完整版读 §12.11–12.13 v1.1.0）
  * [POS]: scripts/lib 的附录解析器，被 import-appendix 与 content-fidelity 单元测试共用，保证“导入”与“校验”读取同一基线
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -64,7 +64,14 @@ export function readAppendix(slug: string) {
       en: onlyFence(markdown, "### 12.9", "text"),
       "zh-CN": onlyFence(markdown, "### 12.10", "text"),
     },
-    /** The v1 full Korean prompt, kept as the source record. */
+    /** The full prompt's Korean original (§5); the site's "full" variant is the v1.1.0 adaptation in §12.11–12.13. */
     fullOriginal: onlyFence(markdown, "## 5.", "text"),
+    full: {
+      templates: {
+        en: onlyFence(markdown, "### 12.11", "text"),
+        "zh-CN": onlyFence(markdown, "### 12.12", "text"),
+      },
+      parameters: JSON.parse(onlyFence(markdown, "### 12.13", "json")) as unknown,
+    },
   };
 }

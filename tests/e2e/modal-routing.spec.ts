@@ -67,7 +67,7 @@ test("modifier-click opens the standalone detail in a new tab", async ({ page, c
 
 test("source links on cards open the source, not the detail", async ({ page, context }) => {
   await page.goto("/en");
-  const [popup] = await Promise.all([context.waitForEvent("page"), page.locator("main").getByRole("link", { name: "by APG" }).click()]);
+  const [popup] = await Promise.all([context.waitForEvent("page"), page.locator("main").getByRole("link", { name: "APG", exact: true }).click()]);
   expect(popup.url()).toContain("x.com/multi_serio_ai");
   await popup.close();
   await expect(page.getByRole("dialog")).toHaveCount(0);

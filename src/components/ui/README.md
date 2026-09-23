@@ -6,10 +6,9 @@ shadcn/ui 生成组件（`components.json`：style new-york、baseColor stone、
 
 成员清单
 button.tsx: Button 与 buttonVariants
-dialog.tsx: Dialog 组合件（用于手动复制回退）
+dialog.tsx: Dialog 组合件（投稿弹窗、手动复制回退；遮罩为毛玻璃 .glass-overlay）
 select.tsx: Select 组合件（参数下拉、排序）
-tabs.tsx: Tabs 组合件（当前未使用，保留 shadcn 原样）
-dropdown-menu.tsx: DropdownMenu 组合件（筛选、语言、分享与署名菜单）
-scroll-area.tsx: 自研滚动容器（原生滚动 + 自绘可拖拽细滚动条），用于详情弹窗与 Prompt 面板
+dropdown-menu.tsx: DropdownMenu 组合件（筛选、语言菜单）
+scroll-area.tsx: 自研滚动条：ScrollArea（元素级）与 PageScrollbar（整页，系统滚动条在 globals.css 中隐藏），共用可拖拽细滚动条
 
 [PROTOCOL]: Update this header when making changes, then check README.md.

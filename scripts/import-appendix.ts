@@ -1,6 +1,6 @@
 /**
  * [INPUT]: 依赖 docs/examples/<slug>.md 规范性附录的章节与 code fence
- * [OUTPUT]: 写出 content/prompts/<slug>/ 下的 meta/en/zh-CN/original/template/parameters/examples/ATTRIBUTION 文件
+ * [OUTPUT]: 写出 content/prompts/<slug>/ 下的 meta/en/zh-CN/original/template/parameters/examples/ATTRIBUTION 文件与 full/ 完整版变体
  * [POS]: scripts 的内容导入器，被维护者手动执行；appendix-fence 负责解析，content-fidelity 测试反向校验导入结果
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -24,6 +24,9 @@ const files: Record<string, string> = {
   "template.en.txt": text(appendix.templates.en),
   "template.zh-CN.txt": text(appendix.templates["zh-CN"]),
   "parameters.json": json(appendix.parameters),
+  "full/template.en.txt": text(appendix.full.templates.en),
+  "full/template.zh-CN.txt": text(appendix.full.templates["zh-CN"]),
+  "full/parameters.json": json(appendix.full.parameters),
   "examples.json": json(appendix.examples),
   "ATTRIBUTION.md": [
     `# Attribution — ${slug}`,
@@ -45,6 +48,7 @@ const files: Record<string, string> = {
   ].join("\n"),
 };
 
+mkdirSync(path.join(outDir, "full"), { recursive: true });
 for (const [name, body] of Object.entries(files)) {
   writeFileSync(path.join(outDir, name), body, "utf8");
   console.log(`wrote content/prompts/${slug}/${name}`);

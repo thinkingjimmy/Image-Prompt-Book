@@ -1,7 +1,7 @@
 /**
  * [INPUT]: 依赖 node:fs/path 读取内容目录，依赖 image-size 读取真实尺寸，依赖 ./schema 的单文件 schema，依赖 @/lib/prompt/template 的 parseTemplate
- * [OUTPUT]: 对外提供 loadContentLibrary()、publicationBlockers()、PromptEntry/ContentLibrary 类型
- * [POS]: lib/content 的加载与跨文件校验器，被 catalog.ts（运行时）与 scripts/check-content.ts（CI）共用，是“内容是否合法”的唯一判定
+ * [OUTPUT]: 对外提供 loadContentLibrary()、publicationBlockers()、PromptEntry/PromptVariant/ContentLibrary 类型
+ * [POS]: lib/content 的加载与跨文件校验器，被 catalog.ts（运行时）与 scripts/check-content.ts（CI）共用，是“内容是否合法”的唯一判定；支持多版本（variants，如精简/完整），逐版本校验模板与参数
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { existsSync, readdirSync, readFileSync } from "node:fs";
@@ -23,12 +23,23 @@ import {
   type Taxonomy,
 } from "./schema";
 
+/** One editable version of a prompt. Entries without `meta.variants` have a single "default" variant. */
+export type PromptVariant = {
+  id: string;
+  labels: Record<Locale, string> | null;
+  templateVersion: string;
+  templates: Partial<Record<Locale, string>>;
+  parameters: Parameter[];
+};
+
 export type PromptEntry = {
   meta: PromptMeta;
   content: Partial<Record<Locale, LocaleContent>>;
   original: string;
+  /** The default (first) variant's template and parameters, used for SEO, structured data and defaults. */
   templates: Partial<Record<Locale, string>>;
   parameters: Parameter[];
+  variants: PromptVariant[];
   examples: Example[];
   attribution: Partial<Record<Locale, string>>;
   /** Repository-relative directory, used for "improve on GitHub" links. */
@@ -63,7 +74,7 @@ export function publicationBlockers(entry: PromptEntry): string[] {
   }
   for (const locale of LOCALES) {
     if (!entry.content[locale]) blockers.push(`missing ${locale} page content`);
-    if (!entry.templates[locale]) blockers.push(`missing ${locale} template`);
+    for (const variant of entry.variants) if (!variant.templates[locale]) blockers.push(`missing ${locale} template${variant.id === "default" ? "" : ` (${variant.id})`}`);
     if (!entry.attribution[locale]) blockers.push(`missing ${locale} attribution`);
   }
   return blockers;
@@ -113,9 +124,9 @@ function parseAttribution(markdown: string): Partial<Record<Locale, string>> {
   return result;
 }
 
-function validateParameters(entry: PromptEntry, issues: string[], label: string) {
+function validateVariant(variant: PromptVariant, issues: string[], label: string) {
   const ids = new Set<string>();
-  for (const parameter of entry.parameters) {
+  for (const parameter of variant.parameters) {
     if (ids.has(parameter.id)) issues.push(`${label}: duplicate parameter ${parameter.id}`);
     ids.add(parameter.id);
     const optionIds = new Set<string>();
@@ -129,7 +140,7 @@ function validateParameters(entry: PromptEntry, issues: string[], label: string)
     if (!optionIds.has(parameter.default)) issues.push(`${label}: ${parameter.id} default "${parameter.default}" is not an option`);
   }
 
-  for (const [locale, template] of Object.entries(entry.templates) as [Locale, string][]) {
+  for (const [locale, template] of Object.entries(variant.templates) as [Locale, string][]) {
     let tokens: string[];
     try {
       tokens = templateTokenIds(parseTemplate(template));
@@ -140,11 +151,43 @@ function validateParameters(entry: PromptEntry, issues: string[], label: string)
     for (const token of tokens) if (!ids.has(token)) issues.push(`${label}: template.${locale} uses undeclared token {{${token}}}`);
     for (const id of ids) if (!tokens.includes(id)) issues.push(`${label}: template.${locale} never uses parameter ${id}`);
   }
+}
 
+/** Page copy must label every parameter of every variant, and nothing else. */
+function validateParameterLabels(entry: PromptEntry, issues: string[], label: string) {
+  const ids = new Set(entry.variants.flatMap((variant) => variant.parameters.map((parameter) => parameter.id)));
   for (const [locale, content] of Object.entries(entry.content) as [Locale, LocaleContent][]) {
     for (const id of ids) if (!content.parameterLabels[id]) issues.push(`${label}: ${locale}.json lacks parameterLabels.${id}`);
     for (const key of Object.keys(content.parameterLabels)) if (!ids.has(key)) issues.push(`${label}: ${locale}.json labels unknown parameter ${key}`);
   }
+}
+
+function loadVariant(
+  dir: string,
+  spec: { id: string; labels: Record<Locale, string> | null; templateVersion: string; templatePaths: Partial<Record<Locale, string>>; parametersPath: string },
+  outputLocales: readonly Locale[],
+  issues: string[],
+  label: string,
+): PromptVariant | null {
+  const where = spec.id === "default" ? label : `${label} (variant ${spec.id})`;
+  const templates: PromptVariant["templates"] = {};
+  for (const locale of outputLocales) {
+    const file = spec.templatePaths[locale];
+    if (!file) {
+      issues.push(`${where}: templatePaths.${locale} is missing`);
+      continue;
+    }
+    const text = readText(path.join(dir, file), issues, `${label}/${file}`);
+    if (text !== null) templates[locale] = text;
+  }
+  for (const locale of Object.keys(spec.templatePaths)) {
+    if (!outputLocales.includes(locale as Locale)) issues.push(`${where}: templatePaths.${locale} is not an output locale`);
+  }
+  const parameters = readJson(path.join(dir, spec.parametersPath), parametersSchema, issues, `${label}/${spec.parametersPath}`);
+  if (!parameters) return null;
+  const variant: PromptVariant = { id: spec.id, labels: spec.labels, templateVersion: spec.templateVersion, templates, parameters: parameters.parameters };
+  validateVariant(variant, issues, where);
+  return variant;
 }
 
 function validateExamples(entry: PromptEntry, options: LoadOptions, issues: string[], label: string) {
@@ -204,40 +247,36 @@ function loadEntry(dir: string, options: LoadOptions, taxonomy: Taxonomy, issues
     const data = readJson(path.join(dir, `${locale}.json`), localeContentSchema, issues, `${label}/${locale}.json`);
     if (data) content[locale] = data;
   }
-  const templates: PromptEntry["templates"] = {};
-  for (const locale of meta.outputLocales) {
-    const file = meta.templatePaths[locale];
-    if (!file) {
-      issues.push(`${label}: templatePaths.${locale} is missing`);
-      continue;
-    }
-    const text = readText(path.join(dir, file), issues, `${label}/${file}`);
-    if (text !== null) templates[locale] = text;
+  const specs = meta.variants ?? [{ id: "default", labels: null, templateVersion: meta.templateVersion, templatePaths: meta.templatePaths, parametersPath: meta.parametersPath }];
+  if (meta.variants) {
+    const [primary] = meta.variants;
+    const same = primary && primary.templateVersion === meta.templateVersion && primary.parametersPath === meta.parametersPath && JSON.stringify(primary.templatePaths) === JSON.stringify(meta.templatePaths);
+    if (!same) issues.push(`${label}: variants[0] must match the top-level templateVersion, templatePaths and parametersPath`);
+    if (new Set(meta.variants.map((variant) => variant.id)).size !== meta.variants.length) issues.push(`${label}: duplicate variant ids`);
   }
-  for (const locale of Object.keys(meta.templatePaths)) {
-    if (!meta.outputLocales.includes(locale as Locale)) issues.push(`${label}: templatePaths.${locale} is not an output locale`);
-  }
+  const variants = specs.map((spec) => loadVariant(dir, spec, meta.outputLocales, issues, label));
 
   const original = readText(path.join(dir, meta.originalPath), issues, `${label}/${meta.originalPath}`);
-  const parameters = readJson(path.join(dir, meta.parametersPath), parametersSchema, issues, `${label}/${meta.parametersPath}`);
   const examples = readJson(path.join(dir, meta.examplesPath), examplesSchema, issues, `${label}/${meta.examplesPath}`);
   const attributionFile = path.join(dir, "ATTRIBUTION.md");
   const attribution = existsSync(attributionFile) ? parseAttribution(readFileSync(attributionFile, "utf8")) : {};
   if (!existsSync(attributionFile)) issues.push(`${label}: ATTRIBUTION.md not found`);
   for (const locale of meta.contentLocales) if (!attribution[locale]) issues.push(`${label}: ATTRIBUTION.md lacks a ${locale} block`);
 
-  if (original === null || !parameters || !examples) return null;
+  if (original === null || !examples || variants.some((variant) => !variant)) return null;
+  const loaded = variants as PromptVariant[];
   const entry: PromptEntry = {
     meta,
     content,
     original,
-    templates,
-    parameters: parameters.parameters,
+    templates: loaded[0]!.templates,
+    parameters: loaded[0]!.parameters,
+    variants: loaded,
     examples,
     attribution,
     repoPath: path.relative(process.cwd(), dir).split(path.sep).join("/"),
   };
-  validateParameters(entry, issues, label);
+  validateParameterLabels(entry, issues, label);
   validateExamples(entry, options, issues, label);
 
   if (meta.status === "published") {
