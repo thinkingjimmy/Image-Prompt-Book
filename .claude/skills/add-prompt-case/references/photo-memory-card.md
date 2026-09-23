@@ -13,7 +13,7 @@ Result: `content/prompts/photo-memory-card/` (images in `images/`), `tests/unit/
 ## 2. License
 
 - Post and bio state no terms (bio: "AI & Tech | … DM for Collaborations"). Recorded `LicenseRef-Unspecified` ("No license stated"), `licenseUrl` = the post, `sourceLicenseUrl: null`, `commercialUse: "unknown"`, review pending; notices say all rights stay with the author.
-- Not added to `docs/ACKNOWLEDGEMENTS.md` — waits for the author's permission.
+- Credited in `docs/ACKNOWLEDGEMENTS.md` as "No license stated / 未声明许可"; taken down if the author files a rights request.
 - Flagged to the owner: the concept (photo on top, hand-made rendition below, handwritten English phrase) is close to `photo-abstract-editorial`, whose author has complained about copies.
 
 ## 3. Images

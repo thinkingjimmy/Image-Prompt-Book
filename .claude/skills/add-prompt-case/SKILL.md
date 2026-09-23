@@ -116,7 +116,7 @@ Then add a row to `docs/ACKNOWLEDGEMENTS.md` (see "Acknowledgements" below — t
 ```
 
 - Use the same author name and handle as `meta.json` and its `role: "original"` source (repo root or post URL); the license link is the one in `rights.licenseUrl`, labelled in both languages when it is custom (e.g. `Non-commercial / 非商业`).
-- A case with **no license stated** gets its row only once the author's permission is recorded.
+- A case with **no license stated** gets its row right away, with `No license stated / 未声明许可` linking the post. Permission is not required; if the author objects through a rights-request issue, take the case and its row down.
 - Keep the closing paragraphs (adaptations are not endorsed; rights-request link) untouched.
 
 ## Report to the user
