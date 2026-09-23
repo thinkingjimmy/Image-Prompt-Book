@@ -1,7 +1,7 @@
 /**
  * [INPUT]: 依赖 @/lib/content/catalog 的 getActiveCategories/getLibrary/getVisibleEntries，依赖同目录 SearchBox/FilterMenu/SortSelect
  * [OUTPUT]: 对外提供 SiteHeader 服务端组件
- * [POS]: components/layout 的顶部导航（参考 jevable.com）：左侧仅图标｜居中合一筛选胶囊（搜索·分类/标签·排序）｜右侧 👋 与 + 投稿弹窗（SubmitDialog）；所有宽度单行，窄屏时筛选与排序收为图标
+ * [POS]: components/layout 的顶部导航（参考 jevable.com）：左侧仅图标｜居中合一筛选胶囊（搜索·分类/标签·排序）｜右侧 👋 与 + 投稿弹窗（SubmitDialog）；所有宽度单行且吸顶，悬浮于内容之上（半透明渐变 + 渐隐模糊），窄屏时筛选与排序收为图标
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { getTranslations } from "next-intl/server";
@@ -26,12 +26,17 @@ export async function SiteHeader({ locale }: { locale: Locale }) {
     .map((tag) => ({ id: tag.id, label: tag.labels[locale] }));
 
   return (
-    <header className="relative z-30 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70 lg:sticky lg:top-0">
+    <header className="sticky top-0 z-30">
+      {/* Floats over the page: a translucent wash plus a blur that both fade out below the controls, so content scrolls visibly underneath. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 -bottom-6 bg-gradient-to-b from-background/85 via-background/55 to-transparent backdrop-blur-md [mask-image:linear-gradient(to_bottom,black_45%,transparent)]"
+      />
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded-md focus:bg-card focus:px-3 focus:py-2">
         {t("skip")}
       </a>
       {/* One row at every width: phones shrink the pill's filter and sort to icons instead of wrapping. */}
-      <div className="mx-auto flex max-w-[1800px] items-center gap-2 px-4 py-3 sm:gap-3 sm:px-6 sm:py-4 lg:px-8">
+      <div className="relative mx-auto flex max-w-[1800px] items-center gap-2 px-4 py-3 sm:gap-3 sm:px-6 sm:py-4 lg:px-8">
         <Link href="/" aria-label={t("home")} className={circle}>
           <BrandMark />
         </Link>
