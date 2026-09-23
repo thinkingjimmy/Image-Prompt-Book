@@ -10,5 +10,6 @@ playwright-report/
 test-results/
 tests/fixtures/.generated/
 .vercel
-# Local agent/editor settings
-.claude/
+# Local agent/editor settings; project skills are shared
+.claude/*
+!.claude/skills/

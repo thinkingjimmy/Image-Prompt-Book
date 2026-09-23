@@ -13,6 +13,7 @@ scripts/ - Content import, validation, link check, fixtures, measurements
 tests/ - Vitest unit tests and Playwright end-to-end tests
 docs/ - Product spec (PRD), task list, first-entry appendix, verification records
 .github/ - CI, issue and pull request templates
+.claude/skills/ - Agent skills; add-prompt-case imports a new prompt end to end
 </directory>
 
 <config>
@@ -48,6 +49,8 @@ Open http://localhost:3000. Draft entries appear with `IPB_PREVIEW_DRAFTS=1 pnpm
 Deploy with `pnpm build && pnpm start`. Set `SITE_URL=https://imagepromptbook.com` and `IPB_DEPLOY_ENV=production` on production only; every other environment is served `noindex`.
 
 ## Adding or changing a prompt
+
+Coding agents: use the project skill [`.claude/skills/add-prompt-case`](./.claude/skills/add-prompt-case/SKILL.md) — it covers pinning the source, license, images, templates, options and tests, with `photo-abstract-editorial` as a worked example.
 
 1. Read [`content/README.md`](./content/README.md) for the file format.
 2. Create `content/prompts/<slug>/` with `meta.json`, `original.<lang>.txt`, `en.json`, `zh-CN.json`, `template.en.txt`, `template.zh-CN.txt`, `parameters.json`, `examples.json` and `ATTRIBUTION.md`. Keep `status: "draft"`.
