@@ -24,7 +24,8 @@ export async function PromptCard({ entry, locale, taxonomy, eager }: { entry: Pr
   const content = contentFor(entry, locale);
   const href = promptPath(entry.meta.slug);
   const cover = entry.examples[0];
-  const tags = taxonomy.tags.filter((tag) => entry.meta.tags.includes(tag.id)).slice(0, 3);
+  // The entry's own tag order decides what shows first on its card.
+  const tags = entry.meta.tags.flatMap((id) => taxonomy.tags.filter((tag) => tag.id === id)).slice(0, 3);
   const source = entry.meta.sources.find((item) => item.role === "original") ?? entry.meta.sources[0]!;
   const author = source.author;
 
