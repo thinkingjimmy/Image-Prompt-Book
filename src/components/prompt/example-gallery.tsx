@@ -79,7 +79,7 @@ export function ExampleGallery({ examples, unoptimized, className }: { examples:
 
       <figcaption className="pointer-events-none absolute inset-x-3 bottom-3 flex items-end justify-between gap-3">
         {examples.length > 1 ? (
-          <div className={cn("pointer-events-auto flex gap-1.5 overflow-x-auto rounded-2xl p-1.5", glass)} role="group" aria-label={t("examples")}>
+          <div className={cn("pointer-events-auto flex gap-1.5 overflow-x-auto rounded-full p-1.5 [scrollbar-width:none]", glass)} role="group" aria-label={t("examples")}>
             {examples.map((example, itemIndex) => (
               <button
                 key={example.id}
@@ -87,7 +87,7 @@ export function ExampleGallery({ examples, unoptimized, className }: { examples:
                 aria-pressed={itemIndex === index}
                 aria-label={t("showExample", { index: itemIndex + 1 })}
                 onClick={() => setIndex(itemIndex)}
-                className={cn("size-10 shrink-0 overflow-hidden rounded-xl ring-2 ring-transparent transition sm:size-11", itemIndex === index ? "ring-white" : "opacity-60 hover:opacity-90")}
+                className={cn("size-10 shrink-0 overflow-hidden rounded-full ring-2 ring-transparent transition sm:size-11", itemIndex === index ? "ring-white" : "opacity-60 hover:opacity-90")}
               >
                 <ExampleImage src={example.src} width={example.width} height={example.height} alt="" sizes="44px" unoptimized={unoptimized} className="size-full" />
               </button>
