@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "outline",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "white",
+      "options": [
+        {
+          "id": "white",
+          "labels": {
+            "en": "Off-white outline",
+            "zh-CN": "米白描边"
+          },
+          "replacements": {
+            "en": "surround the subject with a ring of off-white or white beads to form a complete outline",
+            "zh-CN": "主体外围使用一圈米白色或白色拼豆形成完整描边"
+          }
+        },
+        {
+          "id": "dark",
+          "labels": {
+            "en": "Dark outline",
+            "zh-CN": "深色描边"
+          },
+          "replacements": {
+            "en": "surround the subject with a ring of dark charcoal beads to form a complete outline",
+            "zh-CN": "主体外围使用一圈深炭灰色拼豆形成完整描边"
+          }
+        },
+        {
+          "id": "none",
+          "labels": {
+            "en": "No outline",
+            "zh-CN": "不加描边"
+          },
+          "replacements": {
+            "en": "add no outline ring, so the subject's own edge beads form its silhouette",
+            "zh-CN": "主体外围不加描边，直接以主体边缘的拼豆形成轮廓"
+          }
+        }
+      ]
+    },
+    {
+      "id": "light",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "upper-left",
+      "options": [
+        {
+          "id": "upper-left",
+          "labels": {
+            "en": "Upper left",
+            "zh-CN": "左上方"
+          },
+          "replacements": {
+            "en": "Soft natural light comes from the upper left",
+            "zh-CN": "柔和自然光从左上方照射"
+          }
+        },
+        {
+          "id": "upper-right",
+          "labels": {
+            "en": "Upper right",
+            "zh-CN": "右上方"
+          },
+          "replacements": {
+            "en": "Soft natural light comes from the upper right",
+            "zh-CN": "柔和自然光从右上方照射"
+          }
+        },
+        {
+          "id": "overhead",
+          "labels": {
+            "en": "Overhead",
+            "zh-CN": "正上方"
+          },
+          "replacements": {
+            "en": "Soft natural light comes from directly above",
+            "zh-CN": "柔和自然光从正上方照射"
+          }
+        }
+      ]
+    }
+  ]
+}

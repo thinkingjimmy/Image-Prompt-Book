@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "palette",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "unified",
+      "options": [
+        {
+          "id": "unified",
+          "labels": {
+            "en": "Limited, unified",
+            "zh-CN": "有限统一"
+          },
+          "replacements": {
+            "en": "a limited, unified color order",
+            "zh-CN": "有限而统一的色彩秩序"
+          }
+        },
+        {
+          "id": "from-subject",
+          "labels": {
+            "en": "From the subject's colors",
+            "zh-CN": "取自主体配色"
+          },
+          "replacements": {
+            "en": "a limited, unified color order drawn from the subject's own colors",
+            "zh-CN": "取自主体自身配色、有限而统一的色彩秩序"
+          }
+        },
+        {
+          "id": "beige-navy-rust",
+          "labels": {
+            "en": "Beige, navy, rust",
+            "zh-CN": "米色·藏蓝·赭红"
+          },
+          "replacements": {
+            "en": "a limited, unified color order of beige, navy and rust",
+            "zh-CN": "以米色、藏蓝与赭红为主、有限而统一的色彩秩序"
+          }
+        },
+        {
+          "id": "black-vermilion",
+          "labels": {
+            "en": "Off-white, black, vermilion",
+            "zh-CN": "米白·黑·朱红"
+          },
+          "replacements": {
+            "en": "a limited, unified color order of off-white, black and vermilion",
+            "zh-CN": "以米白、黑与朱红为主、有限而统一的色彩秩序"
+          }
+        },
+        {
+          "id": "primaries",
+          "labels": {
+            "en": "Primaries with black and white",
+            "zh-CN": "三原色+黑白"
+          },
+          "replacements": {
+            "en": "a limited, unified color order of red, yellow and blue primaries with black and white",
+            "zh-CN": "以红黄蓝三原色和黑白为主、有限而统一的色彩秩序"
+          }
+        }
+      ]
+    },
+    {
+      "id": "text",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "none",
+      "options": [
+        {
+          "id": "none",
+          "labels": {
+            "en": "No text",
+            "zh-CN": "不加文字"
+          },
+          "replacements": {
+            "en": "Unless the subject explicitly calls for it, do not generate text, logos, watermarks, borders or UI, and do not make a multi-image collage.",
+            "zh-CN": "除非主题明确要求，否则不生成文字、Logo、水印、边框、UI，不做多图拼接。"
+          }
+        },
+        {
+          "id": "english-title",
+          "labels": {
+            "en": "Short English title",
+            "zh-CN": "简短英文标题"
+          },
+          "replacements": {
+            "en": "Add one short sans-serif English title to the bottom half as part of the poster composition; do not generate logos, watermarks, borders or UI, and do not make a multi-image collage.",
+            "zh-CN": "可在下半部分加入一行简短的英文无衬线标题，作为海报构成的一部分；不生成 Logo、水印、边框、UI，不做多图拼接。"
+          }
+        },
+        {
+          "id": "chinese-title",
+          "labels": {
+            "en": "Short Chinese title",
+            "zh-CN": "简短中文标题"
+          },
+          "replacements": {
+            "en": "Add one short sans-serif Chinese title to the bottom half as part of the poster composition; do not generate logos, watermarks, borders or UI, and do not make a multi-image collage.",
+            "zh-CN": "可在下半部分加入一行简短的中文无衬线标题，作为海报构成的一部分；不生成 Logo、水印、边框、UI，不做多图拼接。"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "photo-modernist-poster",
+  "slug": "photo-modernist-poster",
+  "templateVersion": "1.0.0",
+  "status": "draft",
+  "createdAt": "2026-09-23",
+  "updatedAt": "2026-09-23",
+  "publishedAt": null,
+  "category": "photo-art",
+  "tags": [
+    "geometric",
+    "2d",
+    "image-to-image"
+  ],
+  "originalLocale": "zh-CN",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.zh-CN.txt",
+  "templatePaths": {
+    "en": "template.en.txt",
+    "zh-CN": "template.zh-CN.txt"
+  },
+  "parametersPath": "parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": true,
+  "sourceRecommendedTools": [],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "x-post",
+      "type": "x",
+      "role": "original",
+      "title": "DAAI on X (2026-09-22)",
+      "url": "https://x.com/daaihq/status/2102196849428058547",
+      "author": {
+        "name": "DAAI",
+        "handle": "@daaihq",
+        "url": "https://x.com/daaihq"
+      },
+      "checkedAt": "2026-09-23"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/daaihq/status/2102196849428058547",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown"
+  }
+}

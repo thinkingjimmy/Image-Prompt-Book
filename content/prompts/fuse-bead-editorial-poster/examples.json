@@ -1,0 +1,36 @@
+[
+  {
+    "id": "cat-and-dog",
+    "src": "images/cat-and-dog.jpg",
+    "width": 1122,
+    "height": 1402,
+    "alt": {
+      "en": "Fuse-bead portrait of a ginger long-haired cat cuddling a smiling black-and-white border collie, outlined in cream beads on a cream surface, with five bead color swatches and the Chinese title “毛孩子的日常”",
+      "zh-CN": "拼豆作品：橘色长毛猫依偎着咧嘴笑的黑白边牧，米白拼豆描边，置于奶油白台面，下方五个拼豆色块和中文标题“毛孩子的日常”"
+    },
+    "sourceUrl": "https://x.com/Morry4AI/status/2102659403472388167",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, supplied by the owner (Jimmy Wong, 2026-09-23) and downloaded from the post at their request. The author states no license.",
+      "evidence": "https://x.com/Morry4AI/status/2102659403472388167"
+    },
+    "recipe": null
+  },
+  {
+    "id": "summer-girl",
+    "src": "images/summer-girl.jpg",
+    "width": 1024,
+    "height": 1536,
+    "alt": {
+      "en": "Fuse-bead portrait of a girl in a straw hat with long dark hair, a daisy earring and a bouquet of daisies, outlined in cream beads, with five color swatches and the Chinese title “少女與夏日”",
+      "zh-CN": "拼豆作品：戴草帽的长发少女，戴雏菊耳饰、抱着一束雏菊，米白拼豆描边，下方五个色块和中文标题“少女與夏日”"
+    },
+    "sourceUrl": "https://x.com/Morry4AI/status/2102659403472388167",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, supplied by the owner (Jimmy Wong, 2026-09-23) and downloaded from the post at their request. The author states no license.",
+      "evidence": "https://x.com/Morry4AI/status/2102659403472388167"
+    },
+    "recipe": null
+  }
+]

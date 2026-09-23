@@ -91,6 +91,20 @@
         "en": "Typography",
         "zh-CN": "字体排版"
       }
+    },
+    {
+      "id": "geometric",
+      "labels": {
+        "en": "Geometric",
+        "zh-CN": "几何"
+      }
+    },
+    {
+      "id": "pixel-art",
+      "labels": {
+        "en": "Pixel art",
+        "zh-CN": "像素"
+      }
     }
   ]
 }

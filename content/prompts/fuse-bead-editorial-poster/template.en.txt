@@ -1,0 +1,87 @@
+Using the uploaded image as reference, automatically identify its core subject and turn that subject into a real handmade Fuse Bead / Perler Bead artwork.
+
+[Subject fidelity]
+
+Strictly keep the subject's outline, proportions, pose, viewpoint, signature structures and main colors from the reference image; pixelate and simplify only structures that are too fine, so the original subject is still recognizable at a glance after the conversion.
+
+Do not simply add a pixel filter; rebuild the subject entirely as a real fuse-bead piece.
+
+[Bead material]
+
+The subject is made bead by bead from hundreds of uniformly sized, regularly arranged cylindrical plastic beads.
+
+Every bead must be clearly visible:
+the central hole, the cylindrical structure, the regular grid and the fine gaps between beads.
+
+Use a limited palette, expressing the subject's structure, shadows and highlights through beads of different colors; {{outline}}.
+
+[Background and photography]
+
+Replace the background with a clean, warm cream-white matte surface; keep the overall tone soft and low-saturation, with no visible paper fibers, wood grain or coarse grain, only an extremely fine, even matte texture.
+
+Use the look of real still-life photography.
+{{light}}; the beads read as fine matte plastic and cast a slight, soft floating shadow on the cream-white surface.
+
+[Color display]
+
+Analyze the reference image and the converted bead subject, and extract the 3–5 most representative key colors from the subject to form a minimal set of color swatches.
+
+The swatches sit between the bead subject and the text title, arranged horizontally and centered.
+
+Each swatch is small, with uniform proportions and even spacing; use solid swatches without gradients, 3D effects or complex borders.
+
+The swatch colors must truly come from the subject, including:
+the main color, secondary color, dark color, light color or a distinctive accent color.
+
+Decide automatically whether to use 3, 4 or 5 swatches based on the subject's actual colors; do not add meaningless colors just to fill the count.
+
+The swatches are only a supporting visual element; their total width is clearly smaller than the subject, and they do not steal the subject's visual focus.
+
+[Typography]
+
+Below the swatches, generate a concise Chinese main title and a very short Chinese subtitle based on the image content.
+
+Set the Chinese main title in a modern high-contrast Song / Mincho typeface:
+light weight, fine sharp serifs, open letterforms, slightly increased letter spacing, centered.
+
+The subtitle is clearly smaller and lighter, with wider letter spacing.
+
+The whole should have the editorial feel of a high-end Chinese magazine, an art publication and a boutique brand advertisement.
+
+[Composition]
+
+Use a 4:5 vertical minimal editorial poster layout; whatever the original aspect ratio of the reference image, always refit the final image to 4:5 vertical, without following the original ratio.
+
+[Layout structure]
+
+Generous empty space at the top
+↓
+Bead subject
+↓
+3–5 theme color swatches
+↓
+Chinese main title
+↓
+Small Chinese subtitle
+↓
+Generous empty space at the bottom
+
+The bead subject sits slightly above the center of the frame and takes up about 35%–50% of it.
+
+Adapt the subject's size to its own horizontal, vertical or irregular outline, showing it whole while keeping its original proportions: no stretching, squashing or cropping.
+
+Align all elements along the central axis, with ample spacing and plenty of negative space.
+
+The subject, swatches, title and subtitle all stay within the safe area, away from the edges of the frame, and the layout is not broken by different reference-image ratios.
+
+The final format is fixed at 4:5 vertical.
+
+[Overall style]
+
+Fuse Bead Craft × Pixel Art × Color Palette × Minimal Editorial Poster × Product Photography.
+
+The image is restrained, quiet, refined and high-end, like a color-study page in an independent design magazine or a boutique brand's visual archive.
+
+[Avoid]
+
+Ordinary pixel art, mosaic, LEGO, glass beads, cross-stitch, knitted effects, complex backgrounds, huge color blocks, rainbow palettes, gradient swatches, heavy bold sans-serif type, cartoon fonts, calligraphy fonts, complex text effects and excessive 3D.

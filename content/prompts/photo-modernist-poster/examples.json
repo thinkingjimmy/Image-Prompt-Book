@@ -1,0 +1,36 @@
+[
+  {
+    "id": "curly-portrait",
+    "src": "images/curly-portrait.jpg",
+    "width": 1290,
+    "height": 1709,
+    "alt": {
+      "en": "Top: photo of a curly-haired young man in a navy coat and rust turtleneck against grey concrete buildings; bottom: the same man as a flat Modernist poster in navy, rust and beige, with a rust sun and blocky buildings",
+      "zh-CN": "上：身穿藏蓝大衣和赭红高领毛衣的卷发青年，背景是灰色混凝土建筑；下：同一人物的现代主义平面海报，藏蓝、赭红与米色块面，配赭红圆日和方块建筑"
+    },
+    "sourceUrl": "https://x.com/daaihq/status/2102196841710530995",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, supplied by the owner (Jimmy Wong, 2026-09-23). The author states no license.",
+      "evidence": "https://x.com/daaihq/status/2102196841710530995"
+    },
+    "recipe": null
+  },
+  {
+    "id": "scarf-cat",
+    "src": "images/scarf-cat.jpg",
+    "width": 517,
+    "height": 680,
+    "alt": {
+      "en": "Top: photo of a fluffy grey cat in a burgundy scarf sitting by a window; bottom: the same cat as a Modernist poster with a cream circle, red and black blocks and a silhouetted plant and dome",
+      "zh-CN": "上：戴酒红围巾的灰色长毛猫坐在窗边；下：同一只猫的现代主义海报，米色圆形背景，红黑几何块面，配植物与穹顶剪影"
+    },
+    "sourceUrl": "https://x.com/daaihq/status/2102196841710530995",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, supplied by the owner (Jimmy Wong, 2026-09-23). The author states no license.",
+      "evidence": "https://x.com/daaihq/status/2102196841710530995"
+    },
+    "recipe": null
+  }
+]
