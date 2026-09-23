@@ -5,7 +5,7 @@
 App Router 路由树。根布局位于 `[locale]/`（使 `<html lang>` 随语言变化）；`/` → `/en` 的固定跳转在 `next.config.ts`。
 
 成员清单
-globals.css: Tailwind v4 主题 token（暖白、近黑、淡紫参数色）、`js:` 自定义变体、reduced-motion、`.masonry` 1/2/3/4/5 列布局
+globals.css: Tailwind v4 主题 token（暖白、近黑、淡紫参数色）、`js:` 自定义变体、reduced-motion、`.masonry` 2/3/4/5 列布局（手机也是两列）
 sitemap.ts: 由统一发布谓词生成各语言首页/分类/详情/说明页 + hreflang，lastmod 取内容真实 updatedAt
 robots.ts: 允许抓取（筛选页需被读到 noindex），生产环境声明 sitemap
 icon.svg: 站点图标（胶囊眼抽象）

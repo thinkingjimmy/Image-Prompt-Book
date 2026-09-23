@@ -17,7 +17,7 @@ import { CardLink } from "./card-link";
 import { ExampleImage } from "./example-image";
 
 const tagClass = "inline-flex h-6 shrink-0 items-center gap-1 whitespace-nowrap rounded-full border border-border bg-card/60 px-2.5 text-xs text-muted-foreground";
-const CARD_SIZES = "(max-width: 479px) 100vw, (max-width: 767px) 50vw, (max-width: 1023px) 33vw, (max-width: 1439px) 25vw, 20vw";
+const CARD_SIZES = "(max-width: 767px) 50vw, (max-width: 1023px) 33vw, (max-width: 1439px) 25vw, 20vw";
 
 export async function PromptCard({ entry, locale, taxonomy, eager }: { entry: PromptEntry; locale: Locale; taxonomy: Taxonomy; eager: boolean }) {
   const t = await getTranslations({ locale, namespace: "gallery" });
@@ -30,9 +30,9 @@ export async function PromptCard({ entry, locale, taxonomy, eager }: { entry: Pr
   const author = source.author;
 
   return (
-    <li className="mb-7 list-none">
+    <li className="mb-5 list-none sm:mb-7">
       <article className="group">
-        <CardLink href={href} tabIndex={-1} aria-hidden className="relative block overflow-hidden rounded-[18px] bg-muted shadow-[0_1px_2px_rgba(28,27,25,0.05)] ring-1 ring-black/[0.06]">
+        <CardLink href={href} tabIndex={-1} aria-hidden className="relative block overflow-hidden rounded-[14px] bg-muted sm:rounded-[18px] shadow-[0_1px_2px_rgba(28,27,25,0.05)] ring-1 ring-black/[0.06]">
           {cover ? (
             <ExampleImage
               src={mediaUrl(cover.src)}
@@ -60,8 +60,8 @@ export async function PromptCard({ entry, locale, taxonomy, eager }: { entry: Pr
           )}
         </CardLink>
 
-        <div className="px-2 pt-3.5">
-          <h2 className="text-[17px] leading-snug font-semibold tracking-tight text-balance [overflow-wrap:anywhere]">
+        <div className="px-1 pt-2.5 sm:px-2 sm:pt-3.5">
+          <h2 className="text-[15px] leading-snug font-semibold tracking-tight text-balance [overflow-wrap:anywhere] sm:text-[17px]">
             <CardLink href={href} className="rounded-sm hover:underline hover:decoration-foreground/30 hover:underline-offset-4">
               {content.title}
             </CardLink>

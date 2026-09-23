@@ -36,7 +36,7 @@ test.describe("responsive gallery", () => {
   test.skip(({ isMobile, browserName }) => isMobile || browserName !== "chromium", "desktop Chromium drives the viewport matrix");
 
   const matrix: [number, number][] = [
-    [375, 1],
+    [375, 2],
     [600, 2],
     [800, 3],
     [1200, 4],
