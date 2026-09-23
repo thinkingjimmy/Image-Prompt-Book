@@ -7,15 +7,30 @@ description: Add a new prompt entry (case) to Image Prompt Book from a source su
 
 A case is one folder in `content/prompts/<slug>/` plus its images in `public/examples/<slug>/`. The site reads files only; `pnpm content:check` is the gate. Read `content/README.md` for the field reference and `AGENTS.md` for code and documentation conventions before writing files.
 
-Worked example: `references/photo-abstract-editorial.md` (a GitHub repo with zh + en prompts, a custom non-commercial license and example images). Read it before your first case — it shows every decision below applied once.
+Worked examples — read the one that matches your source before starting:
+
+- `references/photo-abstract-editorial.md`: a GitHub repo with zh + en prompts, a custom non-commercial license and example images.
+- `references/photo-memory-card.md`: an X post with an English-only prompt, **no license**, and images the owner pasted in.
 
 ## 1. Pin the source before reading it
 
 - GitHub: get the latest commit SHA (`gh api repos/<owner>/<repo>/commits --jq '.[0].sha'`) and fetch every file through `raw.githubusercontent.com/<owner>/<repo>/<sha>/…`. Link sources at `/blob/<sha>/…`, never `main` — upstream edits must not silently change what we credit.
 - Websites that serve the prompt through a copy button: read it the way that button does (in the page), not by scraping around access controls.
+- X posts: see "X posts" below.
 - Record SHA-256 of each upstream prompt file; put the short hashes in `ATTRIBUTION.md`.
 
 **Why:** we credit and license exactly one version; a moving target makes the attribution false.
+
+### X posts
+
+- Open the post in the browser pane and read it with `get_page_text` (logged-out view is enough for public posts). Do not use third-party mirrors or scrapers.
+- Pin it by URL `https://x.com/<handle>/status/<id>` (the ID never changes) and the post date. Check the post for "Last edited"; if edited, use the latest version and say so in `ATTRIBUTION.md`.
+- `original.en.txt` (or the post's language) is only the prompt text exactly as posted — drop the "Prompt:" label and the model line, keep paragraph breaks, curly quotes and spelling. Hash that text (without our added final newline) and put the hash in `ATTRIBUTION.md` and the entry test.
+- The model line (e.g. "GPT Image 2 On ChatGPT") goes to `sourceRecommendedTools`, never `verifiedModels`.
+- Author: display name, `@handle`, profile URL; source `type: "x"`, `role: "original"`, title like `"<Name> on X (<YYYY-MM-DD>)"`.
+- Read the profile bio for usage terms. A bio like "DM for collaborations" is not a license.
+- Images in the post (`pbs.twimg.com`) follow section 3: download only if the user asked for them. Users can also paste them in; treat pasted images as supplied by the owner.
+- Compare the idea with existing entries. If it closely resembles another author's prompt, tell the user — some authors have publicly complained about copies.
 
 ## 2. Settle author and license — then stop if it is not allowed
 
@@ -25,13 +40,27 @@ Worked example: `references/photo-abstract-editorial.md` (a GitHub repo with zh 
 - `rights.releaseReview.status` stays `pending`. Only the owner approves, with reviewer, date and evidence.
 - If the terms forbid redistribution even non-commercially, tell the user and do not import the text.
 
+### No license stated
+
+Silence is not permission: by default the author keeps all rights. You may still import the case **as a draft** (drafts are never public), recorded like this:
+
+- `promptLicense: "LicenseRef-Unspecified"` (already mapped to "No license stated"), `licenseUrl`: the post or page where you checked for terms, `sourceLicenseUrl: null`, `commercialUse: "unknown"`, `releaseReview.status: "pending"`.
+- `licenseNotice` / `ATTRIBUTION.md`: "The author did not state a license. All rights remain with the author until permission is recorded; this entry stays a draft."
+- Images: `rights.status: "pending"`, basis naming who supplied them and that no license is stated.
+- Do **not** list it under "Current entries" in the READMEs or in the acknowledgements until permission is recorded — those lists describe what the site shows.
+- Publishing needs the author's written permission, linked as `releaseReview.evidence` (e.g. their reply). Offer the user this request to send:
+
+  > Hi <name>, I run Image Prompt Book (https://github.com/thinkingjimmy/Image-Prompt-Book), an open-source, non-commercial gallery of editable image prompts. May I include your prompt from <post URL>, with credit and a link to your post, plus the example images from that post? I'd add an English/Chinese version with a few adjustable options, clearly marked as an adaptation.
+  >
+  > 你好 <name>，我在做 Image Prompt Book（开源、非商业的可编辑生图 Prompt 图库）。想收录你在 <post URL> 分享的 Prompt 和帖子里的案例图，会署名并链接原帖，并提供标注为改编的中英文版本与少量可调选项，可以吗？
+
 **Why:** the site shows third-party work; a wrong license or credit is the one mistake that cannot be fixed with a redeploy.
 
 ## 3. Images: ask, pick, localize, keep pending
 
 - Download only when the user asked for this source's images (that is the permission). Never hotlink.
 - Prefer the images the author features (README order). Drop ones that contradict the prompt (e.g. text in the image when the prompt forbids text) or come from older versions.
-- Resize to ≤1600 px on the long edge, JPEG q≈82 (`sips -Z 1600 -s format jpeg -s formatOptions 82 in --out out`); keep PNG only for transparency. Put the chosen cover first in `examples.json`.
+- Resize to ≤1600 px on the long edge, JPEG q≈82 (`sips -Z 1600 -s format jpeg -s formatOptions 82 in --out out`); keep PNG only for transparency. `sips -Z` also **enlarges** smaller images — check `sips -g pixelWidth` first and drop `-Z` when the image is already ≤1600 px. Put the chosen cover first in `examples.json`.
 - Look at every image (small preview) and write true bilingual `alt` text. Real `width`/`height` (the checker verifies them).
 - `rights.status: "pending"` with an honest `basis` (who asked, what the source terms say) and `evidence` (license URL). `provenance: "source-reported"`, `recipe: null`.
 
@@ -75,8 +104,20 @@ Unit test: `tests/unit/content.test.ts` already renders every option combination
 
 Preview with `IPB_PREVIEW_DRAFTS=1 pnpm dev`: check the card (cover, tags on one line, author), the detail at desktop and 375 px (chips wrap, block options lead their paragraph, notice above the buttons).
 
-Then add the entry to "Current entries" under `## License` in both `README.md` and `README.zh-CN.md` (author, license, commercial terms), add one line to `docs/TODO.md` (source, commit, license status, what is pending), commit on a branch staging only your files (`git add <paths>`, never `-A` — other sessions may be editing), fast-forward `main`, push.
+Then add the entry to "Current entries" under `## License` in both `README.md` and `README.zh-CN.md` (author, license, commercial terms) and a row to `ACKNOWLEDGEMENTS.md` (see "Acknowledgements" below), add one line to `docs/TODO.md` (source, commit, license status, what is pending), commit on a branch staging only your files (`git add <paths>`, never `-A` — other sessions may be editing), fast-forward `main`, push.
+
+### Acknowledgements
+
+`ACKNOWLEDGEMENTS.md` thanks every author whose prompt the site shows. Add one row per case, in the order cases were added, matching the existing rows:
+
+```md
+| <English title><br><Chinese title> | <Author> ([@handle](<profile URL>)) | [<source title>](<original source URL>) | [<license name>](<license URL>) |
+```
+
+- Use the same author name and handle as `meta.json` and its `role: "original"` source (repo root or post URL); the license link is the one in `rights.licenseUrl`, labelled in both languages when it is custom (e.g. `Non-commercial / 非商业`).
+- A case with **no license stated** gets its row only once the author's permission is recorded (same rule as the README entries).
+- Keep the closing paragraphs (adaptations are not endorsed; rights-request link) untouched.
 
 ## Report to the user
 
-Say what was imported (source + commit), the license as found (and any conflict), which images were kept or dropped and why, the options you chose, and exactly what still blocks publishing (usage review, image permission). Flag anything you could not verify, such as very long prompts in the ChatGPT pre-fill link.
+Say what was imported (source + commit or post ID), the license as found (any conflict, or that none is stated), which images were kept or dropped and why, the options you chose (and any you dropped to avoid contradictions), and exactly what still blocks publishing (usage review, image permission, author permission for unlicensed posts). Flag anything you could not verify, such as very long prompts in the ChatGPT pre-fill link, and any close resemblance to an existing entry.
