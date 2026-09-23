@@ -69,7 +69,7 @@ export default async function PromptPage({ params }: Props) {
             datePublished: entry.meta.publishedAt,
             author: source.author ? { name: source.author.name, url: source.author.url } : null,
             basedOn: source.url,
-            images: entry.examples.map((example) => ({ url: absoluteUrl(mediaUrl(example.src)), width: example.width, height: example.height, caption: example.caption?.[locale] ?? example.alt[locale] })),
+            images: entry.examples.map((example) => ({ url: absoluteUrl(mediaUrl(entry.meta.slug, example.src)), width: example.width, height: example.height, caption: example.caption?.[locale] ?? example.alt[locale] })),
           }),
         ]}
       />

@@ -8,7 +8,7 @@ import { loadContentLibrary, publicationBlockers } from "@/lib/content/load";
 import { contentConfig } from "@/lib/site";
 
 const config = contentConfig();
-const library = loadContentLibrary({ root: config.root, mediaRoot: config.mediaRoot, allowFixtures: config.isFixture });
+const library = loadContentLibrary({ root: config.root, allowFixtures: config.isFixture });
 
 console.log(`Content root: ${config.root}${config.isFixture ? " (fixture)" : ""}`);
 for (const entry of library.entries) {

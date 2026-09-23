@@ -5,7 +5,7 @@ description: Add a new prompt entry (case) to Image Prompt Book from a source su
 
 # Add a prompt case
 
-A case is one folder in `content/prompts/<slug>/` plus its images in `public/examples/<slug>/`. The site reads files only; `pnpm content:check` is the gate. Read `content/README.md` for the field reference and `AGENTS.md` for code and documentation conventions before writing files.
+A case is one folder, `content/prompts/<slug>/`, with its images in `images/` inside it (`src: "images/<file>"` in `examples.json`). The site reads files only; `pnpm content:check` is the gate. Read `content/README.md` for the field reference and `AGENTS.md` for code and documentation conventions before writing files.
 
 Worked examples — read the one that matches your source before starting:
 
@@ -49,7 +49,7 @@ Silence is not permission: by default the author keeps all rights. You may still
 - `promptLicense: "LicenseRef-Unspecified"` (already mapped to "No license stated"), `licenseUrl`: the post or page where you checked for terms, `sourceLicenseUrl: null`, `commercialUse: "unknown"`, `releaseReview.status: "pending"`.
 - `licenseNotice` / `ATTRIBUTION.md`: "The author did not state a license. All rights remain with the author until permission is recorded; this entry stays a draft."
 - Images: `rights.status: "pending"`, basis naming who supplied them and that no license is stated.
-- Do **not** add it to `ACKNOWLEDGEMENTS.md` until permission is recorded — that list describes what the site shows.
+- Do **not** add it to `docs/ACKNOWLEDGEMENTS.md` until permission is recorded — that list describes what the site shows.
 - Publishing needs the author's written permission, linked as `releaseReview.evidence` (e.g. their reply). Offer the user this request to send:
 
   > Hi <name>, I run Image Prompt Book (https://github.com/thinkingjimmy/Image-Prompt-Book), an open-source, non-commercial gallery of editable image prompts. May I include your prompt from <post URL>, with credit and a link to your post, plus the example images from that post? I'd add an English/Chinese version with a few adjustable options, clearly marked as an adaptation.
@@ -107,11 +107,11 @@ Unit test: `tests/unit/content.test.ts` already renders every option combination
 
 Preview with `IPB_PREVIEW_DRAFTS=1 pnpm dev`: check the card (cover, tags on one line, author), the detail at desktop and 375 px (chips wrap, block options lead their paragraph, notice above the buttons).
 
-Then add a row to `ACKNOWLEDGEMENTS.md` (see "Acknowledgements" below — the READMEs and the About page link to it instead of listing entries), add one line to `docs/TODO.md` (source, commit, license status, what is pending), commit on a branch staging only your files (`git add <paths>`, never `-A` — other sessions may be editing), fast-forward `main`, push.
+Then add a row to `docs/ACKNOWLEDGEMENTS.md` (see "Acknowledgements" below — the READMEs and the About page link to it instead of listing entries), add one line to `docs/TODO.md` (source, commit, license status, what is pending), commit on a branch staging only your files (`git add <paths>`, never `-A` — other sessions may be editing), fast-forward `main`, push.
 
 ### Acknowledgements
 
-`ACKNOWLEDGEMENTS.md` thanks every author whose prompt the site shows. Add one row per case, in the order cases were added, matching the existing rows:
+`docs/ACKNOWLEDGEMENTS.md` thanks every author whose prompt the site shows. Add one row per case, in the order cases were added, matching the existing rows:
 
 ```md
 | <English title><br><Chinese title> | <Author> ([@handle](<profile URL>)) | [<source title>](<original source URL>) | [<license name>](<license URL>) |

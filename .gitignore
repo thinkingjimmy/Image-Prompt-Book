@@ -6,8 +6,8 @@ next-env.d.ts
 *.tsbuildinfo
 .env*.local
 .DS_Store
-playwright-report/
-test-results/
+tests/playwright-report/
+tests/test-results/
 tests/fixtures/.generated/
 .vercel
 # Local agent/editor settings; project skills are shared

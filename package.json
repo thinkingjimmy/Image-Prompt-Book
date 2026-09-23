@@ -16,8 +16,8 @@
     "content:check": "tsx scripts/check-content.ts",
     "content:import": "tsx scripts/import-appendix.ts",
     "links:check": "tsx scripts/check-links.ts",
-    "test": "vitest run",
-    "test:e2e": "playwright test",
+    "test": "vitest run -c tests/vitest.config.mts",
+    "test:e2e": "playwright test -c tests/playwright.config.ts",
     "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm build",
     "vitals": "tsx scripts/measure-vitals.ts"
   },

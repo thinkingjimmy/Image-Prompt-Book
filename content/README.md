@@ -6,7 +6,7 @@ Git-maintained prompt library. Every file here is data: validated by `src/lib/co
 
 成员清单
 taxonomy.json: 分类与标签词表，`categories[].labels/descriptions` 与 `tags[].labels` 均需 en/zh-CN；条目只能引用这里声明的 ID
-prompts/<slug>/: 单个条目目录，目录名 = id = slug，稳定且跨语言共享
+prompts/<slug>/: 单个条目目录，目录名 = id = slug，稳定且跨语言共享；文本、选项、署名与案例图（images/）都在这一个目录里
 
 ## Entry files
 
@@ -18,7 +18,7 @@ prompts/<slug>/: 单个条目目录，目录名 = id = slug，稳定且跨语言
 | `template.en.txt`, `template.zh-CN.txt` | Full adapted templates | Only `{{parameterId}}` tokens; every token declared, every parameter used |
 | `variants` (optional, in `meta.json`) | Several editable versions, e.g. Short and Full: each with `id`, `labels`, `templateVersion`, `templatePaths`, `parametersPath` (files may sit in one subfolder such as `full/`) | The first variant must match the top-level template and is the default; page labels must cover every variant's parameters |
 | `parameters.json` | `select` parameters (`renderAs` inline/block), default, options with `labels` (UI) and `replacements` (prompt text) per locale | Replacements are final plain strings — no tokens, HTML or includes |
-| `examples.json` | Approved example images | `[]` allowed for drafts; published entries need ≥1 with `rights.status: "approved"` (`pending` images show only in local draft preview). Local `/examples/<slug>/…` path, true width/height, bilingual alt, `provenance`, rights review, `recipe` (null unless project-verified) |
+| `examples.json` | Approved example images | `[]` allowed for drafts; published entries need ≥1 with `rights.status: "approved"` (`pending` images show only in local draft preview). `images/<file>` inside the entry folder (served as `/media/<slug>/<file>` only while the entry is visible), true width/height, bilingual alt, `provenance`, rights review, `recipe` (null unless project-verified) |
 | `ATTRIBUTION.md` | `## en` and `## zh-CN` blocks, each one ```text fence | Used by "Copy attribution"; keep author, source, license, changes |
 
 ## Publication gate
@@ -31,6 +31,6 @@ Slugs are permanent. If one must change, add the old slug to `redirectFrom` in t
 
 ## Importing from a spec appendix
 
-`pnpm content:import <slug>` copies the normative appendix `docs/examples/<slug>.md` into this folder byte for byte; `tests/unit/prompts/<slug>.test.ts` re-checks the import.
+`pnpm content:import <slug>` copies the normative appendix `docs/appendix/<slug>.md` into this folder byte for byte; `tests/unit/prompts/<slug>.test.ts` re-checks the import.
 
 [PROTOCOL]: Update this header when making changes, then check README.md.

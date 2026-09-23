@@ -5,6 +5,8 @@
 `pnpm test` runs the unit suites (Vitest, fixtures rebuilt automatically). `pnpm test:e2e` runs Playwright against an isolated production build of the fixture content. `pnpm verify` runs lint, typecheck, unit tests, content check and build — the same as CI before E2E.
 
 成员清单
+vitest.config.mts: 单元测试配置（pnpm test 以 -c 指向），root 指回仓库根，globalSetup 重建 fixture
+playwright.config.ts: E2E 配置（pnpm test:e2e 以 -c 指向），webServer 在仓库根构建 fixture 站点；报告与 trace 写入 tests/playwright-report、tests/test-results（git 忽略）
 unit/helpers.ts: 共享工具——真实 content/ 的 library、promptEntry()、combinations()、composer()
 unit/content.test.ts: 内容通用套件——每个条目每个版本的全部组合 × 输出语言完整、单语言、互不相同；校验闸门拒绝各类坏内容（临时副本注入错误）
 unit/lib.test.ts: 纯逻辑——模板引擎、分享 hash、搜索/筛选/排序/分页

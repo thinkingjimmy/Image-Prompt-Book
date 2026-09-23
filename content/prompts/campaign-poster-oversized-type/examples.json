@@ -1,7 +1,7 @@
 [
   {
     "id": "dream",
-    "src": "/examples/campaign-poster-oversized-type/dream.jpg",
+    "src": "images/dream.jpg",
     "width": 468,
     "height": 832,
     "alt": {
@@ -21,7 +21,7 @@
   },
   {
     "id": "nature",
-    "src": "/examples/campaign-poster-oversized-type/nature.jpg",
+    "src": "images/nature.jpg",
     "width": 468,
     "height": 832,
     "alt": {
@@ -41,7 +41,7 @@
   },
   {
     "id": "pressure",
-    "src": "/examples/campaign-poster-oversized-type/pressure.jpg",
+    "src": "images/pressure.jpg",
     "width": 640,
     "height": 1080,
     "alt": {
@@ -61,7 +61,7 @@
   },
   {
     "id": "focus",
-    "src": "/examples/campaign-poster-oversized-type/focus.jpg",
+    "src": "images/focus.jpg",
     "width": 640,
     "height": 1080,
     "alt": {
@@ -81,7 +81,7 @@
   },
   {
     "id": "freedom",
-    "src": "/examples/campaign-poster-oversized-type/freedom.jpg",
+    "src": "images/freedom.jpg",
     "width": 640,
     "height": 1080,
     "alt": {
@@ -101,7 +101,7 @@
   },
   {
     "id": "bloom",
-    "src": "/examples/campaign-poster-oversized-type/bloom.jpg",
+    "src": "images/bloom.jpg",
     "width": 640,
     "height": 1080,
     "alt": {
@@ -121,7 +121,7 @@
   },
   {
     "id": "balance",
-    "src": "/examples/campaign-poster-oversized-type/balance.jpg",
+    "src": "images/balance.jpg",
     "width": 640,
     "height": 1080,
     "alt": {

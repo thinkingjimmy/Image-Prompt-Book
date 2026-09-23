@@ -1,7 +1,7 @@
 /**
  * [INPUT]: 依赖 next/navigation 的 useRouter/usePathname/useSearchParams，依赖 @/lib/content/query 的规范化与序列化
  * [OUTPUT]: 对外提供 SearchBox 客户端组件
- * [POS]: components/layout 的搜索输入；300ms debounce + Enter 立即提交，均以 replace 写入 URL 并重置页码；无 JS 时退化为 GET 表单
+ * [POS]: components/layout/header 的搜索输入；300ms debounce + Enter 立即提交，均以 replace 写入 URL 并重置页码；无 JS 时退化为 GET 表单
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 "use client";

@@ -2,7 +2,7 @@
 
 Request (2026-09-23): "use the new skill to test this: https://x.com/Sairah_0/status/2093212900160868430". The owner later pasted the post's three images into the chat.
 
-Result: `content/prompts/photo-memory-card/`, `public/examples/photo-memory-card/`, `tests/unit/prompts/photo-memory-card.test.ts`.
+Result: `content/prompts/photo-memory-card/` (images in `images/`), `tests/unit/prompts/photo-memory-card.test.ts`.
 
 ## 1. Source
 
@@ -13,7 +13,7 @@ Result: `content/prompts/photo-memory-card/`, `public/examples/photo-memory-card
 ## 2. License
 
 - Post and bio state no terms (bio: "AI & Tech | … DM for Collaborations"). Recorded `LicenseRef-Unspecified` ("No license stated"), `licenseUrl` = the post, `sourceLicenseUrl: null`, `commercialUse: "unknown"`, review pending; notices say all rights stay with the author.
-- Not added to `ACKNOWLEDGEMENTS.md` — waits for the author's permission.
+- Not added to `docs/ACKNOWLEDGEMENTS.md` — waits for the author's permission.
 - Flagged to the owner: the concept (photo on top, hand-made rendition below, handwritten English phrase) is close to `photo-abstract-editorial`, whose author has complained about copies.
 
 ## 3. Images

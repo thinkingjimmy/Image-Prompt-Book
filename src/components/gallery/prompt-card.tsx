@@ -35,7 +35,7 @@ export async function PromptCard({ entry, locale, taxonomy, eager }: { entry: Pr
         <CardLink href={href} tabIndex={-1} aria-hidden className="relative block overflow-hidden rounded-[14px] bg-muted sm:rounded-[18px] shadow-[0_1px_2px_rgba(28,27,25,0.05)] ring-1 ring-black/[0.06]">
           {cover ? (
             <ExampleImage
-              src={mediaUrl(cover.src)}
+              src={mediaUrl(entry.meta.slug, cover.src)}
               width={cover.width}
               height={cover.height}
               alt={cover.alt[locale]}

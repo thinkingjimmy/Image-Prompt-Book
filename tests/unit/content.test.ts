@@ -46,9 +46,8 @@ let root = "";
 function setup(mutate: (dir: string) => void, allowFixtures = false) {
   root = mkdtempSync(path.join(tmpdir(), "ipb-content-"));
   cpSync("content", root, { recursive: true });
-  cpSync("public/examples", path.join(root, "public", "examples"), { recursive: true });
   mutate(path.join(root, "prompts", SLUG));
-  return loadContentLibrary({ root, mediaRoot: path.join(root, "public"), allowFixtures });
+  return loadContentLibrary({ root, allowFixtures });
 }
 const editJson = (file: string, edit: (value: Record<string, unknown>) => unknown) => writeFileSync(file, JSON.stringify(edit(JSON.parse(readFileSync(file, "utf8")))));
 
@@ -121,10 +120,10 @@ describe("content validation", () => {
   it("rejects example images whose declared size is wrong or missing", () => {
     const fixtures = path.resolve("tests/fixtures/.generated/content");
     const { issues } = setup((dir) => {
-      cpSync(path.join(fixtures, "public"), path.join(root, "public"), { recursive: true });
+      cpSync(path.join(fixtures, "prompts", SLUG, "images"), path.join(dir, "images"), { recursive: true });
       const examples = JSON.parse(readFileSync(path.join(fixtures, "prompts", SLUG, "examples.json"), "utf8"));
       examples[0].width = 999;
-      examples[1].src = `/examples/${SLUG}/missing.png`;
+      examples[1].src = "images/missing.png";
       writeFileSync(path.join(dir, "examples.json"), JSON.stringify(examples));
     });
     expect(issues.join("\n")).toContain("declares 999x1000 but the file is 1000x1000");

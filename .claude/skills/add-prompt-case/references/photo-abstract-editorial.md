@@ -2,7 +2,7 @@
 
 Request (2026-09-23): "add a new case — zh prompt: …/references/photo-abstract-editorial-prompt.zh-CN.md, en: …prompt.en.md, images and source from https://github.com/ZzzLc0405/photo-abstract-editorial".
 
-Result: `content/prompts/photo-abstract-editorial/`, `public/examples/photo-abstract-editorial/`, `tests/unit/prompts/photo-abstract-editorial.test.ts`.
+Result: `content/prompts/photo-abstract-editorial/` (images in `images/`), `tests/unit/prompts/photo-abstract-editorial.test.ts`.
 
 ## 1. Source
 

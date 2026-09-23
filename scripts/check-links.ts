@@ -14,7 +14,7 @@ type Link = { slug: string; label: string; url: string };
 
 function collectLinks(): Link[] {
   const config = contentConfig();
-  const { entries } = loadContentLibrary({ root: config.root, mediaRoot: config.mediaRoot, allowFixtures: config.isFixture });
+  const { entries } = loadContentLibrary({ root: config.root, allowFixtures: config.isFixture });
   const links: Link[] = [];
   for (const entry of entries) {
     const slug = entry.meta.slug;

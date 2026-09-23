@@ -13,7 +13,7 @@ export type StaticSection = { heading: string; paragraphs?: string[]; items?: st
 export type StaticCopy = { lead: string; sections: StaticSection[] };
 
 const LICENSE = `${REPO_URL}/blob/main/LICENSE`;
-const ACKNOWLEDGEMENTS = `${REPO_URL}/blob/main/ACKNOWLEDGEMENTS.md`;
+const ACKNOWLEDGEMENTS = `${REPO_URL}/blob/main/docs/ACKNOWLEDGEMENTS.md`;
 
 export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
   about: {

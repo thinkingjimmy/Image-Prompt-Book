@@ -45,7 +45,7 @@ export function toPromptData(entry: PromptEntry, locale: Locale): PromptData {
 function toExampleViews(entry: PromptEntry, locale: Locale): ExampleView[] {
   return entry.examples.map((example) => ({
     id: example.id,
-    src: mediaUrl(example.src),
+    src: mediaUrl(entry.meta.slug, example.src),
     width: example.width,
     height: example.height,
     alt: example.alt[locale],

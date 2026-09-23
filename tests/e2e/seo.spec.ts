@@ -1,6 +1,6 @@
 /**
  * [INPUT]: 依赖 fixture 构建（IPB_DEPLOY_ENV=production、SITE_URL=https://imagepromptbook.com）
- * [OUTPUT]: SEO E2E：服务端 HTML 完整性、无 JS 可读默认 Prompt、canonical/hreflang/robots 矩阵、sitemap/robots.txt、结构化数据（AC-18/19/21）
+ * [OUTPUT]: SEO E2E：服务端 HTML 完整性、无 JS 可读默认 Prompt、canonical/hreflang/robots 矩阵、sitemap/robots.txt、结构化数据、只提供站点实际展示的图片（AC-18/19/21）
  * [POS]: tests/e2e 的可索引性套件
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -118,6 +118,12 @@ test("structured data is valid JSON and matches visible facts", async ({ page })
   expect(JSON.stringify(data)).not.toMatch(/AggregateRating|Review|ratingValue/);
 });
 
-test("fixture media is never served as public assets", async ({ request }) => {
-  expect((await request.get(`/examples/${SLUG}/fixture-dark.png`)).status()).toBe(404);
+test("only images the site shows are served", async ({ request }) => {
+  const shown = await request.get(`/media/${SLUG}/fixture-dark.png`);
+  expect(shown.status()).toBe(200);
+  expect(shown.headers()["content-type"]).toBe("image/png");
+  // Files that sit in an entry folder but are not listed (or belong to a draft) stay private.
+  expect((await request.get(`/media/${SLUG}/pink.jpg`)).status()).toBe(404);
+  expect((await request.get("/media/fixture-draft/cover.png")).status()).toBe(404);
+  expect((await request.get(`/media/${SLUG}/..%2Fmeta.json`)).status()).toBe(404);
 });

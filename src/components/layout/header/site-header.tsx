@@ -1,9 +1,10 @@
 /**
- * [INPUT]: 依赖 @/lib/content/catalog 的 getActiveCategories/getLibrary/getVisibleEntries，依赖同目录 SearchBox/FilterMenu/SortSelect
+ * [INPUT]: 依赖 next/image 与同目录 brand-mark.png（品牌图标），依赖 @/lib/content/catalog 的 getActiveCategories/getLibrary/getVisibleEntries，依赖同目录 HeaderShell/SearchBox/FilterMenu/SortSelect
  * [OUTPUT]: 对外提供 SiteHeader 服务端组件
- * [POS]: components/layout 的顶部导航（参考 jevable.com）：左侧仅图标｜居中合一筛选胶囊（搜索·分类/标签·排序）｜右侧 👋 与 + 投稿弹窗（SubmitDialog）；所有宽度单行且吸顶，悬浮于内容之上（半透明渐变 + 渐隐模糊），窄屏时筛选与排序收为图标
+ * [POS]: components/layout/header 的顶部导航（参考 jevable.com）：左侧仅图标｜居中合一筛选胶囊（搜索·分类/标签·排序）｜右侧 👋 与 + 投稿弹窗（SubmitDialog）；所有宽度单行且吸顶，悬浮于内容之上（半透明渐变 + 渐隐模糊），滚动后按钮与胶囊转为毛玻璃（悬停/聚焦时恢复不透明），窄屏时筛选与排序收为图标
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 import type { Locale } from "@/i18n/config";
@@ -12,10 +13,14 @@ import { getActiveCategories, getLibrary, getVisibleEntries } from "@/lib/conten
 import { AUTHOR_X_URL } from "@/lib/site";
 import { SubmitDialog } from "@/components/pages/submit-dialog";
 import { FilterMenu } from "./filter-menu";
+import { HeaderShell } from "./header-shell";
 import { SearchBox } from "./search-box";
 import { SortSelect } from "./sort-select";
+import brandMark from "./brand-mark.png";
 
-const circle = "grid size-11 shrink-0 place-items-center rounded-full bg-card shadow-[0_1px_2px_rgba(28,27,25,0.06),0_4px_14px_rgba(28,27,25,0.06)] ring-1 ring-black/[0.04] transition-transform hover:scale-[1.04] active:scale-[0.97]";
+// Once the page scrolls under the header, surfaces turn to frosted glass; hover and focus restore them for legibility.
+const glass = "bg-card backdrop-blur-xl transition-[background-color,scale] duration-200 group-data-scrolled/header:bg-card/55";
+const circle = `grid size-11 shrink-0 place-items-center rounded-full ${glass} group-data-scrolled/header:hover:bg-card shadow-[0_1px_2px_rgba(28,27,25,0.06),0_4px_14px_rgba(28,27,25,0.06)] ring-1 ring-black/[0.04] hover:scale-[1.04] active:scale-[0.97]`;
 
 export async function SiteHeader({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale, namespace: "nav" });
@@ -26,7 +31,7 @@ export async function SiteHeader({ locale }: { locale: Locale }) {
     .map((tag) => ({ id: tag.id, label: tag.labels[locale] }));
 
   return (
-    <header className="sticky top-0 z-30">
+    <HeaderShell>
       {/* Floats over the page: a translucent wash plus a blur that both fade out below the controls, so content scrolls visibly underneath. */}
       <div
         aria-hidden
@@ -38,11 +43,11 @@ export async function SiteHeader({ locale }: { locale: Locale }) {
       {/* One row at every width: phones shrink the pill's filter and sort to icons instead of wrapping. */}
       <div className="relative mx-auto flex max-w-[1800px] items-center gap-2 px-4 py-3 sm:gap-3 sm:px-6 sm:py-4 lg:px-8">
         <Link href="/" aria-label={t("home")} className={circle}>
-          <BrandMark />
+          <Image src={brandMark} alt="" priority unoptimized className="size-7" />
         </Link>
 
         <div className="flex min-w-0 flex-1 justify-center">
-          <div className="flex h-11 w-full max-w-xl items-center gap-0.5 rounded-full bg-card p-0.5 sm:h-12 sm:p-1 shadow-[0_1px_2px_rgba(28,27,25,0.05),0_6px_20px_rgba(28,27,25,0.06)] ring-1 ring-black/[0.05]">
+          <div className={`flex h-11 w-full max-w-xl items-center gap-0.5 rounded-full ${glass} group-data-scrolled/header:focus-within:bg-card p-0.5 sm:h-12 sm:p-1 shadow-[0_1px_2px_rgba(28,27,25,0.05),0_6px_20px_rgba(28,27,25,0.06)] ring-1 ring-black/[0.05]`}>
             <Suspense fallback={<div className="h-10 flex-1" />}>
               <SearchBox className="min-w-0 flex-1" />
               <span aria-hidden className="hidden h-5 w-px shrink-0 bg-border sm:block" />
@@ -59,16 +64,6 @@ export async function SiteHeader({ locale }: { locale: Locale }) {
           <SubmitDialog triggerClassName={circle} />
         </div>
       </div>
-    </header>
-  );
-}
-
-/** Two capsule eyes: the first entry's visual signature, readable at icon size. */
-function BrandMark() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden className="size-6">
-      <rect x="6.5" y="5" width="4" height="11" rx="2" fill="currentColor" transform="rotate(-12 8.5 10.5)" />
-      <rect x="13.5" y="5.5" width="4" height="11" rx="2" fill="currentColor" transform="rotate(-12 15.5 11)" />
-    </svg>
+    </HeaderShell>
   );
 }

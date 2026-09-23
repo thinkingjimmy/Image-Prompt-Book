@@ -55,8 +55,6 @@ export type ContentLibrary = {
 export type LoadOptions = {
   /** Directory holding taxonomy.json and prompts/. */
   root: string;
-  /** Directory that `/examples/...` image paths resolve against. */
-  mediaRoot: string;
   /** Only fixture roots may contain `fixture: true` records. */
   allowFixtures: boolean;
 };
@@ -190,17 +188,16 @@ function loadVariant(
   return variant;
 }
 
-function validateExamples(entry: PromptEntry, options: LoadOptions, issues: string[], label: string) {
+function validateExamples(entry: PromptEntry, dir: string, issues: string[], label: string) {
   const ids = new Set<string>();
   const parameterIds = new Map(entry.parameters.map((parameter) => [parameter.id, parameter]));
   for (const example of entry.examples) {
     const where = `${label}: example ${example.id}`;
     if (ids.has(example.id)) issues.push(`${where} duplicate id`);
     ids.add(example.id);
-    if (!example.src.startsWith(`/examples/${entry.meta.slug}/`)) issues.push(`${where} src must live under /examples/${entry.meta.slug}/`);
 
-    const file = path.join(options.mediaRoot, example.src);
-    if (!file.startsWith(path.resolve(options.mediaRoot)) || !existsSync(file)) {
+    const file = path.join(dir, example.src);
+    if (!existsSync(file)) {
       issues.push(`${where} image file not found (${example.src})`);
     } else {
       try {
@@ -277,7 +274,7 @@ function loadEntry(dir: string, options: LoadOptions, taxonomy: Taxonomy, issues
     repoPath: path.relative(process.cwd(), dir).split(path.sep).join("/"),
   };
   validateParameterLabels(entry, issues, label);
-  validateExamples(entry, options, issues, label);
+  validateExamples(entry, dir, issues, label);
 
   if (meta.status === "published") {
     for (const blocker of publicationBlockers(entry)) issues.push(`${label}: cannot be published — ${blocker}`);

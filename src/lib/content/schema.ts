@@ -159,7 +159,7 @@ export const parametersSchema = z.strictObject({
 
 export const exampleSchema = z.strictObject({
   id: slug,
-  src: z.string().regex(/^\/examples\/[a-z0-9-]+\/[A-Za-z0-9._-]+\.(?:webp|png|jpe?g|avif)$/, "must be a local /examples/<slug>/<file> image"),
+  src: z.string().regex(/^images\/[A-Za-z0-9._-]+\.(?:webp|png|jpe?g|avif)$/, "must be an images/<file> path inside the entry folder"),
   width: z.number().int().positive(),
   height: z.number().int().positive(),
   alt: localized(nonEmpty),

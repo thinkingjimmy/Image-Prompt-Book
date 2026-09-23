@@ -36,10 +36,10 @@ function png(width: number, height: number, [r, g, b]: [number, number, number])
 const json = (file: string, value: unknown) => writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`);
 
 function writeImage(slug: string, id: string, width: number, height: number, color: [number, number, number]) {
-  const dir = path.join(OUT, "public", "examples", slug);
+  const dir = path.join(OUT, "prompts", slug, "images");
   mkdirSync(dir, { recursive: true });
   writeFileSync(path.join(dir, `${id}.png`), png(width, height, color));
-  return { src: `/examples/${slug}/${id}.png`, width, height };
+  return { src: `images/${id}.png`, width, height };
 }
 
 export default function buildFixtures() {

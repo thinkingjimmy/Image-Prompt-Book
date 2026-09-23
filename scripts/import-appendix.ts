@@ -1,5 +1,5 @@
 /**
- * [INPUT]: 依赖 docs/examples/<slug>.md 规范性附录的章节与 code fence
+ * [INPUT]: 依赖 docs/appendix/<slug>.md 规范性附录的章节与 code fence
  * [OUTPUT]: 写出 content/prompts/<slug>/ 下的 meta/en/zh-CN/original/template/parameters/examples/ATTRIBUTION 文件与 full/ 完整版变体
  * [POS]: scripts 的内容导入器，被维护者手动执行；lib/appendix 负责解析，tests/unit/prompts 的保真测试反向校验导入结果
  * [PROTOCOL]: Update this header when making changes, then check README.md.

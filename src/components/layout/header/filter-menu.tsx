@@ -1,7 +1,7 @@
 /**
  * [INPUT]: 依赖 @/components/ui/dropdown-menu，依赖 next/navigation 的路由与查询参数，依赖 @/i18n/navigation 的 Link
  * [OUTPUT]: 对外提供 FilterMenu（分类单选 + 标签多选 AND 的合一筛选下拉；手机上另含排序）与 isListingPath()
- * [POS]: components/layout 的筛选入口，嵌在顶部筛选胶囊中；分类走路由（push），标签按词表顺序写入 `tags` 并重置页码
+ * [POS]: components/layout/header 的筛选入口，嵌在顶部筛选胶囊中；分类走路由（push），标签按词表顺序写入 `tags` 并重置页码
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 "use client";

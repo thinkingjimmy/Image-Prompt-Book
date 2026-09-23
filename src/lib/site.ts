@@ -34,9 +34,6 @@ export function absoluteUrl(pathname: string): string {
 
 export type ContentConfig = {
   root: string;
-  mediaRoot: string;
-  /** URL prefix for example images; fixtures are served by a guarded route instead of public/. */
-  mediaPrefix: string;
   isFixture: boolean;
   previewDrafts: boolean;
 };
@@ -51,19 +48,18 @@ export function contentConfig(): ContentConfig {
     if (isProductionDeploy() && process.env.IPB_E2E !== "1") {
       throw new Error("Fixture content cannot be used by a production deployment");
     }
-    return { root, mediaRoot: path.join(root, "public"), mediaPrefix: "/fixture-media", isFixture: true, previewDrafts: false };
+    return { root, isFixture: true, previewDrafts: false };
   }
   return {
     root: path.resolve("content"),
-    mediaRoot: path.resolve("public"),
-    mediaPrefix: "",
     isFixture: false,
     previewDrafts: process.env.NODE_ENV === "development" && process.env.IPB_PREVIEW_DRAFTS === "1",
   };
 }
 
-export function mediaUrl(src: string): string {
-  return `${contentConfig().mediaPrefix}${src}`;
+/** Public URL of an example image; `src` is `images/<file>` inside the entry folder, served by app/media. */
+export function mediaUrl(slug: string, src: string): string {
+  return `/media/${slug}/${path.posix.basename(src)}`;
 }
 
 export function repoFileUrl(repoPath: string): string {

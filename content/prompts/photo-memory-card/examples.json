@@ -1,7 +1,7 @@
 [
   {
     "id": "kneading",
-    "src": "/examples/photo-memory-card/kneading.jpg",
+    "src": "images/kneading.jpg",
     "width": 1170,
     "height": 1170,
     "alt": {
@@ -21,7 +21,7 @@
   },
   {
     "id": "stargazing",
-    "src": "/examples/photo-memory-card/stargazing.jpg",
+    "src": "images/stargazing.jpg",
     "width": 1170,
     "height": 1170,
     "alt": {
@@ -41,7 +41,7 @@
   },
   {
     "id": "reading",
-    "src": "/examples/photo-memory-card/reading.jpg",
+    "src": "images/reading.jpg",
     "width": 1170,
     "height": 1170,
     "alt": {

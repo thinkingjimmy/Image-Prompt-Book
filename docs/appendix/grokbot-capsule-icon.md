@@ -35,7 +35,7 @@
 | 第 6 节英文 code fence 内容 | `template.en.txt` |
 | 第 7 节中文 code fence 内容 | `template.zh-CN.txt` |
 | 第 8 节 JSON | `parameters.json` |
-| 第 9 节实际获准资产 | `examples.json` 与 `public/examples/grokbot-capsule-icon/` |
+| 第 9 节实际获准资产 | `examples.json` 与 `content/prompts/grokbot-capsule-icon/images/` |
 | 第 10 节署名信息 | `ATTRIBUTION.md`，并供详情与“复制来源说明”使用 |
 
 所有路径除特别标出外，均相对于本案例内容目录。正文文件不包含 code fence 或本文件的章节说明。UTF-8、LF、末尾一个换行；不能把用户转贴中的行尾反斜线保留成提示词的一部分。
@@ -655,7 +655,7 @@ UI 短标签不进入复制文本。例如 `left-standard` 在按钮上显示“
 ```ts
 type Example = {
   id: string;
-  src: string; // 本地 /examples/... 路径
+  src: string; // 条目目录内的 images/... 路径
   width: number;
   height: number;
   alt: { en: string; 'zh-CN': string };
@@ -680,7 +680,7 @@ type Example = {
 
 对于原站候选，若仅有转载许可而没有完整生成记录，使用 `provenance: 'source-reported'`、`recipe: null`；不得据此填写本站模板 `1.0.0` 或推断具体模型版本。`project-verified` 必须对应真实执行记录，不能从网页描述自动升级。
 
-建议补图后的本地路径分别为 `/examples/grokbot-capsule-icon/dark-bob.webp` 等；这些是目标路径，目前不是已存在文件。
+建议补图后的本地路径分别为 `images/dark-bob.webp` 等；这些是目标路径，目前不是已存在文件。
 
 页面恒定显示案例来源与“非实时预览”。修改参数不会给案例图套滤镜、镜像或假生成动画。
 
@@ -1254,7 +1254,7 @@ Large masses of hair, {{coloring}}, {{outline}}, minimal shading and detail. No 
 [
   {
     "id": "pink",
-    "src": "/examples/grokbot-capsule-icon/pink.jpg",
+    "src": "images/pink.jpg",
     "width": 1254,
     "height": 1254,
     "alt": {
@@ -1274,7 +1274,7 @@ Large masses of hair, {{coloring}}, {{outline}}, minimal shading and detail. No 
   },
   {
     "id": "blonde",
-    "src": "/examples/grokbot-capsule-icon/blonde.jpg",
+    "src": "images/blonde.jpg",
     "width": 1254,
     "height": 1254,
     "alt": {
@@ -1294,7 +1294,7 @@ Large masses of hair, {{coloring}}, {{outline}}, minimal shading and detail. No 
   },
   {
     "id": "black",
-    "src": "/examples/grokbot-capsule-icon/black.jpg",
+    "src": "images/black.jpg",
     "width": 1254,
     "height": 1254,
     "alt": {
@@ -1314,7 +1314,7 @@ Large masses of hair, {{coloring}}, {{outline}}, minimal shading and detail. No 
   },
   {
     "id": "teal",
-    "src": "/examples/grokbot-capsule-icon/teal.jpg",
+    "src": "images/teal.jpg",
     "width": 1254,
     "height": 1254,
     "alt": {
@@ -1334,7 +1334,7 @@ Large masses of hair, {{coloring}}, {{outline}}, minimal shading and detail. No 
   },
   {
     "id": "blue",
-    "src": "/examples/grokbot-capsule-icon/blue.jpg",
+    "src": "images/blue.jpg",
     "width": 1254,
     "height": 1254,
     "alt": {

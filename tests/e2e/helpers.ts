@@ -27,7 +27,7 @@ export const test = base.extend({
 export { expect };
 export const FIXTURE_CONTENT = path.resolve("tests/fixtures/.generated/content");
 
-const library = loadContentLibrary({ root: FIXTURE_CONTENT, mediaRoot: path.join(FIXTURE_CONTENT, "public"), allowFixtures: true });
+const library = loadContentLibrary({ root: FIXTURE_CONTENT, allowFixtures: true });
 export const grokbot = library.entries.find((entry) => entry.meta.slug === SLUG)!;
 
 export function expectedPrompt(selections: Partial<Selections>, outputLocale: Locale, variantId = "short"): string {

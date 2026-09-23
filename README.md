@@ -37,7 +37,7 @@ A maintainer checks the license, writes the English and Chinese versions, picks 
 
 ## Acknowledgements
 
-Every prompt here was shared by its author. See [ACKNOWLEDGEMENTS.md](./ACKNOWLEDGEMENTS.md) for who made each one.
+Every prompt here was shared by its author. See [docs/ACKNOWLEDGEMENTS.md](./docs/ACKNOWLEDGEMENTS.md) for who made each one.
 
 ## Security
 
@@ -54,7 +54,7 @@ It does **not** cover the content the site shows:
 | Material | Where | License |
 | --- | --- | --- |
 | Third-party prompts (original text) | `content/prompts/*/original.*.txt` | The author's license, recorded in each entry's `meta.json` and `ATTRIBUTION.md` |
-| Translations and adjustable versions of those prompts | `content/prompts/*/` templates, options and page copy, `docs/examples/` | Same license as the original, marked as adapted |
-| Example images | `public/examples/` | Recorded per image in `examples.json`; never implied by the prompt's license |
+| Translations and adjustable versions of those prompts | `content/prompts/*/` templates, options and page copy, `docs/appendix/` | Same license as the original, marked as adapted |
+| Example images | `content/prompts/*/images/` | Recorded per image in `examples.json`; never implied by the prompt's license |
 
 Nothing here is offered for unconditional commercial use unless its own record says so. By suggesting content you confirm you have the right to share it, or that its license allows sharing.

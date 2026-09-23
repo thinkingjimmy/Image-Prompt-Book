@@ -1,7 +1,7 @@
 [
   {
     "id": "case-3",
-    "src": "/examples/photo-abstract-editorial/case-3.jpg",
+    "src": "images/case-3.jpg",
     "width": 1200,
     "height": 1600,
     "alt": {
@@ -21,7 +21,7 @@
   },
   {
     "id": "case-10",
-    "src": "/examples/photo-abstract-editorial/case-10.jpg",
+    "src": "images/case-10.jpg",
     "width": 1422,
     "height": 1600,
     "alt": {
@@ -41,7 +41,7 @@
   },
   {
     "id": "case-1",
-    "src": "/examples/photo-abstract-editorial/case-1.jpg",
+    "src": "images/case-1.jpg",
     "width": 1065,
     "height": 1600,
     "alt": {
@@ -61,7 +61,7 @@
   },
   {
     "id": "case-11",
-    "src": "/examples/photo-abstract-editorial/case-11.jpg",
+    "src": "images/case-11.jpg",
     "width": 1166,
     "height": 1600,
     "alt": {
@@ -81,7 +81,7 @@
   },
   {
     "id": "case-9",
-    "src": "/examples/photo-abstract-editorial/case-9.jpg",
+    "src": "images/case-9.jpg",
     "width": 1056,
     "height": 1600,
     "alt": {
@@ -101,7 +101,7 @@
   },
   {
     "id": "case-6",
-    "src": "/examples/photo-abstract-editorial/case-6.jpg",
+    "src": "images/case-6.jpg",
     "width": 807,
     "height": 1600,
     "alt": {

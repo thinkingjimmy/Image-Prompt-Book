@@ -6,11 +6,10 @@ Next.js 16 (App Router) + React 19 + TypeScript 5.9 + Tailwind CSS 4 + shadcn/ui
 
 <directory>
 src/ - Next.js app (4 subdirs: app routes, components UI, lib content/prompt/SEO logic, i18n incl. UI messages)
-content/ - Prompt library as reviewed data files, validated at build time, never executed
-public/examples/ - Local example images, one folder per prompt
+content/ - Prompt library: one self-contained folder per prompt (text, options, credits, images/), validated at build time, never executed
 scripts/ - Content import, validation, link check, performance measurement
-tests/ - Vitest unit, Playwright E2E and the fixture builder (see tests/README.md)
-docs/ - Product spec (PRD), task list, first-entry appendix
+tests/ - Vitest unit, Playwright E2E, their configs and the fixture builder (see tests/README.md)
+docs/ - Product spec (PRD), task list, acknowledgements, first-entry appendix (appendix/)
 .github/ - CI and issue templates (source lead, translation, problem, rights request)
 .claude/skills/ - Agent skills; add-prompt-case imports a new prompt end to end
 </directory>
@@ -20,8 +19,6 @@ package.json - Scripts and exact dependency pins; `packageManager` pins pnpm
 .nvmrc - Node 22
 .env.example - SITE_URL, IPB_DEPLOY_ENV, IPB_PREVIEW_DRAFTS
 next.config.ts - Next.js config (honors IPB_DIST_DIR for the isolated E2E build)
-playwright.config.ts - E2E projects and the fixture webServer
-vitest.config.mts - Unit tests; globalSetup rebuilds fixtures
 eslint.config.mjs / postcss.config.mjs / components.json - Lint, Tailwind, shadcn/ui
 </config>
 
@@ -39,11 +36,11 @@ Open http://localhost:3000. Draft entries appear with `IPB_PREVIEW_DRAFTS=1 pnpm
 
 | Command | What it does |
 | --- | --- |
-| `pnpm test` | Unit tests (fixtures rebuilt automatically); `pnpm vitest` for watch mode |
+| `pnpm test` | Unit tests (fixtures rebuilt automatically); watch mode: `pnpm exec vitest -c tests/vitest.config.mts` |
 | `pnpm verify` | Lint, typecheck, unit tests, content check and production build — run before every push |
 | `pnpm test:e2e` | Playwright on an isolated fixture build (Chromium, mobile, Firefox, WebKit) |
 | `pnpm content:check` | Validate every entry and print why it is or isn't public |
-| `pnpm content:import <slug>` | Import a normative appendix from `docs/examples/` verbatim |
+| `pnpm content:import <slug>` | Import a normative appendix from `docs/appendix/` verbatim |
 | `pnpm links:check` | Report unreachable source links (never changes content) |
 | `pnpm vitals [baseUrl]` | Measure LCP/CLS/requests under fixed mobile conditions |
 
@@ -55,10 +52,10 @@ Coding agents: use the project skill [`.claude/skills/add-prompt-case`](./.claud
 
 1. Read [`content/README.md`](./content/README.md) for the file format.
 2. Create `content/prompts/<slug>/` with `meta.json`, `original.<lang>.txt`, `en.json`, `zh-CN.json`, `template.en.txt`, `template.zh-CN.txt`, `parameters.json`, `examples.json` and `ATTRIBUTION.md`. Keep `status: "draft"`.
-3. Put example images in `public/examples/<slug>/`; record true size, bilingual alt text, source and rights in `examples.json`.
+3. Put example images in `content/prompts/<slug>/images/`; record true size, bilingual alt text, source and rights in `examples.json`.
 4. Run `pnpm content:check` and `pnpm test`. Every combination is checked automatically; add `tests/unit/prompts/<slug>.test.ts` only for prompt-specific rules.
 5. Commit and push. CI checks structure only; a maintainer records reviewer, date and evidence in `meta.json` before switching to `published`. If the entry came from an issue, link the issue in the commit.
-6. Credit the author: add a row to `ACKNOWLEDGEMENTS.md` (the READMEs and the About page link to it).
+6. Credit the author: add a row to `docs/ACKNOWLEDGEMENTS.md` (the READMEs and the About page link to it).
 
 Content rules:
 

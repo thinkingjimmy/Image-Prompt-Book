@@ -9,7 +9,7 @@ import { absoluteUrl, isProductionDeploy } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [{ userAgent: "*", allow: "/", disallow: ["/fixture-media/"] }],
+    rules: [{ userAgent: "*", allow: "/" }],
     ...(isProductionDeploy() ? { sitemap: absoluteUrl("/sitemap.xml") } : {}),
   };
 }

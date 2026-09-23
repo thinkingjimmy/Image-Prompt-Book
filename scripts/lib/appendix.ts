@@ -1,5 +1,5 @@
 /**
- * [INPUT]: 依赖 node:fs 读取 docs/examples/<slug>.md
+ * [INPUT]: 依赖 node:fs 读取 docs/appendix/<slug>.md
  * [OUTPUT]: 对外提供 readAppendix()，按章节标题提取附录中的 JSON/text code fence（默认版本读 §12 v2 短版，完整版读 §12.11–12.13 v1.1.0）
  * [POS]: scripts/lib 的附录解析器，被 import-appendix 与 tests/unit/prompts 的导入保真测试共用，保证“导入”与“校验”读取同一基线
  * [PROTOCOL]: Update this header when making changes, then check README.md.
@@ -43,7 +43,7 @@ function onlyFence(markdown: string, heading: string, lang: string, index = 0): 
 }
 
 export function readAppendix(slug: string) {
-  const file = path.join(process.cwd(), "docs", "examples", `${slug}.md`);
+  const file = path.join(process.cwd(), "docs", "appendix", `${slug}.md`);
   const markdown = readFileSync(file, "utf8");
 
   // §12 (v2.0.0, short prompt) is the current template; §3–§10 remain the v1 full-prompt record.

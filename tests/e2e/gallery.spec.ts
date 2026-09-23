@@ -160,7 +160,7 @@ test.describe("gallery", () => {
   });
 
   test("a failed image keeps its space and says so", async ({ page }) => {
-    await page.route("**/fixture-media/examples/fixture-sample-27/**", (route) => route.fulfill({ status: 404 }));
+    await page.route("**/media/fixture-sample-27/**", (route) => route.fulfill({ status: 404 }));
     await page.goto("/en");
     // The card image link is aria-hidden (the title link is the accessible one), so match by label attribute.
     await expect(page.locator('[aria-label="Fixture color block 27 — Image failed to load"]')).toBeVisible();

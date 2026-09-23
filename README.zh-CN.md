@@ -37,7 +37,7 @@
 
 ## 致谢
 
-这里的每个 Prompt 都来自作者的分享，各案例作者见 [ACKNOWLEDGEMENTS.md](./ACKNOWLEDGEMENTS.md)。
+这里的每个 Prompt 都来自作者的分享，各案例作者见 [docs/ACKNOWLEDGEMENTS.md](./docs/ACKNOWLEDGEMENTS.md)。
 
 ## 安全问题
 
@@ -54,7 +54,7 @@
 | 内容 | 位置 | 许可 |
 | --- | --- | --- |
 | 第三方 Prompt 原文 | `content/prompts/*/original.*.txt` | 作者的许可，记录在各条目 `meta.json` 与 `ATTRIBUTION.md` |
-| 这些 Prompt 的翻译与可调版本 | `content/prompts/*/` 下的模板、选项与页面文案，`docs/examples/` | 与原文相同的许可，并标注为改编 |
-| 案例图片 | `public/examples/` | 逐张记录在 `examples.json`，不因 Prompt 的许可而默认授权 |
+| 这些 Prompt 的翻译与可调版本 | `content/prompts/*/` 下的模板、选项与页面文案，`docs/appendix/` | 与原文相同的许可，并标注为改编 |
+| 案例图片 | `content/prompts/*/images/` | 逐张记录在 `examples.json`，不因 Prompt 的许可而默认授权 |
 
 除非条目自身记录另有说明，本仓库内容均不提供无条件商用授权。推荐内容即确认你有权分享，或其许可允许分享。

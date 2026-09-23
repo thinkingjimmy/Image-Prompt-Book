@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
-    localPatterns: [{ pathname: "/examples/**", search: "" }],
+    localPatterns: [{ pathname: "/media/**", search: "" }],
   },
   async redirects() {
     return [{ source: "/", destination: "/en", permanent: false }];

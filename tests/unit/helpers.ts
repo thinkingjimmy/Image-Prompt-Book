@@ -10,7 +10,7 @@ import type { Parameter } from "@/lib/content/schema";
 import { loadContentLibrary, type PromptEntry, type PromptVariant } from "@/lib/content/load";
 import { composePrompt, defaultSelections, type Selections } from "@/lib/prompt/template";
 
-export const library = loadContentLibrary({ root: path.resolve("content"), mediaRoot: path.resolve("public"), allowFixtures: false });
+export const library = loadContentLibrary({ root: path.resolve("content"), allowFixtures: false });
 
 export function promptEntry(slug: string): PromptEntry {
   const entry = library.entries.find((item) => item.meta.slug === slug);

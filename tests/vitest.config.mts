@@ -1,8 +1,11 @@
 import path from "node:path";
 import { defineConfig } from "vitest/config";
 
+const repo = path.resolve(import.meta.dirname, "..");
+
 export default defineConfig({
-  resolve: { alias: { "@": path.resolve(import.meta.dirname, "src") } },
+  root: repo,
+  resolve: { alias: { "@": path.join(repo, "src") } },
   test: {
     environment: "node",
     include: ["tests/unit/**/*.test.ts"],

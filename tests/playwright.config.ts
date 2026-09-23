@@ -1,20 +1,23 @@
 /**
  * [INPUT]: 依赖 @playwright/test 的 defineConfig/devices
  * [OUTPUT]: 默认导出 E2E 配置：chromium 全量，mobile/firefox/webkit 跑 @mobile/@smoke，webServer 自动构建 fixture 站点
- * [POS]: 项目根的端到端测试入口，与 tests/e2e 配合；fixture 由 tests/fixtures/build.ts 生成
+ * [POS]: tests 的端到端测试入口（pnpm test:e2e 以 -c 指向此文件），与 e2e/ 配合；fixture 由 fixtures/build.ts 生成，报告写入 tests/ 下
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
+import path from "node:path";
 import { defineConfig, devices } from "@playwright/test";
 
 const PORT = 3200;
 
 export default defineConfig({
-  testDir: "tests/e2e",
+  // Paths are relative to this file; the server itself runs from the repository root.
+  testDir: "e2e",
   fullyParallel: true,
   workers: process.env.CI ? 2 : "50%",
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,
-  reporter: process.env.CI ? [["github"], ["html", { open: "never" }]] : [["list"]],
+  outputDir: "test-results",
+  reporter: process.env.CI ? [["github"], ["html", { open: "never", outputFolder: "playwright-report" }]] : [["list"]],
   use: {
     baseURL: `http://localhost:${PORT}`,
     trace: "retain-on-failure",
@@ -29,6 +32,7 @@ export default defineConfig({
   ],
   webServer: {
     // A production build against isolated fixture content, in its own dist dir so it never replaces a real build.
+    cwd: path.resolve(__dirname, ".."),
     command: "pnpm exec tsx tests/fixtures/build.ts && pnpm exec next build && pnpm exec next start --port 3200",
     url: `http://localhost:${PORT}/en`,
     timeout: 240_000,

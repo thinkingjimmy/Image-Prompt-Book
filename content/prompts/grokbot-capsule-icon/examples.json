@@ -1,7 +1,7 @@
 [
   {
     "id": "pink",
-    "src": "/examples/grokbot-capsule-icon/pink.jpg",
+    "src": "images/pink.jpg",
     "width": 1254,
     "height": 1254,
     "alt": {
@@ -21,7 +21,7 @@
   },
   {
     "id": "blonde",
-    "src": "/examples/grokbot-capsule-icon/blonde.jpg",
+    "src": "images/blonde.jpg",
     "width": 1254,
     "height": 1254,
     "alt": {
@@ -41,7 +41,7 @@
   },
   {
     "id": "black",
-    "src": "/examples/grokbot-capsule-icon/black.jpg",
+    "src": "images/black.jpg",
     "width": 1254,
     "height": 1254,
     "alt": {
@@ -61,7 +61,7 @@
   },
   {
     "id": "teal",
-    "src": "/examples/grokbot-capsule-icon/teal.jpg",
+    "src": "images/teal.jpg",
     "width": 1254,
     "height": 1254,
     "alt": {
@@ -81,7 +81,7 @@
   },
   {
     "id": "blue",
-    "src": "/examples/grokbot-capsule-icon/blue.jpg",
+    "src": "images/blue.jpg",
     "width": 1254,
     "height": 1254,
     "alt": {

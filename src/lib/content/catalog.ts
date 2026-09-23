@@ -15,7 +15,7 @@ export function getLibrary(): ContentLibrary {
   // Development re-reads so content edits show without a restart; production loads once per process.
   if (cached && process.env.NODE_ENV === "production") return cached;
   const config = contentConfig();
-  const library = loadContentLibrary({ root: config.root, mediaRoot: config.mediaRoot, allowFixtures: config.isFixture });
+  const library = loadContentLibrary({ root: config.root, allowFixtures: config.isFixture });
   if (library.issues.length > 0) {
     throw new Error(`Content validation failed:\n- ${library.issues.join("\n- ")}`);
   }

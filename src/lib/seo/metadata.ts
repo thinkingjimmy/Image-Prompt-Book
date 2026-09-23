@@ -61,6 +61,6 @@ export function promptMetadata(entry: PromptEntry, locale: Locale): Metadata {
     locales: LOCALES.filter((item) => entry.content[item]),
     type: "article",
     // Only reviewed, approved example images ever reach share cards.
-    image: cover ? { url: absoluteUrl(mediaUrl(cover.src)), width: cover.width, height: cover.height, alt: cover.alt[locale] } : undefined,
+    image: cover ? { url: absoluteUrl(mediaUrl(entry.meta.slug, cover.src)), width: cover.width, height: cover.height, alt: cover.alt[locale] } : undefined,
   });
 }
