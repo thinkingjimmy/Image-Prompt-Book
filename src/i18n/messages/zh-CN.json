@@ -41,7 +41,7 @@
     "emptyBody": "换个关键词试试，或清除筛选查看全部内容。",
     "clearFilters": "清除筛选",
     "catalogEmptyTitle": "暂时还没有已发布的 Prompt",
-    "catalogEmptyBody": "条目的文本、案例图片与使用授权审核通过后才会出现在这里。你可以在 GitHub 上推荐内容。",
+    "catalogEmptyBody": "条目发布后会出现在这里。你可以在 GitHub 上推荐内容。",
     "errorTitle": "Gallery 加载失败",
     "errorBody": "加载 Prompt 时出现问题，这不是“没有结果”。",
     "retry": "重试",
@@ -53,7 +53,7 @@
     "sourceSite": "来源网站",
     "moreImages": "+{count}",
     "moreImagesLabel": "另有 {count} 张案例图",
-    "noImage": "尚无已审核的案例图",
+    "noImage": "尚无案例图",
     "imageFailed": "图片加载失败"
   },
   "detail": {
@@ -76,7 +76,7 @@
     "viewLarge": "查看大图",
     "showExample": "显示第 {index} 张案例",
     "imageSource": "图片来源",
-    "noExamples": "尚无已审核的案例图。本站不会根据你的选项生成图片。",
+    "noExamples": "尚无案例图。本站不会根据你的选项生成图片。",
     "lightboxTitle": "案例大图",
     "useInChatGPT": "在 ChatGPT 中使用",
     "chatgptOpened": "已打开 ChatGPT，请在那里附上图片后发送。",

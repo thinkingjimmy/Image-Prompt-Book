@@ -41,7 +41,7 @@
     "emptyBody": "Try a different search, or clear the filters to see everything.",
     "clearFilters": "Clear filters",
     "catalogEmptyTitle": "No published prompts yet",
-    "catalogEmptyBody": "Prompts appear here once their text, example images and usage rights have been reviewed. You can suggest one on GitHub.",
+    "catalogEmptyBody": "Prompts appear here once they are published. You can suggest one on GitHub.",
     "errorTitle": "The gallery could not be loaded",
     "errorBody": "Something went wrong while loading prompts. This is not an empty result.",
     "retry": "Try again",
@@ -53,7 +53,7 @@
     "sourceSite": "Source website",
     "moreImages": "+{count}",
     "moreImagesLabel": "{count, plural, one {# more example image} other {# more example images}}",
-    "noImage": "No approved example image yet",
+    "noImage": "No example image yet",
     "imageFailed": "Image failed to load"
   },
   "detail": {
@@ -76,7 +76,7 @@
     "viewLarge": "View larger image",
     "showExample": "Show example {index}",
     "imageSource": "Image source",
-    "noExamples": "No approved example image yet. Nothing is generated from your options.",
+    "noExamples": "No example image yet. Nothing is generated from your options.",
     "lightboxTitle": "Example image",
     "useInChatGPT": "Use in ChatGPT",
     "chatgptOpened": "Opened ChatGPT. Attach your image there, then send.",

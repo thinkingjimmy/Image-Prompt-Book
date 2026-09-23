@@ -39,18 +39,16 @@ Worked examples — read the one that matches your source before starting:
 - Read LICENSE *and* README. When they disagree, record both and follow the stricter one (see the worked example: README badge CC BY-NC-SA 4.0 vs LICENSE "all rights reserved, non-commercial").
 - Credit the name the author asks for (e.g. "tag me @AM."), plus the account handle and URL. Unknown author → leave it out; never guess.
 - `rights.promptLicense`: an SPDX id, or `LicenseRef-<Name>` for custom terms (add a short display name to `LICENSE_NAMES` in `src/components/prompt/prompt-detail.tsx`). `commercialUse`: `restricted` unless the license clearly allows it.
-- `rights.releaseReview.status` stays `pending`. Only the owner approves, with reviewer, date and evidence.
 - If the terms forbid redistribution even non-commercially, tell the user and do not import the text.
 
 ### No license stated
 
-Silence is not permission: by default the author keeps all rights. You may still import the case **as a draft** (drafts are never public), recorded like this:
+Silence is not a license: the author keeps all rights. The owner may still show the case with credit and a link to the original post, and removes it on the author's request. Record it like this:
 
-- `promptLicense: "LicenseRef-Unspecified"` (already mapped to "No license stated"), `licenseUrl`: the post or page where you checked for terms, `sourceLicenseUrl: null`, `commercialUse: "unknown"`, `releaseReview.status: "pending"`.
-- `licenseNotice` / `ATTRIBUTION.md`: "The author did not state a license. All rights remain with the author until permission is recorded; this entry stays a draft."
-- Images: `rights.status: "pending"`, basis naming who supplied them and that no license is stated.
-- Do **not** add it to `docs/ACKNOWLEDGEMENTS.md` until permission is recorded — that list describes what the site shows.
-- Publishing needs the author's written permission, linked as `releaseReview.evidence` (e.g. their reply). Offer the user this request to send:
+- `promptLicense: "LicenseRef-Unspecified"` (already mapped to "No license stated"), `licenseUrl`: the post or page where you checked for terms, `sourceLicenseUrl: null`, `commercialUse: "unknown"`.
+- `licenseNotice` / `ATTRIBUTION.md`: "License: none stated. All rights remain with the author; shown here with credit and a link to the original post."
+- Images: `rights.basis` naming who supplied them and that no license is stated.
+- Optionally offer the user this courtesy note to send the author:
 
   > Hi <name>, I run Image Prompt Book (https://github.com/thinkingjimmy/Image-Prompt-Book), an open-source, non-commercial gallery of editable image prompts. May I include your prompt from <post URL>, with credit and a link to your post, plus the example images from that post? I'd add an English/Chinese version with a few adjustable options, clearly marked as an adaptation.
   >
@@ -58,16 +56,16 @@ Silence is not permission: by default the author keeps all rights. You may still
 
 **Why:** the site shows third-party work; a wrong license or credit is the one mistake that cannot be fixed with a redeploy.
 
-## 3. Images: ask, pick, localize, keep pending
+## 3. Images: ask, pick, localize
 
 - Download only when the user asked for this source's images (that is the permission). Never hotlink.
 - Prefer the images the author features (README order). Drop ones that contradict the prompt (e.g. text in the image when the prompt forbids text) or come from older versions.
 - Resize to ≤1600 px on the long edge, JPEG q≈82 (`sips -Z 1600 -s format jpeg -s formatOptions 82 in --out out`); keep PNG only for transparency. `sips -Z` also **enlarges** smaller images — check `sips -g pixelWidth` first and drop `-Z` when the image is already ≤1600 px. Put the chosen cover first in `examples.json`.
 - Collages (grids, triptychs) are cut into single images along their gutters or seams; the post shows the format the prompt asks for (e.g. 9:16), so drop crops in another format. `sips --cropOffset 0 0` silently falls back to a centre crop — check the crops are not duplicates (`md5`). Drop images showing a real brand's logo.
 - Look at every image (small preview) and write true bilingual `alt` text. Real `width`/`height` (the checker verifies them).
-- `rights.status: "pending"` with an honest `basis` (who asked, what the source terms say) and `evidence` (license URL). `provenance: "source-reported"`, `recipe: null`.
+- `rights` with an honest `basis` (who asked, what the source terms say) and `evidence` (license URL). `provenance: "source-reported"`, `recipe: null`.
 
-**Why:** pending images show in `IPB_PREVIEW_DRAFTS=1 pnpm dev` but block publishing until someone records permission.
+**Why:** `basis` is the record of where each image came from if the author ever asks.
 
 ## 4. Build the templates
 
@@ -123,4 +121,4 @@ Then add a row to `docs/ACKNOWLEDGEMENTS.md` (see "Acknowledgements" below — t
 
 ## Report to the user
 
-Say what was imported (source + commit or post ID), the license as found (any conflict, or that none is stated), which images were kept or dropped and why, the options you chose (and any you dropped to avoid contradictions), and exactly what still blocks publishing (usage review, image permission, author permission for unlicensed posts). Flag anything you could not verify, such as very long prompts in the ChatGPT pre-fill link, and any close resemblance to an existing entry.
+Say what was imported (source + commit or post ID), the license as found (any conflict, or that none is stated), which images were kept or dropped and why, the options you chose (and any you dropped to avoid contradictions), and that the entry is a draft until the owner previews it locally and switches it to `published` (with `publishedAt`). Flag anything you could not verify, such as very long prompts in the ChatGPT pre-fill link, and any close resemblance to an existing entry.

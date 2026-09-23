@@ -12,18 +12,18 @@ prompts/<slug>/: 单个条目目录，目录名 = id = slug，稳定且跨语言
 
 | File | Purpose | Rules |
 | --- | --- | --- |
-| `meta.json` | Identity, status, dates, category/tags, locales, sources, rights, compatibility | `status` draft/published/archived; `publishedAt` only when published; HTTPS URLs; `releaseReview` approved needs reviewer, date, evidence |
+| `meta.json` | Identity, status, dates, category/tags, locales, sources, rights, compatibility | `status` draft/published/archived; `publishedAt` only when published; HTTPS URLs |
 | `original.<lang>.txt` | Untouched source prompt | UTF-8, LF, one trailing newline; changes are a source-version update |
 | `en.json`, `zh-CN.json` | Page copy: title, summary, SEO, input requirement, how-to, notices, parameter labels, optional `keywords` | Complete in every locale; missing translations keep the entry in draft |
 | `template.en.txt`, `template.zh-CN.txt` | Full adapted templates | Only `{{parameterId}}` tokens; every token declared, every parameter used |
 | `variants` (optional, in `meta.json`) | Several editable versions, e.g. Short and Full: each with `id`, `labels`, `templateVersion`, `templatePaths`, `parametersPath` (files may sit in one subfolder such as `full/`) | The first variant must match the top-level template and is the default; page labels must cover every variant's parameters |
 | `parameters.json` | `select` parameters (`renderAs` inline/block), default, options with `labels` (UI) and `replacements` (prompt text) per locale | Replacements are final plain strings — no tokens, HTML or includes |
-| `examples.json` | Approved example images | `[]` allowed for drafts; published entries need ≥1 with `rights.status: "approved"` (`pending` images show only in local draft preview). `images/<file>` inside the entry folder (served as `/media/<slug>/<file>` only while the entry is visible), true width/height, bilingual alt, `provenance`, rights review, `recipe` (null unless project-verified) |
+| `examples.json` | Example images | `[]` allowed for drafts; published entries need ≥1. `images/<file>` inside the entry folder (served as `/media/<slug>/<file>` only while the entry is visible), true width/height, bilingual alt, `provenance`, `rights` (`basis` + `evidence`: where the image comes from and on what terms), `recipe` (null unless project-verified) |
 | `ATTRIBUTION.md` | `## en` and `## zh-CN` blocks, each one ```text fence | Used by "Copy attribution"; keep author, source, license, changes |
 
 ## Publication gate
 
-An entry is public only when **all** hold (`publicationBlockers()`): `status: "published"` with `publishedAt`, prompt usage review approved, at least one approved example image, and complete en/zh-CN content, templates and attribution. The gallery, search, categories, detail pages and sitemap all use this one predicate. Drafts are visible only in local development with `IPB_PREVIEW_DRAFTS=1`.
+An entry is public only when **all** hold (`publicationBlockers()`): `status: "published"` with `publishedAt`, at least one example image, and complete en/zh-CN content, templates and attribution. The gallery, search, categories, detail pages and sitemap all use this one predicate. Drafts are visible only in local development with `IPB_PREVIEW_DRAFTS=1`: review an entry there, then switch it to `published` — there is no separate approval step.
 
 ## Renaming
 

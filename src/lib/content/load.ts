@@ -65,11 +65,7 @@ export function publicationBlockers(entry: PromptEntry): string[] {
   const blockers: string[] = [];
   if (meta.status !== "published") blockers.push(`status is ${meta.status}`);
   if (!meta.publishedAt) blockers.push("publishedAt is missing");
-  if (meta.rights.releaseReview.status !== "approved") blockers.push("prompt usage review is not approved");
-  if (entry.examples.length === 0) blockers.push("at least one approved real example image is required");
-  for (const example of entry.examples) {
-    if (example.rights.status !== "approved") blockers.push(`example ${example.id} display rights are ${example.rights.status}`);
-  }
+  if (entry.examples.length === 0) blockers.push("at least one real example image is required");
   for (const locale of LOCALES) {
     if (!entry.content[locale]) blockers.push(`missing ${locale} page content`);
     for (const variant of entry.variants) if (!variant.templates[locale]) blockers.push(`missing ${locale} template${variant.id === "default" ? "" : ` (${variant.id})`}`);

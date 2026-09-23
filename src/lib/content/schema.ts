@@ -54,18 +54,6 @@ const sourceSchema = z.strictObject({
   checkedAt: isoDate,
 });
 
-const reviewSchema = z
-  .strictObject({
-    status: z.enum(["pending", "approved", "rejected"]),
-    reviewedBy: nonEmpty.nullable(),
-    reviewedAt: isoDate.nullable(),
-    evidence: nonEmpty.nullable(),
-  })
-  .refine(
-    (review) => review.status !== "approved" || (review.reviewedBy && review.reviewedAt && review.evidence),
-    "an approved review needs reviewedBy, reviewedAt and evidence",
-  );
-
 /** One editable version of a prompt (e.g. short / full), each with its own template and options. */
 const variantSchema = z.strictObject({
   id: slug,
@@ -118,7 +106,6 @@ export const metaSchema = z.strictObject({
     licenseUrl: httpsUrl,
     sourceLicenseUrl: httpsUrl.nullable(),
     commercialUse: z.enum(["allowed", "restricted", "unknown"]),
-    releaseReview: reviewSchema,
   }),
 });
 
@@ -166,16 +153,8 @@ export const exampleSchema = z.strictObject({
   caption: localized(nonEmpty).optional(),
   sourceUrl: httpsUrl,
   provenance: z.enum(["source-reported", "project-verified"]),
-  /** `pending` images may appear in local draft previews only; publishing requires every shown image to be approved. */
-  rights: z
-    .strictObject({
-      status: z.enum(["pending", "approved"]),
-      basis: nonEmpty,
-      evidence: nonEmpty,
-      reviewedBy: nonEmpty.nullable(),
-      reviewedAt: isoDate.nullable(),
-    })
-    .refine((rights) => rights.status !== "approved" || (rights.reviewedBy && rights.reviewedAt), "approved image rights need reviewedBy and reviewedAt"),
+  /** Where the image comes from and on what terms it is shown; a record, not a gate. */
+  rights: z.strictObject({ basis: nonEmpty, evidence: nonEmpty }),
   recipe: z
     .strictObject({
       templateVersion: z.string().regex(SEMVER_PATTERN),

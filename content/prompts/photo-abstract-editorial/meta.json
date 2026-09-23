@@ -3,10 +3,10 @@
   "id": "photo-abstract-editorial",
   "slug": "photo-abstract-editorial",
   "templateVersion": "1.0.0",
-  "status": "draft",
+  "status": "published",
   "createdAt": "2026-09-23",
   "updatedAt": "2026-09-23",
-  "publishedAt": null,
+  "publishedAt": "2026-09-23",
   "category": "photo-art",
   "tags": [
     "editorial",
@@ -80,12 +80,6 @@
     "promptLicense": "LicenseRef-AM-NonCommercial",
     "licenseUrl": "https://github.com/ZzzLc0405/photo-abstract-editorial/blob/49e55073d6d0330274d31f75d27f5dd6eb35fd6d/LICENSE.md",
     "sourceLicenseUrl": "https://github.com/ZzzLc0405/photo-abstract-editorial/blob/49e55073d6d0330274d31f75d27f5dd6eb35fd6d/README.md",
-    "commercialUse": "restricted",
-    "releaseReview": {
-      "status": "pending",
-      "reviewedBy": null,
-      "reviewedAt": null,
-      "evidence": null
-    }
+    "commercialUse": "restricted"
   }
 }

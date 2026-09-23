@@ -22,7 +22,7 @@ Result: `content/prompts/photo-abstract-editorial/` (images in `images/`), `test
 - 10 in the repo. Kept the 6 the README features, in README order: 10, 3, 1, 11, 9, 6. The owner later asked for case-3 (balloons) as cover → moved first.
 - Dropped 2, 4, 7, 8: detailed illustrations or Chinese text in the image, which this prompt forbids — likely older versions.
 - `sips -Z 1600 -s format jpeg -s formatOptions 82` → 1.8 MB total. Alt text written after viewing 360 px previews.
-- `rights.status: "pending"`, basis: imported at the owner's request; author says the photos are their own; repo terms allow non-commercial use with attribution; display permission for this site not recorded.
+- `rights.basis`: imported at the owner's request; author says the photos are their own; repo terms allow non-commercial use with attribution.
 
 ## 4. Templates
 
@@ -54,4 +54,4 @@ Result: `content/prompts/photo-abstract-editorial/` (images in `images/`), `test
 
 `content:check` (2 entries valid), `links:check` (23 links reachable), `pnpm test` (74 passed), fresh E2E (71 passed), preview at desktop and 375 px.
 
-Open items reported to the owner: confirm the license with the author before publishing; display permission for the 6 images; the ~5,000-character prompt may exceed what ChatGPT's `?prompt=` pre-fill accepts (the button also copies the prompt as a fallback).
+Open items reported to the owner: confirm the license with the author; the ~5,000-character prompt may exceed what ChatGPT's `?prompt=` pre-fill accepts (the button also copies the prompt as a fallback).

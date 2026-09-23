@@ -1,6 +1,6 @@
 /**
  * [INPUT]: 依赖 scripts/lib/appendix 的附录解析，依赖 ../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/grokbot-capsule-icon
- * [OUTPUT]: 首个条目的专属测试：文件与规范性附录逐项一致、韩文原文 SHA-256、默认输出与附录独立替换结果一致（golden）、风格核心与选项语义回归（AC-06–AC-11）
+ * [OUTPUT]: 首个条目的专属测试：文件与规范性附录逐项一致（发布字段除外）、韩文原文 SHA-256、默认输出与附录独立替换结果一致（golden）、风格核心与选项语义回归（AC-06–AC-11）
  * [POS]: tests/unit/prompts 的条目套件；通用的全组合渲染由 content.test.ts 负责，这里只证明本条目的语义，不证明生图质量
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -36,9 +36,12 @@ function appendixDefault(templates: Record<Locale, string>, parameters: unknown,
   return `${text}\n`;
 }
 
+// Publishing happens after the import, so fidelity ignores the publication fields.
+const unpublished = (meta: unknown) => ({ ...(meta as object), status: null, publishedAt: null, updatedAt: null });
+
 describe("import fidelity (normative appendix)", () => {
   it("meta, page copy, parameters and examples equal the appendix", () => {
-    expect(JSON.parse(read("meta.json"))).toEqual(appendix.meta);
+    expect(unpublished(JSON.parse(read("meta.json")))).toEqual(unpublished(appendix.meta));
     expect(JSON.parse(read("en.json"))).toEqual(appendix.locales.en);
     expect(JSON.parse(read("zh-CN.json"))).toEqual(appendix.locales["zh-CN"]);
     expect(JSON.parse(read("parameters.json"))).toEqual(appendix.parameters);
@@ -53,10 +56,9 @@ describe("import fidelity (normative appendix)", () => {
     }
   });
 
-  it("ATTRIBUTION.md carries both attribution texts; images stay pending until rights are recorded", () => {
+  it("ATTRIBUTION.md carries both attribution texts", () => {
     expect(read("ATTRIBUTION.md")).toContain(appendix.attribution.en);
     expect(read("ATTRIBUTION.md")).toContain(appendix.attribution["zh-CN"]);
-    for (const example of entry.examples) expect(example.rights.status).toBe("pending");
   });
 
   it("the Korean short original is unchanged and UTF-8/LF", () => {

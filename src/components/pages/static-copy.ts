@@ -176,7 +176,7 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
         },
         {
           heading: "Example images",
-          paragraphs: ["Images have their own rights, recorded per image. An image is only shown after its display basis has been reviewed; the prompt license does not automatically apply to it."],
+          paragraphs: ["Images have their own rights, recorded per image with their source and terms; the prompt license does not automatically apply to them."],
         },
         {
           heading: "Sharing a prompt",
@@ -206,7 +206,7 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
         },
         {
           heading: "案例图片",
-          paragraphs: ["图片拥有独立的权利，并按图记录。图片只有在展示依据审核通过后才会显示；Prompt 许可不会自动适用于图片。"],
+          paragraphs: ["图片拥有独立的权利，并按图记录来源与条款；Prompt 许可不会自动适用于图片。"],
         },
         {
           heading: "分享 Prompt",

@@ -12,7 +12,7 @@
   "exampleNotice": "作者分享的案例效果，非实时预览。",
   "verificationNotice": "案例来自作者的帖子，Image Prompt Book 尚未复现。",
   "adaptationNotice": "英文翻译与可调选项由 Image Prompt Book 提供；不等于作者的原始表述或认可。",
-  "licenseNotice": "作者未声明许可；在取得并记录授权前，全部权利归作者所有。",
+  "licenseNotice": "作者未声明许可；全部权利归作者所有，本页注明作者并链接原帖。",
   "parameterLabels": {
     "anomaly": "视觉异常",
     "background": "背景色",

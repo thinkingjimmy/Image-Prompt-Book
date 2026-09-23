@@ -88,13 +88,7 @@
     "promptLicense": "CC-BY-NC-4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
     "sourceLicenseUrl": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license",
-    "commercialUse": "restricted",
-    "releaseReview": {
-      "status": "pending",
-      "reviewedBy": null,
-      "reviewedAt": null,
-      "evidence": null
-    }
+    "commercialUse": "restricted"
   }
 }
 ```
@@ -662,11 +656,8 @@ type Example = {
   sourceUrl: string;
   provenance: 'source-reported' | 'project-verified';
   rights: {
-    status: 'approved';
     basis: string;
     evidence: string;
-    reviewedBy: string;
-    reviewedAt: string;
   };
   recipe: null | {
     templateVersion: string;
@@ -757,7 +748,7 @@ Image Prompt Book 的修改：规范所提供韩文文本的排版；提供英�
 - 第 5–8 节的完整版（v1.0.0）为来源改编记录；站点的“完整版”（`variants[1]`，文件位于 `full/`）使用 §12.11–12.13 的 v1.1.0（7 个参数、改写后的章节标题）。短版为默认版本。
 - 短版原文通过来源站页面的“Copy short prompt”同一接口获取（2026-09-23），同样标注为 CC BY-NC 4.0（APG / @multi_serio_ai）。
 - 默认选项逐项对应短版原文：奶油色脸、淡椭圆腮红、炭灰背景、左下探头、15°、粉彩平涂；“无描边”为新增的明确化表述。
-- 案例图：来源站 Short prompt results 的 5 张图，已按所有者要求下载为本地 JPEG；来源站许可页说明图片不自动适用 Prompt 许可，因此 `rights.status` 为 `pending`，仅在本地草稿预览中显示，发布前必须取得并记录展示许可。
+- 案例图：来源站 Short prompt results 的 5 张图，已按所有者要求下载为本地 JPEG；来源站许可页说明图片不自动适用 Prompt 许可，`rights.basis` 记录出处与条款，展示时注明作者并链接来源。
 
 ### 12.1 短版韩文原文
 
@@ -824,13 +815,7 @@ Image Prompt Book 的修改：规范所提供韩文文本的排版；提供英�
     "promptLicense": "CC-BY-NC-4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
     "sourceLicenseUrl": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license",
-    "commercialUse": "restricted",
-    "releaseReview": {
-      "status": "pending",
-      "reviewedBy": null,
-      "reviewedAt": null,
-      "evidence": null
-    }
+    "commercialUse": "restricted"
   },
   "variants": [
     {
@@ -1264,11 +1249,8 @@ Large masses of hair, {{coloring}}, {{outline}}, minimal shading and detail. No 
     "sourceUrl": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en",
     "provenance": "source-reported",
     "rights": {
-      "status": "pending",
-      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license; display permission from APG is not yet recorded.",
-      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license",
-      "reviewedBy": null,
-      "reviewedAt": null
+      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license.",
+      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license"
     },
     "recipe": null
   },
@@ -1284,11 +1266,8 @@ Large masses of hair, {{coloring}}, {{outline}}, minimal shading and detail. No 
     "sourceUrl": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en",
     "provenance": "source-reported",
     "rights": {
-      "status": "pending",
-      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license; display permission from APG is not yet recorded.",
-      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license",
-      "reviewedBy": null,
-      "reviewedAt": null
+      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license.",
+      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license"
     },
     "recipe": null
   },
@@ -1304,11 +1283,8 @@ Large masses of hair, {{coloring}}, {{outline}}, minimal shading and detail. No 
     "sourceUrl": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en",
     "provenance": "source-reported",
     "rights": {
-      "status": "pending",
-      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license; display permission from APG is not yet recorded.",
-      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license",
-      "reviewedBy": null,
-      "reviewedAt": null
+      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license.",
+      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license"
     },
     "recipe": null
   },
@@ -1324,11 +1300,8 @@ Large masses of hair, {{coloring}}, {{outline}}, minimal shading and detail. No 
     "sourceUrl": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en",
     "provenance": "source-reported",
     "rights": {
-      "status": "pending",
-      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license; display permission from APG is not yet recorded.",
-      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license",
-      "reviewedBy": null,
-      "reviewedAt": null
+      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license.",
+      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license"
     },
     "recipe": null
   },
@@ -1344,11 +1317,8 @@ Large masses of hair, {{coloring}}, {{outline}}, minimal shading and detail. No 
     "sourceUrl": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en",
     "provenance": "source-reported",
     "rights": {
-      "status": "pending",
-      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license; display permission from APG is not yet recorded.",
-      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license",
-      "reviewedBy": null,
-      "reviewedAt": null
+      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license.",
+      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license"
     },
     "recipe": null
   }

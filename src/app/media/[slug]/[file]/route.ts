@@ -1,7 +1,7 @@
 /**
  * [INPUT]: 依赖 @/lib/content/catalog 的 getVisibleEntries/findEntry，依赖 @/lib/site 的 contentConfig，依赖 node:fs 读取条目目录内的 images/
  * [OUTPUT]: GET 处理器与 generateStaticParams：/media/<slug>/<file> 提供可见条目的案例图，其余一律 404
- * [POS]: app 的唯一媒体通道；图片与 Prompt 同住 content/prompts/<slug>/images/，只有站点实际展示的图片（发布条目的已审核图、本地草稿预览）可被访问
+ * [POS]: app 的唯一媒体通道；图片与 Prompt 同住 content/prompts/<slug>/images/，只有站点实际展示的图片（已发布条目的案例图、本地草稿预览）可被访问
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { readFile } from "node:fs/promises";

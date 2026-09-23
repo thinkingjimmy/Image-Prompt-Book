@@ -1,6 +1,6 @@
 /**
  * [INPUT]: 依赖 @/lib/content/load 的 loadContentLibrary，依赖 ./helpers 的 library/combinations/composer，依赖 content/ 与生成的 fixture 目录
- * [OUTPUT]: 内容闸门测试：①每个条目、每个版本的全部选项组合 × 输出语言都完整渲染且互不相同；②校验拒绝未声明 token、坏默认值、非 HTTPS 来源、尺寸不符、无审核发布、fixture 混入生产（AC-09/AC-20/AC-21/AC-23）
+ * [OUTPUT]: 内容闸门测试：①每个条目、每个版本的全部选项组合 × 输出语言都完整渲染且互不相同；②校验拒绝未声明 token、坏默认值、非 HTTPS 来源、尺寸不符、无示例图发布、fixture 混入生产（AC-09/AC-20/AC-21/AC-23）
  * [POS]: tests/unit 的内容级通用套件；新增条目自动被覆盖，条目专属的语义回归放在 prompts/<slug>.test.ts
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -101,11 +101,13 @@ describe("content validation", () => {
     expect(issues.filter((issue) => issue.includes("HTTPS"))).toHaveLength(2);
   });
 
-  it("refuses to publish without review and real examples", () => {
-    const { issues, entries } = setup((dir) => editJson(path.join(dir, "meta.json"), (value) => ({ ...value, status: "published", publishedAt: "2026-09-23" })));
+  it("refuses to publish without a real example image", () => {
+    const { issues, entries } = setup((dir) => {
+      editJson(path.join(dir, "meta.json"), (value) => ({ ...value, status: "published", publishedAt: "2026-09-23" }));
+      writeFileSync(path.join(dir, "examples.json"), "[]");
+    });
     expect(entries.find((entry) => entry.meta.slug === SLUG)).toBeUndefined();
-    expect(issues.join("\n")).toContain("prompt usage review is not approved");
-    expect(issues.join("\n")).toContain("example pink display rights are pending");
+    expect(issues.join("\n")).toContain("at least one real example image is required");
   });
 
   it("rejects missing translations and CRLF originals", () => {
@@ -128,17 +130,6 @@ describe("content validation", () => {
     });
     expect(issues.join("\n")).toContain("declares 999x1000 but the file is 1000x1000");
     expect(issues.join("\n")).toContain("image file not found");
-  });
-
-  it("rejects image rights marked approved without a reviewer", () => {
-    const { issues } = setup((dir) =>
-      editJson(path.join(dir, "examples.json"), (value) => {
-        const [first] = value as unknown as { rights: Record<string, unknown> }[];
-        first!.rights = { ...first!.rights, status: "approved" };
-        return value;
-      }),
-    );
-    expect(issues.join("\n")).toContain("approved image rights need reviewedBy and reviewedAt");
   });
 
   it("rejects fixture records outside fixture roots", () => {
