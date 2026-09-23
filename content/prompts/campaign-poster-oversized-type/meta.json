@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "id": "campaign-poster-oversized-type",
+  "slug": "campaign-poster-oversized-type",
+  "templateVersion": "1.0.0",
+  "status": "draft",
+  "createdAt": "2026-09-23",
+  "updatedAt": "2026-09-23",
+  "publishedAt": null,
+  "category": "posters",
+  "tags": [
+    "typography",
+    "minimal"
+  ],
+  "originalLocale": "zh-CN",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.zh-CN.txt",
+  "templatePaths": {
+    "en": "template.en.txt",
+    "zh-CN": "template.zh-CN.txt"
+  },
+  "parametersPath": "parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": false,
+  "sourceRecommendedTools": [],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "x-post",
+      "type": "x",
+      "role": "original",
+      "title": "Eian on X (2026-09-21)",
+      "url": "https://x.com/EianLu/status/2102027672788652453",
+      "author": {
+        "name": "Eian",
+        "handle": "@EianLu",
+        "url": "https://x.com/EianLu"
+      },
+      "checkedAt": "2026-09-23"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/EianLu/status/2102027672788652453",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown",
+    "releaseReview": {
+      "status": "pending",
+      "reviewedBy": null,
+      "reviewedAt": null,
+      "evidence": null
+    }
+  }
+}

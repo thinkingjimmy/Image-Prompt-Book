@@ -1,0 +1,28 @@
+{
+  "title": "Bold Campaign Poster — Oversized Type",
+  "summary": "Turn any idea into a 9:16 campaign key visual: one big subject with a single bold twist, huge type behind it and a strong solid background.",
+  "seoTitle": "Bold Campaign Poster Prompt (Oversized Typography) | Image Prompt Book",
+  "seoDescription": "A prompt for minimal, high-impact 9:16 campaign posters with oversized typography. Pick the visual twist, background color and material, then copy the prompt.",
+  "inputRequirement": "No image needed. Fill in the title, theme, core message and visual direction at the top of the prompt before sending; you can leave any of them empty.",
+  "howToUse": [
+    "Adjust the highlighted options in the prompt.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Fill in the title, theme, core message and visual direction at the top, then send."
+  ],
+  "exampleNotice": "Example results shared by the author, not a live preview.",
+  "verificationNotice": "These examples come from the author's post and has not been reproduced by Image Prompt Book.",
+  "adaptationNotice": "English translation and adjustable options by Image Prompt Book; not the author's wording or an endorsement.",
+  "licenseNotice": "The author did not state a license. All rights stay with the author until permission is recorded.",
+  "parameterLabels": {
+    "anomaly": "Visual twist",
+    "background": "Background color",
+    "material": "Subject material"
+  },
+  "keywords": [
+    "poster",
+    "campaign",
+    "key visual",
+    "oversized typography",
+    "9:16"
+  ]
+}

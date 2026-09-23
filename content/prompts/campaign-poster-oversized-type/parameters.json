@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "anomaly",
+      "type": "select",
+      "renderAs": "block",
+      "default": "auto",
+      "options": [
+        {
+          "id": "auto",
+          "labels": {
+            "en": "Best fit for the theme",
+            "zh-CN": "按主题选择"
+          },
+          "replacements": {
+            "en": "You can change:\n\nscale\nmaterial\nproportion\nstructure\nform\ngravity\nposition\n\nFor example:\n\noversizing\nmaking it transparent\nmaking it metallic\nmaking it glass\nmaking it liquid\nmaking it sculptural\nfloating\ncompressing\nstretching\nslicing\ninflating\ndeforming",
+            "zh-CN": "可以改变：\n\n尺度\n材质\n比例\n结构\n形态\n重力\n位置\n\n例如：\n\n巨大化\n透明化\n金属化\n玻璃化\n液态化\n雕塑化\n悬浮\n压缩\n拉伸\n切割\n膨胀\n变形"
+          }
+        },
+        {
+          "id": "oversized",
+          "labels": {
+            "en": "Oversized",
+            "zh-CN": "巨大化"
+          },
+          "replacements": {
+            "en": "Use this anomaly: oversizing — make the subject so large it loses normal proportion and may break the frame.",
+            "zh-CN": "本次使用的异常：巨大化——让主体大到失去正常比例，甚至突破画面边缘。"
+          }
+        },
+        {
+          "id": "floating",
+          "labels": {
+            "en": "Floating",
+            "zh-CN": "悬浮"
+          },
+          "replacements": {
+            "en": "Use this anomaly: floating — free the subject from gravity so it hovers in the frame.",
+            "zh-CN": "本次使用的异常：悬浮——让主体脱离重力，悬停在画面中。"
+          }
+        },
+        {
+          "id": "sliced",
+          "labels": {
+            "en": "Sliced",
+            "zh-CN": "切割"
+          },
+          "replacements": {
+            "en": "Use this anomaly: slicing — cut the subject cleanly apart to reveal a cross-section or an offset.",
+            "zh-CN": "本次使用的异常：切割——把主体干净利落地切开，露出截面或错位。"
+          }
+        },
+        {
+          "id": "compressed",
+          "labels": {
+            "en": "Compressed or stretched",
+            "zh-CN": "压缩或拉伸"
+          },
+          "replacements": {
+            "en": "Use this anomaly: compressing or stretching — squeeze or pull the subject hard along one direction.",
+            "zh-CN": "本次使用的异常：压缩或拉伸——让主体沿一个方向被强力挤压或拉长。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "background",
+      "type": "select",
+      "renderAs": "block",
+      "default": "auto",
+      "options": [
+        {
+          "id": "auto",
+          "labels": {
+            "en": "Best fit for the theme",
+            "zh-CN": "按主题选择"
+          },
+          "replacements": {
+            "en": "Choose the background automatically based on the theme:\n\nhighly saturated blue\ncobalt blue\ndeep blue\npure red\ntomato red\nbright orange\nacid yellow\ncream white\ndeep green\npurple\nblack\ncharcoal gray",
+            "zh-CN": "背景可以根据主题自动选择：\n\n高饱和蓝\n钴蓝\n深蓝\n正红\n番茄红\n亮橙\n酸性黄\n奶油白\n深绿\n紫色\n黑色\n炭灰色"
+          }
+        },
+        {
+          "id": "cobalt",
+          "labels": {
+            "en": "Cobalt blue",
+            "zh-CN": "钴蓝"
+          },
+          "replacements": {
+            "en": "Use a large area of saturated cobalt blue as the background.",
+            "zh-CN": "背景使用大面积高饱和钴蓝。"
+          }
+        },
+        {
+          "id": "red",
+          "labels": {
+            "en": "Pure red",
+            "zh-CN": "正红"
+          },
+          "replacements": {
+            "en": "Use a large area of pure red as the background.",
+            "zh-CN": "背景使用大面积正红。"
+          }
+        },
+        {
+          "id": "acid-yellow",
+          "labels": {
+            "en": "Acid yellow",
+            "zh-CN": "酸性黄"
+          },
+          "replacements": {
+            "en": "Use a large area of acid yellow as the background.",
+            "zh-CN": "背景使用大面积酸性黄。"
+          }
+        },
+        {
+          "id": "black",
+          "labels": {
+            "en": "Black",
+            "zh-CN": "黑色"
+          },
+          "replacements": {
+            "en": "Use a large area of deep black as the background.",
+            "zh-CN": "背景使用大面积纯黑。"
+          }
+        },
+        {
+          "id": "cream",
+          "labels": {
+            "en": "Cream white",
+            "zh-CN": "奶油白"
+          },
+          "replacements": {
+            "en": "Use a large area of cream white as the background, with dark, high-contrast type.",
+            "zh-CN": "背景使用大面积奶油白，搭配深色、高对比的文字。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "material",
+      "type": "select",
+      "renderAs": "block",
+      "default": "auto",
+      "options": [
+        {
+          "id": "auto",
+          "labels": {
+            "en": "Best fit for the theme",
+            "zh-CN": "按主题选择"
+          },
+          "replacements": {
+            "en": "Automatically choose the visual material that best suits the theme.\n\nYou can use:\n\nreal photography\nsilver chrome\nbrushed metal\nliquid metal\nclear glass\nfrosted glass\nacrylic\nclear resin\nceramic\nrubber\nmatte plastic\nfabric\npaper\nstone\nmarble\nwood\n\nDo not default to silver metal.\n\nThe material must serve the theme.",
+            "zh-CN": "根据主题自动选择最合适的视觉材质。\n\n可以使用：\n\n真实摄影\n银色镀铬\n拉丝金属\n液态金属\n透明玻璃\n磨砂玻璃\n亚克力\n透明树脂\n陶瓷\n橡胶\n哑光塑料\n布料\n纸张\n石材\n大理石\n木材\n\n不要固定使用银色金属。\n\n材质必须服务于主题。"
+          }
+        },
+        {
+          "id": "photo",
+          "labels": {
+            "en": "Real photography",
+            "zh-CN": "真实摄影"
+          },
+          "replacements": {
+            "en": "Render the subject as real photography, like a high-end commercial studio shoot.",
+            "zh-CN": "主体使用真实摄影质感，像高级商业棚拍。"
+          }
+        },
+        {
+          "id": "chrome",
+          "labels": {
+            "en": "Chrome or liquid metal",
+            "zh-CN": "镀铬或液态金属"
+          },
+          "replacements": {
+            "en": "Render the subject in silver chrome or liquid metal, with clean, sharp reflections.",
+            "zh-CN": "主体使用银色镀铬或液态金属材质，反射干净锐利。"
+          }
+        },
+        {
+          "id": "glass",
+          "labels": {
+            "en": "Glass",
+            "zh-CN": "玻璃"
+          },
+          "replacements": {
+            "en": "Render the subject in clear or frosted glass, with clean refraction and highlights along its edges.",
+            "zh-CN": "主体使用透明玻璃或磨砂玻璃材质，边缘带有干净的折射与高光。"
+          }
+        },
+        {
+          "id": "ceramic",
+          "labels": {
+            "en": "Matte ceramic or stone",
+            "zh-CN": "哑光陶瓷或石材"
+          },
+          "replacements": {
+            "en": "Render the subject in matte ceramic or stone, like a sculpture.",
+            "zh-CN": "主体使用哑光陶瓷或石材材质，像一件雕塑。"
+          }
+        },
+        {
+          "id": "soft",
+          "labels": {
+            "en": "Fabric or paper",
+            "zh-CN": "布料或纸张"
+          },
+          "replacements": {
+            "en": "Render the subject in fabric or paper, with a soft, real texture.",
+            "zh-CN": "主体使用布料或纸张材质，质感柔软、真实。"
+          }
+        }
+      ]
+    }
+  ]
+}

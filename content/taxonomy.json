@@ -22,6 +22,17 @@
         "en": "Turn your own photos into posters, collages and editorial pieces.",
         "zh-CN": "把自己的照片变成海报、拼贴与编辑设计作品。"
       }
+    },
+    {
+      "id": "posters",
+      "labels": {
+        "en": "Posters",
+        "zh-CN": "海报"
+      },
+      "descriptions": {
+        "en": "Campaign posters and key visuals built around bold type and one strong idea.",
+        "zh-CN": "以大胆字体和一个核心创意为中心的 Campaign 海报与主视觉。"
+      }
     }
   ],
   "tags": [
@@ -72,6 +83,13 @@
       "labels": {
         "en": "Sketch",
         "zh-CN": "手绘速写"
+      }
+    },
+    {
+      "id": "typography",
+      "labels": {
+        "en": "Typography",
+        "zh-CN": "字体排版"
       }
     }
   ]

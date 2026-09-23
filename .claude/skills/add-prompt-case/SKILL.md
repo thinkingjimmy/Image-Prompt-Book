@@ -28,6 +28,8 @@ Worked examples — read the one that matches your source before starting:
 - `original.en.txt` (or the post's language) is only the prompt text exactly as posted — drop the "Prompt:" label and the model line, keep paragraph breaks, curly quotes and spelling. Hash that text (without our added final newline) and put the hash in `ATTRIBUTION.md` and the entry test.
 - The model line (e.g. "GPT Image 2 On ChatGPT") goes to `sourceRecommendedTools`, never `verifiedModels`.
 - Author: display name, `@handle`, profile URL; source `type: "x"`, `role: "original"`, title like `"<Name> on X (<YYYY-MM-DD>)"`.
+- If the wording leaves authorship open (e.g. "分享一组很喜欢的提示词" — sharing prompts I like), credit the poster "as shared in the post" and tell the user the original author is unconfirmed.
+- Prompts in a code block: read the `pre` element's `textContent` in the page and hash it there to confirm your copy matches; Markdown-style `* ` / `**` inside it are formatting, spelled as plain text in the templates.
 - Read the profile bio for usage terms. A bio like "DM for collaborations" is not a license.
 - Images in the post (`pbs.twimg.com`) follow section 3: download only if the user asked for them. Users can also paste them in; treat pasted images as supplied by the owner.
 - Compare the idea with existing entries. If it closely resembles another author's prompt, tell the user — some authors have publicly complained about copies.
@@ -61,6 +63,7 @@ Silence is not permission: by default the author keeps all rights. You may still
 - Download only when the user asked for this source's images (that is the permission). Never hotlink.
 - Prefer the images the author features (README order). Drop ones that contradict the prompt (e.g. text in the image when the prompt forbids text) or come from older versions.
 - Resize to ≤1600 px on the long edge, JPEG q≈82 (`sips -Z 1600 -s format jpeg -s formatOptions 82 in --out out`); keep PNG only for transparency. `sips -Z` also **enlarges** smaller images — check `sips -g pixelWidth` first and drop `-Z` when the image is already ≤1600 px. Put the chosen cover first in `examples.json`.
+- Collages (grids, triptychs) are cut into single images along their gutters or seams; the post shows the format the prompt asks for (e.g. 9:16), so drop crops in another format. `sips --cropOffset 0 0` silently falls back to a centre crop — check the crops are not duplicates (`md5`). Drop images showing a real brand's logo.
 - Look at every image (small preview) and write true bilingual `alt` text. Real `width`/`height` (the checker verifies them).
 - `rights.status: "pending"` with an honest `basis` (who asked, what the source terms say) and `evidence` (license URL). `provenance: "source-reported"`, `recipe: null`.
 

@@ -7,6 +7,8 @@
 > 第二个条目（2026-09-23）：`photo-abstract-editorial`（作者 AM. / GitHub @ZzzLc0405，来源提交 49e5507），8 个可调选项、6 张作者展示图；作者条款为非商业（README 另标 CC BY-NC-SA 4.0），使用审核与图片展示许可均为 pending，发布前需取得授权。
 
 > 第三个条目（2026-09-23，用 add-prompt-case skill 导入）：`photo-memory-card`（Sairah / X @Sairah_0，帖子 2093212900160868430）。作者未声明许可，按保留全部权利处理；3 张案例图由所有者手动提供（展示权利 pending）。发布前需作者授权。
+>
+> 第四个条目（2026-09-23）：`campaign-poster-oversized-type`（Eian / X @EianLu，帖子 2102027672788652453）。作者未声明许可，且帖子写的是“分享一组很喜欢的提示词”，原创者待确认；7 张案例图从帖子拼图中切出（横版 FOCUS 与带 Nike 标志的 MOVE 未收录，展示权利 pending）。发布前需作者授权。
 
 状态（2026-09-23）：M0–M4 与 M5 中可自动化的测试项已实现并通过验收，记录见 [testing/2026-09-23-verification.md](./testing/2026-09-23-verification.md)。未勾选项需要维护者人工审核（许可、真实图片、发布）、真实部署或 GitHub 上运行，未因代码完成而勾选。只有实现与对应验收均通过，才将 `[ ]` 改为 `[x]`。
 

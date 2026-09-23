@@ -1,0 +1,663 @@
+[User input]
+
+Title:
+
+Theme:
+
+Core message:
+
+Visual direction:
+
+━━━━━━━━━━━━━━━━━━━━
+
+Highest-priority rules
+
+━━━━━━━━━━━━━━━━━━━━
+
+Based on the information above, create one image with strong visual impact:
+
+Bold Commercial Poster × Oversized Typography × Premium Editorial Advertising
+
+A 9:16 vertical commercial campaign key visual.
+
+Generate only, each time:
+
+One image.
+One core subject.
+One set of main title text.
+One complete composition.
+One clear visual focal point.
+
+Do not generate:
+
+collages
+multi-panel grids
+storyboards
+top-and-bottom split layouts
+side-by-side case collections
+sets of several posters
+contact sheet
+moodboard
+triptych
+diptych
+collage
+several equally important subjects
+several separate scenes
+lots of UI windows
+lots of icons
+lots of sticky notes
+lots of explanatory text
+
+Even if the theme contains a lot of information, choose only the single core idea with the most visual power to express.
+
+━━━━━━━━━━━━━━━━━━━━
+
+Step 1: Understand the theme first
+
+━━━━━━━━━━━━━━━━━━━━
+
+Do not jump from a keyword straight to a matching object.
+
+First understand:
+
+What does this theme really want to say?
+
+What is most worth amplifying?
+
+Is it:
+
+pressure
+speed
+desire
+losing control
+choice
+dependence
+growth
+conflict
+loneliness
+strength
+repetition
+overload
+breakthrough
+competition
+stagnation
+change
+depletion
+
+Compress the complex theme into one simple, direct visual relationship that can be understood at a glance.
+
+For example:
+
+A person being compressed by some force.
+
+An ordinary object suddenly so huge it loses normal proportion.
+
+A figure trying to control something far bigger than themselves.
+
+A product occupying the whole space like a sculpture.
+
+A subject undergoing a change that is impossible yet easy to understand.
+
+Do not try to draw every piece of information in the theme.
+
+━━━━━━━━━━━━━━━━━━━━
+
+Step 2: Choose only one core subject
+
+━━━━━━━━━━━━━━━━━━━━
+
+The whole piece must be built around one main subject.
+
+The subject can be:
+
+a person
+a product
+an animal
+a machine
+a car
+a phone
+a computer
+a building
+furniture
+clothing
+food
+a sculpture
+an everyday object
+an abstract geometric form
+an object related to the theme
+
+The core subject must be large enough.
+
+It should take up about:
+
+40%–70%
+
+of the visual area.
+
+The subject must be the first thing seen.
+
+If you use a person, prefer:
+
+a single person
+half-length
+a bust
+an extreme close-up
+a single full-length figure
+
+Avoid complex groups of people.
+
+━━━━━━━━━━━━━━━━━━━━
+
+Step 3: Keep only one visual anomaly
+
+━━━━━━━━━━━━━━━━━━━━
+
+To make the image memorable, you may transform the subject boldly, once.
+
+{{anomaly}}
+
+But use only the single strongest anomaly in one image.
+
+Do not add lots of visual effects at the same time.
+
+The goal is:
+
+One anomaly that people remember.
+
+━━━━━━━━━━━━━━━━━━━━
+
+Step 4: Oversized text takes part in the composition
+
+━━━━━━━━━━━━━━━━━━━━
+
+A key feature of this visual system is:
+
+Oversized Typography.
+
+The text cannot be just an ordinary title.
+
+The text itself is the structure of the image.
+
+If the user fills in a title:
+
+Use the user's title first.
+
+If the title is long:
+
+Extract the most powerful
+
+1–4 characters or words
+
+as the oversized visual text.
+
+The full title can appear smaller as supporting text.
+
+If the user leaves the title empty:
+
+Automatically distill a short, powerful title from the theme.
+
+━━━━━━━━━━━━━━━━━━━━
+
+Oversized type rules
+
+━━━━━━━━━━━━━━━━━━━━
+
+The main visual text should be:
+
+huge
+heavy
+striking
+simple
+architectural
+
+Prefer:
+
+Bold Condensed Sans Serif
+Heavy Grotesk
+Compressed Display Type
+Swiss Typography
+Editorial Display Type
+
+Chinese type should look:
+
+bold
+square
+weighty
+clearly structured
+
+The text may:
+
+repeat 2–3 times
+run beyond the frame
+be cropped
+be covered by the subject
+extend to the edges of the image
+
+Do not shrink the text out of worry that it will not show in full.
+
+The big type is itself part of the visual impact.
+
+━━━━━━━━━━━━━━━━━━━━
+
+Subject and text relationship
+
+━━━━━━━━━━━━━━━━━━━━
+
+Prefer a three-layer visual structure:
+
+background
+→ huge text
+→ core subject
+
+The subject should sit in front of the text.
+
+The subject may cover part of the text.
+
+The text should still be roughly legible.
+
+Do not simply end up with:
+
+title on top
+person below
+
+or:
+
+text on the left
+subject on the right
+
+The subject and the text should truly interact in space.
+
+━━━━━━━━━━━━━━━━━━━━
+
+9:16 vertical composition
+
+━━━━━━━━━━━━━━━━━━━━
+
+The image uses:
+
+9:16 vertical format.
+
+Make full use of the vertical space.
+
+You can choose:
+
+a huge centered subject
+the subject placed low
+the subject placed high
+the subject breaking the frame
+an extreme close-up
+a half-length figure
+an oversized product
+subject and text overlapping vertically
+large areas of empty space
+text running from top to bottom
+the subject pressing on the middle area
+the title cropped at the top and bottom
+
+The image should have strong visual impact on a phone screen.
+
+At first glance you should see:
+
+big subject + big text.
+
+━━━━━━━━━━━━━━━━━━━━
+
+Color
+
+━━━━━━━━━━━━━━━━━━━━
+
+Keep the overall palette to:
+
+2–4 main colors.
+
+Recommended structure:
+
+one highly recognizable background color
+
++ one main title color
++ one subject material color
++ one optional accent color
+
+{{background}}
+
+Colors should be:
+
+bold
+direct
+large in area
+high contrast
+
+Avoid:
+
+complex rainbow gradients
+too many colors
+messy local colors
+cheap neon looks
+
+━━━━━━━━━━━━━━━━━━━━
+
+Background
+
+━━━━━━━━━━━━━━━━━━━━
+
+By default the background stays:
+
+simple
+large in area
+clean
+uniform
+
+Prefer:
+
+a solid-color background
+very slight tonal variation
+a minimal studio space
+a minimal abstract space
+
+Unless the theme clearly needs it,
+
+do not add complex:
+
+offices
+cities
+streets
+rooms
+workbenches
+interior decoration
+crowds
+landscapes
+
+The background's job is:
+
+to make the subject stand out.
+
+Not to tell a story.
+
+━━━━━━━━━━━━━━━━━━━━
+
+Subject material
+
+━━━━━━━━━━━━━━━━━━━━
+
+{{material}}
+
+━━━━━━━━━━━━━━━━━━━━
+
+People
+
+━━━━━━━━━━━━━━━━━━━━
+
+If the subject is a person:
+
+show only one person by default.
+
+Keep the action simple and clear, for example:
+
+looking straight at the camera
+a hand on the forehead
+head lowered
+head raised
+reaching out
+holding an object
+looking back
+holding something up with both hands
+a simple seated pose
+a simple standing pose
+
+The person should not do several actions at once.
+
+Do not pile up around the person:
+
+computers
+phones
+documents
+windows
+sticky notes
+coffee cups
+icons
+
+The person is the subject.
+
+━━━━━━━━━━━━━━━━━━━━
+
+Products and objects
+
+━━━━━━━━━━━━━━━━━━━━
+
+If the subject is a product or object:
+
+make it large enough.
+
+You can use:
+
+floating
+tilting
+frontal display
+a close-up detail
+oversizing
+sculptural display
+breaking the frame
+
+Do not add lots of accessories to fill the image.
+
+One big subject works better than a pile of small props.
+
+━━━━━━━━━━━━━━━━━━━━
+
+Supporting information
+
+━━━━━━━━━━━━━━━━━━━━
+
+Besides the main title, add at most:
+
+1 small supporting information area.
+
+It can sit at:
+
+top left
+top right
+bottom left
+bottom right
+
+Its content can be:
+
+a subtitle
+a date
+a number
+a series name
+one short line of copy
+
+It must be clearly smaller than the main title.
+
+Supporting information is only an accent.
+
+It must not take over the visual focal point.
+
+━━━━━━━━━━━━━━━━━━━━
+
+Lighting
+
+━━━━━━━━━━━━━━━━━━━━
+
+Use:
+
+Premium Commercial Lighting
+
+Emphasize:
+
+clean contours
+refined highlights
+soft shadows
+rim light
+material reflections
+layering of the subject
+a light soft glow
+
+People look like high-end fashion advertising photography.
+
+Products look like high-end product photography.
+
+3D subjects have refined commercial CGI quality.
+
+Do not make it look like cheap plastic 3D.
+
+━━━━━━━━━━━━━━━━━━━━
+
+Visual hierarchy
+
+━━━━━━━━━━━━━━━━━━━━
+
+First glance:
+
+see the core subject.
+
+Second glance:
+
+see the huge title.
+
+Third glance:
+
+see the supporting information.
+
+Do not make everything equally loud.
+
+There must be:
+
+a high-information area
+a mid-information area
+a low-information area
+
+Leave enough empty space in the image.
+
+━━━━━━━━━━━━━━━━━━━━
+
+Especially avoid
+
+━━━━━━━━━━━━━━━━━━━━
+
+Do not draw a robot just because of AI.
+
+Do not draw a chip just because of technology.
+
+Do not draw candlestick charts just because of finance.
+
+Do not draw gears just because of efficiency.
+
+Do not draw a light bulb just because of creativity.
+
+Do not draw lots of notifications just because of anxiety.
+
+Do not draw an office desk just because of work.
+
+Do not draw a computer screen just because of the internet.
+
+Look for a simpler, bolder, more advertising-like visual expression first.
+
+━━━━━━━━━━━━━━━━━━━━
+
+Styles to avoid
+
+━━━━━━━━━━━━━━━━━━━━
+
+Avoid:
+
+generic AI artwork
+infographic
+magazine cover
+UI collage
+busy collage
+PowerPoint composition
+e-commerce banner
+social media template
+generic futuristic poster
+cyberpunk
+synthwave
+gaming poster
+movie poster cliché
+complex cinematic environment
+holographic interface clutter
+rainbow gradient
+cheap 3D render
+stock photography layout
+
+Do not generate:
+
+an image that "has everything".
+
+━━━━━━━━━━━━━━━━━━━━
+
+Target visual system
+
+━━━━━━━━━━━━━━━━━━━━
+
+The final visual should be close to:
+
+High-end Commercial Advertising
+Bold Advertising Campaign
+Premium Editorial Advertising
+Swiss Graphic Design
+Sports Campaign
+Fashion Campaign
+Technology Campaign
+Oversized Typography
+Studio Photography
+Premium 3D Advertising
+Contemporary Brand Key Visual
+
+Overall feel:
+
+like a campaign key visual made by an experienced creative team.
+
+Not:
+
+ordinary AI illustration.
+
+━━━━━━━━━━━━━━━━━━━━
+
+Final checklist
+
+━━━━━━━━━━━━━━━━━━━━
+
+Check before generating:
+
+1. Is there only one core subject?
+2. Is the subject large enough?
+3. Is there only one set of main big text?
+4. Do the subject and the big text truly overlap?
+5. Is the background simple enough?
+6. Are there no lots of scattered elements?
+7. Is there no large amount of explanatory text?
+8. Is the palette kept to 2–4 colors?
+9. Is there a clear visual focal point at first glance?
+10. Does it suit viewing on a 9:16 vertical phone screen?
+11. Is it still clear when scaled down?
+12. Does it look like a commercial campaign, not an infographic or a themed illustration?
+
+⸻
+
+Final goal
+
+Compress any theme the user gives into:
+
+one core subject
++ one bold visual anomaly
++ one set of oversized type
++ one strong background color
++ one clear visual focal point.
+
+What stays fixed:
+
+Bold Commercial Poster × Oversized Typography × Premium Editorial Advertising
+
+What changes:
+
+subject
+color
+material
+composition
+text
+visual concept
+
+Do not explain the design process.
+
+Directly create the final 9:16 vertical image.
