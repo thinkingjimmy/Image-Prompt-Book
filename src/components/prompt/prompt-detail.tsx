@@ -21,7 +21,7 @@ import { PromptActions } from "./workbench/prompt-actions";
 import { PromptStateProvider, type PromptData } from "./workbench/prompt-state";
 import { VariantTabs } from "./workbench/variant-tabs";
 
-const LICENSE_NAMES: Record<string, string> = { "CC-BY-NC-4.0": "CC BY-NC 4.0", MIT: "MIT", "LicenseRef-AM-NonCommercial": "Non-commercial" };
+const LICENSE_NAMES: Record<string, string> = { "CC-BY-NC-4.0": "CC BY-NC 4.0", MIT: "MIT", "LicenseRef-AM-NonCommercial": "Non-commercial", "LicenseRef-Unspecified": "No license stated" };
 /** Keep in sync with `md:w-[440px]` below (Tailwind needs the literal class). */
 const RIGHT_COLUMN = 440;
 

@@ -66,6 +66,13 @@
         "en": "Abstract",
         "zh-CN": "抽象"
       }
+    },
+    {
+      "id": "sketch",
+      "labels": {
+        "en": "Sketch",
+        "zh-CN": "手绘速写"
+      }
     }
   ]
 }

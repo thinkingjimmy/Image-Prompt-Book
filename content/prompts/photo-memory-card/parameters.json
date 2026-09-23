@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "paper",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "off-white",
+      "options": [
+        {
+          "id": "off-white",
+          "labels": {
+            "en": "Off-white handmade",
+            "zh-CN": "米白手工纸"
+          },
+          "replacements": {
+            "en": "textured off-white handmade paper",
+            "zh-CN": "带纹理的米白色手工纸"
+          }
+        },
+        {
+          "id": "kraft",
+          "labels": {
+            "en": "Warm kraft",
+            "zh-CN": "暖色牛皮纸"
+          },
+          "replacements": {
+            "en": "warm kraft paper",
+            "zh-CN": "暖色牛皮纸"
+          }
+        },
+        {
+          "id": "watercolor",
+          "labels": {
+            "en": "Pale grey watercolor",
+            "zh-CN": "浅灰水彩纸"
+          },
+          "replacements": {
+            "en": "pale grey watercolor paper",
+            "zh-CN": "浅灰色水彩纸"
+          }
+        },
+        {
+          "id": "cotton",
+          "labels": {
+            "en": "Cream cotton",
+            "zh-CN": "奶油棉纸"
+          },
+          "replacements": {
+            "en": "cream cotton paper",
+            "zh-CN": "奶油色棉纸"
+          }
+        }
+      ]
+    },
+    {
+      "id": "colorPatch",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "one",
+      "options": [
+        {
+          "id": "one",
+          "labels": {
+            "en": "One color patch",
+            "zh-CN": "一块色块"
+          },
+          "replacements": {
+            "en": "add a muted, irregular color patch matching the photo’s tones",
+            "zh-CN": "加入一块与照片色调相配的低饱和不规则色块"
+          }
+        },
+        {
+          "id": "two",
+          "labels": {
+            "en": "Two overlapping patches",
+            "zh-CN": "两块叠色"
+          },
+          "replacements": {
+            "en": "add two overlapping muted color patches matching the photo’s tones",
+            "zh-CN": "加入两块相互重叠、与照片色调相配的低饱和色块"
+          }
+        },
+        {
+          "id": "none",
+          "labels": {
+            "en": "No color patch",
+            "zh-CN": "不加色块"
+          },
+          "replacements": {
+            "en": "keep the paper plain without a color patch",
+            "zh-CN": "保持纸面干净，不加色块"
+          }
+        }
+      ]
+    },
+    {
+      "id": "sketchMedium",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "wax-crayon",
+      "options": [
+        {
+          "id": "wax-crayon",
+          "labels": {
+            "en": "Dark wax crayon",
+            "zh-CN": "深色蜡笔"
+          },
+          "replacements": {
+            "en": "a simple dark wax-crayon sketch",
+            "zh-CN": "简单的深色蜡笔速写"
+          }
+        },
+        {
+          "id": "graphite",
+          "labels": {
+            "en": "Soft graphite",
+            "zh-CN": "柔和铅笔"
+          },
+          "replacements": {
+            "en": "a simple soft graphite pencil sketch",
+            "zh-CN": "简单的柔和铅笔素描"
+          }
+        },
+        {
+          "id": "charcoal",
+          "labels": {
+            "en": "Charcoal",
+            "zh-CN": "炭笔"
+          },
+          "replacements": {
+            "en": "a simple charcoal sketch",
+            "zh-CN": "简单的炭笔速写"
+          }
+        },
+        {
+          "id": "colored-pencil",
+          "labels": {
+            "en": "Colored pencil",
+            "zh-CN": "彩色铅笔"
+          },
+          "replacements": {
+            "en": "a simple colored-pencil sketch in the photo’s tones",
+            "zh-CN": "与照片色调一致的简单彩铅速写"
+          }
+        }
+      ]
+    },
+    {
+      "id": "phrase",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "english",
+      "options": [
+        {
+          "id": "english",
+          "labels": {
+            "en": "English phrase",
+            "zh-CN": "英文短语"
+          },
+          "replacements": {
+            "en": "Add a short handwritten English phrase and subtle Risograph grain.",
+            "zh-CN": "加入一句简短的手写英文短语，并加入细微的 Risograph 印刷颗粒。"
+          }
+        },
+        {
+          "id": "chinese",
+          "labels": {
+            "en": "Chinese phrase",
+            "zh-CN": "中文短语"
+          },
+          "replacements": {
+            "en": "Add a short handwritten Chinese phrase and subtle Risograph grain.",
+            "zh-CN": "加入一句简短的手写中文短语，并加入细微的 Risograph 印刷颗粒。"
+          }
+        },
+        {
+          "id": "none",
+          "labels": {
+            "en": "No text",
+            "zh-CN": "不加文字"
+          },
+          "replacements": {
+            "en": "Add subtle Risograph grain, but no text.",
+            "zh-CN": "只加入细微的 Risograph 印刷颗粒，不添加任何文字。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mood",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "morandi",
+      "options": [
+        {
+          "id": "morandi",
+          "labels": {
+            "en": "Quiet Morandi",
+            "zh-CN": "安静莫兰迪"
+          },
+          "replacements": {
+            "en": "a quiet, nostalgic Morandi-style aesthetic",
+            "zh-CN": "安静、怀旧的莫兰迪风格"
+          }
+        },
+        {
+          "id": "sun-faded",
+          "labels": {
+            "en": "Sun-faded vintage",
+            "zh-CN": "褪色复古"
+          },
+          "replacements": {
+            "en": "a soft, sun-faded vintage aesthetic",
+            "zh-CN": "柔和、被阳光晒褪色的复古风格"
+          }
+        },
+        {
+          "id": "japanese",
+          "labels": {
+            "en": "Calm Japanese minimal",
+            "zh-CN": "日式极简"
+          },
+          "replacements": {
+            "en": "a calm, Japanese-minimalist aesthetic",
+            "zh-CN": "平静的日式极简风格"
+          }
+        }
+      ]
+    }
+  ]
+}

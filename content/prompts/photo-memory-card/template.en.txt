@@ -1,0 +1,7 @@
+Transform the uploaded photo into a vertical mixed-media memory card with a strict 50/50 split.
+
+Keep the original photo unchanged in the top half. In the bottom half, use {{paper}} and {{colorPatch}}.
+
+Redraw the main subjects as {{sketchMedium}} with loose, imperfect lines and minimal details. {{phrase}}
+
+Create {{mood}} with generous negative space. Do not add extra elements or copy the reference composition exactly.

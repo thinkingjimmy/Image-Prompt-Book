@@ -1,0 +1,29 @@
+{
+  "title": "Photo Memory Card — Crayon Sketch",
+  "summary": "Keep your photo on top and add a handmade-paper half below: a loose crayon sketch of the subjects, a muted color patch and a short handwritten phrase.",
+  "seoTitle": "Photo Memory Card Prompt (Crayon Sketch) | Image Prompt Book",
+  "seoDescription": "Turn a photo into a nostalgic 50/50 memory card with a crayon sketch on handmade paper. Adjust paper, sketch medium, text and mood, then copy the prompt.",
+  "inputRequirement": "Requires one photo. Attach it in your image generation tool; this website does not upload or generate images.",
+  "howToUse": [
+    "Adjust the highlighted options in the prompt.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Attach the photo you want to use, then send."
+  ],
+  "exampleNotice": "No example images yet.",
+  "verificationNotice": "Not reproduced by Image Prompt Book.",
+  "adaptationNotice": "Chinese translation and adjustable options by Image Prompt Book; not the author's wording or an endorsement.",
+  "licenseNotice": "The author did not state a license. All rights stay with the author until permission is recorded.",
+  "parameterLabels": {
+    "paper": "Paper",
+    "colorPatch": "Color patch",
+    "sketchMedium": "Sketch medium",
+    "phrase": "Handwritten text",
+    "mood": "Mood"
+  },
+  "keywords": [
+    "memory card",
+    "crayon",
+    "scrapbook",
+    "handwritten"
+  ]
+}

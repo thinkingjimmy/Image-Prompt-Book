@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "photo-memory-card",
+  "slug": "photo-memory-card",
+  "templateVersion": "1.0.0",
+  "status": "draft",
+  "createdAt": "2026-09-23",
+  "updatedAt": "2026-09-23",
+  "publishedAt": null,
+  "category": "photo-art",
+  "tags": [
+    "sketch",
+    "editorial",
+    "image-to-image"
+  ],
+  "originalLocale": "en",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.en.txt",
+  "templatePaths": {
+    "en": "template.en.txt",
+    "zh-CN": "template.zh-CN.txt"
+  },
+  "parametersPath": "parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": true,
+  "sourceRecommendedTools": [
+    "GPT Image 2 on ChatGPT"
+  ],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "x-post",
+      "type": "x",
+      "role": "original",
+      "title": "Sairah on X (2026-08-28)",
+      "url": "https://x.com/Sairah_0/status/2093212900160868430",
+      "author": {
+        "name": "Sairah",
+        "handle": "@Sairah_0",
+        "url": "https://x.com/Sairah_0"
+      },
+      "checkedAt": "2026-09-23"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/Sairah_0/status/2093212900160868430",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown",
+    "releaseReview": {
+      "status": "pending",
+      "reviewedBy": null,
+      "reviewedAt": null,
+      "evidence": null
+    }
+  }
+}
