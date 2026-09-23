@@ -1,0 +1,131 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+/* `js:` styles apply only after the inline boot script marks <html class="js">, so no-JS readers see every panel. */
+@custom-variant js (&:where(.js *));
+
+:root {
+  --radius: 0.875rem;
+  --background: #f7f6f3;
+  --foreground: #1c1b19;
+  --card: #ffffff;
+  --card-foreground: #1c1b19;
+  --popover: #ffffff;
+  --popover-foreground: #1c1b19;
+  --primary: #1c1b19;
+  --primary-foreground: #fbfaf8;
+  --secondary: #eeece7;
+  --secondary-foreground: #1c1b19;
+  --muted: #eeece7;
+  --muted-foreground: #5f5c55;
+  --accent: #efebf7;
+  --accent-foreground: #3f3566;
+  --destructive: #b42318;
+  --border: #e3e0d9;
+  --input: #d9d5cc;
+  --ring: #6d5fb0;
+  --param: #efebf9;
+  --param-border: #d6cef0;
+  --param-foreground: #3f3566;
+  --success: #1f6b45;
+  --warning-bg: #fbf4e4;
+  --warning-foreground: #6b4a0e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-param: var(--param);
+  --color-param-border: var(--param-border);
+  --color-param-foreground: var(--param-foreground);
+  --color-success: var(--success);
+  --color-warning-bg: var(--warning-bg);
+  --color-warning-foreground: var(--warning-foreground);
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-sans-stack);
+}
+
+@layer base {
+  :root {
+    --font-sans-stack: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  }
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans-stack);
+    text-rendering: optimizeLegibility;
+  }
+  /* Tailwind v4 resets buttons to the default cursor; every clickable control should read as clickable. */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [role="tab"],
+  [role="option"],
+  [role="menuitem"],
+  [role="menuitemcheckbox"],
+  [role="combobox"],
+  summary,
+  label:has(> input:not(:disabled)) {
+    cursor: pointer;
+  }
+  :disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--param-border);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Gallery masonry: CSS columns keep DOM/keyboard order = column-by-column reading order. */
+  .masonry {
+    column-gap: 1rem;
+    columns: 1;
+  }
+  @media (min-width: 480px) { .masonry { columns: 2; } }
+  @media (min-width: 768px) { .masonry { columns: 3; column-gap: 1.25rem; } }
+  @media (min-width: 1024px) { .masonry { columns: 4; } }
+  @media (min-width: 1440px) { .masonry { columns: 5; column-gap: 1.5rem; } }
+  .masonry > * {
+    break-inside: avoid;
+  }
+}

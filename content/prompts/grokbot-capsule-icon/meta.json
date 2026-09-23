@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "grokbot-capsule-icon",
+  "slug": "grokbot-capsule-icon",
+  "templateVersion": "2.0.0",
+  "status": "draft",
+  "createdAt": "2026-09-23",
+  "updatedAt": "2026-09-23",
+  "publishedAt": null,
+  "category": "avatars",
+  "tags": [
+    "minimal",
+    "2d",
+    "bot-icon",
+    "image-to-image"
+  ],
+  "originalLocale": "ko",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.ko.txt",
+  "templatePaths": {
+    "en": "template.en.txt",
+    "zh-CN": "template.zh-CN.txt"
+  },
+  "parametersPath": "parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": true,
+  "sourceRecommendedTools": [
+    "ChatGPT"
+  ],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "grokbot-site",
+      "type": "website",
+      "role": "original",
+      "title": "Grokbot Icon",
+      "url": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en",
+      "author": {
+        "name": "APG",
+        "handle": "@multi_serio_ai",
+        "url": "https://x.com/multi_serio_ai"
+      },
+      "checkedAt": "2026-09-23"
+    }
+  ],
+  "rights": {
+    "promptLicense": "CC-BY-NC-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+    "sourceLicenseUrl": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license",
+    "commercialUse": "restricted",
+    "releaseReview": {
+      "status": "pending",
+      "reviewedBy": null,
+      "reviewedAt": null,
+      "evidence": null
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "categories": [
+    {
+      "id": "avatars",
+      "labels": { "en": "Avatars", "zh-CN": "头像" },
+      "descriptions": {
+        "en": "Profile pictures, icons and character portraits you can adapt from a reference image.",
+        "zh-CN": "可基于参考图改编的头像、图标与角色肖像。"
+      }
+    }
+  ],
+  "tags": [
+    { "id": "minimal", "labels": { "en": "Minimal", "zh-CN": "极简" } },
+    { "id": "2d", "labels": { "en": "2D", "zh-CN": "2D" } },
+    { "id": "bot-icon", "labels": { "en": "Bot icon", "zh-CN": "机器人头像" } },
+    { "id": "image-to-image", "labels": { "en": "Reference image", "zh-CN": "参考图转换" } }
+  ]
+}

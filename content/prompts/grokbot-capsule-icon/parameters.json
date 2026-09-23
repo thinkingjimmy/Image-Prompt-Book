@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "faceColor",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "cream",
+      "options": [
+        {
+          "id": "cream",
+          "labels": {
+            "en": "Cream",
+            "zh-CN": "奶油色"
+          },
+          "replacements": {
+            "en": "cream",
+            "zh-CN": "奶油色"
+          }
+        },
+        {
+          "id": "original-skin",
+          "labels": {
+            "en": "Original skin tone",
+            "zh-CN": "原图肤色"
+          },
+          "replacements": {
+            "en": "the subject's original skin tone",
+            "zh-CN": "原图肤色"
+          }
+        },
+        {
+          "id": "pale-peach",
+          "labels": {
+            "en": "Pale peach",
+            "zh-CN": "浅桃色"
+          },
+          "replacements": {
+            "en": "pale peach",
+            "zh-CN": "浅桃色"
+          }
+        },
+        {
+          "id": "cool-gray",
+          "labels": {
+            "en": "Light cool gray",
+            "zh-CN": "浅冷灰"
+          },
+          "replacements": {
+            "en": "light cool gray",
+            "zh-CN": "浅冷灰色"
+          }
+        }
+      ]
+    },
+    {
+      "id": "blush",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "oval",
+      "options": [
+        {
+          "id": "oval",
+          "labels": {
+            "en": "Pale oval blush",
+            "zh-CN": "淡椭圆腮红"
+          },
+          "replacements": {
+            "en": "a pale oval blush on each cheek",
+            "zh-CN": "两颊带淡淡的椭圆形腮红"
+          }
+        },
+        {
+          "id": "none",
+          "labels": {
+            "en": "No blush",
+            "zh-CN": "无腮红"
+          },
+          "replacements": {
+            "en": "no blush on the cheeks",
+            "zh-CN": "脸颊不加腮红"
+          }
+        }
+      ]
+    },
+    {
+      "id": "background",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "charcoal",
+      "options": [
+        {
+          "id": "charcoal",
+          "labels": {
+            "en": "Charcoal",
+            "zh-CN": "炭灰"
+          },
+          "replacements": {
+            "en": "charcoal",
+            "zh-CN": "炭灰色"
+          }
+        },
+        {
+          "id": "midnight-blue",
+          "labels": {
+            "en": "Midnight blue",
+            "zh-CN": "午夜蓝"
+          },
+          "replacements": {
+            "en": "midnight blue",
+            "zh-CN": "午夜蓝"
+          }
+        },
+        {
+          "id": "deep-plum",
+          "labels": {
+            "en": "Deep plum",
+            "zh-CN": "深梅紫"
+          },
+          "replacements": {
+            "en": "deep plum",
+            "zh-CN": "深梅紫"
+          }
+        },
+        {
+          "id": "warm-white",
+          "labels": {
+            "en": "Warm off-white",
+            "zh-CN": "暖米白"
+          },
+          "replacements": {
+            "en": "warm off-white",
+            "zh-CN": "暖米白"
+          }
+        }
+      ]
+    },
+    {
+      "id": "composition",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "lower-left",
+      "options": [
+        {
+          "id": "lower-left",
+          "labels": {
+            "en": "Peek from lower left",
+            "zh-CN": "左下探头"
+          },
+          "replacements": {
+            "en": "An extreme close-up peeking in from the lower left, head tilted clockwise; crop the face and hair at the left and bottom edges, keep both eyes fully visible, and leave background space in the upper right.",
+            "zh-CN": "从左下角探头的超近景，头部顺时针倾斜；脸和头发在左侧与下侧边缘裁切，双眼完整露出，右上角留出背景。"
+          }
+        },
+        {
+          "id": "lower-right",
+          "labels": {
+            "en": "Peek from lower right",
+            "zh-CN": "右下探头"
+          },
+          "replacements": {
+            "en": "An extreme close-up peeking in from the lower right, head tilted counterclockwise; crop the face and hair at the right and bottom edges, keep both eyes fully visible, and leave background space in the upper left.",
+            "zh-CN": "从右下角探头的超近景，头部逆时针倾斜；脸和头发在右侧与下侧边缘裁切，双眼完整露出，左上角留出背景。"
+          }
+        },
+        {
+          "id": "centered",
+          "labels": {
+            "en": "Centered close-up",
+            "zh-CN": "居中特写"
+          },
+          "replacements": {
+            "en": "An extreme close-up centered in the frame, head tilted slightly clockwise; crop the hair at the top and sides, keep both eyes fully visible, and leave a little background space around the face.",
+            "zh-CN": "居中的超近景，头部略微顺时针倾斜；头发在顶部与两侧裁切，双眼完整露出，脸部四周留少量背景。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "tilt",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "15",
+      "options": [
+        {
+          "id": "10",
+          "labels": {
+            "en": "Gentle 10°",
+            "zh-CN": "轻微 10°"
+          },
+          "replacements": {
+            "en": "10°",
+            "zh-CN": "10°"
+          }
+        },
+        {
+          "id": "15",
+          "labels": {
+            "en": "Standard 15°",
+            "zh-CN": "标准 15°"
+          },
+          "replacements": {
+            "en": "15°",
+            "zh-CN": "15°"
+          }
+        },
+        {
+          "id": "20",
+          "labels": {
+            "en": "Strong 20°",
+            "zh-CN": "明显 20°"
+          },
+          "replacements": {
+            "en": "20°",
+            "zh-CN": "20°"
+          }
+        }
+      ]
+    },
+    {
+      "id": "coloring",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "pastel",
+      "options": [
+        {
+          "id": "pastel",
+          "labels": {
+            "en": "Pastel flat",
+            "zh-CN": "粉彩平涂"
+          },
+          "replacements": {
+            "en": "pastel flat coloring",
+            "zh-CN": "柔和的粉彩平涂"
+          }
+        },
+        {
+          "id": "vivid",
+          "labels": {
+            "en": "Vivid flat",
+            "zh-CN": "鲜艳平涂"
+          },
+          "replacements": {
+            "en": "bright, saturated flat coloring",
+            "zh-CN": "明亮饱和的平涂"
+          }
+        },
+        {
+          "id": "earthy",
+          "labels": {
+            "en": "Muted earthy",
+            "zh-CN": "低饱和大地色"
+          },
+          "replacements": {
+            "en": "muted, earthy flat coloring",
+            "zh-CN": "低饱和的大地色平涂"
+          }
+        }
+      ]
+    },
+    {
+      "id": "outline",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "none",
+      "options": [
+        {
+          "id": "none",
+          "labels": {
+            "en": "No outlines",
+            "zh-CN": "无描边"
+          },
+          "replacements": {
+            "en": "no outlines",
+            "zh-CN": "不加描边"
+          }
+        },
+        {
+          "id": "thin",
+          "labels": {
+            "en": "Thin soft outlines",
+            "zh-CN": "细柔描边"
+          },
+          "replacements": {
+            "en": "thin, soft outlines",
+            "zh-CN": "细而柔和的描边"
+          }
+        }
+      ]
+    }
+  ]
+}

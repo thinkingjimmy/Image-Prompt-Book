@@ -4,7 +4,7 @@
 - 日期：2026-09-23
 - 对应 [PRD](../../PRD.md) 第 6–10 节；本文件是规范性附录，不是可省略的参考链接。
 - 条目 ID / slug：`grokbot-capsule-icon`
-- 参数模板版本：`1.0.0`
+- 参数模板版本：`1.0.0`（完整版，第 3–10 节）；当前站点模板为 `2.0.0`（短版，见第 12 节）
 
 **开发者不需要重新写 Prompt。** 按本文件逐段复制为目标内容文件，完成解析、渲染、校验与测试即可。不得用“请按原网站风格生成”之类短句代替全文，也不得让网站运行时从原站抓取正文。
 
@@ -749,3 +749,600 @@ Image Prompt Book 的修改：规范所提供韩文文本的排版；提供英�
 测试应检查完整所选段落和明确的冲突句，而不是简单禁止出现 blush/shadow/3D 等词，因为排除项和否定句本来会合法包含这些词。
 
 以上测试只证明模板编排与已定义文本约束，不证明模型必然生成符合规范的图片。真实生图检查及图片权利审核需另行记录；本附录没有声称已经完成这些工作。
+
+
+## 12. v2.0.0：短版作为主模板
+
+- 决定：项目所有者（Jimmy Wong）于 2026-09-23 决定以来源站的**短版 Prompt**作为可编辑主模板，并开放更多配置点；界面与复制只使用站点语言。
+- 第 5–8 节的完整版（v1.0.0）保留为来源与改编记录，不再是站点展示的模板。
+- 短版原文通过来源站页面的“Copy short prompt”同一接口获取（2026-09-23），同样标注为 CC BY-NC 4.0（APG / @multi_serio_ai）。
+- 默认选项逐项对应短版原文：奶油色脸、淡椭圆腮红、炭灰背景、左下探头、15°、粉彩平涂；“无描边”为新增的明确化表述。
+- 案例图：来源站 Short prompt results 的 5 张图，已按所有者要求下载为本地 JPEG；来源站许可页说明图片不自动适用 Prompt 许可，因此 `rights.status` 为 `pending`，仅在本地草稿预览中显示，发布前必须取得并记录展示许可。
+
+### 12.1 短版韩文原文
+
+```text
+함께 제공되는 이미지를 미니멀 2D 봇 얼굴로 재해석하라. 원본에서는 머리색·헤어 실루엣·대표 장식만 유지. 크고 둥근 크림색 얼굴에 옅은 타원형 볼 홍조. 눈은 동일한 크기로 평행하게 놓인 검은 단색 세로 캡슐 두 개(길이:굵기=3:1). 홍채·흰자·반사광·속눈썹·눈썹·입·코 없음. 1:1 정사각형, 차콜 단색 배경. 왼쪽 아래에서 고개를 시계 방향 15° 기울여 들여다보는 초근접 구도. 얼굴과 머리카락은 왼쪽·아래 경계에서 크롭하고 두 눈은 온전히 노출, 오른쪽 위에는 배경 여백. 큰 덩어리의 머리카락, 파스텔 플랫 채색, 최소 음영과 디테일. 몸통·손·무기·원형 테두리·문자·로고·입자 없음. 원본 재현보다 캡슐 눈과 입 없는 봇 얼굴을 우선. 이미지 한 장 생성.
+```
+
+### 12.2 元信息
+
+```json
+{
+  "schemaVersion": 1,
+  "id": "grokbot-capsule-icon",
+  "slug": "grokbot-capsule-icon",
+  "templateVersion": "2.0.0",
+  "status": "draft",
+  "createdAt": "2026-09-23",
+  "updatedAt": "2026-09-23",
+  "publishedAt": null,
+  "category": "avatars",
+  "tags": [
+    "minimal",
+    "2d",
+    "bot-icon",
+    "image-to-image"
+  ],
+  "originalLocale": "ko",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.ko.txt",
+  "templatePaths": {
+    "en": "template.en.txt",
+    "zh-CN": "template.zh-CN.txt"
+  },
+  "parametersPath": "parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": true,
+  "sourceRecommendedTools": [
+    "ChatGPT"
+  ],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "grokbot-site",
+      "type": "website",
+      "role": "original",
+      "title": "Grokbot Icon",
+      "url": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en",
+      "author": {
+        "name": "APG",
+        "handle": "@multi_serio_ai",
+        "url": "https://x.com/multi_serio_ai"
+      },
+      "checkedAt": "2026-09-23"
+    }
+  ],
+  "rights": {
+    "promptLicense": "CC-BY-NC-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+    "sourceLicenseUrl": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license",
+    "commercialUse": "restricted",
+    "releaseReview": {
+      "status": "pending",
+      "reviewedBy": null,
+      "reviewedAt": null,
+      "evidence": null
+    }
+  }
+}
+```
+
+### 12.3 英文页面文案
+
+```json
+{
+  "title": "Minimal Bot Icon — Grokbot Style",
+  "summary": "Turn a person or character in a reference image into a minimal 2D bot face with solid black capsule eyes. Adjust the composition, colors and finishing details right in the prompt.",
+  "seoTitle": "Minimal Bot Icon Prompt (Grokbot Style) | Image Prompt Book",
+  "seoDescription": "Turn a reference image into a minimal 2D bot avatar. Customize composition, tilt, face color, blush, background, coloring and outlines, then copy the prompt or open it in ChatGPT.",
+  "inputRequirement": "Requires one reference image. Attach it in your image generation tool; this website does not upload or generate images.",
+  "howToUse": [
+    "Adjust the highlighted options in the prompt.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Attach one image of the person or character you want to transform, then send."
+  ],
+  "exampleNotice": "Example result, not a live preview. Changing options updates the prompt, not the image.",
+  "verificationNotice": "Source examples have not been reproduced by Image Prompt Book. The exact model and settings are not verified.",
+  "adaptationNotice": "Translated and parameterized from the original Korean short prompt. These variations are not the author's original wording or an endorsement.",
+  "licenseNotice": "Prompt: CC BY-NC 4.0. Attribution and noncommercial conditions apply. Example images have separate rights.",
+  "parameterLabels": {
+    "faceColor": "Face color",
+    "blush": "Blush",
+    "background": "Background",
+    "composition": "Composition",
+    "tilt": "Tilt",
+    "coloring": "Coloring",
+    "outline": "Outline"
+  }
+}
+```
+
+### 12.4 简体中文页面文案
+
+```json
+{
+  "title": "极简机器人头像 · Grokbot 风格",
+  "summary": "将参考图中的人物或角色转换为带黑色胶囊眼的极简 2D 机器人脸，并直接在 Prompt 中调整构图、配色与细节。",
+  "seoTitle": "极简机器人头像 Prompt（Grokbot 风格）| Image Prompt Book",
+  "seoDescription": "把参考图转换为极简 2D 机器人头像。调整构图、倾斜、脸色、腮红、背景、上色与描边，复制 Prompt 或直接在 ChatGPT 中打开。",
+  "inputRequirement": "需要一张参考图。请在生图工具中附上图片；本站不上传图片，也不直接生成图片。",
+  "howToUse": [
+    "调整 Prompt 中高亮的选项。",
+    "复制 Prompt，或直接在 ChatGPT 中打开。",
+    "附上一张目标人物或角色的图片，再发送。"
+  ],
+  "exampleNotice": "案例效果，非实时预览。修改选项只更新 Prompt，不会重新生成图片。",
+  "verificationNotice": "原站案例尚未由 Image Prompt Book 复现，具体模型与生成参数未验证。",
+  "adaptationNotice": "根据韩文短版原文翻译并参数化改编；新增选项不等于原作者的原始表述或认可。",
+  "licenseNotice": "Prompt 使用 CC BY-NC 4.0，包含署名和非商业条件；案例图片的权利另行确认。",
+  "parameterLabels": {
+    "faceColor": "脸色",
+    "blush": "腮红",
+    "background": "背景",
+    "composition": "构图",
+    "tilt": "倾斜",
+    "coloring": "上色",
+    "outline": "描边"
+  }
+}
+```
+
+### 12.5 英文可定制模板
+
+```text
+Reinterpret the accompanying image as a minimal 2D bot face. From the original, keep only the hair color, the hair silhouette and signature accessories.
+
+A large, round face in {{faceColor}}, with {{blush}}. The eyes are exactly two identical, parallel, solid black vertical capsules (length to width 3:1). No irises, eye whites, reflections, eyelashes, eyebrows, mouth or nose.
+
+A 1:1 square canvas with a solid {{background}} background. {{composition}} Tilt the head about {{tilt}}.
+
+Large masses of hair, {{coloring}}, {{outline}}, minimal shading and detail. No torso, hands, weapons, circular frame, text, logos or particles. Prioritize the capsule eyes and the mouthless bot face over reproducing the original. Generate one image.
+```
+
+### 12.6 简体中文可定制模板
+
+```text
+把随附的图片重新诠释为极简 2D 机器人脸。原图只保留发色、头发轮廓和代表性装饰。
+
+大而圆的{{faceColor}}脸，{{blush}}。眼睛是两个大小相同、彼此平行的黑色单色竖向胶囊（长:宽 = 3:1）。没有虹膜、眼白、反光、睫毛、眉毛、嘴巴和鼻子。
+
+1:1 正方形画布，{{background}}纯色背景。{{composition}}头部倾斜约 {{tilt}}。
+
+大块面的头发，{{coloring}}，{{outline}}，最少的阴影与细节。没有身体、手、武器、圆形边框、文字、标志或粒子。相比还原原图，优先保证胶囊眼和没有嘴巴的机器人脸。生成一张图片。
+```
+
+### 12.7 参数
+
+```json
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "faceColor",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "cream",
+      "options": [
+        {
+          "id": "cream",
+          "labels": {
+            "en": "Cream",
+            "zh-CN": "奶油色"
+          },
+          "replacements": {
+            "en": "cream",
+            "zh-CN": "奶油色"
+          }
+        },
+        {
+          "id": "original-skin",
+          "labels": {
+            "en": "Original skin tone",
+            "zh-CN": "原图肤色"
+          },
+          "replacements": {
+            "en": "the subject's original skin tone",
+            "zh-CN": "原图肤色"
+          }
+        },
+        {
+          "id": "pale-peach",
+          "labels": {
+            "en": "Pale peach",
+            "zh-CN": "浅桃色"
+          },
+          "replacements": {
+            "en": "pale peach",
+            "zh-CN": "浅桃色"
+          }
+        },
+        {
+          "id": "cool-gray",
+          "labels": {
+            "en": "Light cool gray",
+            "zh-CN": "浅冷灰"
+          },
+          "replacements": {
+            "en": "light cool gray",
+            "zh-CN": "浅冷灰色"
+          }
+        }
+      ]
+    },
+    {
+      "id": "blush",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "oval",
+      "options": [
+        {
+          "id": "oval",
+          "labels": {
+            "en": "Pale oval blush",
+            "zh-CN": "淡椭圆腮红"
+          },
+          "replacements": {
+            "en": "a pale oval blush on each cheek",
+            "zh-CN": "两颊带淡淡的椭圆形腮红"
+          }
+        },
+        {
+          "id": "none",
+          "labels": {
+            "en": "No blush",
+            "zh-CN": "无腮红"
+          },
+          "replacements": {
+            "en": "no blush on the cheeks",
+            "zh-CN": "脸颊不加腮红"
+          }
+        }
+      ]
+    },
+    {
+      "id": "background",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "charcoal",
+      "options": [
+        {
+          "id": "charcoal",
+          "labels": {
+            "en": "Charcoal",
+            "zh-CN": "炭灰"
+          },
+          "replacements": {
+            "en": "charcoal",
+            "zh-CN": "炭灰色"
+          }
+        },
+        {
+          "id": "midnight-blue",
+          "labels": {
+            "en": "Midnight blue",
+            "zh-CN": "午夜蓝"
+          },
+          "replacements": {
+            "en": "midnight blue",
+            "zh-CN": "午夜蓝"
+          }
+        },
+        {
+          "id": "deep-plum",
+          "labels": {
+            "en": "Deep plum",
+            "zh-CN": "深梅紫"
+          },
+          "replacements": {
+            "en": "deep plum",
+            "zh-CN": "深梅紫"
+          }
+        },
+        {
+          "id": "warm-white",
+          "labels": {
+            "en": "Warm off-white",
+            "zh-CN": "暖米白"
+          },
+          "replacements": {
+            "en": "warm off-white",
+            "zh-CN": "暖米白"
+          }
+        }
+      ]
+    },
+    {
+      "id": "composition",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "lower-left",
+      "options": [
+        {
+          "id": "lower-left",
+          "labels": {
+            "en": "Peek from lower left",
+            "zh-CN": "左下探头"
+          },
+          "replacements": {
+            "en": "An extreme close-up peeking in from the lower left, head tilted clockwise; crop the face and hair at the left and bottom edges, keep both eyes fully visible, and leave background space in the upper right.",
+            "zh-CN": "从左下角探头的超近景，头部顺时针倾斜；脸和头发在左侧与下侧边缘裁切，双眼完整露出，右上角留出背景。"
+          }
+        },
+        {
+          "id": "lower-right",
+          "labels": {
+            "en": "Peek from lower right",
+            "zh-CN": "右下探头"
+          },
+          "replacements": {
+            "en": "An extreme close-up peeking in from the lower right, head tilted counterclockwise; crop the face and hair at the right and bottom edges, keep both eyes fully visible, and leave background space in the upper left.",
+            "zh-CN": "从右下角探头的超近景，头部逆时针倾斜；脸和头发在右侧与下侧边缘裁切，双眼完整露出，左上角留出背景。"
+          }
+        },
+        {
+          "id": "centered",
+          "labels": {
+            "en": "Centered close-up",
+            "zh-CN": "居中特写"
+          },
+          "replacements": {
+            "en": "An extreme close-up centered in the frame, head tilted slightly clockwise; crop the hair at the top and sides, keep both eyes fully visible, and leave a little background space around the face.",
+            "zh-CN": "居中的超近景，头部略微顺时针倾斜；头发在顶部与两侧裁切，双眼完整露出，脸部四周留少量背景。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "tilt",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "15",
+      "options": [
+        {
+          "id": "10",
+          "labels": {
+            "en": "Gentle 10°",
+            "zh-CN": "轻微 10°"
+          },
+          "replacements": {
+            "en": "10°",
+            "zh-CN": "10°"
+          }
+        },
+        {
+          "id": "15",
+          "labels": {
+            "en": "Standard 15°",
+            "zh-CN": "标准 15°"
+          },
+          "replacements": {
+            "en": "15°",
+            "zh-CN": "15°"
+          }
+        },
+        {
+          "id": "20",
+          "labels": {
+            "en": "Strong 20°",
+            "zh-CN": "明显 20°"
+          },
+          "replacements": {
+            "en": "20°",
+            "zh-CN": "20°"
+          }
+        }
+      ]
+    },
+    {
+      "id": "coloring",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "pastel",
+      "options": [
+        {
+          "id": "pastel",
+          "labels": {
+            "en": "Pastel flat",
+            "zh-CN": "粉彩平涂"
+          },
+          "replacements": {
+            "en": "pastel flat coloring",
+            "zh-CN": "柔和的粉彩平涂"
+          }
+        },
+        {
+          "id": "vivid",
+          "labels": {
+            "en": "Vivid flat",
+            "zh-CN": "鲜艳平涂"
+          },
+          "replacements": {
+            "en": "bright, saturated flat coloring",
+            "zh-CN": "明亮饱和的平涂"
+          }
+        },
+        {
+          "id": "earthy",
+          "labels": {
+            "en": "Muted earthy",
+            "zh-CN": "低饱和大地色"
+          },
+          "replacements": {
+            "en": "muted, earthy flat coloring",
+            "zh-CN": "低饱和的大地色平涂"
+          }
+        }
+      ]
+    },
+    {
+      "id": "outline",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "none",
+      "options": [
+        {
+          "id": "none",
+          "labels": {
+            "en": "No outlines",
+            "zh-CN": "无描边"
+          },
+          "replacements": {
+            "en": "no outlines",
+            "zh-CN": "不加描边"
+          }
+        },
+        {
+          "id": "thin",
+          "labels": {
+            "en": "Thin soft outlines",
+            "zh-CN": "细柔描边"
+          },
+          "replacements": {
+            "en": "thin, soft outlines",
+            "zh-CN": "细而柔和的描边"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+### 12.8 案例图
+
+```json
+[
+  {
+    "id": "pink",
+    "src": "/examples/grokbot-capsule-icon/pink.jpg",
+    "width": 1254,
+    "height": 1254,
+    "alt": {
+      "en": "Minimal bot icon with pink hair and an ahoge, black capsule eyes and pale blush on a charcoal background",
+      "zh-CN": "粉色头发带呆毛、黑色胶囊眼和淡腮红的极简机器人头像，炭灰色背景"
+    },
+    "sourceUrl": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en",
+    "provenance": "source-reported",
+    "rights": {
+      "status": "pending",
+      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license; display permission from APG is not yet recorded.",
+      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license",
+      "reviewedBy": null,
+      "reviewedAt": null
+    },
+    "recipe": null
+  },
+  {
+    "id": "blonde",
+    "src": "/examples/grokbot-capsule-icon/blonde.jpg",
+    "width": 1254,
+    "height": 1254,
+    "alt": {
+      "en": "Minimal bot icon with long blonde hair and a small ear piercing, black capsule eyes and pale blush",
+      "zh-CN": "金色长发、耳钉、黑色胶囊眼与淡腮红的极简机器人头像"
+    },
+    "sourceUrl": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en",
+    "provenance": "source-reported",
+    "rights": {
+      "status": "pending",
+      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license; display permission from APG is not yet recorded.",
+      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license",
+      "reviewedBy": null,
+      "reviewedAt": null
+    },
+    "recipe": null
+  },
+  {
+    "id": "black",
+    "src": "/examples/grokbot-capsule-icon/black.jpg",
+    "width": 1254,
+    "height": 1254,
+    "alt": {
+      "en": "Minimal bot icon with long black hair and straight bangs, black capsule eyes and pale blush",
+      "zh-CN": "黑色长发齐刘海、黑色胶囊眼与淡腮红的极简机器人头像"
+    },
+    "sourceUrl": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en",
+    "provenance": "source-reported",
+    "rights": {
+      "status": "pending",
+      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license; display permission from APG is not yet recorded.",
+      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license",
+      "reviewedBy": null,
+      "reviewedAt": null
+    },
+    "recipe": null
+  },
+  {
+    "id": "teal",
+    "src": "/examples/grokbot-capsule-icon/teal.jpg",
+    "width": 1254,
+    "height": 1254,
+    "alt": {
+      "en": "Minimal bot icon with teal hair, light highlights and a sailor collar, black capsule eyes",
+      "zh-CN": "青绿色头发带浅色高光与水手领、黑色胶囊眼的极简机器人头像"
+    },
+    "sourceUrl": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en",
+    "provenance": "source-reported",
+    "rights": {
+      "status": "pending",
+      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license; display permission from APG is not yet recorded.",
+      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license",
+      "reviewedBy": null,
+      "reviewedAt": null
+    },
+    "recipe": null
+  },
+  {
+    "id": "blue",
+    "src": "/examples/grokbot-capsule-icon/blue.jpg",
+    "width": 1254,
+    "height": 1254,
+    "alt": {
+      "en": "Minimal bot icon with light blue hair and a navy bow, black capsule eyes and pale blush",
+      "zh-CN": "浅蓝色头发配深蓝蝴蝶结、黑色胶囊眼与淡腮红的极简机器人头像"
+    },
+    "sourceUrl": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en",
+    "provenance": "source-reported",
+    "rights": {
+      "status": "pending",
+      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license; display permission from APG is not yet recorded.",
+      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license",
+      "reviewedBy": null,
+      "reviewedAt": null
+    },
+    "recipe": null
+  }
+]
+```
+
+### 12.9 署名（英文）
+
+```text
+Original prompt: Grokbot Icon — short prompt
+Author/licensor: APG (@multi_serio_ai)
+Source: https://grokbot-icon-studio.serio-ai.chatgpt.site/en
+License: CC BY-NC 4.0 — https://creativecommons.org/licenses/by-nc/4.0/
+Source license notice: https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license
+Changes by Image Prompt Book: English and Simplified Chinese translations of the Korean short prompt; parameterized composition, tilt, face color, blush, background, coloring and outline variations.
+These adaptations are not endorsed or independently verified by the original author. The prompt is provided without a guarantee of output quality or suitability; consult the linked license and source notice. Example images have separate rights and are not automatically covered by the prompt license.
+```
+
+### 12.10 署名（简体中文）
+
+```text
+原始 Prompt：Grokbot Icon 短版
+作者/许可方：APG（@multi_serio_ai）
+来源：https://grokbot-icon-studio.serio-ai.chatgpt.site/en
+许可：CC BY-NC 4.0 — https://creativecommons.org/licenses/by-nc/4.0/
+来源站许可说明：https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license
+Image Prompt Book 的修改：将韩文短版翻译为英文与简体中文；将构图、倾斜、脸色、腮红、背景、上色和描边整理为参数选项。
+以上改编不代表原作者认可或独立验证。本 Prompt 不保证输出质量或特定用途适用性，请查看所链接的许可和来源说明。案例图片具有单独的权利条件，不自动适用 Prompt 许可。
+```

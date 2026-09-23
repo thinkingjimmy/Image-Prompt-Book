@@ -1,0 +1,7 @@
+Reinterpret the accompanying image as a minimal 2D bot face. From the original, keep only the hair color, the hair silhouette and signature accessories.
+
+A large, round face in {{faceColor}}, with {{blush}}. The eyes are exactly two identical, parallel, solid black vertical capsules (length to width 3:1). No irises, eye whites, reflections, eyelashes, eyebrows, mouth or nose.
+
+A 1:1 square canvas with a solid {{background}} background. {{composition}} Tilt the head about {{tilt}}.
+
+Large masses of hair, {{coloring}}, {{outline}}, minimal shading and detail. No torso, hands, weapons, circular frame, text, logos or particles. Prioritize the capsule eyes and the mouthless bot face over reproducing the original. Generate one image.

@@ -1,0 +1,40 @@
+name: Suggest a prompt source / 提交来源线索
+description: Share a prompt you found. No code needed. / 推荐一个 Prompt，无需写代码。
+labels: ["content: source lead"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Maintainers check the license before importing anything. Please do not paste private or paywalled content.
+        维护者会在导入前核对许可。请勿粘贴私密或付费内容。
+  - type: input
+    id: url
+    attributes:
+      label: Source link / 来源链接
+      description: The exact page, post or file (HTTPS). / 具体的网页、帖子或文件地址（HTTPS）。
+      placeholder: https://
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What does it do? / 效果说明
+      description: What kind of image does the prompt produce, and what input does it need? / 这个 Prompt 生成什么效果，需要什么输入？
+    validations:
+      required: true
+  - type: input
+    id: author
+    attributes:
+      label: Author and how to reach them / 作者及联系方式
+      description: Public profile or handle, if known. Leave empty if unknown — do not guess. / 已知时填写公开主页或账号；未知请留空，不要猜测。
+  - type: input
+    id: license
+    attributes:
+      label: License or usage terms, if stated / 已声明的许可或使用条款
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation / 确认
+      options:
+        - label: I am not submitting anyone's private information. / 我没有提交任何人的私人信息。
+          required: true

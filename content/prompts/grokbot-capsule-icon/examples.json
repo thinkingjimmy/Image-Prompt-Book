@@ -1,0 +1,102 @@
+[
+  {
+    "id": "pink",
+    "src": "/examples/grokbot-capsule-icon/pink.jpg",
+    "width": 1254,
+    "height": 1254,
+    "alt": {
+      "en": "Minimal bot icon with pink hair and an ahoge, black capsule eyes and pale blush on a charcoal background",
+      "zh-CN": "粉色头发带呆毛、黑色胶囊眼和淡腮红的极简机器人头像，炭灰色背景"
+    },
+    "sourceUrl": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en",
+    "provenance": "source-reported",
+    "rights": {
+      "status": "pending",
+      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license; display permission from APG is not yet recorded.",
+      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license",
+      "reviewedBy": null,
+      "reviewedAt": null
+    },
+    "recipe": null
+  },
+  {
+    "id": "blonde",
+    "src": "/examples/grokbot-capsule-icon/blonde.jpg",
+    "width": 1254,
+    "height": 1254,
+    "alt": {
+      "en": "Minimal bot icon with long blonde hair and a small ear piercing, black capsule eyes and pale blush",
+      "zh-CN": "金色长发、耳钉、黑色胶囊眼与淡腮红的极简机器人头像"
+    },
+    "sourceUrl": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en",
+    "provenance": "source-reported",
+    "rights": {
+      "status": "pending",
+      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license; display permission from APG is not yet recorded.",
+      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license",
+      "reviewedBy": null,
+      "reviewedAt": null
+    },
+    "recipe": null
+  },
+  {
+    "id": "black",
+    "src": "/examples/grokbot-capsule-icon/black.jpg",
+    "width": 1254,
+    "height": 1254,
+    "alt": {
+      "en": "Minimal bot icon with long black hair and straight bangs, black capsule eyes and pale blush",
+      "zh-CN": "黑色长发齐刘海、黑色胶囊眼与淡腮红的极简机器人头像"
+    },
+    "sourceUrl": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en",
+    "provenance": "source-reported",
+    "rights": {
+      "status": "pending",
+      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license; display permission from APG is not yet recorded.",
+      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license",
+      "reviewedBy": null,
+      "reviewedAt": null
+    },
+    "recipe": null
+  },
+  {
+    "id": "teal",
+    "src": "/examples/grokbot-capsule-icon/teal.jpg",
+    "width": 1254,
+    "height": 1254,
+    "alt": {
+      "en": "Minimal bot icon with teal hair, light highlights and a sailor collar, black capsule eyes",
+      "zh-CN": "青绿色头发带浅色高光与水手领、黑色胶囊眼的极简机器人头像"
+    },
+    "sourceUrl": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en",
+    "provenance": "source-reported",
+    "rights": {
+      "status": "pending",
+      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license; display permission from APG is not yet recorded.",
+      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license",
+      "reviewedBy": null,
+      "reviewedAt": null
+    },
+    "recipe": null
+  },
+  {
+    "id": "blue",
+    "src": "/examples/grokbot-capsule-icon/blue.jpg",
+    "width": 1254,
+    "height": 1254,
+    "alt": {
+      "en": "Minimal bot icon with light blue hair and a navy bow, black capsule eyes and pale blush",
+      "zh-CN": "浅蓝色头发配深蓝蝴蝶结、黑色胶囊眼与淡腮红的极简机器人头像"
+    },
+    "sourceUrl": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en",
+    "provenance": "source-reported",
+    "rights": {
+      "status": "pending",
+      "basis": "Imported from the source site's short-prompt results at the owner's request (Jimmy Wong, 2026-09-23). The source license page states images are not covered by the prompt's CC BY-NC license; display permission from APG is not yet recorded.",
+      "evidence": "https://grokbot-icon-studio.serio-ai.chatgpt.site/en/license",
+      "reviewedBy": null,
+      "reviewedAt": null
+    },
+    "recipe": null
+  }
+]

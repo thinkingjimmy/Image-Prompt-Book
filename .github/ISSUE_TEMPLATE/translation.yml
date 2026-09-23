@@ -1,0 +1,31 @@
+name: Translation issue / 翻译问题
+description: Suggest better wording for a template or the interface. / 为模板或界面提出更好的表述。
+labels: ["i18n"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page or file / 页面或文件
+      placeholder: /zh-CN/prompts/<slug> or content/prompts/<slug>/template.zh-CN.txt
+    validations:
+      required: true
+  - type: dropdown
+    id: locale
+    attributes:
+      label: Language / 语言
+      options: ["English", "简体中文"]
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Current text / 当前文本
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested text and why / 建议文本及理由
+      description: Keep complete sentences; options are replaced by stable IDs, not by translated words. / 请保持完整句式；选项通过稳定 ID 替换，而不是翻译后的词。
+    validations:
+      required: true

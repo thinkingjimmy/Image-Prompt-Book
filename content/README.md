@@ -1,0 +1,35 @@
+# content/
+
+> L2 | 父级: ../README.md
+
+Git-maintained prompt library. Every file here is data: validated by `src/lib/content/load.ts` at build time (`pnpm content:check`), never executed. Code is MIT; everything in this folder keeps the license recorded per entry — see [`../NOTICE.md`](../NOTICE.md).
+
+成员清单
+taxonomy.json: 分类与标签词表，`categories[].labels/descriptions` 与 `tags[].labels` 均需 en/zh-CN；条目只能引用这里声明的 ID
+prompts/<slug>/: 单个条目目录，目录名 = id = slug，稳定且跨语言共享
+
+## Entry files
+
+| File | Purpose | Rules |
+| --- | --- | --- |
+| `meta.json` | Identity, status, dates, category/tags, locales, sources, rights, compatibility | `status` draft/published/archived; `publishedAt` only when published; HTTPS URLs; `releaseReview` approved needs reviewer, date, evidence |
+| `original.<lang>.txt` | Untouched source prompt | UTF-8, LF, one trailing newline; changes are a source-version update |
+| `en.json`, `zh-CN.json` | Page copy: title, summary, SEO, input requirement, how-to, notices, parameter labels, optional `keywords` | Complete in every locale; missing translations keep the entry in draft |
+| `template.en.txt`, `template.zh-CN.txt` | Full adapted templates | Only `{{parameterId}}` tokens; every token declared, every parameter used |
+| `parameters.json` | `select` parameters (`renderAs` inline/block), default, options with `labels` (UI) and `replacements` (prompt text) per locale | Replacements are final plain strings — no tokens, HTML or includes |
+| `examples.json` | Approved example images | `[]` allowed for drafts; published entries need ≥1 with `rights.status: "approved"` (`pending` images show only in local draft preview). Local `/examples/<slug>/…` path, true width/height, bilingual alt, `provenance`, rights review, `recipe` (null unless project-verified) |
+| `ATTRIBUTION.md` | `## en` and `## zh-CN` blocks, each one ```text fence | Used by "Copy attribution"; keep author, source, license, changes |
+
+## Publication gate
+
+An entry is public only when **all** hold (`publicationBlockers()`): `status: "published"` with `publishedAt`, prompt usage review approved, at least one approved example image, and complete en/zh-CN content, templates and attribution. The gallery, search, categories, detail pages and sitemap all use this one predicate. Drafts are visible only in local development with `IPB_PREVIEW_DRAFTS=1`.
+
+## Renaming
+
+Slugs are permanent. If one must change, add the old slug to `redirectFrom` in the new `meta.json`; the old URL then permanently redirects.
+
+## Importing from a spec appendix
+
+`pnpm content:import <slug>` copies the normative appendix `docs/examples/<slug>.md` into this folder byte for byte; `tests/unit/content-fidelity.test.ts` re-checks the import.
+
+[PROTOCOL]: Update this header when making changes, then check README.md.

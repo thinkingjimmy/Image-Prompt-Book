@@ -1,0 +1,35 @@
+name: Rights or privacy request / 权利或隐私反馈
+description: Content on this site involves your work or personal data. / 本站内容涉及你的作品或个人信息。
+labels: ["rights"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not post identity documents or other sensitive proof here — this issue is public. A maintainer will reply and, if needed, arrange a private channel.
+        请不要在此公开身份证明或其他敏感材料——本 Issue 是公开的。维护者会回复，必要时另行安排私下沟通。
+  - type: input
+    id: url
+    attributes:
+      label: Affected page / 相关页面
+      placeholder: https://imagepromptbook.com/...
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Request type / 请求类型
+      options:
+        - Attribution is wrong or missing / 署名错误或缺失
+        - Please remove my content / 请移除我的内容
+        - License terms are misrepresented / 许可条款表述有误
+        - Privacy concern / 隐私问题
+        - Other / 其他
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details / 详细说明
+      description: Public links showing your authorship are enough to start. / 能说明你是作者的公开链接即可。
+    validations:
+      required: true

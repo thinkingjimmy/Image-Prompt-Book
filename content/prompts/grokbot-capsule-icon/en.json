@@ -1,0 +1,25 @@
+{
+  "title": "Minimal Bot Icon — Grokbot Style",
+  "summary": "Turn a person or character in a reference image into a minimal 2D bot face with solid black capsule eyes. Adjust the composition, colors and finishing details right in the prompt.",
+  "seoTitle": "Minimal Bot Icon Prompt (Grokbot Style) | Image Prompt Book",
+  "seoDescription": "Turn a reference image into a minimal 2D bot avatar. Customize composition, tilt, face color, blush, background, coloring and outlines, then copy the prompt or open it in ChatGPT.",
+  "inputRequirement": "Requires one reference image. Attach it in your image generation tool; this website does not upload or generate images.",
+  "howToUse": [
+    "Adjust the highlighted options in the prompt.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Attach one image of the person or character you want to transform, then send."
+  ],
+  "exampleNotice": "Example result, not a live preview. Changing options updates the prompt, not the image.",
+  "verificationNotice": "Source examples have not been reproduced by Image Prompt Book. The exact model and settings are not verified.",
+  "adaptationNotice": "Translated and parameterized from the original Korean short prompt. These variations are not the author's original wording or an endorsement.",
+  "licenseNotice": "Prompt: CC BY-NC 4.0. Attribution and noncommercial conditions apply. Example images have separate rights.",
+  "parameterLabels": {
+    "faceColor": "Face color",
+    "blush": "Blush",
+    "background": "Background",
+    "composition": "Composition",
+    "tilt": "Tilt",
+    "coloring": "Coloring",
+    "outline": "Outline"
+  }
+}
