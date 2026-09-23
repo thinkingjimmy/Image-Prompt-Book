@@ -33,7 +33,7 @@ export function LanguageSwitcher() {
       </DropdownMenuTrigger>
       <DropdownMenuContent side="top" align="end" sideOffset={8} className="w-44 rounded-2xl p-1.5">
         {LOCALES.map((locale) => (
-          <DropdownMenuItem key={locale} asChild className="rounded-lg">
+          <DropdownMenuItem key={locale} asChild className="cursor-pointer rounded-lg">
             <a href={href(locale)} hrefLang={locale} lang={locale} aria-current={locale === current ? "true" : undefined}>
               <span className="flex-1">{LOCALE_NATIVE_NAMES[locale]}</span>
               {locale === current && <Check aria-hidden className="size-4" />}

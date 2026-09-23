@@ -26,8 +26,8 @@ test.describe("axe", () => {
     expect(result.violations.map((item) => item.id)).toEqual([]);
 
     await page.getByRole("dialog").locator('[data-parameter="background"]').click();
-    await expect(page.getByRole("listbox")).toBeVisible();
-    result = await new AxeBuilder({ page }).withTags(WCAG).include('[role="listbox"]').analyze();
+    await expect(page.getByRole("menu")).toBeVisible();
+    result = await new AxeBuilder({ page }).withTags(WCAG).include('[role="menu"]').analyze();
     expect(result.violations.map((item) => item.id)).toEqual([]);
   });
 });

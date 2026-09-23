@@ -41,8 +41,8 @@ export function SortSelect() {
         <SelectValue />
       </SelectTrigger>
       <SelectContent position="popper" align="end" sideOffset={8} className="rounded-2xl p-1">
-        <SelectItem value="featured">{t("featured")}</SelectItem>
-        <SelectItem value="latest">{t("latest")}</SelectItem>
+        <SelectItem value="featured" className="cursor-pointer">{t("featured")}</SelectItem>
+        <SelectItem value="latest" className="cursor-pointer">{t("latest")}</SelectItem>
       </SelectContent>
     </Select>
   );

@@ -257,9 +257,9 @@ test.describe("detail navigation", () => {
     await expect(dialog).toBeVisible();
 
     await dialog.locator('[data-parameter="background"]').click();
-    await expect(page.getByRole("listbox")).toBeVisible();
+    await expect(page.getByRole("menu")).toBeVisible();
     await page.keyboard.press("Escape");
-    await expect(page.getByRole("listbox")).toHaveCount(0);
+    await expect(page.getByRole("menu")).toHaveCount(0);
     await expect(dialog).toBeVisible();
 
     await dialog.getByRole("button", { name: /View larger image/ }).click();

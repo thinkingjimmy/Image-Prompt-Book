@@ -71,8 +71,8 @@ export async function copied(page: Page): Promise<string[]> {
 export async function pickOption(page: Page, parameterId: string, optionLabel: string) {
   const scope = page.getByRole("dialog").or(page.locator("main")).first();
   await scope.locator(`[data-parameter="${parameterId}"]`).click();
-  await page.getByRole("option", { name: optionLabel, exact: true }).click();
-  await expect(page.getByRole("listbox")).toHaveCount(0);
+  await page.getByRole("menuitemradio", { name: optionLabel, exact: true }).click();
+  await expect(page.getByRole("menu")).toHaveCount(0);
 }
 
 /** Copies the current prompt through the UI and returns exactly what reached the clipboard. */

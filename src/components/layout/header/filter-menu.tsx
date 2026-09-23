@@ -90,7 +90,7 @@ export function FilterMenu({ categories, tags }: { categories: Term[]; tags: Ter
       <DropdownMenuContent align="start" sideOffset={8} className="max-h-[min(28rem,var(--radix-dropdown-menu-content-available-height))] w-60 rounded-2xl p-1.5">
         <DropdownMenuLabel className="text-xs text-muted-foreground">{t("category")}</DropdownMenuLabel>
         {[{ id: "", label: t("allCategories") }, ...categories].map((item) => (
-          <DropdownMenuItem key={item.id || "all"} asChild className="rounded-lg">
+          <DropdownMenuItem key={item.id || "all"} asChild className="cursor-pointer rounded-lg">
             <Link href={{ pathname: item.id ? `/categories/${item.id}` : "/", query }} aria-current={onListing && active === item.id ? "page" : undefined}>
               <span className="flex-1">{item.label}</span>
               {onListing && active === item.id && <Check aria-hidden className="size-4" />}
@@ -111,7 +111,7 @@ export function FilterMenu({ categories, tags }: { categories: Term[]; tags: Ter
                   // Keep the menu open so several tags can be combined in one go.
                   onSelect={(event) => event.preventDefault()}
                   onCheckedChange={() => toggleTag(tag.id)}
-                  className="rounded-lg"
+                  className="cursor-pointer rounded-lg"
                 >
                   {tag.label}
                 </DropdownMenuCheckboxItem>
@@ -124,7 +124,7 @@ export function FilterMenu({ categories, tags }: { categories: Term[]; tags: Ter
           <DropdownMenuSeparator />
           <DropdownMenuLabel className="text-xs text-muted-foreground">{t("sort")}</DropdownMenuLabel>
           {(["featured", "latest"] as const).map((value) => (
-            <DropdownMenuItem key={value} onSelect={() => setSort(value)} className="rounded-lg">
+            <DropdownMenuItem key={value} onSelect={() => setSort(value)} className="cursor-pointer rounded-lg">
               <span className="flex-1">{t(value)}</span>
               {sort === value && <Check aria-hidden className="size-4" />}
             </DropdownMenuItem>
