@@ -170,7 +170,9 @@ test("Use in ChatGPT pre-fills the current prompt and also copies it", async ({ 
 
 test("the detail stays minimal: image source and one credit line", async ({ page }) => {
   await page.goto(DETAIL);
-  await expect(page.getByText("Example result, not a live preview")).toHaveCount(0);
+  // Context notes live only in "About this prompt" below the prompt, never over the image or in the header.
+  await expect(page.getByText(/Example result, not a live preview/)).toHaveCount(1);
+  await expect(page.getByTestId("prompt-about")).toContainText("Example result, not a live preview");
   await expect(page.getByRole("link", { name: "Image source" })).toHaveAttribute("href", "https://grokbot-icon-studio.serio-ai.chatgpt.site/en");
   await expect(page.getByRole("link", { name: "CC BY-NC 4.0" })).toHaveAttribute("href", "https://creativecommons.org/licenses/by-nc/4.0/");
   await expect(page.getByRole("heading", { name: "Source & license" })).toHaveCount(0);

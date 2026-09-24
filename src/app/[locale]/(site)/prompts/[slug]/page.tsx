@@ -1,5 +1,5 @@
 /**
- * [INPUT]: 依赖 @/lib/content/catalog 的 findEntry/findRedirect/getVisibleEntries，依赖 @/components/prompt 的 PromptDetail，依赖 @/lib/seo
+ * [INPUT]: 依赖 @/lib/content/catalog 的 findEntry/findRedirect/getVisibleEntries，依赖 @/components/prompt 的 PromptDetail，依赖 @/lib/seo（含 imageCredit 图片署名）
  * [OUTPUT]: 默认导出独立详情页，generateMetadata，generateStaticParams
  * [POS]: app/[locale]/(site) 的详情路由：直接访问、刷新与新标签的完整页面；未知/草稿/归档 404，登记过的旧 slug 永久重定向
  * [PROTOCOL]: Update this header when making changes, then check README.md.
@@ -14,7 +14,7 @@ import { requireLocale } from "@/i18n/locale-param";
 import { contentFor, findEntry, findRedirect, getLibrary, getVisibleEntries } from "@/lib/content/catalog";
 import { composePrompt, defaultSelections } from "@/lib/prompt/template";
 import { promptMetadata } from "@/lib/seo/metadata";
-import { breadcrumbJsonLd, creativeWorkJsonLd } from "@/lib/seo/structured-data";
+import { breadcrumbJsonLd, creativeWorkJsonLd, imageCredit } from "@/lib/seo/structured-data";
 import { categoryPath, promptPath, withLocale } from "@/lib/seo/urls";
 import { absoluteUrl, mediaUrl } from "@/lib/site";
 
@@ -69,7 +69,13 @@ export default async function PromptPage({ params }: Props) {
             datePublished: entry.meta.publishedAt,
             author: source.author ? { name: source.author.name, url: source.author.url } : null,
             basedOn: source.url,
-            images: entry.examples.map((example) => ({ url: absoluteUrl(mediaUrl(entry.meta.slug, example.src)), width: example.width, height: example.height, caption: example.caption?.[locale] ?? example.alt[locale] })),
+            images: entry.examples.map((example) => ({
+              url: absoluteUrl(mediaUrl(entry.meta.slug, example.src)),
+              width: example.width,
+              height: example.height,
+              caption: example.caption?.[locale] ?? example.alt[locale],
+              credit: imageCredit(example, entry.meta.sources),
+            })),
           }),
         ]}
       />

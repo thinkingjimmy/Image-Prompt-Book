@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 @/lib/content 的 PromptEntry/contentFor，依赖同目录 ExampleGallery/ModalTitle 与 workbench/ 的 PromptStateProvider/CustomizeView/PromptActions，依赖 @/components/ui/scroll-area
+ * [INPUT]: 依赖 @/lib/content 的 PromptEntry/contentFor，依赖同目录 ExampleGallery/ModalTitle/PromptAbout 与 workbench/ 的 PromptStateProvider/CustomizeView/PromptActions，依赖 @/components/ui/scroll-area
  * [OUTPUT]: 对外提供 PromptDetail 服务端组件与 toPromptData()（服务端 → 客户端的最小可序列化数据）
- * [POS]: components/prompt 的共用详情（参考 ImageFX）：左栏为按比例满铺的案例图；右栏标题 + 作者·许可一行 + Prompt 工具行（版本切换 + 修改后出现的重置） + 可编辑 Prompt（自绘滚动）+ 主操作（复制 / ChatGPT / 分享）。独立页与弹窗同一组件，只以 variant 区分尺寸与标题元素
+ * [POS]: components/prompt 的共用详情（参考 ImageFX）：左栏为按比例满铺的案例图；右栏标题 + 作者·许可一行 + 摘要 + Prompt 工具行（版本切换 + 修改后出现的重置） + 可编辑 Prompt 与其后的“关于这个 Prompt”（同一自绘滚动区）+ 主操作（复制 / ChatGPT / 分享）。独立页与弹窗同一组件，只以 variant 区分尺寸与标题元素
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { ArrowLeft, ImagePlus } from "lucide-react";
@@ -16,6 +16,7 @@ import { contentConfig, mediaUrl } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { ModalTitle } from "./detail-modal";
 import { ExampleGallery, type ExampleView } from "./example-gallery";
+import { PromptAbout, TEXT_LINK } from "./prompt-about";
 import { CustomizeView } from "./workbench/customize-view";
 import { PromptActions } from "./workbench/prompt-actions";
 import { PromptStateProvider, type PromptData } from "./workbench/prompt-state";
@@ -60,7 +61,6 @@ export async function PromptDetail({ entry, locale, variant }: { entry: PromptEn
   const author = source.author;
   const cover = entry.examples[0];
   const title = <span className="block text-xl leading-snug font-semibold tracking-tight text-balance">{content.title}</span>;
-  const link = "rounded-sm underline decoration-foreground/15 underline-offset-2 transition-colors hover:text-foreground hover:decoration-foreground/40";
 
   // On wide screens the image pane takes exactly the image's proportions at the detail height, so it never letterboxes.
   const frame = {
@@ -90,14 +90,15 @@ export async function PromptDetail({ entry, locale, variant }: { entry: PromptEn
             <div className={cn(variant === "modal" && "pr-10")}>{variant === "modal" ? <ModalTitle>{title}</ModalTitle> : <h1>{title}</h1>}</div>
             {/* The license requires credit wherever the adapted prompt is shown; it lives here, next to the title. */}
             <p className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[13px] text-muted-foreground">
-              <a href={author?.url ?? source.url} target="_blank" rel="noopener noreferrer nofollow" className={link}>
+              <a href={author?.url ?? source.url} target="_blank" rel="noopener noreferrer nofollow" className={TEXT_LINK}>
                 {author?.name ?? source.title}
               </a>
               <span aria-hidden>·</span>
-              <a href={entry.meta.rights.licenseUrl} target="_blank" rel="noopener noreferrer nofollow" className={link}>
+              <a href={entry.meta.rights.licenseUrl} target="_blank" rel="noopener noreferrer nofollow" className={TEXT_LINK}>
                 {LICENSE_NAMES[entry.meta.rights.promptLicense] ?? entry.meta.rights.promptLicense}
               </a>
             </p>
+            <p className="mt-1 text-sm leading-relaxed text-foreground/75">{content.summary}</p>
           </header>
 
           {/* The version switch separates this row on its own; single-version prompts get a divider instead. */}
@@ -108,6 +109,7 @@ export async function PromptDetail({ entry, locale, variant }: { entry: PromptEn
 
           <ScrollArea className="md:flex-1" viewportClassName="px-5 pt-3 pb-6 sm:px-6">
             <CustomizeView />
+            <PromptAbout entry={entry} locale={locale} />
           </ScrollArea>
 
           <div className="sticky bottom-0 z-10 border-t border-border/70 bg-background/95 px-5 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur sm:px-6 md:static md:bg-transparent md:pb-4 md:backdrop-blur-none">

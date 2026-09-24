@@ -15,7 +15,7 @@ unit/prompts/<slug>.test.ts: 条目专属语义——原文哈希、默认值复
 e2e/helpers.ts: 等待水合的 test、剪贴板/存储注入、按 fixture 计算期望 Prompt
 e2e/gallery.spec.ts: 列表（双语、搜索/标签/排序/分页、404、恶意内容、坏图）与详情导航（路由弹窗、后退/前进、刷新、新标签、语言切换、Esc 分层）
 e2e/editor.spec.ts: 选项编辑、复制、分享链接、版本切换、存储/剪贴板失败、Use in ChatGPT
-e2e/seo.spec.ts: 服务端 HTML、无 JS 阅读、canonical/hreflang/robots、sitemap、JSON-LD
+e2e/seo.spec.ts: 服务端 HTML（含“关于这个 Prompt”全部字段）、无 JS 阅读、canonical/hreflang/robots、sitemap、JSON-LD 与可见内容一致（摘要、图片署名、不声称图片许可）
 e2e/layout.spec.ts: axe WCAG A/AA、断点矩阵、移动端（@mobile）无横向滚动与全屏弹窗
 fixtures/build.ts: 生成 fixtures/.generated/（git 忽略，全部 fixture:true，生产内容根拒绝）；Vitest globalSetup 与 E2E webServer 各调用一次
 

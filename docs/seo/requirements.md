@@ -47,6 +47,8 @@
 
 ### R3. 详情页显示"关于这个 Prompt"（§1.1 Scraping/Thin，§2.2，§3.4）
 
+**状态（2026-09-24）**：已实现。`summary` 显示在作者那一行下面；`PromptAbout` 区块放在可编辑 Prompt 之后，和 Prompt 共用同一个滚动区，独立页和弹窗都会显示，而且都是服务端渲染。
+
 **问题**：每条 prompt 都写好了 `summary`、`inputRequirement`、`howToUse`、`exampleNotice`、`verificationNotice`、`adaptationNotice`、`licenseNotice`，但**一个都没有显示在页面上**。Google 看到的详情页只有标题、作者·许可一行和 prompt 正文，这正是"内容单薄 / 原帖搬运"的样子。而且 `summary` 被用作 JSON-LD 的 `description`，页面上却看不到（§1.1 Structured data issue）。
 
 **需求**：
@@ -60,9 +62,11 @@
 
 ### R4. 结构化数据与页面对齐，并补充图片许可元数据（§1.1 Structured data，§3.4）
 
+**状态（2026-09-24）**：已实现。`description` 等于页面上可见的摘要；`CreativeWork.mainEntityOfPage` 指向本页；每张 `ImageObject` 都带 `creator` 和 `creditText`：本站复现的图署名为站点，作者示例图署名为同一账号下来源的作者。目前**所有示例图都没有登记图片自己的许可**（`licenseNotice` 写的是"案例图片的权利另行确认"），所以**不输出** `license` / `acquireLicensePage` / `copyrightNotice`，Google 图片里也就不会出现"可授权"标记。要出现这个标记，需要先在 `examples.json` 里为每张图记录真实的许可 URL。
+
 - R3 完成后，`CreativeWork.description` 就和页面上可见的 `summary` 一致了。在此之前不要上线这个字段，或者先改用页面上可见的文本。
 - `ImageObject` 补充 Google 支持的**图片许可元数据**：`creator`（作者）、`creditText`、`copyrightNotice`、`license`（许可 URL）、`acquireLicensePage`（原始来源或 takedown/许可说明页）。这样 Google 图片里会显示"可授权"标记。值全部来自 `examples.json` 的 `rights` 与 `meta.rights`，**没有就不输出**。
-- 给 `WebPage` 加上 `primaryImageOfPage`（首图），明确告诉 Google 用哪张图做预览（image SEO 指南推荐的做法）。
+- 明确告诉 Google 用哪张图做预览：图片挂在主实体上，并用 `mainEntityOfPage` 指向本页，这是 image SEO 指南推荐的两种做法之一；首图就是封面，与 `og:image` 保持一致。
 
 **验收**：用 Rich Results Test 测一个详情页，零错误；单元测试断言缺失的 rights 字段不会被输出。
 

@@ -87,7 +87,17 @@
     "shareTooltip": "Share",
     "attachTitle": "Use with your own image.",
     "attachBody": "After copying or opening ChatGPT, attach one photo or character image, then send.",
-    "copyShort": "Copy"
+    "copyShort": "Copy",
+    "about": "About this prompt",
+    "aboutInput": "What you need",
+    "aboutSteps": "How to use",
+    "aboutExamples": "Example images",
+    "aboutAdaptation": "What we changed",
+    "aboutLicense": "License",
+    "aboutSources": "Sources",
+    "sourceOriginal": "Original",
+    "sourceSupplementary": "Supplementary",
+    "sourceChecked": "checked {date}"
   },
   "notFound": {
     "title": "Page not found",

@@ -87,7 +87,17 @@
     "shareTooltip": "分享",
     "attachTitle": "需要搭配你的图片使用。",
     "attachBody": "复制或打开 ChatGPT 后，记得同时附上一张照片或角色图再发送。",
-    "copyShort": "复制"
+    "copyShort": "复制",
+    "about": "关于这个 Prompt",
+    "aboutInput": "需要准备",
+    "aboutSteps": "使用步骤",
+    "aboutExamples": "案例图片",
+    "aboutAdaptation": "我们做了什么改动",
+    "aboutLicense": "许可",
+    "aboutSources": "来源",
+    "sourceOriginal": "原始来源",
+    "sourceSupplementary": "补充来源",
+    "sourceChecked": "{date} 核对"
   },
   "notFound": {
     "title": "页面不存在",
