@@ -1,14 +1,14 @@
 /**
- * [INPUT]: 依赖 ../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/photo-abstract-editorial
+ * [INPUT]: 依赖 ../../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/photo-abstract-editorial
  * [OUTPUT]: 第二个条目的专属测试：原文与上游提交一致、核心规则在所有组合中保留、默认值复现作者原文、选项之间无矛盾
- * [POS]: tests/unit/prompts 的条目套件；通用的全组合渲染由 content.test.ts 负责，这里只证明本条目的语义，不证明生图质量
+ * [POS]: tests/unit/prompts/photo-art 的条目套件；通用的全组合渲染由 content.test.ts 负责，这里只证明本条目的语义，不证明生图质量
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { combinations, composer, promptEntry } from "../helpers";
+import { combinations, composer, promptEntry } from "../../helpers";
 
 const SLUG = "photo-abstract-editorial";
 // SHA-256 of references/photo-abstract-editorial-prompt.zh-CN.md at upstream commit 49e5507.

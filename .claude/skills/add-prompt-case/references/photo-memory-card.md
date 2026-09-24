@@ -2,7 +2,7 @@
 
 Request (2026-09-23): "use the new skill to test this: https://x.com/Sairah_0/status/2093212900160868430". The owner later pasted the post's three images into the chat.
 
-Result: `content/prompts/photo-memory-card/` (images in `images/`), `tests/unit/prompts/photo-memory-card.test.ts`.
+Result: `content/prompts/photo-memory-card/` (images in `images/`), `tests/unit/prompts/photo-art/photo-memory-card.test.ts`.
 
 ## 1. Source
 

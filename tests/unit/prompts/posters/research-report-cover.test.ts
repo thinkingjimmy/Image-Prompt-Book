@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 ../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/research-report-cover
+ * [INPUT]: 依赖 ../../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/research-report-cover
  * [OUTPUT]: 研究报告风封面条目的专属测试：原文与抓取时的哈希一致、输入位与色值的格式改写、配色方案与五套色值在所有组合中保留
- * [POS]: tests/unit/prompts 的条目套件；通用的全组合渲染由 content.test.ts 负责
+ * [POS]: tests/unit/prompts/posters 的条目套件；通用的全组合渲染由 content.test.ts 负责
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { createHash } from "node:crypto";
@@ -9,7 +9,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { defaultSelections } from "@/lib/prompt/template";
-import { combinations, composer, promptEntry } from "../helpers";
+import { combinations, composer, promptEntry } from "../../helpers";
 
 const SLUG = "research-report-cover";
 // SHA-256 of the article's code block as posted on X (captured 2026-09-24, not edited), without the final newline.

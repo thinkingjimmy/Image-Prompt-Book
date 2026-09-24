@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 scripts/lib/appendix 的附录解析，依赖 ../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/grokbot-capsule-icon
+ * [INPUT]: 依赖 scripts/lib/appendix 的附录解析，依赖 ../../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/grokbot-capsule-icon
  * [OUTPUT]: 首个条目的专属测试：文件与规范性附录逐项一致（发布字段除外）、韩文原文 SHA-256、默认输出与附录独立替换结果一致（golden）、风格核心与选项语义回归（AC-06–AC-11）
- * [POS]: tests/unit/prompts 的条目套件；通用的全组合渲染由 content.test.ts 负责，这里只证明本条目的语义，不证明生图质量
+ * [POS]: tests/unit/prompts/avatars 的条目套件；通用的全组合渲染由 content.test.ts 负责，这里只证明本条目的语义，不证明生图质量
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { createHash } from "node:crypto";
@@ -9,8 +9,8 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { LOCALES, type Locale } from "@/i18n/config";
-import { readAppendix } from "../../../scripts/lib/appendix";
-import { combinations, composer, promptEntry } from "../helpers";
+import { readAppendix } from "../../../../scripts/lib/appendix";
+import { combinations, composer, promptEntry } from "../../helpers";
 
 const SLUG = "grokbot-capsule-icon";
 const SHORT_ORIGINAL_SHA256 = "ce60f5b77ecb214acf8a419c2f85057853fd357332966ec1bc1c467bc26155fd";

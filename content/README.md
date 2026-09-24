@@ -31,6 +31,6 @@ Slugs are permanent. If one must change, add the old slug to `redirectFrom` in t
 
 ## Importing from a spec appendix
 
-`pnpm content:import <slug>` copies the normative appendix `docs/appendix/<slug>.md` into this folder byte for byte; `tests/unit/prompts/<slug>.test.ts` re-checks the import.
+`pnpm content:import <slug>` copies the normative appendix `docs/appendix/<slug>.md` into this folder byte for byte; `tests/unit/prompts/<category>/<slug>.test.ts` re-checks the import.
 
 [PROTOCOL]: Update this header when making changes, then check README.md.

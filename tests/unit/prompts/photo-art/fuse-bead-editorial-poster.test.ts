@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 ../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/fuse-bead-editorial-poster
+ * [INPUT]: 依赖 ../../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/fuse-bead-editorial-poster
  * [OUTPUT]: 拼豆编辑海报条目的专属测试：原文与抓取时的哈希一致、默认值逐字复现作者原文、版式与避免清单在所有组合中保留
- * [POS]: tests/unit/prompts 的条目套件；通用的全组合渲染由 content.test.ts 负责
+ * [POS]: tests/unit/prompts/photo-art 的条目套件；通用的全组合渲染由 content.test.ts 负责
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { createHash } from "node:crypto";
@@ -9,7 +9,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { defaultSelections } from "@/lib/prompt/template";
-import { combinations, composer, promptEntry } from "../helpers";
+import { combinations, composer, promptEntry } from "../../helpers";
 
 const SLUG = "fuse-bead-editorial-poster";
 // SHA-256 of the prompt text as posted on X (captured 2026-09-23, post not edited), without the final newline.

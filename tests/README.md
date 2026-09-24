@@ -11,7 +11,7 @@ unit/helpers.ts: 共享工具——真实 content/ 的 library、promptEntry()�
 unit/content.test.ts: 内容通用套件——每个条目每个版本的全部组合 × 输出语言完整、单语言、互不相同；校验闸门拒绝各类坏内容（临时副本注入错误）
 unit/lib.test.ts: 纯逻辑——模板引擎、分享 hash、搜索/筛选/排序/分页
 unit/i18n.test.ts: 界面文案键与 ICU 占位符在各语言一致；说明页双语结构一致
-unit/prompts/<slug>.test.ts: 条目专属语义——原文哈希、默认值复现作者原文、选项之间无矛盾；grokbot 另含附录导入保真与 golden（由附录独立替换计算，不存文件）
+unit/prompts/<category>/<slug>.test.ts: 条目专属语义，按条目分类分子目录（avatars / photo-art / posters），每层不超过 8 个文件——原文哈希、默认值复现作者原文、选项之间无矛盾；grokbot 另含附录导入保真与 golden（由附录独立替换计算，不存文件）
 e2e/helpers.ts: 等待水合的 test、剪贴板/存储注入、按 fixture 计算期望 Prompt
 e2e/gallery.spec.ts: 列表（双语、搜索/标签/排序/分页、404、恶意内容、坏图）与详情导航（路由弹窗、后退/前进、刷新、新标签、语言切换、Esc 分层）
 e2e/editor.spec.ts: 选项编辑、复制、分享链接、版本切换、存储/剪贴板失败、Use in ChatGPT
@@ -21,7 +21,7 @@ fixtures/build.ts: 生成 fixtures/.generated/（git 忽略，全部 fixture:tru
 
 ## Adding a prompt
 
-The generic suite in `unit/content.test.ts` covers every new entry automatically. Add `unit/prompts/<slug>.test.ts` only for what is specific to that prompt: the original's hash, defaults that reproduce the author, and each contradiction between options you fixed.
+The generic suite in `unit/content.test.ts` covers every new entry automatically. Add `unit/prompts/<category>/<slug>.test.ts` only for what is specific to that prompt: the original's hash, defaults that reproduce the author, and each contradiction between options you fixed.
 
 ## E2E projects
 

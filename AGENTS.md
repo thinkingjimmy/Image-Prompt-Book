@@ -53,7 +53,7 @@ Coding agents: use the project skill [`.claude/skills/add-prompt-case`](./.claud
 1. Read [`content/README.md`](./content/README.md) for the file format.
 2. Create `content/prompts/<slug>/` with `meta.json`, `original.<lang>.txt`, `en.json`, `zh-CN.json`, `template.en.txt`, `template.zh-CN.txt`, `parameters.json`, `examples.json` and `ATTRIBUTION.md`. Keep `status: "draft"`.
 3. Put example images in `content/prompts/<slug>/images/`; record true size, bilingual alt text, source and rights in `examples.json`.
-4. Run `pnpm content:check` and `pnpm test`. Every combination is checked automatically; add `tests/unit/prompts/<slug>.test.ts` only for prompt-specific rules.
+4. Run `pnpm content:check` and `pnpm test`. Every combination is checked automatically; add `tests/unit/prompts/<category>/<slug>.test.ts` only for prompt-specific rules.
 5. Review it locally with `IPB_PREVIEW_DRAFTS=1 pnpm dev`, then set `status: "published"` and `publishedAt`. Commit and push; CI checks structure only. If the entry came from an issue, link the issue in the commit.
 6. Credit the author: add a row to `docs/ACKNOWLEDGEMENTS.md` (the READMEs and the About page link to it).
 

@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 ../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/campaign-poster-oversized-type
+ * [INPUT]: 依赖 ../../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/campaign-poster-oversized-type
  * [OUTPUT]: 第四个条目的专属测试：原文与抓取时的哈希一致、默认值复现作者原文（仅规范 Markdown 符号）、核心规则在所有组合中保留、固定选项不与原文列表并存
- * [POS]: tests/unit/prompts 的条目套件；通用的全组合渲染由 content.test.ts 负责
+ * [POS]: tests/unit/prompts/posters 的条目套件；通用的全组合渲染由 content.test.ts 负责
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { createHash } from "node:crypto";
@@ -9,7 +9,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { defaultSelections } from "@/lib/prompt/template";
-import { combinations, composer, promptEntry } from "../helpers";
+import { combinations, composer, promptEntry } from "../../helpers";
 
 const SLUG = "campaign-poster-oversized-type";
 // SHA-256 of the prompt code block as posted on X (captured 2026-09-23, post not edited), without its trailing space and our final newline.
