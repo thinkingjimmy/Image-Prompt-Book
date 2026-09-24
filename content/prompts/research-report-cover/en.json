@@ -9,8 +9,8 @@
     "Copy the prompt, or open it directly in ChatGPT.",
     "Replace the bracketed fields with your topic, title, optional subtitle and core message, then send."
   ],
-  "exampleNotice": "Example result shared by the author, not a live preview.",
-  "verificationNotice": "This example comes from the author's post and has not been reproduced by Image Prompt Book.",
+  "exampleNotice": "Example results shared by the author and by a user of the prompt, not a live preview.",
+  "verificationNotice": "These examples come from X posts and have not been reproduced by Image Prompt Book.",
   "adaptationNotice": "English translation and adjustable options by Image Prompt Book; not the author's wording or an endorsement. Not affiliated with Anthropic.",
   "licenseNotice": "The author did not state a license. All rights stay with the author; this page credits them and links to the original post.",
   "parameterLabels": {

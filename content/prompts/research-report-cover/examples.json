@@ -15,5 +15,39 @@
       "evidence": "https://x.com/AdrianPunk115/status/2083411308855111928"
     },
     "recipe": null
+  },
+  {
+    "id": "world-model-orange",
+    "src": "images/world-model-orange.jpg",
+    "width": 1600,
+    "height": 640,
+    "alt": {
+      "en": "Wide terracotta cover with the black serif Chinese title “当世界模型真正开源” (When world models truly go open source), a line-art flow of scattered dots passing through a cream panel into a node network over a hand-drawn landscape, and a few small color shapes",
+      "zh-CN": "陶土橙底宽幅封面，黑色衬线标题“当世界模型真正开源”，线稿中散点穿过米白面板，汇成节点网络并延伸到手绘山地景观，点缀少量小色块"
+    },
+    "sourceUrl": "https://x.com/aehyok/status/2084114964294595056",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result image generated with this prompt by AI少年 (@aehyok) and posted on X (2026-08-03) quoting the author's article; supplied by the owner (Jimmy Wong, 2026-09-24) and downloaded from that post at their request. No license stated.",
+      "evidence": "https://x.com/aehyok/status/2084114964294595056"
+    },
+    "recipe": null
+  },
+  {
+    "id": "world-model-green",
+    "src": "images/world-model-green.jpg",
+    "width": 1600,
+    "height": 640,
+    "alt": {
+      "en": "The same “当世界模型真正开源” cover on sage green: dots flow through a grid panel into curved paths that become a hand-drawn river valley and mountain, with small terracotta, cream and blue accents",
+      "zh-CN": "鼠尾草绿版本的“当世界模型真正开源”封面：散点穿过网格面板化为曲线路径，延伸成手绘河谷与山峰，点缀陶土橙、米白与蓝色小色块"
+    },
+    "sourceUrl": "https://x.com/aehyok/status/2084114964294595056",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result image generated with this prompt by AI少年 (@aehyok) and posted on X (2026-08-03) quoting the author's article; supplied by the owner (Jimmy Wong, 2026-09-24) and downloaded from that post at their request. No license stated.",
+      "evidence": "https://x.com/aehyok/status/2084114964294595056"
+    },
+    "recipe": null
   }
 ]

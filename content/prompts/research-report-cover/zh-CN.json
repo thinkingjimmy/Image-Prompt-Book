@@ -9,8 +9,8 @@
     "复制 Prompt，或直接在 ChatGPT 中打开。",
     "把方括号字段替换为你的主题、标题、可选副标题和核心表达，再发送。"
   ],
-  "exampleNotice": "作者分享的案例效果，非实时预览。",
-  "verificationNotice": "案例来自作者的帖子，Image Prompt Book 尚未复现。",
+  "exampleNotice": "案例来自作者和使用该 Prompt 的用户分享，非实时预览。",
+  "verificationNotice": "案例来自 X 上的帖子，Image Prompt Book 尚未复现。",
   "adaptationNotice": "英文翻译与可调选项由 Image Prompt Book 提供；不等于作者的原始表述或认可。与 Anthropic 无关联。",
   "licenseNotice": "作者未声明许可；全部权利归作者所有，本页注明作者并链接原帖。",
   "parameterLabels": {
