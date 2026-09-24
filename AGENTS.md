@@ -9,7 +9,7 @@ src/ - Next.js app (4 subdirs: app routes, components UI, lib content/prompt/SEO
 content/ - Prompt library: one self-contained folder per prompt (text, options, credits, images/), validated at build time, never executed
 scripts/ - Content import, validation, link check, performance measurement
 tests/ - Vitest unit, Playwright E2E, their configs and the fixture builder (see tests/README.md)
-docs/ - Product spec (PRD), task list, acknowledgements, first-entry appendix (appendix/)
+docs/ - Acknowledgements, first-entry appendix (appendix/), SEO guidelines and requirements (seo/)
 .github/ - CI and issue templates (source lead, translation, problem, rights request)
 .claude/skills/ - Agent skills; add-prompt-case imports a new prompt end to end
 </directory>
