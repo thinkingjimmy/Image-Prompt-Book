@@ -61,7 +61,7 @@ export default function buildFixtures() {
     ...meta,
     fixture: true,
     status: "published",
-    publishedAt: "2026-09-20",
+    publishedAt: "2026-09-20T12:00:00Z",
     featuredRank: 1,
     redirectFrom: ["grokbot-icon-legacy"],
   });
@@ -112,7 +112,7 @@ export default function buildFixtures() {
       status: "published",
       createdAt: "2026-08-01",
       updatedAt: `2026-08-${day}`,
-      publishedAt: `2026-08-${day}`,
+      publishedAt: `2026-08-${day}T12:00:00Z`,
       featuredRank: index === 2 ? 2 : null,
       fixture: true,
       category: "illustration",

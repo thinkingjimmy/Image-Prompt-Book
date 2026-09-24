@@ -103,7 +103,7 @@ describe("content validation", () => {
 
   it("refuses to publish without a real example image", () => {
     const { issues, entries } = setup((dir) => {
-      editJson(path.join(dir, "meta.json"), (value) => ({ ...value, status: "published", publishedAt: "2026-09-23" }));
+      editJson(path.join(dir, "meta.json"), (value) => ({ ...value, status: "published", publishedAt: "2026-09-23T12:00:00+08:00" }));
       writeFileSync(path.join(dir, "examples.json"), "[]");
     });
     expect(entries.find((entry) => entry.meta.slug === SLUG)).toBeUndefined();

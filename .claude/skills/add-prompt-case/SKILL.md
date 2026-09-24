@@ -90,7 +90,7 @@ Write the generator as a throwaway Python script in the scratchpad that asserts 
 - `en.json` / `zh-CN.json`: title, summary, SEO title/description, input requirement, how-to (mention Copy and ChatGPT), notices, `parameterLabels` for every parameter of every variant, optional `keywords`.
 - Categories/tags must exist in `content/taxonomy.json` (add with both labels). Order `meta.tags` by what should show first on the card; put distinctive tags before generic ones.
 - `requiresReferenceImage: true` when the user must attach an image — the detail page then shows the "use with your own image" notice.
-- `status: "draft"`, `publishedAt: null`, dates as `YYYY-MM-DD`.
+- `status: "draft"`, `publishedAt: null`, `createdAt`/`updatedAt` as `YYYY-MM-DD`. On publish, `publishedAt` is a full timestamp with offset (`2026-09-23T21:19:45+08:00`) so Latest reflects the real order; add `featuredRank` (1 = first) only if the owner wants the entry featured.
 
 ## 7. Verify, preview, ship
 

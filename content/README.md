@@ -12,7 +12,7 @@ prompts/<slug>/: 单个条目目录，目录名 = id = slug，稳定且跨语言
 
 | File | Purpose | Rules |
 | --- | --- | --- |
-| `meta.json` | Identity, status, dates, category/tags, locales, sources, rights, compatibility | `status` draft/published/archived; `publishedAt` only when published; HTTPS URLs |
+| `meta.json` | Identity, status, dates, category/tags, locales, sources, rights, compatibility | `status` draft/published/archived; `publishedAt` only when published, as a timestamp with offset (`2026-09-23T21:19:45+08:00`); optional `featuredRank` (1 = first in Featured, unranked entries follow by date); HTTPS URLs |
 | `original.<lang>.txt` | Untouched source prompt | UTF-8, LF, one trailing newline; changes are a source-version update |
 | `en.json`, `zh-CN.json` | Page copy: title, summary, SEO, input requirement, how-to, notices, parameter labels, optional `keywords` | Complete in every locale; missing translations keep the entry in draft |
 | `template.en.txt`, `template.zh-CN.txt` | Full adapted templates | Only `{{parameterId}}` tokens; every token declared, every parameter used |

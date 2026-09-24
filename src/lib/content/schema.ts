@@ -24,6 +24,11 @@ const isoDate = z
   .string()
   .regex(/^\d{4}-\d{2}-\d{2}$/, "expected YYYY-MM-DD")
   .refine((value) => !Number.isNaN(Date.parse(`${value}T00:00:00Z`)) && new Date(`${value}T00:00:00Z`).toISOString().startsWith(value), "invalid calendar date");
+/** Full timestamp with offset so entries published on the same day still sort by real publish order. */
+const isoDateTime = z
+  .string()
+  .regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})$/, "expected YYYY-MM-DDTHH:mm:ss+HH:mm")
+  .refine((value) => isoDate.safeParse(value.slice(0, 10)).success && !Number.isNaN(Date.parse(value)), "invalid timestamp");
 const httpsUrl = z.string().refine(isHttpsUrl, "must be an absolute HTTPS URL");
 const slug = z.string().regex(SLUG_PATTERN, "must be lowercase kebab-case");
 const nonEmpty = z.string().trim().min(1);
@@ -71,7 +76,7 @@ export const metaSchema = z.strictObject({
   status: z.enum(["draft", "published", "archived"]),
   createdAt: isoDate,
   updatedAt: isoDate,
-  publishedAt: isoDate.nullable(),
+  publishedAt: isoDateTime.nullable(),
   /** Lower ranks come first in the featured sort; null means not featured. */
   featuredRank: z.number().int().positive().nullable().optional(),
   /** Old slugs that permanently redirect here. Only add when an entry is renamed. */

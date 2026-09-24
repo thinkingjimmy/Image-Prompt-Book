@@ -78,12 +78,12 @@ export function matchesQuery(haystack: string, q: string): boolean {
 export type SortableItem = {
   slug: string;
   featuredRank: number | null;
-  /** publishedAt, or createdAt for draft previews. */
+  /** publishedAt timestamp, or createdAt date for draft previews; compared as instants, not strings. */
   date: string;
 };
 
 export function sortItems<T extends SortableItem>(items: readonly T[], sort: SortOrder): T[] {
-  const byDateThenSlug = (a: T, b: T) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug);
+  const byDateThenSlug = (a: T, b: T) => Date.parse(b.date) - Date.parse(a.date) || a.slug.localeCompare(b.slug);
   return [...items].sort((a, b) => {
     if (sort === "featured") {
       const ra = a.featuredRank ?? Number.POSITIVE_INFINITY;

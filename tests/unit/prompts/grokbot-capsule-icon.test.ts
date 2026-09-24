@@ -37,7 +37,7 @@ function appendixDefault(templates: Record<Locale, string>, parameters: unknown,
 }
 
 // Publishing happens after the import, so fidelity ignores the publication fields.
-const unpublished = (meta: unknown) => ({ ...(meta as object), status: null, publishedAt: null, updatedAt: null });
+const unpublished = (meta: unknown) => ({ ...(meta as object), status: null, publishedAt: null, updatedAt: null, featuredRank: null });
 
 describe("import fidelity (normative appendix)", () => {
   it("meta, page copy, parameters and examples equal the appendix", () => {
