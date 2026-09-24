@@ -1,6 +1,6 @@
 /**
  * [INPUT]: 依赖 next-intl 的 NextIntlClientProvider/setRequestLocale，依赖 @/i18n 的 routing/LOCALES，依赖 @/components/layout 的 SiteFooter/Analytics 与 layout/header 的 SiteHeader，依赖 @/components/ui/scroll-area 的 PageScrollbar
- * [OUTPUT]: 默认导出根布局（<html lang>、js 标记、全站导航与页脚、自研整页滚动条、生产环境 Google Analytics），generateStaticParams
+ * [OUTPUT]: 默认导出根布局（<html lang>、js 标记、全站导航与页脚、自研整页滚动条、生产环境 Google Analytics；main 含 data-footer-lead 时转为纵向 flex，让它贴住页脚），generateStaticParams
  * [POS]: app 的根布局位于 [locale] 下，使 lang 随语言变化；未知语言在此返回 404
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -42,7 +42,8 @@ export default async function LocaleLayout({ children, params }: { children: Rea
       <body className="flex min-h-dvh flex-col">
         <NextIntlClientProvider>
           <SiteHeader locale={locale} />
-          <main id="main" tabIndex={-1} className="flex-1 outline-none">
+          {/* A footer lead (the gallery heading) is pinned to the bottom of main, so it always sits against the footer. */}
+          <main id="main" tabIndex={-1} className="flex-1 outline-none has-[>[data-footer-lead]]:flex has-[>[data-footer-lead]]:flex-col">
             {children}
           </main>
           <SiteFooter locale={locale} />

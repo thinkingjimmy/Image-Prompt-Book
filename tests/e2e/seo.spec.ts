@@ -1,6 +1,6 @@
 /**
  * [INPUT]: 依赖 fixture 构建（IPB_DEPLOY_ENV=production、SITE_URL=https://imagepromptbook.com）
- * [OUTPUT]: SEO E2E：服务端 HTML 完整性（含“关于这个 Prompt”全部字段）、无 JS 可读默认 Prompt、canonical/hreflang/robots 矩阵、sitemap/robots.txt、结构化数据与可见内容一致（摘要、图片署名）、只提供站点实际展示的图片（AC-18/19/21）
+ * [OUTPUT]: SEO E2E：服务端 HTML 完整性（含“关于这个 Prompt”全部字段）、画廊 H1 对人可见且位于网格之后的页脚首段、无 JS 可读默认 Prompt、canonical/hreflang/robots 矩阵、sitemap/robots.txt、结构化数据与可见内容一致（摘要、图片署名）、只提供站点实际展示的图片（AC-18/19/21）
  * [POS]: tests/e2e 的可索引性套件
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -61,6 +61,25 @@ test.describe("without JavaScript", () => {
     await page.locator("main h2 a").first().click();
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   });
+});
+
+test("gallery headings are visible text that opens the footer, never above the grid", async ({ page }) => {
+  for (const [url, heading] of [
+    ["/en", "Explore image prompts. Make them yours."],
+    ["/en/categories/illustration", "Illustration"],
+  ] as const) {
+    await page.goto(url);
+    const h1 = page.getByRole("heading", { level: 1 });
+    await expect(h1, url).toHaveText(heading);
+    const lead = page.locator("[data-footer-lead]");
+    await expect(lead.locator("p"), url).not.toBeEmpty();
+    // Real text for people, not a 1px screen-reader clip.
+    expect((await h1.boundingBox())!.width, url).toBeGreaterThan(40);
+    // The gallery stays image-first: the heading comes after the grid and sits flush against the footer.
+    expect((await h1.boundingBox())!.y, url).toBeGreaterThan((await page.locator("ul.masonry").boundingBox())!.y);
+    const gap = (await page.locator("footer p").first().boundingBox())!.y - (await lead.boundingBox())!.y - (await lead.boundingBox())!.height;
+    expect(gap, url).toBeLessThan(40);
+  }
 });
 
 test("detail pages are self-canonical with reciprocal hreflang", async ({ page }) => {
