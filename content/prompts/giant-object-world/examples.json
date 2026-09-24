@@ -1,0 +1,70 @@
+[
+  {
+    "id": "hand",
+    "src": "images/hand.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "Screen-print style image on a red background: a giant hand rises like a mountain under a pale moon, with tiny people climbing ladders up the fingers and gathering in the palm",
+      "zh-CN": "红色单色背景的丝网版画风画面：一只巨手像山一样立在月亮下，小人沿梯子爬上手指，在掌心聚集"
+    },
+    "sourceUrl": "https://x.com/VoxcatAI/status/2102873893438407130",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded from the post at the owner's request (Jimmy Wong, 2026-09-24). The author states no license.",
+      "evidence": "https://x.com/VoxcatAI/status/2102873893438407130"
+    },
+    "recipe": null
+  },
+  {
+    "id": "teapot",
+    "src": "images/teapot.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "A giant tipped-over porcelain teapot with red floral patterns on an orange background, tiny hikers climbing its lid, spout and handle and walking out of its opening",
+      "zh-CN": "橙色背景上一把倾倒的巨大瓷茶壶，带红色花纹，小人攀爬壶盖、壶嘴和把手，从壶口走出来"
+    },
+    "sourceUrl": "https://x.com/VoxcatAI/status/2102873893438407130",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded from the post at the owner's request (Jimmy Wong, 2026-09-24). The author states no license.",
+      "evidence": "https://x.com/VoxcatAI/status/2102873893438407130"
+    },
+    "recipe": null
+  },
+  {
+    "id": "pear",
+    "src": "images/pear.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "A giant halved pear on an olive-green background under a pale moon, tiny workers climbing the flesh, tending the seeds and hauling crates",
+      "zh-CN": "橄榄绿背景和淡色月亮下，一个切开的巨大的梨，小人在果肉上攀爬、照料果核、搬运木箱"
+    },
+    "sourceUrl": "https://x.com/VoxcatAI/status/2102873893438407130",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded from the post at the owner's request (Jimmy Wong, 2026-09-24). The author states no license.",
+      "evidence": "https://x.com/VoxcatAI/status/2102873893438407130"
+    },
+    "recipe": null
+  },
+  {
+    "id": "crane",
+    "src": "images/crane.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "A giant white crane on a deep-blue background whose wings become snowy slopes with pine trees, tiny skiers in red and yellow jackets gliding down",
+      "zh-CN": "深蓝背景上一只巨大的白鹤，翅膀化作长满松树的雪坡，穿红黄外套的小人从上面滑雪而下"
+    },
+    "sourceUrl": "https://x.com/VoxcatAI/status/2102873893438407130",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded from the post at the owner's request (Jimmy Wong, 2026-09-24). The author states no license.",
+      "evidence": "https://x.com/VoxcatAI/status/2102873893438407130"
+    },
+    "recipe": null
+  }
+]

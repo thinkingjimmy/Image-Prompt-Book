@@ -1,0 +1,26 @@
+{
+  "title": "巨物世界 · 丝网版画",
+  "summary": "把日常物件放大成一片地形，让小人在上面攀爬、行走、停留，再用单色背景、丝网版画质感和清楚的线条收住画面。",
+  "seoTitle": "巨物世界 Prompt（超现实丝网版画）| Image Prompt Book",
+  "seoDescription": "把一只手、一把茶壶或一个梨变成满是小人的超现实地形，单色丝网版画风格。可选择主体与背景，并复制完整 Prompt。",
+  "inputRequirement": "不需要图片。选择一个主体，或在发送前把【巨大主体】换成你想要的东西。",
+  "howToUse": [
+    "在 Prompt 中选择主体和背景色，或保留【巨大主体】自己填写。",
+    "复制 Prompt，或直接在 ChatGPT 中打开。",
+    "发送到你的生图工具。"
+  ],
+  "exampleNotice": "作者分享的案例效果，非实时预览。",
+  "verificationNotice": "案例来自作者的帖子，Image Prompt Book 尚未复现。",
+  "adaptationNotice": "英文翻译与可调选项由 Image Prompt Book 提供；不等于作者的原始表述或认可。",
+  "licenseNotice": "作者未声明许可；全部权利归作者所有，本页注明作者并链接原帖。",
+  "parameterLabels": {
+    "subject": "巨大主体",
+    "background": "背景"
+  },
+  "keywords": [
+    "超现实",
+    "丝网版画",
+    "小人国",
+    "微缩世界"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "giant-object-world",
+  "slug": "giant-object-world",
+  "templateVersion": "1.0.0",
+  "status": "published",
+  "createdAt": "2026-09-24",
+  "updatedAt": "2026-09-24",
+  "publishedAt": "2026-09-24T21:22:21+08:00",
+  "category": "posters",
+  "tags": [
+    "surreal",
+    "screen-print",
+    "2d"
+  ],
+  "originalLocale": "zh-CN",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.zh-CN.txt",
+  "templatePaths": {
+    "en": "template.en.txt",
+    "zh-CN": "template.zh-CN.txt"
+  },
+  "parametersPath": "parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": false,
+  "sourceRecommendedTools": [
+    "gpt-image2"
+  ],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "x-post",
+      "type": "x",
+      "role": "original",
+      "title": "VoxCat on X (2026-09-24)",
+      "url": "https://x.com/VoxcatAI/status/2102873893438407130",
+      "author": {
+        "name": "VoxCat",
+        "handle": "@VoxcatAI",
+        "url": "https://x.com/VoxcatAI"
+      },
+      "checkedAt": "2026-09-24"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/VoxcatAI/status/2102873893438407130",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown"
+  }
+}

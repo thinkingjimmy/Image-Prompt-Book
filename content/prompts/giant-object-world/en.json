@@ -1,0 +1,26 @@
+{
+  "title": "Giant Object World — Screen Print",
+  "summary": "Blow an everyday object up into a landscape and scatter tiny people climbing, walking and resting on it, finished as a single-color screen print with clean lines.",
+  "seoTitle": "Giant Object World Prompt (Surreal Screen Print) | Image Prompt Book",
+  "seoDescription": "Turn a hand, a teapot or a pear into a surreal landscape full of tiny people, in a single-color screen-print style. Pick the subject and background, then copy the prompt.",
+  "inputRequirement": "No image needed. Pick a subject, or replace [giant subject] with your own object before sending.",
+  "howToUse": [
+    "Pick the subject and background color in the prompt, or keep [giant subject] and write your own.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Send it to your image generation tool."
+  ],
+  "exampleNotice": "Example results shared by the author, not a live preview.",
+  "verificationNotice": "These examples come from the author's post and have not been reproduced by Image Prompt Book.",
+  "adaptationNotice": "English translation and adjustable options by Image Prompt Book; not the author's wording or an endorsement.",
+  "licenseNotice": "The author did not state a license. All rights stay with the author; this page credits them and links to the original post.",
+  "parameterLabels": {
+    "subject": "Giant subject",
+    "background": "Background"
+  },
+  "keywords": [
+    "surreal",
+    "screen print",
+    "tiny people",
+    "miniature world"
+  ]
+}

@@ -112,6 +112,20 @@
         "en": "Storybook",
         "zh-CN": "绘本"
       }
+    },
+    {
+      "id": "surreal",
+      "labels": {
+        "en": "Surreal",
+        "zh-CN": "超现实"
+      }
+    },
+    {
+      "id": "screen-print",
+      "labels": {
+        "en": "Screen print",
+        "zh-CN": "丝网版画"
+      }
     }
   ]
 }

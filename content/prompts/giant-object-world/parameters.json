@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "subject",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "custom",
+      "options": [
+        {
+          "id": "custom",
+          "labels": {
+            "en": "Fill in your own",
+            "zh-CN": "自己填写"
+          },
+          "replacements": {
+            "en": "[giant subject]",
+            "zh-CN": "【巨大主体】"
+          }
+        },
+        {
+          "id": "hand",
+          "labels": {
+            "en": "A hand",
+            "zh-CN": "一只手"
+          },
+          "replacements": {
+            "en": "a hand",
+            "zh-CN": "一只手"
+          }
+        },
+        {
+          "id": "teapot",
+          "labels": {
+            "en": "A teapot",
+            "zh-CN": "一把茶壶"
+          },
+          "replacements": {
+            "en": "a porcelain teapot",
+            "zh-CN": "一把瓷茶壶"
+          }
+        },
+        {
+          "id": "pear",
+          "labels": {
+            "en": "A pear",
+            "zh-CN": "一个梨"
+          },
+          "replacements": {
+            "en": "a halved pear",
+            "zh-CN": "一个切开的梨"
+          }
+        },
+        {
+          "id": "crane",
+          "labels": {
+            "en": "A white crane",
+            "zh-CN": "一只白鹤"
+          },
+          "replacements": {
+            "en": "a white crane",
+            "zh-CN": "一只白鹤"
+          }
+        }
+      ]
+    },
+    {
+      "id": "background",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "any",
+      "options": [
+        {
+          "id": "any",
+          "labels": {
+            "en": "Any single color",
+            "zh-CN": "任选单色"
+          },
+          "replacements": {
+            "en": "a single-color background",
+            "zh-CN": "单色背景"
+          }
+        },
+        {
+          "id": "vermilion",
+          "labels": {
+            "en": "Vermilion",
+            "zh-CN": "朱红"
+          },
+          "replacements": {
+            "en": "a single vermilion background",
+            "zh-CN": "朱红色单色背景"
+          }
+        },
+        {
+          "id": "burnt-orange",
+          "labels": {
+            "en": "Burnt orange",
+            "zh-CN": "暗橙"
+          },
+          "replacements": {
+            "en": "a single burnt-orange background",
+            "zh-CN": "暗橙色单色背景"
+          }
+        },
+        {
+          "id": "olive",
+          "labels": {
+            "en": "Olive green",
+            "zh-CN": "橄榄绿"
+          },
+          "replacements": {
+            "en": "a single olive-green background",
+            "zh-CN": "橄榄绿单色背景"
+          }
+        },
+        {
+          "id": "navy",
+          "labels": {
+            "en": "Deep blue",
+            "zh-CN": "深蓝"
+          },
+          "replacements": {
+            "en": "a single deep-blue background",
+            "zh-CN": "深蓝色单色背景"
+          }
+        }
+      ]
+    }
+  ]
+}
