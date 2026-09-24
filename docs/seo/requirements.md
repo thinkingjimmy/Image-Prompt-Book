@@ -19,7 +19,7 @@
 
 ### R1. 连接 Google Search Console（§1、§3.4）
 
-**状态（2026-09-24）**：网域资源已通过 DNS TXT 验证。下面"上线后"的步骤还没做。
+**状态（2026-09-24）**：网域资源已通过 DNS TXT 验证；sitemap 已提交，状态"成功"，已发现 26 个网页；已对 `/en/prompts/photo-abstract-editorial` 请求编入索引（进入优先抓取队列）；GA4 已关联，并已在 GA4 报告库发布 Search Console 集合。**R1 完成。**
 
 **做法**：用**网域资源（Domain property）** `imagepromptbook.com`，通过 Spaceship 的 DNS TXT 记录验证。
 
@@ -69,6 +69,8 @@
 - 明确告诉 Google 用哪张图做预览：图片挂在主实体上，并用 `mainEntityOfPage` 指向本页，这是 image SEO 指南推荐的两种做法之一；首图就是封面，与 `og:image` 保持一致。
 
 **验收**：用 Rich Results Test 测一个详情页，零错误；单元测试断言缺失的 rights 字段不会被输出。
+
+**验收结果（2026-09-24，线上 `/en/prompts/photo-abstract-editorial`）**：7 项有效，0 错误，其中 Breadcrumbs 1 项、Image Metadata 6 项。Image Metadata 的非关键提示是因为缺少可选的许可字段，属于有意为之，见上文。E2E（`seo.spec.ts`）断言不会输出 `license` 和 `acquireLicensePage`。
 
 ---
 
