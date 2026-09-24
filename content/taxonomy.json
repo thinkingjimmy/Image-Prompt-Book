@@ -105,6 +105,13 @@
         "en": "Pixel art",
         "zh-CN": "像素"
       }
+    },
+    {
+      "id": "storybook",
+      "labels": {
+        "en": "Storybook",
+        "zh-CN": "绘本"
+      }
     }
   ]
 }

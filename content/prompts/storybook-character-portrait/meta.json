@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "storybook-character-portrait",
+  "slug": "storybook-character-portrait",
+  "templateVersion": "1.0.0",
+  "status": "published",
+  "createdAt": "2026-09-24",
+  "updatedAt": "2026-09-24",
+  "publishedAt": "2026-09-24T17:47:03+08:00",
+  "category": "avatars",
+  "tags": [
+    "storybook",
+    "sketch",
+    "image-to-image"
+  ],
+  "originalLocale": "en",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.en.txt",
+  "templatePaths": {
+    "en": "template.en.txt",
+    "zh-CN": "template.zh-CN.txt"
+  },
+  "parametersPath": "parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": true,
+  "sourceRecommendedTools": [
+    "GPT Image 2 on ChatGPT"
+  ],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "x-post",
+      "type": "x",
+      "role": "original",
+      "title": "Sairah on X (2026-08-20)",
+      "url": "https://x.com/Sairah_0/status/2090321208441262454",
+      "author": {
+        "name": "Sairah",
+        "handle": "@Sairah_0",
+        "url": "https://x.com/Sairah_0"
+      },
+      "checkedAt": "2026-09-24"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/Sairah_0/status/2090321208441262454",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown"
+  }
+}

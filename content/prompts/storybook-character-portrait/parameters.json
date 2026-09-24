@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "framing",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "chest-waist",
+      "options": [
+        {
+          "id": "chest-waist",
+          "labels": {
+            "en": "Chest/waist-up",
+            "zh-CN": "胸部/腰部以上"
+          },
+          "replacements": {
+            "en": "chest/waist-up",
+            "zh-CN": "胸部/腰部以上"
+          }
+        },
+        {
+          "id": "head-shoulders",
+          "labels": {
+            "en": "Head and shoulders",
+            "zh-CN": "头肩特写"
+          },
+          "replacements": {
+            "en": "head-and-shoulders",
+            "zh-CN": "头肩特写"
+          }
+        },
+        {
+          "id": "full-body",
+          "labels": {
+            "en": "Full body",
+            "zh-CN": "全身"
+          },
+          "replacements": {
+            "en": "full body, head to toe",
+            "zh-CN": "从头到脚的全身"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pose",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "relaxed",
+      "options": [
+        {
+          "id": "relaxed",
+          "labels": {
+            "en": "Relaxed, charming",
+            "zh-CN": "放松讨喜"
+          },
+          "replacements": {
+            "en": "Use a relaxed, charming pose.",
+            "zh-CN": "采用放松、讨喜的姿势。"
+          }
+        },
+        {
+          "id": "waving",
+          "labels": {
+            "en": "Waving hello",
+            "zh-CN": "挥手打招呼"
+          },
+          "replacements": {
+            "en": "Use a cheerful pose, waving hello with one hand.",
+            "zh-CN": "采用开心的姿势，一只手挥手打招呼。"
+          }
+        },
+        {
+          "id": "chin-on-hands",
+          "labels": {
+            "en": "Chin on folded hands",
+            "zh-CN": "双手托腮"
+          },
+          "replacements": {
+            "en": "Use a cozy pose, resting the chin on folded hands.",
+            "zh-CN": "采用惬意的姿势，下巴轻靠在交叠的双手上。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "background",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "warm-mix",
+      "options": [
+        {
+          "id": "warm-mix",
+          "labels": {
+            "en": "Warm yellow or cream",
+            "zh-CN": "暖黄或米白"
+          },
+          "replacements": {
+            "en": "warm mustard, butter yellow, ochre, or cream background",
+            "zh-CN": "暖芥末黄、奶油黄、赭黄或米白色背景"
+          }
+        },
+        {
+          "id": "mustard",
+          "labels": {
+            "en": "Mustard",
+            "zh-CN": "芥末黄"
+          },
+          "replacements": {
+            "en": "warm mustard background",
+            "zh-CN": "暖芥末黄背景"
+          }
+        },
+        {
+          "id": "butter",
+          "labels": {
+            "en": "Butter yellow",
+            "zh-CN": "奶油黄"
+          },
+          "replacements": {
+            "en": "soft butter-yellow background",
+            "zh-CN": "柔和的奶油黄背景"
+          }
+        },
+        {
+          "id": "cream",
+          "labels": {
+            "en": "Cream",
+            "zh-CN": "米白"
+          },
+          "replacements": {
+            "en": "warm cream background",
+            "zh-CN": "温暖的米白色背景"
+          }
+        },
+        {
+          "id": "peach",
+          "labels": {
+            "en": "Soft peach",
+            "zh-CN": "柔桃色"
+          },
+          "replacements": {
+            "en": "warm soft-peach background",
+            "zh-CN": "温暖的柔桃色背景"
+          }
+        }
+      ]
+    }
+  ]
+}

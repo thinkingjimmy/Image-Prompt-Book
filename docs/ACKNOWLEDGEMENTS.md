@@ -11,6 +11,7 @@ Image Prompt Book 的每个案例都来自作者的公开分享，感谢他们�
 | Photo Memory Card — Crayon Sketch<br>照片记忆卡片 · 蜡笔速写 | Sairah ([@Sairah_0](https://x.com/Sairah_0)) | [Sairah on X (2026-08-28)](https://x.com/Sairah_0/status/2093212900160868430) | [No license stated / 未声明许可](https://x.com/Sairah_0/status/2093212900160868430) |
 | Photo × Modernist Poster Diptych<br>照片 × 现代主义海报 · 上下双拼 | DAAI ([@daaihq](https://x.com/daaihq)) | [DAAI on X (2026-09-22)](https://x.com/daaihq/status/2102196849428058547) | [No license stated / 未声明许可](https://x.com/daaihq/status/2102196849428058547) |
 | Fuse Bead Editorial Poster<br>拼豆编辑海报 | Morry.AI ([@Morry4AI](https://x.com/Morry4AI)) | [Morry.AI on X (2026-09-23)](https://x.com/Morry4AI/status/2102659406580330647) | [No license stated / 未声明许可](https://x.com/Morry4AI/status/2102659406580330647) |
+| Storybook Character Portrait<br>儿童绘本角色肖像 | Sairah ([@Sairah_0](https://x.com/Sairah_0)) | [Sairah on X (2026-08-20)](https://x.com/Sairah_0/status/2090321208441262454) | [No license stated / 未声明许可](https://x.com/Sairah_0/status/2090321208441262454) |
 
 The English and Chinese versions and the adjustable options on this site are our adaptations; they are not endorsed by the authors. See the [License](../README.md#license) section for what each license allows.
 

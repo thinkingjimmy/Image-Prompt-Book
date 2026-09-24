@@ -1,0 +1,27 @@
+{
+  "title": "Storybook Character Portrait",
+  "summary": "Redraw the person in your photo as an adorable children's-book character — big round head, dot eyes, rosy cheeks — in gouache and crayon on a warm yellow background, keeping their real hair, clothes and glasses.",
+  "seoTitle": "Children's Storybook Character Portrait Prompt | Image Prompt Book",
+  "seoDescription": "Turn a photo into a cute hand-drawn picture-book avatar that keeps the person's hair, outfit and accessories. Adjust framing, pose and background, then copy the prompt.",
+  "inputRequirement": "Requires one photo of a person. Attach it in your image generation tool; this website does not upload or generate images.",
+  "howToUse": [
+    "Adjust the highlighted options in the prompt.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Attach the photo you want to use, then send."
+  ],
+  "exampleNotice": "Example results shared by the author, not a live preview.",
+  "verificationNotice": "These examples come from the author's post and have not been reproduced by Image Prompt Book.",
+  "adaptationNotice": "Chinese translation and adjustable options by Image Prompt Book; not the author's wording or an endorsement.",
+  "licenseNotice": "The author did not state a license. All rights stay with the author; this page credits them and links to the original post.",
+  "parameterLabels": {
+    "framing": "Framing",
+    "pose": "Pose",
+    "background": "Background"
+  },
+  "keywords": [
+    "storybook",
+    "picture book",
+    "cute avatar",
+    "crayon"
+  ]
+}

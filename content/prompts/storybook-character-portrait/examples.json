@@ -1,0 +1,36 @@
+[
+  {
+    "id": "glasses-snack",
+    "src": "images/glasses-snack.jpg",
+    "width": 1254,
+    "height": 1254,
+    "alt": {
+      "en": "Hand-drawn storybook portrait of a boy with messy black hair and black-framed glasses, happily biting a seaweed rice roll, in a grey jacket over a striped tee, on a mustard-yellow crayon background",
+      "zh-CN": "手绘绘本风肖像：黑色乱发、戴黑框眼镜的男孩开心地咬着海苔饭卷，穿灰色夹克和条纹 T 恤，芥末黄蜡笔质感背景"
+    },
+    "sourceUrl": "https://x.com/Sairah_0/status/2090321208441262454",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, supplied by the owner (Jimmy Wong, 2026-09-24). The author states no license.",
+      "evidence": "https://x.com/Sairah_0/status/2090321208441262454"
+    },
+    "recipe": null
+  },
+  {
+    "id": "rattan-chair",
+    "src": "images/rattan-chair.jpg",
+    "width": 1254,
+    "height": 1254,
+    "alt": {
+      "en": "Hand-drawn storybook portrait of a smiling girl with long wavy brown hair and braces, resting her chin on her hands over the back of a rattan chair, wearing a rust top and a blue smartwatch, on a yellow background",
+      "zh-CN": "手绘绘本风肖像：棕色长卷发、戴牙套的女孩微笑着把下巴搁在藤椅靠背的双手上，穿铁锈色上衣、戴蓝色智能手表，黄色背景"
+    },
+    "sourceUrl": "https://x.com/Sairah_0/status/2090321208441262454",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, supplied by the owner (Jimmy Wong, 2026-09-24). The author states no license.",
+      "evidence": "https://x.com/Sairah_0/status/2090321208441262454"
+    },
+    "recipe": null
+  }
+]

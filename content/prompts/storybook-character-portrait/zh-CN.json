@@ -1,0 +1,27 @@
+{
+  "title": "儿童绘本角色肖像",
+  "summary": "把照片里的人重新画成可爱的儿童绘本角色：大圆脑袋、圆点眼睛、红扑扑的脸颊，水粉与蜡笔质感，暖黄背景，并保留本人真实的发型、服装和眼镜。",
+  "seoTitle": "儿童绘本角色肖像 Prompt | Image Prompt Book",
+  "seoDescription": "把照片变成可爱的手绘绘本头像，保留本人的发型、服装与配饰。可调整取景、姿势与背景，并复制完整 Prompt。",
+  "inputRequirement": "需要一张人物照片。请在生图工具中附上图片；本站不上传图片，也不直接生成图片。",
+  "howToUse": [
+    "调整 Prompt 中高亮的选项。",
+    "复制 Prompt，或直接在 ChatGPT 中打开。",
+    "附上想要使用的照片，再发送。"
+  ],
+  "exampleNotice": "作者分享的案例效果，非实时预览。",
+  "verificationNotice": "案例来自作者的帖子，Image Prompt Book 尚未复现。",
+  "adaptationNotice": "中文翻译与可调选项由 Image Prompt Book 提供；不等于作者的原始表述或认可。",
+  "licenseNotice": "作者未声明许可；全部权利归作者所有，本页注明作者并链接原帖。",
+  "parameterLabels": {
+    "framing": "取景",
+    "pose": "姿势",
+    "background": "背景"
+  },
+  "keywords": [
+    "绘本",
+    "儿童插画",
+    "可爱头像",
+    "蜡笔"
+  ]
+}
