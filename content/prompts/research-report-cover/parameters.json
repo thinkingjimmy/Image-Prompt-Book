@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "ratio",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "5-2",
+      "options": [
+        {
+          "id": "5-2",
+          "labels": {
+            "en": "5:2 wide banner",
+            "zh-CN": "5:2 横幅"
+          },
+          "replacements": {
+            "en": "5:2",
+            "zh-CN": "5:2"
+          }
+        },
+        {
+          "id": "16-9",
+          "labels": {
+            "en": "16:9 landscape",
+            "zh-CN": "16:9 横版"
+          },
+          "replacements": {
+            "en": "16:9",
+            "zh-CN": "16:9"
+          }
+        },
+        {
+          "id": "4-5",
+          "labels": {
+            "en": "4:5 portrait",
+            "zh-CN": "4:5 竖版"
+          },
+          "replacements": {
+            "en": "4:5",
+            "zh-CN": "4:5"
+          }
+        },
+        {
+          "id": "3-4",
+          "labels": {
+            "en": "3:4 portrait",
+            "zh-CN": "3:4 竖版"
+          },
+          "replacements": {
+            "en": "3:4",
+            "zh-CN": "3:4"
+          }
+        },
+        {
+          "id": "9-16",
+          "labels": {
+            "en": "9:16 vertical",
+            "zh-CN": "9:16 竖屏"
+          },
+          "replacements": {
+            "en": "9:16",
+            "zh-CN": "9:16"
+          }
+        }
+      ]
+    },
+    {
+      "id": "usage",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "x-cover",
+      "options": [
+        {
+          "id": "x-cover",
+          "labels": {
+            "en": "X cover",
+            "zh-CN": "X 封面"
+          },
+          "replacements": {
+            "en": "X cover",
+            "zh-CN": "X封面"
+          }
+        },
+        {
+          "id": "article-cover",
+          "labels": {
+            "en": "Article cover",
+            "zh-CN": "文章封面"
+          },
+          "replacements": {
+            "en": "article cover",
+            "zh-CN": "文章封面"
+          }
+        },
+        {
+          "id": "product",
+          "labels": {
+            "en": "Product introduction",
+            "zh-CN": "产品介绍"
+          },
+          "replacements": {
+            "en": "product introduction",
+            "zh-CN": "产品介绍"
+          }
+        },
+        {
+          "id": "tutorial",
+          "labels": {
+            "en": "Tutorial poster",
+            "zh-CN": "教程海报"
+          },
+          "replacements": {
+            "en": "tutorial poster",
+            "zh-CN": "教程海报"
+          }
+        }
+      ]
+    },
+    {
+      "id": "scheme",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "any",
+      "options": [
+        {
+          "id": "any",
+          "labels": {
+            "en": "Pick one of five",
+            "zh-CN": "五选一"
+          },
+          "replacements": {
+            "en": "Choose one of the following background color schemes:",
+            "zh-CN": "背景颜色从以下方案中选择一种："
+          }
+        },
+        {
+          "id": "a",
+          "labels": {
+            "en": "A: Terracotta",
+            "zh-CN": "A：陶土橙"
+          },
+          "replacements": {
+            "en": "Use Scheme A (terracotta) below for the background color:",
+            "zh-CN": "背景颜色固定使用下列方案中的方案A（陶土橙）："
+          }
+        },
+        {
+          "id": "b",
+          "labels": {
+            "en": "B: Deep black",
+            "zh-CN": "B：深黑"
+          },
+          "replacements": {
+            "en": "Use Scheme B (deep black) below for the background color:",
+            "zh-CN": "背景颜色固定使用下列方案中的方案B（深黑）："
+          }
+        },
+        {
+          "id": "c",
+          "labels": {
+            "en": "C: Warm grey",
+            "zh-CN": "C：暖灰"
+          },
+          "replacements": {
+            "en": "Use Scheme C (warm grey) below for the background color:",
+            "zh-CN": "背景颜色固定使用下列方案中的方案C（暖灰）："
+          }
+        },
+        {
+          "id": "d",
+          "labels": {
+            "en": "D: Sage green",
+            "zh-CN": "D：鼠尾草绿"
+          },
+          "replacements": {
+            "en": "Use Scheme D (sage green) below for the background color:",
+            "zh-CN": "背景颜色固定使用下列方案中的方案D（鼠尾草绿）："
+          }
+        },
+        {
+          "id": "e",
+          "labels": {
+            "en": "E: Haze blue",
+            "zh-CN": "E：雾霾蓝"
+          },
+          "replacements": {
+            "en": "Use Scheme E (haze blue) below for the background color:",
+            "zh-CN": "背景颜色固定使用下列方案中的方案E（雾霾蓝）："
+          }
+        }
+      ]
+    }
+  ]
+}

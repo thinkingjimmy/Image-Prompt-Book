@@ -1,0 +1,27 @@
+{
+  "title": "Research Report Cover — Anthropic-Inspired",
+  "summary": "A restrained editorial cover in the spirit of AI lab research reports: one serif title, plenty of white space, a hand-drawn abstract metaphor and a few low-saturation color shapes on a solid background.",
+  "seoTitle": "Anthropic-Style Research Report Cover Prompt | Image Prompt Book",
+  "seoDescription": "Generate a minimal research-report style cover for X, articles or tutorials: serif title, line-art metaphor, five fixed color schemes. Pick ratio, use and scheme, then copy the prompt.",
+  "inputRequirement": "No image needed. Replace the bracketed fields (topic, title, subtitle, core message) with your own text before sending.",
+  "howToUse": [
+    "Choose the aspect ratio, use and color scheme in the prompt.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Replace the bracketed fields with your topic, title, optional subtitle and core message, then send."
+  ],
+  "exampleNotice": "Example result shared by the author, not a live preview.",
+  "verificationNotice": "This example comes from the author's post and has not been reproduced by Image Prompt Book.",
+  "adaptationNotice": "English translation and adjustable options by Image Prompt Book; not the author's wording or an endorsement. Not affiliated with Anthropic.",
+  "licenseNotice": "The author did not state a license. All rights stay with the author; this page credits them and links to the original post.",
+  "parameterLabels": {
+    "ratio": "Aspect ratio",
+    "usage": "Use",
+    "scheme": "Color scheme"
+  },
+  "keywords": [
+    "anthropic style",
+    "research report",
+    "article cover",
+    "editorial"
+  ]
+}

@@ -1,0 +1,266 @@
+Using the inputs below, create a premium, minimal visual cover in the "Anthropic Research" style.
+
+[Inputs]
+
+Topic:
+[Enter the topic]
+
+Main title:
+[Enter the title]
+
+Subtitle:
+[Optional]
+
+Core message:
+[One sentence on the value this topic wants to convey]
+
+Aspect ratio:
+{{ratio}}
+
+Use:
+{{usage}}
+
+---
+
+[Overall visual style]
+
+Use the style of Anthropic Research, AI lab reports and design research handbooks.
+
+Keywords:
+
+restrained;
+rational;
+premium;
+quiet;
+thoughtful;
+editorial.
+
+Like a visual report published by a top research institution.
+
+Do not look like a marketing poster.
+Do not look like a tech launch event.
+Do not use cyberpunk.
+
+---
+
+[Background color system]
+
+{{scheme}}
+
+Scheme A: Terracotta
+
+Background: #D97757
+
+Text: #1A1A1A
+
+
+Scheme B: Deep black
+
+Background: #1A1A1A
+
+Text: #EFEAE0
+
+
+Scheme C: Warm grey
+
+Background: #D8D5CF
+
+Text: #1A1A1A
+
+
+Scheme D: Sage green
+
+Background: #B8C9B8
+
+Text: #1A1A1A
+
+
+Scheme E: Haze blue
+
+Background: #8FA9C7
+
+Text: #1A1A1A
+
+
+Do not change colors at random.
+
+Keep a large, solid-color background across the whole image.
+
+---
+
+[Layout]
+
+Use premium magazine editorial layout.
+
+Requirements:
+
+Generous white space.
+
+The title is the absolute visual center.
+
+Keep only:
+
+one main title.
+
+Do not add:
+
+a section label in the top-left corner;
+a logo in the bottom-right corner;
+meaningless English captions;
+page numbers;
+dates;
+brand signatures.
+
+---
+
+[Typography]
+
+Title:
+
+A premium serif typeface.
+
+Similar to:
+
+Source Han Serif
+Georgia
+New York Times Magazine headline style.
+
+Characteristics:
+
+clear contrast between thick and thin strokes;
+the character of books and research reports.
+
+
+Supporting text:
+
+Use a clean sans-serif typeface.
+
+Similar to:
+
+Inter.
+
+Use a monospaced typeface sparingly:
+
+JetBrains Mono.
+
+---
+
+[Visual subject]
+
+Create an abstract, metaphorical illustration based on the topic.
+
+Do not draw the topic's objects directly.
+
+Use:
+
+hand-drawn line art;
+abstract structures;
+conceptual symbols.
+
+For example:
+
+AI topic:
+
+Do not draw robots.
+
+You can show:
+
+human outline + intelligent nodes + paths of thought.
+
+
+Web topic:
+
+Do not draw an ordinary computer.
+
+You can show:
+
+the structure of digital space;
+web modules being built like architecture.
+
+
+Knowledge topic:
+
+Do not draw piles of books.
+
+You can show:
+
+information nodes converging into a knowledge structure.
+
+---
+
+[Decorative elements]
+
+Add a few non-functional color shapes.
+
+Purpose:
+
+to balance the composition.
+
+Number:
+
+2-4.
+
+Size:
+
+≤5% of the image area.
+
+Forms:
+
+irregular organic shapes;
+hand-drawn circles;
+small rectangles;
+paper shapes.
+
+Do not:
+
+arrange them evenly;
+make them look like UI buttons;
+scatter lots of dots.
+
+Colors:
+
+choose from these accent colors: #EFEAE0, #CD6F47, #6B8A6F, #8FA9C7, #1A1A1A
+
+---
+
+[Illustration colors]
+
+Overall:
+
+black line art: #1A1A1A
+
+light paper: #EFEAE0
+
+Accent color:
+
+at most one.
+
+Keep it low-saturation.
+
+---
+
+[Final effect]
+
+Like:
+
+a page from a research report published by Anthropic;
+a design archive of the AI era;
+a future-trends analysis from a premium consulting firm.
+
+Requirements:
+
+minimal;
+premium;
+thoughtful;
+generous white space;
+visually stable.
+
+Avoid:
+
+complex infographics;
+lots of text;
+3D effects;
+gradients;
+neon;
+techy blue glow;
+a commercial-template feel.

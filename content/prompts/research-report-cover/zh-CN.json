@@ -1,0 +1,27 @@
+{
+  "title": "研究报告风封面 · Anthropic 风格",
+  "summary": "借鉴 AI 实验室研究报告的克制编辑风封面：一个衬线主标题、大量留白、手绘抽象隐喻插画，以及纯色背景上的少量低饱和色块。",
+  "seoTitle": "Anthropic 风格研究报告封面 Prompt | Image Prompt Book",
+  "seoDescription": "为 X、文章或教程生成极简研究报告风封面：衬线标题、线稿隐喻、五套固定配色。可选择画幅、用途与配色方案，并复制完整 Prompt。",
+  "inputRequirement": "不需要图片。发送前请把方括号里的字段（主题、标题、副标题、核心表达）替换成你自己的内容。",
+  "howToUse": [
+    "在 Prompt 中选择画幅比例、用途和配色方案。",
+    "复制 Prompt，或直接在 ChatGPT 中打开。",
+    "把方括号字段替换为你的主题、标题、可选副标题和核心表达，再发送。"
+  ],
+  "exampleNotice": "作者分享的案例效果，非实时预览。",
+  "verificationNotice": "案例来自作者的帖子，Image Prompt Book 尚未复现。",
+  "adaptationNotice": "英文翻译与可调选项由 Image Prompt Book 提供；不等于作者的原始表述或认可。与 Anthropic 无关联。",
+  "licenseNotice": "作者未声明许可；全部权利归作者所有，本页注明作者并链接原帖。",
+  "parameterLabels": {
+    "ratio": "画幅比例",
+    "usage": "用途",
+    "scheme": "配色方案"
+  },
+  "keywords": [
+    "Anthropic 风格",
+    "研究报告",
+    "文章封面",
+    "编辑设计"
+  ]
+}
