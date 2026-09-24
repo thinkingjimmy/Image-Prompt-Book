@@ -74,38 +74,44 @@
 
 ---
 
+## P0 · 内容扩充（2026-09-24 决定）
+
+### R14. 扩充收录，优先于 E-E-A-T 补强（§2.4，§1.1 Scaled/Scraping）
+
+**决定**：当前最重要的是增加 prompt 数量：案例越多，能覆盖的搜索词越多，也越容易被分享。R5 的原创复现图等内容达到一定规模后再补。
+
+**守住的底线**（数量增长时最容易出问题的地方，见 R9）：
+- 每条仍然通过 guidelines §4 的发布前自检：有参数化或双语等增值、许可清楚、来源可核对、"尚未复现"如实写明。
+- 不批量导入，每条都要经过人工审阅；译文人工审校。
+- 头像类优先扩充，给 R6 的第一篇专题攒够条目（至少 3 条才能发布专题）。
+
+**验收**：每新增一条，`pnpm content:check` 和 `pnpm test` 都通过；在 Search Console 的"网页"报告里观察"已抓取 - 尚未编入索引"的比例，比例升高就说明内容被判为单薄，要放慢收录节奏。
+
 ## P1 · 补齐 E-E-A-T
 
-### R5. "本站复现"：显示第一手经验（§3.1 Experience）
+### R6. 专题合集（取代逐条编者说明；§2.2，§3.2 Expertise，§1.1 Doorway）
 
-**现状**：schema 已经支持 `provenance: "project-verified"` + `recipe`（模板版本、输出语言、选项、模型、生成日期），但目前 6 条 prompt 全是 `source-reported`，UI 也不展示 `recipe`；`verifiedModels` 全部为空。
+**决定（2026-09-24）**：不再给每条 prompt 写编者说明，改成**专题合集**，以独立页面呈现（方案 a），类似 App Store 的 Today 编辑故事。设计稿见画布 https://claude.ai/artifact/E1YUg2etHskDmnBQM2srjS 的第三行。
+
+**为什么**：
+- 专题页能覆盖"AI 头像 prompt"这类单条详情页够不着的搜索词。
+- 写一篇专题，就能同时给多条 prompt 补上编者视角，投入比逐条写说明小。
+- 专题页链到各详情页、详情页再链回专题页，形成 Google 能看懂的层级结构。
 
 **需求**：
-- 示例图区分"作者示例"和"本站复现"两种来源，用小徽标标示，复现图在前。
-- 复现图下方显示配方：模型 · 日期 · 所选选项，并提供"用这组选项打开"（复用分享 hash）。
-- 某个模型复现成功后，才写进 `verifiedModels`，并在"关于这个 Prompt"区块里显示"已在 X 上测试"。
-- 内容流程（`add-prompt-case` skill）增加一步：发布前至少复现 1 张；做不到的，在 `verificationNotice` 里写明原因。
+- 路由为 `/{locale}/collections/<slug>`，内容放在 `content/collections/<slug>/`，中英文各一份，引用已发布 prompt 的 slug 列表。专题页需要可被索引，并加入 sitemap，hreflang 和 canonical 规则与详情页相同。
+- 页面结构：题图、H1、署名与更新日期、导语、逐条小节（图片、编者段落、"适合 / 不适合"、指向详情页的卡片），最后是"怎么选"。不做速览对比表（2026-09-24 决定，显得多余）。
+- 每条详情页的"关于这个 Prompt"区块里显示"收录于专题《…》"并链接过去；对应分类页的页脚首段加一个"阅读专题"链接。
+- JSON-LD：`Article`（`author` 为策展人，含 `datePublished` / `dateModified`）加上 `ItemList`（列出各条 prompt 的 URL）。
 
-**验收**：至少 3 条已发布 prompt 有 `project-verified` 示例；E2E 断言徽标和配方渲染正确，并截图存档。
+**防线**：
+- 必须有分类页没有的东西：逐条点评、"适合 / 不适合"、"怎么选"的横向对比。只把卡片列一遍就是 doorway。
+- 至少 3 条已发布 prompt 才能上线一篇专题。
+- 不按标签批量生成，不套模板。先做 2–3 篇。
 
-### R6. 编者说明（§2.2 第 4、7 条，§3.2 Expertise）
+**验收**：第一篇头像专题上线；Rich Results Test 零错误；E2E 断言专题页和详情页之间的双向链接、`ItemList` 与页面上的卡片一致。
 
-**需求**：在内容里新增可选字段 `editorNote`（中英文），建议写 60–200 字，内容包括：
-- 为什么收录它（Why）；
-- prompt 的结构：哪几句决定构图、色彩、文字，为什么把这些拆成选项；
-- 已知坑和适用边界。
-
-显示在"关于这个 Prompt"区块最上方，署名为策展人。新收录的条目必须填写，旧条目逐步补齐。**禁止用 AI 批量生成后不经审阅直接发布**（§1.1 Scaled content abuse）。
-
-**验收**：`content:check` 对新条目缺少 `editorNote` 报错；6 条旧条目全部补齐。
-
-### R7. 策展人身份（§2.3 Who，§3.2，§3.4）
-
-- About 页加一段策展人简介：名字、背景、与 AI 生图相关的实际经历，并链接 X 或 GitHub。
-- 详情页"关于这个 Prompt"区块里显示署名"策展：Jimmy Wong"，链接到 About 页。
-- JSON-LD：`WebSite.publisher` / `CreativeWork.editor` 用 `Person` 表示（字段含 `name`、`url`、`sameAs`）；与 prompt 作者（`author`）明确区分。
-
-**验收**：Rich Results Test 零错误；页面上可以看到署名和链接。
+## P1 · 可见性与收录流程
 
 ### R8. 首页和分类页：H1 与介绍对人可见（§1.1 Hidden text）
 
@@ -128,6 +134,31 @@
 **验收**：skill 和文档更新后，用它新增一条 prompt，走完全部检查项。
 
 ---
+
+## P2 · 延后
+
+### R5. "本站复现"：显示第一手经验（§3.1 Experience）
+
+**决定（2026-09-24）**：降为低优先级。等内容量上来后，挑精选条目和 Search Console 里展示量最高的页面来补。现阶段只保留"尚未复现"的如实说明。设计稿（复现徽标、配方弹层、本站测试记录）已放在画布第一、二行，届时直接照着实现。
+
+**现状**：schema 已经支持 `provenance: "project-verified"` + `recipe`（模板版本、输出语言、选项、模型、生成日期），但目前 6 条 prompt 全是 `source-reported`，UI 也不展示 `recipe`；`verifiedModels` 全部为空。
+
+**需求**：
+- 示例图区分"作者示例"和"本站复现"两种来源，用小徽标标示，复现图在前。
+- 复现图提供"Recipe"弹层：模型 · 日期 · 模板版本 · 所选选项，并提供"用这组选项打开"（复用分享 hash）。
+- 某个模型复现成功后，才写进 `verifiedModels`，并在"关于这个 Prompt"区块里显示"本站测试"记录。
+
+**验收**：至少 3 条已发布 prompt 有 `project-verified` 示例；E2E 断言徽标和配方渲染正确，并截图存档。
+
+### R7. 策展人身份（§2.3 Who，§3.2，§3.4）
+
+**决定（2026-09-24）**：等个人站上线后再做，届时 About 页只放一小段，并链接到个人站，不在本站单独做一页。专题合集（R6）的署名先只写名字。
+
+- About 页加一两句"由 Jimmy Wong 策展"，并链接到个人站。
+- JSON-LD：`WebSite.publisher` 与专题的 `Article.author` 用 `Person` 表示，`url` 填个人站，`sameAs` 填 X 和 GitHub；与 prompt 作者明确区分。
+- 个人站上要链接回本站，双向指向，方便 Google 确认是同一个人。
+
+**验收**：Rich Results Test 零错误；About 页可以看到署名和个人站链接。
 
 ## P2 · 增量流量与体验
 
