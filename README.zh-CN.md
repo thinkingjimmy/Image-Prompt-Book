@@ -1,10 +1,23 @@
-# Image Prompt Book
+<p align="center">
+  <img src="./src/app/apple-icon.png" alt="Image Prompt Book logo" width="112">
+</p>
 
-**发现喜欢的效果，调整成自己的版本。**
+<h1 align="center">Image Prompt Book</h1>
 
-[English](./README.md) · 简体中文
+<p align="center"><strong>发现喜欢的效果，调整成自己的版本。</strong></p>
 
-一个开源的生图 Prompt Gallery。从喜欢的真实案例出发，直接在 Prompt 中调整高亮选项，然后复制或在 ChatGPT 中打开。
+<p align="center">
+  一个开源的生图 Prompt Gallery。从喜欢的真实案例出发，直接在 Prompt 中调整高亮选项，然后复制或在 ChatGPT 中打开。
+</p>
+
+<p align="center">
+  <a href="https://imagepromptbook.com">官网</a> ·
+  <a href="./README.md">English</a> | <strong>简体中文</strong>
+</p>
+
+<p align="center">
+  <img src="./docs/images/readme.webp" alt="Image Prompt Book 画廊">
+</p>
 
 这是一个个人策展的合集。收录完全按照我个人的品味，只上线我认为真正好的 Prompt——所以推荐的内容不一定会被收录，这并不代表对你作品的评价。
 

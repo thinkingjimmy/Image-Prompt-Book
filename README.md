@@ -1,10 +1,23 @@
-# Image Prompt Book
+<p align="center">
+  <img src="./src/app/apple-icon.png" alt="Image Prompt Book logo" width="112">
+</p>
 
-**Explore image prompts. Make them yours.**
+<h1 align="center">Image Prompt Book</h1>
 
-English · [简体中文](./README.zh-CN.md)
+<p align="center"><strong>Explore image prompts. Make them yours.</strong></p>
 
-An open-source gallery of image generation prompts. Start from a real example you like, adjust the highlighted options right inside the prompt, then copy it or open it in ChatGPT.
+<p align="center">
+  An open-source gallery of image generation prompts. Start from a real example you like, adjust the highlighted options right inside the prompt, then copy it or open it in ChatGPT.
+</p>
+
+<p align="center">
+  <a href="https://imagepromptbook.com">Website</a> ·
+  <strong>English</strong> | <a href="./README.zh-CN.md">简体中文</a>
+</p>
+
+<p align="center">
+  <img src="./docs/images/readme.webp" alt="Image Prompt Book gallery">
+</p>
 
 This is a personal, curated collection. Every prompt is picked purely by my own taste, and only the ones I think are genuinely good go live — so a suggestion may not be added, and that's no judgment of your work.
 
