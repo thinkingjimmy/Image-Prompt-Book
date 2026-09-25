@@ -3,10 +3,10 @@
   "id": "circle-logo-avatar",
   "slug": "circle-logo-avatar",
   "templateVersion": "1.0.0",
-  "status": "draft",
+  "status": "published",
   "createdAt": "2026-09-25",
   "updatedAt": "2026-09-25",
-  "publishedAt": null,
+  "publishedAt": "2026-09-25T21:05:45+08:00",
   "category": "avatars",
   "tags": [
     "minimal",
@@ -31,7 +31,14 @@
   "examplesPath": "examples.json",
   "requiresReferenceImage": true,
   "sourceRecommendedTools": [],
-  "verifiedModels": [],
+  "verifiedModels": [
+    {
+      "model": "GPT Image 2",
+      "verifiedAt": "2026-09-25",
+      "verifiedBy": "Jimmy Wong",
+      "evidence": "Example images short-hair and round-glasses, generated with the Chinese template and default colors"
+    }
+  ],
   "sources": [
     {
       "id": "x-post",

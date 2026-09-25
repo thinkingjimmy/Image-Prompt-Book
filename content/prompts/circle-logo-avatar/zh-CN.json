@@ -10,8 +10,8 @@
     "附上你自己或宠物的照片，再发送。"
   ],
   "licenseNotice": "作者未声明许可；全部权利归作者所有，本页注明作者并链接原帖。",
-  "exampleNotice": "案例由 Image Prompt Book 用本页改编后的 Prompt 生成，非实时预览。",
-  "verificationNotice": "案例由 Image Prompt Book 使用本页改编后的 Prompt 生成。",
+  "exampleNotice": "案例由 Image Prompt Book 用本页改编后的 Prompt 在 GPT Image 2 中生成，非实时预览。",
+  "verificationNotice": "Image Prompt Book 已于 2026-09-25 在 GPT Image 2 中用中文 Prompt 和默认配色实测。",
   "adaptationNotice": "由 Image Prompt Book 在作者的双拼 Prompt 基础上改编为只输出头像；英文翻译与选项由本站提供，不等于作者的原始表述或认可。",
   "parameterLabels": {
     "palette": "配色"
