@@ -1,0 +1,23 @@
+[INPUT]
+FACE_REF = （上传的人物五官参考图/人脸图，用作身份锁定）
+(可选) GLASSES_REF = （如你有同款橙色镜框参考，可上传；没有就忽略）
+
+[GOAL / ID-LOCK]
+以 用户长传人物五官 为唯一身份基准：100% 还原五官比例、脸型轮廓、眼鼻唇形态、眉骨与下颌线特征；不换脸、不重塑、不“网红化”、不变性别不变年龄段。
+保留真实皮肤质感：轻微瑕疵、毛孔、细纹与自然肤理；拒绝磨皮与塑料感。
+
+[SCENE / COMPOSITION]
+画幅 9:16 竖构图；studio-style close-up editorial portrait（肩部以上或半身更近的头肩肖像），人物轻微仰头正对镜头，视线直视，表情冷静自信、严肃克制。几缕头发在脸上飘过。
+服装：黑色修身高领针织（tailored turtleneck，线条利落）+ 外搭极简当代风高领黑色夹克/外套（minimalist contemporary fashion，干净硬朗）。
+
+[COLOR CONCEPT / SELECTIVE COLOR]
+整体黑白单色（monochrome black-and-white），仅保留墨镜为彩色：半透明橙色醋酸板材镜框（rectangular，圆角柔和，glossy），琥珀渐变镜片（amber gradient lenses）。
+除墨镜外任何部位禁止出现彩色（皮肤、衣物、背景、反光都保持黑白）。
+
+[LIGHTING / CAMERA LOOK]
+顶光主光
+相机参数观感：f/2.0，ISO 100，1/125s；专业人像镜头质感，背景干净简洁
+
+[STYLE GUARDRAILS]
+photorealistic，editorial luxury fashion portrait，professional studio photography
+no illustration, no painterly effects, no CGI look, no anime, no beauty-retouch look

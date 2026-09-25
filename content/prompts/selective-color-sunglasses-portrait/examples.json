@@ -1,0 +1,70 @@
+[
+  {
+    "id": "portrait-1",
+    "src": "images/portrait-1.jpg",
+    "width": 900,
+    "height": 1600,
+    "alt": {
+      "en": "Black-and-white studio portrait of a man with short dark hair in a black turtleneck and coat, looking into the camera; only his translucent orange sunglasses with amber lenses are in color",
+      "zh-CN": "黑白影棚肖像：短黑发男子身穿黑色高领毛衣和外套，直视镜头；只有半透明橙色镜框与琥珀色镜片保留颜色"
+    },
+    "sourceUrl": "https://x.com/hx831126/status/2103042118675833252",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded from the post at the owner's request (Jimmy Wong, 2026-09-25). The author states no license. The images are AI-generated likenesses; the owner chose to show them after being told they resemble real public figures.",
+      "evidence": "https://x.com/hx831126/status/2103042118675833252"
+    },
+    "recipe": null
+  },
+  {
+    "id": "portrait-2",
+    "src": "images/portrait-2.jpg",
+    "width": 900,
+    "height": 1600,
+    "alt": {
+      "en": "Black-and-white portrait of a young man with tousled dark hair in a black turtleneck and coat, calm expression, wearing orange-tinted sunglasses as the only color",
+      "zh-CN": "黑白肖像：蓬乱深色短发的年轻男子，黑色高领毛衣与外套，神情平静，橙色墨镜是画面唯一的颜色"
+    },
+    "sourceUrl": "https://x.com/hx831126/status/2103042118675833252",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded from the post at the owner's request (Jimmy Wong, 2026-09-25). The author states no license. The images are AI-generated likenesses; the owner chose to show them after being told they resemble real public figures.",
+      "evidence": "https://x.com/hx831126/status/2103042118675833252"
+    },
+    "recipe": null
+  },
+  {
+    "id": "portrait-3",
+    "src": "images/portrait-3.jpg",
+    "width": 900,
+    "height": 1600,
+    "alt": {
+      "en": "Black-and-white portrait of a man with curly dark hair in a black turtleneck and wool coat, head tilted slightly up, wearing orange sunglasses with amber lenses",
+      "zh-CN": "黑白肖像：深色卷发男子，黑色高领毛衣和羊毛外套，微微仰头，戴橙色镜框、琥珀色镜片的墨镜"
+    },
+    "sourceUrl": "https://x.com/hx831126/status/2103042118675833252",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded from the post at the owner's request (Jimmy Wong, 2026-09-25). The author states no license. The images are AI-generated likenesses; the owner chose to show them after being told they resemble real public figures.",
+      "evidence": "https://x.com/hx831126/status/2103042118675833252"
+    },
+    "recipe": null
+  },
+  {
+    "id": "portrait-4",
+    "src": "images/portrait-4.jpg",
+    "width": 900,
+    "height": 1600,
+    "alt": {
+      "en": "Black-and-white portrait of an older man with swept grey hair in a black turtleneck and coat, chin raised, with orange-tinted sunglasses as the only color",
+      "zh-CN": "黑白肖像：灰色背头的年长男子，黑色高领毛衣和外套，下巴微扬，橙色墨镜是唯一的颜色"
+    },
+    "sourceUrl": "https://x.com/hx831126/status/2103042118675833252",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded from the post at the owner's request (Jimmy Wong, 2026-09-25). The author states no license. The images are AI-generated likenesses; the owner chose to show them after being told they resemble real public figures.",
+      "evidence": "https://x.com/hx831126/status/2103042118675833252"
+    },
+    "recipe": null
+  }
+]

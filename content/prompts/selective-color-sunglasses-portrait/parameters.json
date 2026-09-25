@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "ratio",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "9-16",
+      "options": [
+        {
+          "id": "9-16",
+          "labels": {
+            "en": "9:16 vertical",
+            "zh-CN": "9:16 竖版"
+          },
+          "replacements": {
+            "en": "9:16 vertical frame",
+            "zh-CN": "画幅 9:16 竖构图"
+          }
+        },
+        {
+          "id": "4-5",
+          "labels": {
+            "en": "4:5 vertical",
+            "zh-CN": "4:5 竖版"
+          },
+          "replacements": {
+            "en": "4:5 vertical frame",
+            "zh-CN": "画幅 4:5 竖构图"
+          }
+        },
+        {
+          "id": "3-4",
+          "labels": {
+            "en": "3:4 vertical",
+            "zh-CN": "3:4 竖版"
+          },
+          "replacements": {
+            "en": "3:4 vertical frame",
+            "zh-CN": "画幅 3:4 竖构图"
+          }
+        },
+        {
+          "id": "1-1",
+          "labels": {
+            "en": "1:1 square",
+            "zh-CN": "1:1 方形"
+          },
+          "replacements": {
+            "en": "1:1 square frame",
+            "zh-CN": "画幅 1:1 方构图"
+          }
+        }
+      ]
+    },
+    {
+      "id": "lighting",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "top",
+      "options": [
+        {
+          "id": "top",
+          "labels": {
+            "en": "Top light",
+            "zh-CN": "顶光"
+          },
+          "replacements": {
+            "en": "Top light as the key light",
+            "zh-CN": "顶光主光"
+          }
+        },
+        {
+          "id": "side",
+          "labels": {
+            "en": "Side light (Rembrandt)",
+            "zh-CN": "侧光（伦勃朗光）"
+          },
+          "replacements": {
+            "en": "Side light as the key light (Rembrandt lighting)",
+            "zh-CN": "侧光主光（伦勃朗光）"
+          }
+        },
+        {
+          "id": "front",
+          "labels": {
+            "en": "Soft front light",
+            "zh-CN": "柔和正面光"
+          },
+          "replacements": {
+            "en": "Soft frontal light as the key light",
+            "zh-CN": "柔和正面主光"
+          }
+        }
+      ]
+    }
+  ]
+}

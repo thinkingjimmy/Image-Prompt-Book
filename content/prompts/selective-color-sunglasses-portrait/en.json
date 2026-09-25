@@ -1,0 +1,26 @@
+{
+  "title": "Black-and-White Portrait with Orange Sunglasses",
+  "summary": "A studio editorial portrait that keeps the face from your photo exactly, rendered fully in black and white except for translucent orange sunglasses with amber lenses.",
+  "seoTitle": "Selective Color Portrait Prompt (Orange Sunglasses) | Image Prompt Book",
+  "seoDescription": "Turn a face photo into a luxury black-and-white fashion portrait where only the orange sunglasses keep their color. Adjust ratio and lighting, then copy the prompt.",
+  "inputRequirement": "Requires one clear photo of your own face, or of someone who agreed to it. Attach it in your image generation tool; this website does not upload or generate images.",
+  "howToUse": [
+    "Adjust the highlighted options in the prompt.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Attach the face photo (and an optional reference for the sunglasses), then send."
+  ],
+  "exampleNotice": "Example results shared by the author, not a live preview.",
+  "verificationNotice": "These examples come from the author's post and have not been reproduced by Image Prompt Book.",
+  "adaptationNotice": "English translation, a corrected typo and adjustable options by Image Prompt Book; not the author's wording or an endorsement.",
+  "licenseNotice": "The author did not state a license. All rights stay with the author; this page credits them and links to the original post.",
+  "parameterLabels": {
+    "ratio": "Aspect ratio",
+    "lighting": "Key light"
+  },
+  "keywords": [
+    "selective color",
+    "black and white portrait",
+    "orange sunglasses",
+    "fashion portrait"
+  ]
+}

@@ -1,0 +1,23 @@
+[INPUT]
+FACE_REF = (uploaded reference photo of the person's face, used to lock identity)
+(Optional) GLASSES_REF = (if you have a reference for the same orange frames, upload it; otherwise ignore)
+
+[GOAL / ID-LOCK]
+Use the facial features of the person the user uploaded as the only identity reference: reproduce 100% of the feature proportions, face shape, the form of the eyes, nose and lips, and the brow ridge and jawline; no face swap, no reshaping, no "influencer-style" beautifying, no change of gender or age group.
+Keep real skin texture: slight blemishes, pores, fine lines and natural skin grain; no skin smoothing or plastic look.
+
+[SCENE / COMPOSITION]
+{{ratio}}; studio-style close-up editorial portrait (a head-and-shoulders portrait from the shoulders up, or closer than half-length). The person tilts the head slightly up and faces the camera, looking straight into the lens, with a calm, confident, serious and restrained expression. A few strands of hair drift across the face.
+Clothing: a black slim-fit knitted turtleneck (tailored turtleneck, clean lines) + a minimalist contemporary high-collar black jacket/coat on top (minimalist contemporary fashion, clean and sharp).
+
+[COLOR CONCEPT / SELECTIVE COLOR]
+Overall monochrome black-and-white, with only the sunglasses in color: translucent orange acetate frames (rectangular, softly rounded corners, glossy) and amber gradient lenses.
+No color anywhere except the sunglasses (skin, clothing, background and reflections all stay black and white).
+
+[LIGHTING / CAMERA LOOK]
+{{lighting}}
+Camera look: f/2.0, ISO 100, 1/125s; professional portrait-lens quality, clean and simple background
+
+[STYLE GUARDRAILS]
+photorealistic, editorial luxury fashion portrait, professional studio photography
+no illustration, no painterly effects, no CGI look, no anime, no beauty-retouch look

@@ -14,6 +14,7 @@ Image Prompt Book 的每个案例都来自作者的公开分享，感谢他们�
 | Storybook Character Portrait<br>儿童绘本角色肖像 | Sairah ([@Sairah_0](https://x.com/Sairah_0)) | [Sairah on X (2026-08-20)](https://x.com/Sairah_0/status/2090321208441262454) | [No license stated / 未声明许可](https://x.com/Sairah_0/status/2090321208441262454) |
 | Research Report Cover — Anthropic-Inspired<br>研究报告风封面 · Anthropic 风格 | Adrian Punk ([@AdrianPunk115](https://x.com/AdrianPunk115)) | [Adrian Punk on X (2026-08-01)](https://x.com/AdrianPunk115/status/2083411308855111928) | [No license stated / 未声明许可](https://x.com/AdrianPunk115/status/2083411308855111928) |
 | Giant Object World — Screen Print<br>巨物世界 · 丝网版画 | VoxCat ([@VoxcatAI](https://x.com/VoxcatAI)) | [VoxCat on X (2026-09-24)](https://x.com/VoxcatAI/status/2102873893438407130) | [No license stated / 未声明许可](https://x.com/VoxcatAI/status/2102873893438407130) |
+| Black-and-White Portrait with Orange Sunglasses<br>黑白人像 · 橙色墨镜 | 虎小象 ([@hx831126](https://x.com/hx831126)) | [虎小象 on X (2026-09-24)](https://x.com/hx831126/status/2103042118675833252) | [No license stated / 未声明许可](https://x.com/hx831126/status/2103042118675833252) |
 
 The English and Chinese versions and the adjustable options on this site are our adaptations; they are not endorsed by the authors. See the [License](../README.md#license) section for what each license allows.
 

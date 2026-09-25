@@ -126,6 +126,13 @@
         "en": "Screen print",
         "zh-CN": "丝网版画"
       }
+    },
+    {
+      "id": "monochrome",
+      "labels": {
+        "en": "Black and white",
+        "zh-CN": "黑白"
+      }
     }
   ]
 }

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "selective-color-sunglasses-portrait",
+  "slug": "selective-color-sunglasses-portrait",
+  "templateVersion": "1.0.0",
+  "status": "published",
+  "createdAt": "2026-09-25",
+  "updatedAt": "2026-09-25",
+  "publishedAt": "2026-09-25T08:26:05+08:00",
+  "category": "photo-art",
+  "tags": [
+    "monochrome",
+    "editorial",
+    "image-to-image"
+  ],
+  "originalLocale": "zh-CN",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.zh-CN.txt",
+  "templatePaths": {
+    "en": "template.en.txt",
+    "zh-CN": "template.zh-CN.txt"
+  },
+  "parametersPath": "parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": true,
+  "sourceRecommendedTools": [
+    "Nano Banana"
+  ],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "x-post",
+      "type": "x",
+      "role": "original",
+      "title": "虎小象 on X (2026-09-24)",
+      "url": "https://x.com/hx831126/status/2103042118675833252",
+      "author": {
+        "name": "虎小象",
+        "handle": "@hx831126",
+        "url": "https://x.com/hx831126"
+      },
+      "checkedAt": "2026-09-25"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/hx831126/status/2103042118675833252",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown"
+  }
+}
