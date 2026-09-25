@@ -1,0 +1,26 @@
+{
+  "title": "昭和荒诞角色海报",
+  "summary": "把角色扔进一个看似真实却荒唐的瞬间：巨大化、卡住、悬空或和交通工具发生离谱关系，再做成昭和特摄宣传海报，配巨大标题、大色场和低面数 3D。",
+  "seoTitle": "昭和特摄荒诞角色海报 Prompt | Image Prompt Book",
+  "seoDescription": "把角色的能力或经典梗做成荒诞的字面化场景，套上日本现代主义与昭和特摄海报风格。可选择角色与签名，并复制完整 Prompt。",
+  "inputRequirement": "不需要图片。选择一个角色，或在发送前把【角色】换成你想要的角色。",
+  "howToUse": [
+    "在 Prompt 中选择角色，或保留【角色】自己填写。",
+    "选择是否保留作者签名。",
+    "复制 Prompt，或直接在 ChatGPT 中打开，然后发送。"
+  ],
+  "exampleNotice": "作者分享的案例效果，非实时预览。",
+  "verificationNotice": "案例来自作者的帖子，Image Prompt Book 尚未复现。",
+  "adaptationNotice": "英文翻译与可调选项由 Image Prompt Book 提供；不等于作者的原始表述或认可。",
+  "licenseNotice": "作者未声明许可；全部权利归作者所有，本页注明作者并链接原帖。",
+  "parameterLabels": {
+    "character": "角色",
+    "signature": "签名"
+  },
+  "keywords": [
+    "昭和海报",
+    "特摄",
+    "荒诞",
+    "角色海报"
+  ]
+}

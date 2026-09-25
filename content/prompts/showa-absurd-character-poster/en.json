@@ -1,0 +1,26 @@
+{
+  "title": "Showa Absurd Character Poster",
+  "summary": "Drop a character into a moment that looks real but makes no sense — giant, stuck, floating or tangled with a vehicle — styled as a Showa-era tokusatsu promo poster with bold titles, flat color fields and low-poly 3D.",
+  "seoTitle": "Showa Tokusatsu Absurd Character Poster Prompt | Image Prompt Book",
+  "seoDescription": "Turn a character's powers or running gags into an absurd, literal scene on a retro Japanese modernist and Showa tokusatsu poster. Pick the character and signature, then copy the prompt.",
+  "inputRequirement": "No image needed. Pick a character, or replace [Character] with your own before sending.",
+  "howToUse": [
+    "Pick a character in the prompt, or keep [Character] and write your own.",
+    "Choose whether to keep the author's signature.",
+    "Copy the prompt, or open it directly in ChatGPT, then send."
+  ],
+  "exampleNotice": "Example results shared by the author, not a live preview.",
+  "verificationNotice": "These examples come from the author's post and have not been reproduced by Image Prompt Book.",
+  "adaptationNotice": "English translation and adjustable options by Image Prompt Book; not the author's wording or an endorsement.",
+  "licenseNotice": "The author did not state a license. All rights stay with the author; this page credits them and links to the original post.",
+  "parameterLabels": {
+    "character": "Character",
+    "signature": "Signature"
+  },
+  "keywords": [
+    "showa poster",
+    "tokusatsu",
+    "absurd",
+    "character poster"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "character",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "custom",
+      "options": [
+        {
+          "id": "custom",
+          "labels": {
+            "en": "Fill in your own",
+            "zh-CN": "自己填写"
+          },
+          "replacements": {
+            "en": "[Character]",
+            "zh-CN": "【角色】"
+          }
+        },
+        {
+          "id": "orange-cat",
+          "labels": {
+            "en": "A chubby orange cat",
+            "zh-CN": "圆滚滚的橘猫"
+          },
+          "replacements": {
+            "en": "A chubby orange cat",
+            "zh-CN": "一只圆滚滚的橘猫"
+          }
+        },
+        {
+          "id": "robot",
+          "labels": {
+            "en": "A retro tin robot",
+            "zh-CN": "复古铁皮机器人"
+          },
+          "replacements": {
+            "en": "A retro tin toy robot",
+            "zh-CN": "一个复古铁皮玩具机器人"
+          }
+        },
+        {
+          "id": "shiba",
+          "labels": {
+            "en": "A Shiba Inu",
+            "zh-CN": "柴犬"
+          },
+          "replacements": {
+            "en": "A Shiba Inu",
+            "zh-CN": "一只柴犬"
+          }
+        }
+      ]
+    },
+    {
+      "id": "signature",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "voxcat",
+      "options": [
+        {
+          "id": "voxcat",
+          "labels": {
+            "en": "Author's signature",
+            "zh-CN": "作者签名"
+          },
+          "replacements": {
+            "en": "No logos or UI other than the layout text; a small signature \"voxCAT\" in the bottom-right corner.",
+            "zh-CN": "除排版文字外无 Logo / UI，右下角小签名 voxCAT。"
+          }
+        },
+        {
+          "id": "none",
+          "labels": {
+            "en": "No signature",
+            "zh-CN": "不加签名"
+          },
+          "replacements": {
+            "en": "No logos, UI or signature other than the layout text.",
+            "zh-CN": "除排版文字外无 Logo / UI，也不加签名。"
+          }
+        }
+      ]
+    }
+  ]
+}

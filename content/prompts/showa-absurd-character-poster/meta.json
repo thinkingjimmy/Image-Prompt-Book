@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "showa-absurd-character-poster",
+  "slug": "showa-absurd-character-poster",
+  "templateVersion": "1.0.0",
+  "status": "published",
+  "createdAt": "2026-09-25",
+  "updatedAt": "2026-09-25",
+  "publishedAt": "2026-09-25T09:41:20+08:00",
+  "category": "posters",
+  "tags": [
+    "surreal",
+    "typography",
+    "2d"
+  ],
+  "originalLocale": "zh-CN",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.zh-CN.txt",
+  "templatePaths": {
+    "en": "template.en.txt",
+    "zh-CN": "template.zh-CN.txt"
+  },
+  "parametersPath": "parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": false,
+  "sourceRecommendedTools": [],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "x-post",
+      "type": "x",
+      "role": "original",
+      "title": "VoxCat on X (2026-09-25)",
+      "url": "https://x.com/VoxcatAI/status/2103274785128296563",
+      "author": {
+        "name": "VoxCat",
+        "handle": "@VoxcatAI",
+        "url": "https://x.com/VoxcatAI"
+      },
+      "checkedAt": "2026-09-25"
+    },
+    {
+      "id": "x-examples",
+      "type": "x",
+      "role": "supplementary",
+      "title": "VoxCat on X (2026-09-25), idea and examples",
+      "url": "https://x.com/VoxcatAI/status/2103274784608211226",
+      "author": {
+        "name": "VoxCat",
+        "handle": "@VoxcatAI",
+        "url": "https://x.com/VoxcatAI"
+      },
+      "checkedAt": "2026-09-25"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/VoxcatAI/status/2103274785128296563",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown"
+  }
+}
