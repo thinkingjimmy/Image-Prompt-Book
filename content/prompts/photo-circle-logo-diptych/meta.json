@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "photo-circle-logo-diptych",
+  "slug": "photo-circle-logo-diptych",
+  "templateVersion": "1.0.0",
+  "status": "published",
+  "createdAt": "2026-09-25",
+  "updatedAt": "2026-09-25",
+  "publishedAt": "2026-09-25T20:37:42+08:00",
+  "category": "photo-art",
+  "tags": [
+    "minimal",
+    "monochrome",
+    "image-to-image"
+  ],
+  "originalLocale": "zh-CN",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.zh-CN.txt",
+  "templatePaths": {
+    "en": "template.en.txt",
+    "zh-CN": "template.zh-CN.txt"
+  },
+  "parametersPath": "parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": true,
+  "sourceRecommendedTools": [],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "x-post",
+      "type": "x",
+      "role": "original",
+      "title": "DAAI on X (2026-09-25)",
+      "url": "https://x.com/daaihq/status/2103275028389548513",
+      "author": {
+        "name": "DAAI",
+        "handle": "@daaihq",
+        "url": "https://x.com/daaihq"
+      },
+      "checkedAt": "2026-09-25"
+    },
+    {
+      "id": "x-examples",
+      "type": "x",
+      "role": "supplementary",
+      "title": "DAAI on X (2026-09-25), examples",
+      "url": "https://x.com/daaihq/status/2103275022236426434",
+      "author": {
+        "name": "DAAI",
+        "handle": "@daaihq",
+        "url": "https://x.com/daaihq"
+      },
+      "checkedAt": "2026-09-25"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/daaihq/status/2103275028389548513",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown"
+  }
+}

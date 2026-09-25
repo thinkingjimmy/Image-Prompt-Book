@@ -1,0 +1,26 @@
+{
+  "title": "Photo × Minimal Circle Logo Diptych",
+  "summary": "A vertical two-part image: your person or pet on top, and below the same subject reduced to a Japanese-minimal logo — a side profile inside a solid black circle on white.",
+  "seoTitle": "Photo to Minimal Circle Logo Prompt (Diptych) | Image Prompt Book",
+  "seoDescription": "Turn a photo of a person or pet into a diptych with a minimal black circle logo of their profile below. Adjust ratio and colors, then copy the prompt.",
+  "inputRequirement": "Requires one photo of a person, cat, dog or other pet. Attach it in your image generation tool; this website does not upload or generate images.",
+  "howToUse": [
+    "Adjust the highlighted options in the prompt.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Attach a photo of yourself or your pet, then send."
+  ],
+  "licenseNotice": "The author did not state a license. All rights stay with the author; this page credits them and links to the original post.",
+  "exampleNotice": "Example results shared by the author, not a live preview.",
+  "verificationNotice": "These examples come from the author's post and have not been reproduced by Image Prompt Book.",
+  "adaptationNotice": "English translation and adjustable options by Image Prompt Book; not the author's wording or an endorsement.",
+  "parameterLabels": {
+    "ratio": "Aspect ratio",
+    "palette": "Colors"
+  },
+  "keywords": [
+    "circle logo",
+    "minimal logo",
+    "pet logo",
+    "profile avatar"
+  ]
+}

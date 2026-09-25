@@ -1,0 +1,36 @@
+[
+  {
+    "id": "bob-profile",
+    "src": "images/bob-profile.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "Top: photo of a woman with a short black bob and a red earring in a cream blouse; bottom: her side profile as a black-and-white circular logo on white, keeping the bob and the red earring",
+      "zh-CN": "上：黑色短发、戴红色耳饰、穿米色上衣的女子照片；下：她的侧脸化作白底上的黑白圆形 Logo，保留短发轮廓和红色耳饰"
+    },
+    "sourceUrl": "https://x.com/daaihq/status/2103275022236426434",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded at the owner's request (Jimmy Wong, 2026-09-25). The author states no license.",
+      "evidence": "https://x.com/daaihq/status/2103275022236426434"
+    },
+    "recipe": null
+  },
+  {
+    "id": "ginger-cat",
+    "src": "images/ginger-cat.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "Top: photo of a sitting ginger tabby cat looking to the side; bottom: the cat's head in side profile as a black-and-white circular logo with striped fur",
+      "zh-CN": "上：侧头张望的橘色虎斑猫坐姿照片；下：猫的侧脸头像化作黑白圆形 Logo，保留条纹毛色"
+    },
+    "sourceUrl": "https://x.com/daaihq/status/2103275022236426434",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded at the owner's request (Jimmy Wong, 2026-09-25). The author states no license.",
+      "evidence": "https://x.com/daaihq/status/2103275022236426434"
+    },
+    "recipe": null
+  }
+]

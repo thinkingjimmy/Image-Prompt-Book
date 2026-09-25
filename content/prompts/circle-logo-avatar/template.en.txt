@@ -1,0 +1,6 @@
+Design a 1:1 square avatar.
+Use the user's uploaded photo as the only reference, focusing on extracting the person, cat, dog or other animal; keep the subject's real appearance, hairstyle or fur outline, key facial features, facial identifiers, clothing or coat colors and overall bearing as much as possible, and ignore buildings and surroundings.
+Turn the subject into a minimal flat logo style: {{palette}} as the core shape, centered and filling about 80% of the frame; inside the circle, blend in a partial side profile or partial head outline of the subject, keeping key facial features or the pet's facial features so it is instantly recognizable as the subject in the photo. The overall style combines Japanese aesthetics with a modern design sense: simple and restrained, with clean crisp contour lines, strong flat shapes, high recognizability and a clear visual focus, giving it a very strong logo feel and graphic identity that stays legible at avatar size.
+If the user uploads a person, center on their side profile, three-quarter profile or head outline; if the user uploads a pet, center on the pet's head, ears, muzzle and side-profile outline.
+The image contains only this one circular mark: no top-and-bottom split and no copy of the original photo.
+Do not generate any text, titles, letters, logos or watermarks.

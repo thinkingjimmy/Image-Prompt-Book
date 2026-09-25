@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "ratio",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "3-4",
+      "options": [
+        {
+          "id": "3-4",
+          "labels": {
+            "en": "3:4 vertical",
+            "zh-CN": "3:4 竖版"
+          },
+          "replacements": {
+            "en": "a 3:4 vertical composition",
+            "zh-CN": "3:4竖版构图"
+          }
+        },
+        {
+          "id": "4-5",
+          "labels": {
+            "en": "4:5 vertical",
+            "zh-CN": "4:5 竖版"
+          },
+          "replacements": {
+            "en": "a 4:5 vertical composition",
+            "zh-CN": "4:5竖版构图"
+          }
+        },
+        {
+          "id": "9-16",
+          "labels": {
+            "en": "9:16 vertical",
+            "zh-CN": "9:16 竖版"
+          },
+          "replacements": {
+            "en": "a 9:16 vertical composition",
+            "zh-CN": "9:16竖版构图"
+          }
+        }
+      ]
+    },
+    {
+      "id": "palette",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "black-on-white",
+      "options": [
+        {
+          "id": "black-on-white",
+          "labels": {
+            "en": "Black circle on white",
+            "zh-CN": "白底黑圆"
+          },
+          "replacements": {
+            "en": "a clean pure-white background overall, with a solid black perfect circle",
+            "zh-CN": "整体为纯白色干净背景，以黑色正圆形"
+          }
+        },
+        {
+          "id": "ink-on-cream",
+          "labels": {
+            "en": "Ink circle on cream",
+            "zh-CN": "米白底墨黑圆"
+          },
+          "replacements": {
+            "en": "a clean cream background overall, with a solid ink-black perfect circle",
+            "zh-CN": "整体为米白色干净背景，以墨黑色正圆形"
+          }
+        },
+        {
+          "id": "vermilion-on-white",
+          "labels": {
+            "en": "Vermilion circle on white",
+            "zh-CN": "白底朱红圆"
+          },
+          "replacements": {
+            "en": "a clean pure-white background overall, with a solid vermilion perfect circle",
+            "zh-CN": "整体为纯白色干净背景，以朱红色正圆形"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "palette",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "black-on-white",
+      "options": [
+        {
+          "id": "black-on-white",
+          "labels": {
+            "en": "Black circle on white",
+            "zh-CN": "白底黑圆"
+          },
+          "replacements": {
+            "en": "a clean pure-white background overall, with a solid black perfect circle",
+            "zh-CN": "整体为纯白色干净背景，以黑色正圆形"
+          }
+        },
+        {
+          "id": "ink-on-cream",
+          "labels": {
+            "en": "Ink circle on cream",
+            "zh-CN": "米白底墨黑圆"
+          },
+          "replacements": {
+            "en": "a clean cream background overall, with a solid ink-black perfect circle",
+            "zh-CN": "整体为米白色干净背景，以墨黑色正圆形"
+          }
+        },
+        {
+          "id": "vermilion-on-white",
+          "labels": {
+            "en": "Vermilion circle on white",
+            "zh-CN": "白底朱红圆"
+          },
+          "replacements": {
+            "en": "a clean pure-white background overall, with a solid vermilion perfect circle",
+            "zh-CN": "整体为纯白色干净背景，以朱红色正圆形"
+          }
+        }
+      ]
+    }
+  ]
+}

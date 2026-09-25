@@ -1,0 +1,25 @@
+{
+  "title": "极简圆形 Logo 头像",
+  "summary": "不要双拼，直接出头像：把你的侧脸或宠物的头部画成黑色正圆里的日式极简 Logo，缩小成头像也清晰可辨。",
+  "seoTitle": "极简圆形 Logo 头像 Prompt | Image Prompt Book",
+  "seoDescription": "把自己或宠物的照片变成正方形头像：白底黑圆里的极简侧脸 Logo。可选择配色，并复制完整 Prompt。",
+  "inputRequirement": "需要一张人物、猫、狗或其他宠物的照片。请在生图工具中附上图片；本站不上传图片，也不直接生成图片。",
+  "howToUse": [
+    "调整 Prompt 中高亮的选项。",
+    "复制 Prompt，或直接在 ChatGPT 中打开。",
+    "附上你自己或宠物的照片，再发送。"
+  ],
+  "licenseNotice": "作者未声明许可；全部权利归作者所有，本页注明作者并链接原帖。",
+  "exampleNotice": "案例由 Image Prompt Book 用本页改编后的 Prompt 生成，非实时预览。",
+  "verificationNotice": "案例由 Image Prompt Book 使用本页改编后的 Prompt 生成。",
+  "adaptationNotice": "由 Image Prompt Book 在作者的双拼 Prompt 基础上改编为只输出头像；英文翻译与选项由本站提供，不等于作者的原始表述或认可。",
+  "parameterLabels": {
+    "palette": "配色"
+  },
+  "keywords": [
+    "圆形 Logo 头像",
+    "极简头像",
+    "宠物头像",
+    "侧脸 Logo"
+  ]
+}
