@@ -37,9 +37,15 @@ A maintainer checks the license, writes the English and Chinese versions, picks 
 
 ## Acknowledgements
 
-Every prompt here was shared by its author. See [docs/ACKNOWLEDGEMENTS.md](./docs/ACKNOWLEDGEMENTS.md) for who made each one.
+Each prompt is credited to the person we believe created it. See [docs/ACKNOWLEDGEMENTS.md](./docs/ACKNOWLEDGEMENTS.md) for who made each one.
 
-Some authors didn't state a license; their prompts are shown with credit and a link to the original post. If you're the author and want yours taken down, open a [rights request](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=rights-request.yml) and we'll remove it.
+## Sources and takedowns
+
+Prompts are hard to trace back to whoever first wrote them. Most entries here come from GitHub and X (Twitter), and every page names and links its source. Every request below goes through a GitHub issue.
+
+1. **Credited to the wrong person** — if we credited someone who reposted a prompt rather than created it, open a [rights request](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=rights-request.yml) with evidence, such as a link to the earlier original post.
+2. **Default terms** — unless the source says otherwise, we treat a publicly shared prompt as fine to share with credit. If you'd rather not be included, open a [rights request](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=rights-request.yml) and we'll remove it. If you'd like your prompt included, [suggest it](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=source-lead.yml).
+3. **Images and real people** — AI image results can be unpredictable and may resemble real people or existing works. If you hold the rights to something shown here, including your own likeness, open a [rights request](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=rights-request.yml) and we'll take it down.
 
 ## Security
 

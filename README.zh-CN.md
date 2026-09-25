@@ -37,9 +37,15 @@
 
 ## 致谢
 
-这里的每个 Prompt 都来自作者的分享，各案例作者见 [docs/ACKNOWLEDGEMENTS.md](./docs/ACKNOWLEDGEMENTS.md)。
+每个 Prompt 都署名了我们认为的原创者，各案例作者见 [docs/ACKNOWLEDGEMENTS.md](./docs/ACKNOWLEDGEMENTS.md)。
 
-部分作者没有声明许可，这些 Prompt 会注明作者并链接原帖展示。如果你是作者并希望下架，请提交[权利反馈](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=rights-request.yml)，我们会移除。
+## 来源与下架
+
+Prompt 的版权很难追溯到最初的作者。本站收录的内容大多来自 GitHub 和 X（Twitter），每个详情页都会注明并链接来源。以下请求都通过 GitHub Issue 提交。
+
+1. **署名有误**——如果我们署名的是转发者而不是原创者，请提交[权利反馈](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=rights-request.yml)并附上证据，例如更早的原帖链接。
+2. **默认规则**——除非来源另有说明，我们默认公开分享的 Prompt 可以在署名的前提下转载分享。如果你不希望被收录，请提交[权利反馈](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=rights-request.yml)，我们会移除；如果你希望自己的 Prompt 被收录，欢迎[推荐给我们](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=source-lead.yml)。
+3. **图片与真人**——AI 生图的结果不完全可控，可能与真实人物或已有作品相似。如果你是相关内容的权利人（包括你本人的肖像），请提交[权利反馈](https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=rights-request.yml)，我们会将其下架。
 
 ## 安全问题
 

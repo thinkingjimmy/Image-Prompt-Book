@@ -57,13 +57,22 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
         },
         {
           heading: "Thanks to the authors",
+          paragraphs: ["Each prompt page credits the person we believe created it, and the acknowledgements list who made each one."],
+          links: [{ label: "Acknowledgements", href: ACKNOWLEDGEMENTS }],
+        },
+        {
+          heading: "Sources and takedowns",
           paragraphs: [
-            "Every prompt here was shared by its author. Each prompt page credits its author, and the acknowledgements list who made each one.",
-            "Some authors didn't state a license; their prompts are shown with credit and a link to the original post. If you're the author and want yours taken down, open a rights request and we'll remove it.",
+            "Prompts are hard to trace back to whoever first wrote them. Most entries here come from GitHub and X (Twitter), and every page names and links its source. Every request below goes through a GitHub issue.",
+          ],
+          items: [
+            "Credited to the wrong person: if we credited someone who reposted a prompt rather than created it, open a rights request with evidence, such as a link to the earlier original post.",
+            "Default terms: unless the source says otherwise, we treat a publicly shared prompt as fine to share with credit. If you'd rather not be included, open a rights request and we'll remove it. If you'd like your prompt included, suggest it in an issue.",
+            "Images and real people: AI image results can be unpredictable and may resemble real people or existing works. If you hold the rights to something shown here, including your own likeness, open a rights request and we'll take it down.",
           ],
           links: [
-            { label: "Acknowledgements", href: ACKNOWLEDGEMENTS },
             { label: "Request a takedown", href: repoIssueUrl("rights-request.yml") },
+            { label: "Suggest a prompt", href: repoIssueUrl("source-lead.yml") },
           ],
         },
       ],
@@ -100,13 +109,20 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
         },
         {
           heading: "致谢",
-          paragraphs: [
-            "这里的每个 Prompt 都来自作者的分享。每个 Prompt 详情页都有作者署名，致谢名单列出了各案例的作者。",
-            "部分作者没有声明许可，这些 Prompt 会注明作者并链接原帖展示。如果你是作者并希望下架，请提交权利反馈，我们会移除。",
+          paragraphs: ["每个 Prompt 详情页都署名了我们认为的原创者，致谢名单列出了各案例的作者。"],
+          links: [{ label: "查看致谢名单", href: ACKNOWLEDGEMENTS }],
+        },
+        {
+          heading: "来源与下架",
+          paragraphs: ["Prompt 的版权很难追溯到最初的作者。本站收录的内容大多来自 GitHub 和 X（Twitter），每个详情页都会注明并链接来源。以下请求都通过 GitHub Issue 提交。"],
+          items: [
+            "署名有误：如果我们署名的是转发者而不是原创者，请提交权利反馈并附上证据，例如更早的原帖链接。",
+            "默认规则：除非来源另有说明，我们默认公开分享的 Prompt 可以在署名的前提下转载分享。如果你不希望被收录，请提交权利反馈，我们会移除；如果你希望自己的 Prompt 被收录，也欢迎通过 Issue 推荐。",
+            "图片与真人：AI 生图的结果不完全可控，可能与真实人物或已有作品相似。如果你是相关内容的权利人（包括你本人的肖像），请提交权利反馈，我们会将其下架。",
           ],
           links: [
-            { label: "查看致谢名单", href: ACKNOWLEDGEMENTS },
             { label: "申请下架", href: repoIssueUrl("rights-request.yml") },
+            { label: "推荐 Prompt", href: repoIssueUrl("source-lead.yml") },
           ],
         },
       ],
