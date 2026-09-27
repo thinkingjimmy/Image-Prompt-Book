@@ -1,0 +1,28 @@
+[
+  {
+    "id": "swing",
+    "src": "images/swing.jpg",
+    "width": 1080,
+    "height": 1189,
+    "alt": {
+      "en": "Storybook illustration of a mother in a hijab pushing a toddler in a sun hat and denim overalls on a wooden swing, surrounded by red tropical flowers, a smiling sun, butterflies, hearts and white doodle outlines",
+      "zh-CN": "绘本插画：戴头巾的母亲推着戴遮阳帽、穿背带裤的幼儿荡木秋千，周围是红色热带花、笑脸太阳、蝴蝶、爱心和白色涂鸦描边"
+    },
+    "input": {
+      "src": "images/swing-photo.jpg",
+      "width": 780,
+      "height": 859,
+      "alt": {
+        "en": "Original photo: a mother in a hijab and a toddler in a sun hat on a wooden swing in a garden with red flowers",
+        "zh-CN": "原照片：戴头巾的母亲和戴遮阳帽的幼儿在种满红花的花园里荡木秋千"
+      }
+    },
+    "sourceUrl": "https://x.com/Taaruk_/status/2068272310520520988",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Images from the author's X post (result and the input photo), downloaded at the owner's request (Jimmy Wong, 2026-09-27); the input photo is cropped to the result's framing for the comparison. The author states no license.",
+      "evidence": "https://x.com/Taaruk_/status/2068272310520520988"
+    },
+    "recipe": null
+  }
+]

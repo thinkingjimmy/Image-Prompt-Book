@@ -1,0 +1,25 @@
+{
+  "title": "Photo to Storybook Illustration — Kawaii Gouache",
+  "summary": "Turn a family photo into a sunny kawaii picture-book page in hand-painted gouache, keeping everyone's pose and clothes, with flowers, butterflies, a smiling sun and white doodle outlines.",
+  "seoTitle": "Photo to Kawaii Storybook Illustration Prompt | Image Prompt Book",
+  "seoDescription": "Turn a family photo into a hand-painted kawaii storybook illustration that keeps the pose and clothes. Use the original swing prompt or the any-photo version, then copy it.",
+  "inputRequirement": "Requires one photo. The original version describes a mother and child on a swing; use \"Any photo\" for other scenes. Attach the photo in your image generation tool; this website does not upload or generate images.",
+  "howToUse": [
+    "Pick \"Original (swing)\" or \"Any photo\", and adjust the outline option.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Attach your photo, then send."
+  ],
+  "exampleNotice": "Example result shared by the author, not a live preview.",
+  "verificationNotice": "This example comes from the author's post and has not been reproduced by Image Prompt Book.",
+  "adaptationNotice": "Chinese translation, the \"Any photo\" version and the outline option by Image Prompt Book; not the author's wording or an endorsement.",
+  "licenseNotice": "The author did not state a license. All rights stay with the author; this page credits them and links to the original post.",
+  "parameterLabels": {
+    "outline": "Outlines"
+  },
+  "keywords": [
+    "storybook illustration",
+    "kawaii",
+    "photo to illustration",
+    "family photo"
+  ]
+}

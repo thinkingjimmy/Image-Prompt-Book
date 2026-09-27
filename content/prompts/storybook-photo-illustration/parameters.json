@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "outline",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "white",
+      "options": [
+        {
+          "id": "white",
+          "labels": {
+            "en": "White sketch outline",
+            "zh-CN": "白色速写描边"
+          },
+          "replacements": {
+            "en": "Add white sketch-style outlines around the characters, doodle hearts, swirls, sparkles, and whimsical decorative elements to create a magical storytelling atmosphere.",
+            "zh-CN": "在角色周围加上白色速写风描边，以及涂鸦爱心、漩涡、闪光和充满童趣的装饰元素，营造神奇的故事氛围。"
+          }
+        },
+        {
+          "id": "none",
+          "labels": {
+            "en": "No outline",
+            "zh-CN": "不加描边"
+          },
+          "replacements": {
+            "en": "Add doodle hearts, swirls, sparkles, and whimsical decorative elements to create a magical storytelling atmosphere, without outlines around the characters.",
+            "zh-CN": "加入涂鸦爱心、漩涡、闪光和充满童趣的装饰元素，营造神奇的故事氛围，角色周围不加描边。"
+          }
+        }
+      ]
+    }
+  ]
+}
