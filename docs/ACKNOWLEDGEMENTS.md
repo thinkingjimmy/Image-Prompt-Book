@@ -23,6 +23,7 @@ Image Prompt Book 的每个案例都来自作者的公开分享，感谢他们�
 | Photo to Storybook Illustration — Kawaii Gouache<br>照片转绘本插画 · 水粉童趣 | Taaruk ([@Taaruk_](https://x.com/Taaruk_)) | [Taaruk on X (2026-06-20)](https://x.com/Taaruk_/status/2068272310520520988) | [No license stated / 未声明许可](https://x.com/Taaruk_/status/2068272310520520988) |
 | Photo to Paper-Cut Layered Illustration<br>照片转分层纸雕插画 | Jahan Zaib ([@jzaib4269](https://x.com/jzaib4269)) | [Jahan Zaib on X (2026-06-20)](https://x.com/jzaib4269/status/2068366821884047759) | [No license stated / 未声明许可](https://x.com/jzaib4269/status/2068366821884047759) |
 | Vintage Interior Illustration — Risograph<br>复古室内插画 · Risograph | Taaruk ([@Taaruk_](https://x.com/Taaruk_)) | [Taaruk on X (2026-09-25)](https://x.com/Taaruk_/status/2103403003793277098) | [No license stated / 未声明许可](https://x.com/Taaruk_/status/2103403003793277098) |
+| City Collage Travel Postcard<br>城市拼贴旅行明信片 | 阿哲Phil ([@Formulasearch](https://x.com/Formulasearch)) | [阿哲Phil on X (2026-06-19)](https://x.com/Formulasearch/status/2067784159532024280) | [No license stated / 未声明许可](https://x.com/Formulasearch/status/2067784159532024280) |
 
 The English and Chinese versions and the adjustable options on this site are our adaptations; they are not endorsed by the authors. See the [License](../README.md#license) section for what each license allows.
 

@@ -3,10 +3,10 @@
   "id": "city-collage-postcard",
   "slug": "city-collage-postcard",
   "templateVersion": "1.0.0",
-  "status": "draft",
+  "status": "published",
   "createdAt": "2026-09-27",
   "updatedAt": "2026-09-27",
-  "publishedAt": null,
+  "publishedAt": "2026-09-27T14:53:45+08:00",
   "category": "posters",
   "tags": [
     "travel",

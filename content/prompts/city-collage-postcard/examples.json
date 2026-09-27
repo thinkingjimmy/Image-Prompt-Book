@@ -1,1 +1,87 @@
-[]
+[
+  {
+    "id": "shenzhen",
+    "src": "images/shenzhen.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "Collage postcard of Shenzhen: brush-lettered city name, Ping An Finance Centre, Lianhuashan, Window of the World and Shenzhen Bay Bridge over a city map, with a stamp and a 2026.06.19 postmark",
+      "zh-CN": "深圳拼贴明信片：毛笔字城市名，平安金融中心、莲花山、世界之窗与深圳湾大桥拼贴在城市地图上，配邮票和 2026.06.19 邮戳"
+    },
+    "sourceUrl": "https://x.com/Formulasearch/status/2067784159532024280",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X article, supplied by the owner (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/Formulasearch/status/2067784159532024280"
+    },
+    "recipe": null
+  },
+  {
+    "id": "guangzhou",
+    "src": "images/guangzhou.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "Collage postcard of Guangzhou: Canton Tower, Chen Clan Ancestral Hall, Shamian arcades and a lattice window over a map of the Pearl River, with a stamp and postmark",
+      "zh-CN": "广州拼贴明信片：广州塔、陈家祠、沙面骑楼与满洲窗拼贴在珠江地图上，配邮票和邮戳"
+    },
+    "sourceUrl": "https://x.com/Formulasearch/status/2067784159532024280",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X article, supplied by the owner (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/Formulasearch/status/2067784159532024280"
+    },
+    "recipe": null
+  },
+  {
+    "id": "beijing",
+    "src": "images/beijing.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "Collage postcard of Beijing: the Forbidden City corner tower, the Great Wall, the Temple of Heaven and the Summer Palace over a city map, with a stamp and postmark",
+      "zh-CN": "北京拼贴明信片：故宫角楼、长城、天坛与颐和园拼贴在城市地图上，配邮票和邮戳"
+    },
+    "sourceUrl": "https://x.com/Formulasearch/status/2067784159532024280",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X article, supplied by the owner (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/Formulasearch/status/2067784159532024280"
+    },
+    "recipe": null
+  },
+  {
+    "id": "shanghai",
+    "src": "images/shanghai.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "Collage postcard of Shanghai: the Bund, Oriental Pearl Tower, Lujiazui towers and Yuyuan Garden over a map of the Huangpu River, with a stamp and postmark",
+      "zh-CN": "上海拼贴明信片：外滩、东方明珠、陆家嘴高楼与豫园拼贴在黄浦江地图上，配邮票和邮戳"
+    },
+    "sourceUrl": "https://x.com/Formulasearch/status/2067784159532024280",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X article, supplied by the owner (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/Formulasearch/status/2067784159532024280"
+    },
+    "recipe": null
+  },
+  {
+    "id": "zigui-dragon-boat",
+    "src": "images/zigui-dragon-boat.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "Dragon Boat Festival postcard of Zigui: Qu Yuan Temple and statue, zongzi, mugwort and a sachet, the Three Gorges Dam and a dragon boat race over a Yangtze map, dated 2026.06.19",
+      "zh-CN": "秭归端午明信片：屈原祠与屈原像、粽子、艾草和香囊、三峡大坝与龙舟竞渡，拼贴在长江地图上，邮戳 2026.06.19"
+    },
+    "sourceUrl": "https://x.com/Formulasearch/status/2067784159532024280",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X article, supplied by the owner (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/Formulasearch/status/2067784159532024280"
+    },
+    "recipe": null
+  }
+]

@@ -19,14 +19,25 @@
           }
         },
         {
-          "id": "shanghai",
+          "id": "shenzhen",
           "labels": {
-            "en": "Shanghai",
-            "zh-CN": "上海"
+            "en": "Shenzhen",
+            "zh-CN": "深圳"
           },
           "replacements": {
-            "en": "Shanghai",
-            "zh-CN": "上海"
+            "en": "Shenzhen",
+            "zh-CN": "深圳"
+          }
+        },
+        {
+          "id": "guangzhou",
+          "labels": {
+            "en": "Guangzhou",
+            "zh-CN": "广州"
+          },
+          "replacements": {
+            "en": "Guangzhou",
+            "zh-CN": "广州"
           }
         },
         {
@@ -41,25 +52,14 @@
           }
         },
         {
-          "id": "xian",
+          "id": "shanghai",
           "labels": {
-            "en": "Xi'an",
-            "zh-CN": "西安"
+            "en": "Shanghai",
+            "zh-CN": "上海"
           },
           "replacements": {
-            "en": "Xi'an",
-            "zh-CN": "西安"
-          }
-        },
-        {
-          "id": "suzhou",
-          "labels": {
-            "en": "Suzhou",
-            "zh-CN": "苏州"
-          },
-          "replacements": {
-            "en": "Suzhou",
-            "zh-CN": "苏州"
+            "en": "Shanghai",
+            "zh-CN": "上海"
           }
         },
         {
