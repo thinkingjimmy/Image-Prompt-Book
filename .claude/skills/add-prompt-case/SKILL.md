@@ -33,16 +33,20 @@ Worked examples — read the one that matches your source before starting:
 
 ### X posts
 
-- Open the post in the browser pane and read it with `get_page_text` (logged-out view is enough for public posts). Do not use third-party mirrors or scrapers.
+- Never run `javascript_tool` on x.com: the browser asks the owner to approve every script there and site-level approval is disabled. Read X with tools that need no approval:
+  - Metadata, thread and images from X's own embed endpoint: `curl -s "https://cdn.syndication.twimg.com/tweet-result?id=<id>&token=a&lang=en"` gives `created_at`, `edit_control.edit_tweet_ids` / `isEdited`, `in_reply_to_status_id_str`, `mediaDetails[].media_url_https`, `user`, and for X Articles `article.title` and `article.cover_media`. Its `text` stops at 280 characters for long posts (`note_tweet`) and has no Article body — never take the prompt from it.
+  - The full prompt text with `get_page_text` on the post that holds it (open the reply's own URL so nothing is cut at "Show more"; for an Article, the code block is in the page text). `read_page` finds reply and media links. Save the text to a scratch file, compare it with any text the owner pasted, and hash it locally.
+  - Article inline images are not in the endpoint (only the cover is). Use the cover plus any images the owner pasted; if more are needed, one `javascript_tool` call listing `img[src*="pbs.twimg.com/media"]` is the single exception — say so in the report.
+  - Do not use third-party mirrors or scrapers.
 - Pin it by URL `https://x.com/<handle>/status/<id>` (the ID never changes) and the post date. Check the post for "Last edited"; if edited, use the latest version and say so in `ATTRIBUTION.md`.
 - `original.en.txt` (or the post's language) is only the prompt text exactly as posted — drop the "Prompt:" label and the model line, keep paragraph breaks, curly quotes and spelling. Hash that text (without our added final newline) and put the hash in `ATTRIBUTION.md` and the entry test.
 - The model line (e.g. "GPT Image 2 On ChatGPT") goes to `sourceRecommendedTools`, never `verifiedModels`.
 - Author: display name, `@handle`, profile URL; source `type: "x"`, `role: "original"`, title like `"<Name> on X (<YYYY-MM-DD>)"`.
 - If the wording leaves authorship open (e.g. "分享一组很喜欢的提示词" — sharing prompts I like), credit the poster "as shared in the post" and tell the user the original author is unconfirmed.
-- Prompts in a code block: read the `pre` element's `textContent` in the page and hash it there to confirm your copy matches; Markdown-style `* ` / `**` inside it are formatting, spelled as plain text in the templates.
+- Prompts in a code block (X Articles): take them from `get_page_text` and check them against the owner's paste when there is one; Markdown-style `* ` / `**` inside them are formatting, spelled as plain text in the templates.
 - Read the profile bio for usage terms. A bio like "DM for collaborations" is not a license.
 - The prompt is often not in the linked post. "完整提示词放评论区", "Prompt 👇" or a "Show more" cut mean it sits in the author's own reply, and the images sit in the main post above it. Open every post in the author's thread, take the prompt from the reply and the images from the main post; ignore quoted posts and other people's replies. Record the reply as `role: "original"` and the main post as a `role: "supplementary"` source (title `"<Name> on X (<date>), examples"`); each example's `sourceUrl` is the post it came from.
-- Extract the prompt in the page and hash it there: find the deepest element whose `innerText` starts with the prompt's first words (logged-out X has no `data-testid="tweetText"`), and slice off the intro when the prompt shares a post with commentary.
+- When the prompt shares a post with commentary, keep only the prompt part (drop the intro, "Prompt 👇" and the model line) before hashing.
 - Images in the post (`pbs.twimg.com`): the owner sharing the link is the permission to download the images in that post and in the author's thread (section 3). Pasted images count as supplied by the owner; they may exist only in the chat and not on disk — then fetch the same images from the post.
 - Compare the idea with existing entries. If it closely resembles another author's prompt, tell the user — some authors have publicly complained about copies.
 
