@@ -1,0 +1,70 @@
+[
+  {
+    "id": "wide-open",
+    "src": "images/wide-open.jpg",
+    "width": 900,
+    "height": 1600,
+    "alt": {
+      "en": "Campaign poster with giant white condensed letters WIDE OPEN on a sky-blue field, a weathered desert arch splitting the word OPEN",
+      "zh-CN": "Campaign 海报：天蓝底上的巨型白色窄体字 WIDE OPEN，一座风化的沙漠拱门把 OPEN 拆开"
+    },
+    "sourceUrl": "https://x.com/VigoCreativeAI/status/2103785184705335700",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/VigoCreativeAI/status/2103785184705335700"
+    },
+    "recipe": null
+  },
+  {
+    "id": "soft-power",
+    "src": "images/soft-power.jpg",
+    "width": 900,
+    "height": 1600,
+    "alt": {
+      "en": "Campaign poster with giant cream letters SOFT POWER on a deep plum field, a vermilion silk scarf twisting through and around the words",
+      "zh-CN": "Campaign 海报：深梅紫底上的巨型奶油色字 SOFT POWER，一条朱红丝巾在文字间穿绕"
+    },
+    "sourceUrl": "https://x.com/VigoCreativeAI/status/2103785184705335700",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/VigoCreativeAI/status/2103785184705335700"
+    },
+    "recipe": null
+  },
+  {
+    "id": "raw-form",
+    "src": "images/raw-form.jpg",
+    "width": 900,
+    "height": 1600,
+    "alt": {
+      "en": "Campaign poster with giant white letters RAW FORM on a lavender field, clay-covered hands shaping wet clay on a potter's wheel in front of the type",
+      "zh-CN": "Campaign 海报：薰衣草紫底上的巨型白字 RAW FORM，沾满泥的双手在文字前方拉坯"
+    },
+    "sourceUrl": "https://x.com/VigoCreativeAI/status/2103785184705335700",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/VigoCreativeAI/status/2103785184705335700"
+    },
+    "recipe": null
+  },
+  {
+    "id": "slow-burn",
+    "src": "images/slow-burn.jpg",
+    "width": 900,
+    "height": 1600,
+    "alt": {
+      "en": "Campaign poster with giant white letters SLOW BURN on black, a flaring wooden match crossing the words with its flame between them",
+      "zh-CN": "Campaign 海报：黑底上的巨型白字 SLOW BURN，一根燃起的火柴斜穿文字，火焰位于两词之间"
+    },
+    "sourceUrl": "https://x.com/VigoCreativeAI/status/2103785184705335700",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/VigoCreativeAI/status/2103785184705335700"
+    },
+    "recipe": null
+  }
+]

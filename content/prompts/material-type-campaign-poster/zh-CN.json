@@ -1,0 +1,25 @@
+{
+  "title": "材质 × 巨字 Campaign 海报",
+  "summary": "只用三样东西构成的 9:16 Campaign 海报：一种真实材质的特写、一整片大胆的色场，以及被主体穿插的巨型白色窄体标题。",
+  "seoTitle": "巨型字体 Campaign 海报 Prompt（材质特写）| Image Prompt Book",
+  "seoDescription": "生成大胆的编辑风 Campaign 海报：陶土、丝绸、火柴或石材穿插在单色色场上的巨型白字之间。可选预设或自己填写，并复制完整 Prompt。",
+  "inputRequirement": "不需要图片。选择四个预设之一，或保留方括号字段，填入你的标题、主体、镜头、配色和文字互动。",
+  "howToUse": [
+    "选择一个预设，或保留“自己填写”并替换方括号字段。",
+    "复制 Prompt，或直接在 ChatGPT 中打开。",
+    "发送到你的生图工具。"
+  ],
+  "exampleNotice": "作者分享的案例效果，非实时预览。",
+  "verificationNotice": "案例来自作者的帖子，Image Prompt Book 尚未复现。",
+  "adaptationNotice": "中文翻译与四个预设（依据作者的案例说明编写）由 Image Prompt Book 提供；不等于作者的原始表述或认可。",
+  "licenseNotice": "作者未声明许可；全部权利归作者所有，本页注明作者并链接原帖。",
+  "parameterLabels": {
+    "brief": "创意简报"
+  },
+  "keywords": [
+    "Campaign 海报",
+    "巨型字体",
+    "窄体字",
+    "材质特写"
+  ]
+}

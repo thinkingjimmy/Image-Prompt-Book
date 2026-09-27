@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "brief",
+      "type": "select",
+      "renderAs": "block",
+      "default": "custom",
+      "options": [
+        {
+          "id": "custom",
+          "labels": {
+            "en": "Fill in your own",
+            "zh-CN": "自己填写"
+          },
+          "replacements": {
+            "en": "Headline: \"[MAIN_TEXT]\"\nSubject: [MATERIAL OR OBJECT + ITS STATE]\nCamera: [ANGLE + SCALE]\nPalette: [ONE SATURATED FIELD + SUBJECT TONES + WHITE TYPE]\nType Interaction: [WHERE THE SUBJECT CROSSES OR SPLITS THE WORDS]",
+            "zh-CN": "标题：\"[主标题]\"\n主体：[材质或物体 + 它的状态]\n镜头：[角度 + 尺度]\n配色：[一个饱和色场 + 主体色调 + 白色文字]\n文字互动：[主体在哪里穿过或拆开文字]"
+          }
+        },
+        {
+          "id": "wide-open",
+          "labels": {
+            "en": "WIDE OPEN · desert arch",
+            "zh-CN": "WIDE OPEN · 沙漠拱门"
+          },
+          "replacements": {
+            "en": "Headline: \"WIDE OPEN\"\nSubject: a weathered concrete arch standing alone in the desert\nCamera: low wide angle, the arch towering from the left edge\nPalette: saturated sky-blue field + sand and concrete tones + white type\nType Interaction: WIDE sits above the arch; the arch pillar splits OPEN, hiding part of one letter",
+            "zh-CN": "标题：\"WIDE OPEN\"\n主体：一座孤立在沙漠中、饱经风化的混凝土拱门\n镜头：低机位广角，拱门从左侧边缘高耸而起\n配色：饱和的天蓝色场 + 沙土与混凝土色调 + 白色文字\n文字互动：WIDE 位于拱门上方；拱门的立柱把 OPEN 拆开，遮住其中一个字母的一部分"
+          }
+        },
+        {
+          "id": "soft-power",
+          "labels": {
+            "en": "SOFT POWER · silk",
+            "zh-CN": "SOFT POWER · 丝绸"
+          },
+          "replacements": {
+            "en": "Headline: \"SOFT POWER\"\nSubject: a long vermilion silk scarf twisting in mid-air\nCamera: straight on and close, the silk spanning the full height\nPalette: deep plum field + vermilion silk + cream type\nType Interaction: the silk weaves in front of SOFT and behind POWER, slipping between the two words",
+            "zh-CN": "标题：\"SOFT POWER\"\n主体：一条在半空中翻卷的朱红色长丝巾\n镜头：正面近景，丝绸贯穿整个画面高度\n配色：深梅紫色场 + 朱红丝绸 + 奶油色文字\n文字互动：丝绸从 SOFT 前方绕过、从 POWER 后方穿过，滑过两个单词之间"
+          }
+        },
+        {
+          "id": "raw-form",
+          "labels": {
+            "en": "RAW FORM · wet clay",
+            "zh-CN": "RAW FORM · 湿陶土"
+          },
+          "replacements": {
+            "en": "Headline: \"RAW FORM\"\nSubject: wet clay rising on a potter's wheel between two clay-covered hands\nCamera: low side angle, extreme close-up, the pot filling the lower half\nPalette: soft lavender field + earthy brown clay + white type\nType Interaction: the rising clay passes in front of the lower edge of FORM while the hands stay below the letters",
+            "zh-CN": "标题：\"RAW FORM\"\n主体：在拉坯机上被两只沾满泥的手拉起的湿陶土\n镜头：低侧角度，大特写，陶坯占据下半画面\n配色：柔和的薰衣草紫色场 + 土棕色陶土 + 白色文字\n文字互动：升起的陶土从 FORM 下缘前方经过，双手留在字母下方"
+          }
+        },
+        {
+          "id": "slow-burn",
+          "labels": {
+            "en": "SLOW BURN · match",
+            "zh-CN": "SLOW BURN · 火柴"
+          },
+          "replacements": {
+            "en": "Headline: \"SLOW BURN\"\nSubject: a single wooden match flaring, its head charred and glowing\nCamera: macro, on a diagonal from the lower right, the match monumental in frame\nPalette: deep black field + orange flame and pale wood + white type\nType Interaction: the flame rises in the gap between SLOW and BURN; the matchstick crosses in front of BURN",
+            "zh-CN": "标题：\"SLOW BURN\"\n主体：一根正在燃起的木火柴，火柴头焦黑发亮\n镜头：微距，从右下方斜向入画，火柴在画面中显得巨大\n配色：深黑色场 + 橙色火焰与浅色木头 + 白色文字\n文字互动：火焰在 SLOW 与 BURN 之间的空隙中升起；火柴杆从 BURN 前方斜穿而过"
+          }
+        }
+      ]
+    }
+  ]
+}
