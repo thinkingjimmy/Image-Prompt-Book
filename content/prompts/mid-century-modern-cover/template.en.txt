@@ -1,0 +1,144 @@
+Using the inputs below, create a cover poster.
+
+[Inputs]
+
+Topic: [Enter the topic]
+
+Main title: [Enter the title]
+
+Subtitle: [Optional]
+
+Supporting line: [Optional, 4–12 words suggested]
+
+Core subject: {{subject}}
+
+Aspect ratio: {{ratio}}
+
+Accent color: {{accent}}
+
+[Overall style]
+
+Use a mid-20th-century modernist retro editorial illustration style, blending the design language of vintage book covers, vintage magazine covers, film noir and geometric graphic design.
+
+The image should be:
+
+black-dominant;
+retro and premium;
+rational and restrained;
+simple and striking;
+geometrically simplified;
+strongly cover-like.
+
+Do not default to a detective theme; choose the most fitting imagery for the topic, while always keeping the same retro modernist visual language.
+
+[Color rules]
+
+Keep the whole image strictly within 3 colors:
+
+1. Black as the absolute main color, covering most of the background or subject;
+2. White or off-white as the secondary color;
+3. Only 1 bright accent color.
+
+The accent color can be one of red, green, blue, orange, purple or yellow, chosen to suit the topic.
+
+Do not use several bright colors at once;
+no highly saturated multicolor;
+no complex gradients;
+use the accent color only on part of the subject, key words of the title, geometric shapes or a few emphasis elements.
+
+[Composition]
+
+Arrange the composition to fit the chosen aspect ratio.
+
+Choose automatically to suit the topic:
+
+image left, text right;
+text left, image right;
+central subject with information on both sides;
+top and bottom sections;
+a poster layout led by a single subject.
+
+Keep only:
+
+one core subject;
+one visual center;
+one main color focus;
+one set of main title information.
+
+Balance the subject and the text; keep the structure clear and do not overcrowd it.
+
+[Subject treatment]
+
+Distill the single most representative core image from the topic.
+
+Render the subject with:
+
+geometric outlines;
+large flat color blocks;
+silhouette-style light and shadow;
+simplified features and details;
+a little exaggerated proportion;
+retro editorial illustration.
+
+People, products, buildings, robots, service scenes or abstract concepts should all be reduced to clear, simple, easily recognized visual symbols.
+
+No realistic photography;
+no 3D;
+no anime style;
+no complex mechanical detail;
+no piles of unrelated decoration.
+
+[Typography]
+
+The main title must stand out as the first visual center of the image.
+
+Set the Chinese main title in a typeface with strength, a book-cover feel or an editorial feel.
+
+The English subtitle can use an elegant serif or a clean uppercase face.
+
+Keep supporting text to a minimum, only what is necessary.
+
+Do not use lots of tags, specs, icons, numbering or captions.
+
+[Texture]
+
+Add slight vintage paper grain, screen-print, old book-cover or worn-ink texture.
+
+Keep the grain restrained; do not make it shabby, dirty or badly faded.
+
+Keep the whole image crisp, flat and easy on the eye.
+
+[Edges]
+
+The image must be full bleed.
+
+Content runs straight to all four edges of the canvas.
+
+No white border;
+no card-style frame;
+no rounded white edges;
+no margins around the image;
+no light-colored outer rim.
+
+[Do not]
+
+No neon cyberpunk;
+no modern tech blue-purple gradients;
+no multicolor palettes;
+no complex lighting effects;
+no glass textures;
+no metallic 3D;
+no lots of small icons;
+no information overload;
+no generic internet promo-poster look.
+
+[Final effect]
+
+The final image should look like a premium retro feature cover or a classic book cover:
+
+black dominant;
+a clear black-and-white relationship;
+only one bright color;
+a simple, powerful subject;
+a clear, striking title;
+restrained and premium, with a mid-century modernist retro editorial character.

@@ -19,6 +19,7 @@ Image Prompt Book 的每个案例都来自作者的公开分享，感谢他们�
 | Photo × Minimal Circle Logo Diptych<br>照片 × 极简圆形 Logo · 上下双拼 | DAAI ([@daaihq](https://x.com/daaihq)) | [DAAI on X (2026-09-25)](https://x.com/daaihq/status/2103275028389548513) | [No license stated / 未声明许可](https://x.com/daaihq/status/2103275028389548513) |
 | Minimal Circle Logo Avatar (adapted)<br>极简圆形 Logo 头像（改编） | DAAI ([@daaihq](https://x.com/daaihq)) | [DAAI on X (2026-09-25)](https://x.com/daaihq/status/2103275028389548513) | [No license stated / 未声明许可](https://x.com/daaihq/status/2103275028389548513) |
 | Crayon Lifestyle Poster<br>蜡笔生活海报 | 苏乐 ([@ai_suxiaole](https://x.com/ai_suxiaole)) | [苏乐 on X (2026-09-26)](https://x.com/ai_suxiaole/status/2103798989850390877) | [No license stated / 未声明许可](https://x.com/ai_suxiaole/status/2103798989850390877) |
+| Mid-Century Modern Cover<br>中世纪现代主义封面 | Adrian Punk ([@AdrianPunk115](https://x.com/AdrianPunk115)) | [Adrian Punk on X (2026-06-29)](https://x.com/AdrianPunk115/status/2071488857682682096) | [No license stated / 未声明许可](https://x.com/AdrianPunk115/status/2071488857682682096) |
 
 The English and Chinese versions and the adjustable options on this site are our adaptations; they are not endorsed by the authors. See the [License](../README.md#license) section for what each license allows.
 

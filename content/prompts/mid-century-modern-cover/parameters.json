@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "subject",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "auto",
+      "options": [
+        {
+          "id": "auto",
+          "labels": {
+            "en": "Decide automatically",
+            "zh-CN": "自动判断"
+          },
+          "replacements": {
+            "en": "decide automatically",
+            "zh-CN": "自动判断"
+          }
+        },
+        {
+          "id": "person",
+          "labels": {
+            "en": "Person",
+            "zh-CN": "人物"
+          },
+          "replacements": {
+            "en": "person",
+            "zh-CN": "人物"
+          }
+        },
+        {
+          "id": "product",
+          "labels": {
+            "en": "Product",
+            "zh-CN": "产品"
+          },
+          "replacements": {
+            "en": "product",
+            "zh-CN": "产品"
+          }
+        },
+        {
+          "id": "building",
+          "labels": {
+            "en": "Building",
+            "zh-CN": "建筑"
+          },
+          "replacements": {
+            "en": "building",
+            "zh-CN": "建筑"
+          }
+        },
+        {
+          "id": "animal",
+          "labels": {
+            "en": "Animal",
+            "zh-CN": "动物"
+          },
+          "replacements": {
+            "en": "animal",
+            "zh-CN": "动物"
+          }
+        },
+        {
+          "id": "concept",
+          "labels": {
+            "en": "Abstract concept",
+            "zh-CN": "抽象概念"
+          },
+          "replacements": {
+            "en": "abstract concept",
+            "zh-CN": "抽象概念"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ratio",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "5-2",
+      "options": [
+        {
+          "id": "5-2",
+          "labels": {
+            "en": "5:2",
+            "zh-CN": "5:2"
+          },
+          "replacements": {
+            "en": "5:2",
+            "zh-CN": "5:2"
+          }
+        },
+        {
+          "id": "16-9",
+          "labels": {
+            "en": "16:9",
+            "zh-CN": "16:9"
+          },
+          "replacements": {
+            "en": "16:9",
+            "zh-CN": "16:9"
+          }
+        },
+        {
+          "id": "3-2",
+          "labels": {
+            "en": "3:2",
+            "zh-CN": "3:2"
+          },
+          "replacements": {
+            "en": "3:2",
+            "zh-CN": "3:2"
+          }
+        },
+        {
+          "id": "1-1",
+          "labels": {
+            "en": "1:1",
+            "zh-CN": "1:1"
+          },
+          "replacements": {
+            "en": "1:1",
+            "zh-CN": "1:1"
+          }
+        },
+        {
+          "id": "4-5",
+          "labels": {
+            "en": "4:5",
+            "zh-CN": "4:5"
+          },
+          "replacements": {
+            "en": "4:5",
+            "zh-CN": "4:5"
+          }
+        },
+        {
+          "id": "9-16",
+          "labels": {
+            "en": "9:16",
+            "zh-CN": "9:16"
+          },
+          "replacements": {
+            "en": "9:16",
+            "zh-CN": "9:16"
+          }
+        }
+      ]
+    },
+    {
+      "id": "accent",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "auto",
+      "options": [
+        {
+          "id": "auto",
+          "labels": {
+            "en": "Decide automatically",
+            "zh-CN": "自动判断"
+          },
+          "replacements": {
+            "en": "decide automatically",
+            "zh-CN": "自动判断"
+          }
+        },
+        {
+          "id": "red",
+          "labels": {
+            "en": "Red",
+            "zh-CN": "红色"
+          },
+          "replacements": {
+            "en": "red",
+            "zh-CN": "红色"
+          }
+        },
+        {
+          "id": "orange",
+          "labels": {
+            "en": "Orange",
+            "zh-CN": "橙色"
+          },
+          "replacements": {
+            "en": "orange",
+            "zh-CN": "橙色"
+          }
+        },
+        {
+          "id": "yellow",
+          "labels": {
+            "en": "Yellow",
+            "zh-CN": "黄色"
+          },
+          "replacements": {
+            "en": "yellow",
+            "zh-CN": "黄色"
+          }
+        },
+        {
+          "id": "blue",
+          "labels": {
+            "en": "Blue",
+            "zh-CN": "蓝色"
+          },
+          "replacements": {
+            "en": "blue",
+            "zh-CN": "蓝色"
+          }
+        },
+        {
+          "id": "green",
+          "labels": {
+            "en": "Green",
+            "zh-CN": "绿色"
+          },
+          "replacements": {
+            "en": "green",
+            "zh-CN": "绿色"
+          }
+        }
+      ]
+    }
+  ]
+}

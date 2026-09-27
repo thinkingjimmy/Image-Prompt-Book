@@ -1,0 +1,27 @@
+{
+  "title": "中世纪现代主义封面",
+  "summary": "黑色主导的中世纪现代主义复古封面：一个几何化、扁平色块的主体，醒目的标题，只用一个亮色点缀，满版出血并带轻微印刷颗粒。",
+  "seoTitle": "中世纪现代主义复古封面 Prompt | Image Prompt Book",
+  "seoDescription": "为文章、教程或 X 头图生成中世纪现代主义复古封面：黑底、几何插画、单一点缀色。可选择核心主体、画幅与点缀色，并复制完整 Prompt。",
+  "inputRequirement": "不需要图片。发送前请把方括号里的字段（主题、标题、副标题、辅助短句）替换成你自己的内容。",
+  "howToUse": [
+    "在 Prompt 中选择核心主体、画幅比例和点缀色。",
+    "复制 Prompt，或直接在 ChatGPT 中打开。",
+    "把方括号字段替换为你的主题、标题及可选的副标题和辅助短句，再发送。"
+  ],
+  "exampleNotice": "作者分享的案例效果，非实时预览。",
+  "verificationNotice": "案例来自作者的帖子，Image Prompt Book 尚未复现。",
+  "adaptationNotice": "英文翻译与可调选项由 Image Prompt Book 提供；不等于作者的原始表述或认可。",
+  "licenseNotice": "作者未声明许可；全部权利归作者所有，本页注明作者并链接原帖。",
+  "parameterLabels": {
+    "subject": "核心主体",
+    "ratio": "画幅比例",
+    "accent": "点缀色"
+  },
+  "keywords": [
+    "中世纪现代主义",
+    "复古封面",
+    "书封",
+    "文章封面"
+  ]
+}

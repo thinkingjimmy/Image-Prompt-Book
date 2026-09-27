@@ -1,0 +1,27 @@
+{
+  "title": "Mid-Century Modern Cover",
+  "summary": "A black-dominant retro cover in the mid-century modernist style: one geometric, flat-color subject, a bold title and a single bright accent color, full bleed with light print grain.",
+  "seoTitle": "Mid-Century Modern Cover Poster Prompt | Image Prompt Book",
+  "seoDescription": "Generate a retro mid-century modernist cover for articles, tutorials or X headers: black background, geometric illustration, one accent color. Pick subject, ratio and accent, then copy the prompt.",
+  "inputRequirement": "No image needed. Replace the bracketed fields (topic, title, subtitle, supporting line) with your own text before sending.",
+  "howToUse": [
+    "Choose the core subject, aspect ratio and accent color in the prompt.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Replace the bracketed fields with your topic, title and optional subtitle and supporting line, then send."
+  ],
+  "exampleNotice": "Example results shared by the author, not a live preview.",
+  "verificationNotice": "These examples come from the author's post and have not been reproduced by Image Prompt Book.",
+  "adaptationNotice": "English translation and adjustable options by Image Prompt Book; not the author's wording or an endorsement.",
+  "licenseNotice": "The author did not state a license. All rights stay with the author; this page credits them and links to the original post.",
+  "parameterLabels": {
+    "subject": "Core subject",
+    "ratio": "Aspect ratio",
+    "accent": "Accent color"
+  },
+  "keywords": [
+    "mid-century modern",
+    "retro cover",
+    "book cover",
+    "article cover"
+  ]
+}

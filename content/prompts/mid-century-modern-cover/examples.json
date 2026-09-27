@@ -1,0 +1,104 @@
+[
+  {
+    "id": "grandma-portrait",
+    "src": "images/grandma-portrait.jpg",
+    "width": 1600,
+    "height": 640,
+    "alt": {
+      "en": "Black mid-century cover titled “中世纪现代主义写真，我奶奶花了999” with a stylized grandmother in sunglasses, pearls and a red scarf beside orange geometric shapes",
+      "zh-CN": "黑底中世纪现代主义封面，标题“中世纪现代主义写真，我奶奶花了999”，戴墨镜、珍珠项链和红丝巾的奶奶形象，旁边是橙色几何图形"
+    },
+    "sourceUrl": "https://x.com/AdrianPunk115/status/2071488857682682096",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X article, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/AdrianPunk115/status/2071488857682682096"
+    },
+    "recipe": null
+  },
+  {
+    "id": "first-principles",
+    "src": "images/first-principles.jpg",
+    "width": 1600,
+    "height": 640,
+    "alt": {
+      "en": "Black cover titled “第一性原理” (First Principles Thinking) with a man's profile silhouette, a red circle and a triangle converging on steps",
+      "zh-CN": "黑底封面，标题“第一性原理”，男子侧脸剪影、红色圆形与三角形汇聚到台阶"
+    },
+    "sourceUrl": "https://x.com/AdrianPunk115/status/2071488857682682096",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X article, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/AdrianPunk115/status/2071488857682682096"
+    },
+    "recipe": null
+  },
+  {
+    "id": "thai-massage",
+    "src": "images/thai-massage.jpg",
+    "width": 1600,
+    "height": 640,
+    "alt": {
+      "en": "Black cover titled “泰式按摩” (Thai Massage) with a flat illustration of a therapist stretching a client under an orange sun and temple silhouette",
+      "zh-CN": "黑底封面，标题“泰式按摩”，扁平插画中按摩师为客人拉伸，背景是橙色太阳和寺庙剪影"
+    },
+    "sourceUrl": "https://x.com/AdrianPunk115/status/2071488857682682096",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X article, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/AdrianPunk115/status/2071488857682682096"
+    },
+    "recipe": null
+  },
+  {
+    "id": "codex-tutorial",
+    "src": "images/codex-tutorial.jpg",
+    "width": 1600,
+    "height": 640,
+    "alt": {
+      "en": "Black cover titled “Codex 从0到1教程” with a noir-style figure in a hat typing on a laptop under a lamp, accented in yellow",
+      "zh-CN": "黑底封面，标题“Codex 从0到1教程”，黑色电影风格的戴帽人物在台灯下用笔记本电脑打字，点缀黄色"
+    },
+    "sourceUrl": "https://x.com/AdrianPunk115/status/2071488857682682096",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X article, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/AdrianPunk115/status/2071488857682682096"
+    },
+    "recipe": null
+  },
+  {
+    "id": "nasdaq-dca",
+    "src": "images/nasdaq-dca.jpg",
+    "width": 1600,
+    "height": 640,
+    "alt": {
+      "en": "Black cover titled “定投纳斯达克指数” (Nasdaq Index DCA) with a man in a hat before skyscrapers and a rising blue arrow",
+      "zh-CN": "黑底封面，标题“定投纳斯达克指数”，戴帽男子面对高楼，一支蓝色上升箭头"
+    },
+    "sourceUrl": "https://x.com/AdrianPunk115/status/2071488857682682096",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X article, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/AdrianPunk115/status/2071488857682682096"
+    },
+    "recipe": null
+  },
+  {
+    "id": "home-robot",
+    "src": "images/home-robot.jpg",
+    "width": 1600,
+    "height": 640,
+    "alt": {
+      "en": "Black cover titled “机器人做家务” (Home Robot) with a flat robot vacuuming a living room, accented in green",
+      "zh-CN": "黑底封面，标题“机器人做家务”，扁平风格的机器人在客厅吸尘，点缀绿色"
+    },
+    "sourceUrl": "https://x.com/AdrianPunk115/status/2071488857682682096",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X article, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/AdrianPunk115/status/2071488857682682096"
+    },
+    "recipe": null
+  }
+]

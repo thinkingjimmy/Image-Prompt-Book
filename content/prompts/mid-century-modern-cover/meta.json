@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "mid-century-modern-cover",
+  "slug": "mid-century-modern-cover",
+  "templateVersion": "1.0.0",
+  "status": "published",
+  "createdAt": "2026-09-27",
+  "updatedAt": "2026-09-27",
+  "publishedAt": "2026-09-27T09:04:11+08:00",
+  "category": "posters",
+  "tags": [
+    "geometric",
+    "typography",
+    "editorial"
+  ],
+  "originalLocale": "zh-CN",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.zh-CN.txt",
+  "templatePaths": {
+    "en": "template.en.txt",
+    "zh-CN": "template.zh-CN.txt"
+  },
+  "parametersPath": "parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": false,
+  "sourceRecommendedTools": [],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "x-post",
+      "type": "x",
+      "role": "original",
+      "title": "Adrian Punk on X (2026-06-29)",
+      "url": "https://x.com/AdrianPunk115/status/2071488857682682096",
+      "author": {
+        "name": "Adrian Punk",
+        "handle": "@AdrianPunk115",
+        "url": "https://x.com/AdrianPunk115"
+      },
+      "checkedAt": "2026-09-27"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/AdrianPunk115/status/2071488857682682096",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown"
+  }
+}
