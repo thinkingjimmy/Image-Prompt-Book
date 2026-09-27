@@ -184,6 +184,22 @@ function loadVariant(
   return variant;
 }
 
+function checkImageFile(dir: string, image: { src: string; width: number; height: number }, where: string, issues: string[]) {
+  const file = path.join(dir, image.src);
+  if (!existsSync(file)) {
+    issues.push(`${where} image file not found (${image.src})`);
+    return;
+  }
+  try {
+    const size = imageSize(readFileSync(file));
+    if (size.width !== image.width || size.height !== image.height) {
+      issues.push(`${where} declares ${image.width}x${image.height} but the file is ${size.width}x${size.height}`);
+    }
+  } catch (error) {
+    issues.push(`${where} unreadable image (${(error as Error).message})`);
+  }
+}
+
 function validateExamples(entry: PromptEntry, dir: string, issues: string[], label: string) {
   const ids = new Set<string>();
   const parameterIds = new Map(entry.parameters.map((parameter) => [parameter.id, parameter]));
@@ -192,18 +208,10 @@ function validateExamples(entry: PromptEntry, dir: string, issues: string[], lab
     if (ids.has(example.id)) issues.push(`${where} duplicate id`);
     ids.add(example.id);
 
-    const file = path.join(dir, example.src);
-    if (!existsSync(file)) {
-      issues.push(`${where} image file not found (${example.src})`);
-    } else {
-      try {
-        const size = imageSize(readFileSync(file));
-        if (size.width !== example.width || size.height !== example.height) {
-          issues.push(`${where} declares ${example.width}x${example.height} but the file is ${size.width}x${size.height}`);
-        }
-      } catch (error) {
-        issues.push(`${where} unreadable image (${(error as Error).message})`);
-      }
+    checkImageFile(dir, example, where, issues);
+    if (example.input) {
+      checkImageFile(dir, example.input, `${where} input`, issues);
+      if (example.input.src === example.src) issues.push(`${where} input must be a different file from the result`);
     }
 
     if (example.provenance === "project-verified" && !example.recipe) issues.push(`${where} project-verified examples need a complete recipe`);

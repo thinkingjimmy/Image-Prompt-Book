@@ -97,7 +97,11 @@
     "aboutSources": "Sources",
     "sourceOriginal": "Original",
     "sourceSupplementary": "Supplementary",
-    "sourceChecked": "checked {date}"
+    "sourceChecked": "checked {date}",
+    "compare": "Compare the original photo and the result",
+    "compareValue": "{value}% original photo",
+    "compareBefore": "Original",
+    "compareAfter": "Result"
   },
   "notFound": {
     "title": "Page not found",

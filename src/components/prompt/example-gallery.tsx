@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 @/components/gallery/example-image，依赖 radix-ui Dialog 作大图层
+ * [INPUT]: 依赖 @/components/gallery/example-image 与 compare-frame 的 CompareImage，依赖同目录 CompareSlider，依赖 radix-ui Dialog 作大图层
  * [OUTPUT]: 对外提供 ExampleGallery 客户端组件与 ExampleView 类型
- * [POS]: components/prompt 的图片区：图片即左栏（满铺 cover、按图片比例定宽），缩略图、来源链接与“完整图/撑满”切换悬浮其上，可放大；参数变化绝不替换或伪造图片
+ * [POS]: components/prompt 的图片区：图片即左栏（满铺 cover、按图片比例定宽），缩略图、来源链接与“完整图/撑满”切换悬浮其上，可放大；案例带 input 原图时主图换成可拖动的前后对比；参数变化绝不替换或伪造图片
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 "use client";
@@ -10,8 +10,10 @@ import { ExternalLink, ImageIcon, Maximize2, Minimize2, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Dialog as DialogPrimitive } from "radix-ui";
 import { useCallback, useEffect, useRef, useState } from "react";
+import type { CompareImage } from "@/components/gallery/compare-frame";
 import { ExampleImage } from "@/components/gallery/example-image";
 import { cn } from "@/lib/utils";
+import { CompareSlider } from "./compare-slider";
 
 export type ExampleView = {
   id: string;
@@ -20,6 +22,8 @@ export type ExampleView = {
   height: number;
   alt: string;
   sourceUrl: string;
+  /** The input photo, when the source shows it: the viewer becomes a before/after slider. */
+  input?: CompareImage;
 };
 
 /**
@@ -48,34 +52,41 @@ export function ExampleGallery({ examples, unoptimized, className }: { examples:
   const glass = "bg-black/35 text-white ring-1 ring-white/10 backdrop-blur-md";
   return (
     <figure className={cn("relative overflow-hidden bg-muted", className)} style={{ aspectRatio: `${current.width} / ${current.height}` }}>
-      {fit === "contain" && (
+      {fit === "contain" && !current.input && (
         // eslint-disable-next-line @next/next/no-img-element -- decorative blurred backdrop reuses the already-loaded image
         <img src={current.src} alt="" aria-hidden className="absolute inset-0 size-full scale-110 object-cover opacity-70 blur-2xl" />
       )}
-      <button type="button" onClick={() => setZoomed(true)} className="absolute inset-0 cursor-zoom-in" aria-label={`${t("viewLarge")}: ${current.alt}`}>
-        <ExampleImage
-          fit={fit}
-          key={current.id}
-          src={current.src}
-          width={current.width}
-          height={current.height}
-          alt={current.alt}
-          eager={index === 0}
-          unoptimized={unoptimized}
-          sizes="(max-width: 767px) 100vw, 60vw"
-          className="h-full w-full bg-transparent"
-        />
-      </button>
+      {current.input ? (
+        // Dragging owns the pointer here, so a comparison trades click-to-zoom and the fit toggle for the slider.
+        <CompareSlider key={current.id} before={current.input} after={current} eager={index === 0} unoptimized={unoptimized} />
+      ) : (
+        <>
+          <button type="button" onClick={() => setZoomed(true)} className="absolute inset-0 cursor-zoom-in" aria-label={`${t("viewLarge")}: ${current.alt}`}>
+            <ExampleImage
+              fit={fit}
+              key={current.id}
+              src={current.src}
+              width={current.width}
+              height={current.height}
+              alt={current.alt}
+              eager={index === 0}
+              unoptimized={unoptimized}
+              sizes="(max-width: 767px) 100vw, 60vw"
+              className="h-full w-full bg-transparent"
+            />
+          </button>
 
-      <button
-        type="button"
-        onClick={() => setFit(fit === "cover" ? "contain" : "cover")}
-        aria-pressed={fit === "contain"}
-        className={cn("absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-medium transition-colors hover:bg-black/50", glass)}
-      >
-        {fit === "cover" ? <Maximize2 className="size-3.5" aria-hidden /> : <Minimize2 className="size-3.5" aria-hidden />}
-        {fit === "cover" ? t("fitFull") : t("fitFill")}
-      </button>
+          <button
+            type="button"
+            onClick={() => setFit(fit === "cover" ? "contain" : "cover")}
+            aria-pressed={fit === "contain"}
+            className={cn("absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-medium transition-colors hover:bg-black/50", glass)}
+          >
+            {fit === "cover" ? <Maximize2 className="size-3.5" aria-hidden /> : <Minimize2 className="size-3.5" aria-hidden />}
+            {fit === "cover" ? t("fitFull") : t("fitFill")}
+          </button>
+        </>
+      )}
 
       <figcaption className="pointer-events-none absolute inset-x-3 bottom-3 flex items-end justify-between gap-3">
         {examples.length > 1 ? (

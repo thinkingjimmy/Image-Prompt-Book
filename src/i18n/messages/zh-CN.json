@@ -97,7 +97,11 @@
     "aboutSources": "来源",
     "sourceOriginal": "原始来源",
     "sourceSupplementary": "补充来源",
-    "sourceChecked": "{date} 核对"
+    "sourceChecked": "{date} 核对",
+    "compare": "对比原图与效果",
+    "compareValue": "原图占 {value}%",
+    "compareBefore": "原图",
+    "compareAfter": "效果"
   },
   "notFound": {
     "title": "页面不存在",

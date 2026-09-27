@@ -1,6 +1,6 @@
 /**
  * [INPUT]: 依赖 fixture 内容（31 条已发布 + 1 草稿）与 ./helpers 的 test/expect/SLUG/pickOption
- * [OUTPUT]: 浏览流程 E2E：首页双语、搜索/标签/排序/分页 URL 恢复、规范化重定向、空态、404、恶意内容与坏图；路由弹窗的打开/关闭/后退/前进/刷新/新标签、语言切换保留选项、Esc 分层与焦点（AC-01–AC-05/12/17/21/23）
+ * [OUTPUT]: 浏览流程 E2E：首页双语、搜索/标签/排序/分页 URL 恢复、规范化重定向、空态、404、恶意内容与坏图；路由弹窗的打开/关闭/后退/前进/刷新/新标签、语言切换保留选项、Esc 分层与焦点（AC-01–AC-05/12/17/21/23）；前后对比（卡片静态分屏、详情拖动/键盘、无原图时保留放大）
  * [POS]: tests/e2e 的列表与详情导航套件
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -283,5 +283,56 @@ test.describe("detail navigation", () => {
     await expect(dialog.locator("[data-modal-title]")).toBeFocused();
     for (let index = 0; index < 40; index++) await page.keyboard.press("Tab");
     expect(await dialog.evaluate((node) => node.contains(document.activeElement))).toBe(true);
+  });
+});
+
+test.describe("before/after comparison", () => {
+  const COMPARED = "fixture-sample-02";
+
+  test("the card shows a static split of the input photo and the result", async ({ page }) => {
+    await page.goto("/en");
+    const card = cards(page).filter({ has: page.locator(`h2 a[href="/en/prompts/${COMPARED}"]`) });
+    await expect(card.getByAltText("Fixture input photo 2")).toBeVisible();
+    await expect(card.getByAltText("Fixture color block 2")).toBeVisible();
+    // Only the detail page is interactive.
+    await expect(card.getByRole("slider")).toHaveCount(0);
+  });
+
+  test("the detail page compares by dragging and by keyboard, without opening the lightbox", async ({ page }, testInfo) => {
+    await page.goto(`/en/prompts/${COMPARED}`);
+    const slider = page.getByRole("slider", { name: "Compare the original photo and the result" });
+    await expect(slider).toHaveAttribute("aria-valuenow", "50");
+    await expect(page.getByText("Original", { exact: true })).toBeVisible();
+    await expect(page.getByText("Result", { exact: true })).toBeVisible();
+
+    const frame = page.getByTestId("compare-slider");
+    const box = (await frame.boundingBox())!;
+    const y = box.y + box.height / 2;
+    await page.mouse.move(box.x + box.width / 2, y);
+    await page.mouse.down();
+    await page.mouse.move(box.x + box.width * 0.25, y, { steps: 5 });
+    await page.mouse.up();
+    const dragged = Number(await slider.getAttribute("aria-valuenow"));
+    expect(dragged).toBeGreaterThan(20);
+    expect(dragged).toBeLessThan(30);
+    await expect(page.getByRole("dialog")).toHaveCount(0);
+
+    await slider.focus();
+    await page.keyboard.press("End");
+    await expect(slider).toHaveAttribute("aria-valuenow", "100");
+    await page.keyboard.press("Home");
+    await page.keyboard.press("ArrowRight");
+    await expect(slider).toHaveAttribute("aria-valuenow", "5");
+
+    await page.keyboard.press("End");
+    await page.keyboard.press("ArrowLeft");
+    await page.keyboard.press("ArrowLeft");
+    await page.screenshot({ path: testInfo.outputPath("compare-detail.png") });
+  });
+
+  test("examples without an input photo keep click-to-zoom and the fit toggle", async ({ page }) => {
+    await page.goto(`/en/prompts/${SLUG}`);
+    await expect(page.getByRole("slider")).toHaveCount(0);
+    await expect(page.getByRole("button", { name: "View full image" })).toBeVisible();
   });
 });

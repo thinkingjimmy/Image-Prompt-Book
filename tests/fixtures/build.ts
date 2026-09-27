@@ -171,6 +171,8 @@ export default function buildFixtures() {
         id: "cover",
         ...writeImage(slug, "cover", width, height, [shade, 200 - (index % 5) * 20, 230 - shade / 3]),
         alt: { en: `Fixture color block ${index}`, "zh-CN": `测试色块 ${index}` },
+        // The second featured card carries its input photo, so both comparison views are exercised.
+        ...(index === 2 ? { input: { ...writeImage(slug, "cover-input", width, height, [230, 120, 60]), alt: { en: "Fixture input photo 2", "zh-CN": "测试原图 2" } } } : {}),
         sourceUrl: "https://github.com/thinkingjimmy/Image-Prompt-Book",
         provenance: "source-reported",
         rights: EXAMPLE_RIGHTS,

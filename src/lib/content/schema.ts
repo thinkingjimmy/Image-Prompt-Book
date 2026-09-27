@@ -1,6 +1,6 @@
 /**
  * [INPUT]: 依赖 zod 的 schema 能力，依赖 @/i18n/config 的 LOCALES
- * [OUTPUT]: 对外提供 metaSchema/localeContentSchema/parametersSchema/examplesSchema/taxonomySchema 及对应类型、isHttpsUrl()
+ * [OUTPUT]: 对外提供 metaSchema/localeContentSchema/parametersSchema/examplesSchema（案例图可带 input 原图用于前后对比）/taxonomySchema 及对应类型、isHttpsUrl()
  * [POS]: lib/content 的单文件结构契约，被 load.ts 做跨文件校验前的第一道闸门；跨文件规则不在此处
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -149,12 +149,18 @@ export const parametersSchema = z.strictObject({
   parameters: z.array(parameterSchema),
 });
 
-export const exampleSchema = z.strictObject({
-  id: slug,
+const imageFields = {
   src: z.string().regex(/^images\/[A-Za-z0-9._-]+\.(?:webp|png|jpe?g|avif)$/, "must be an images/<file> path inside the entry folder"),
   width: z.number().int().positive(),
   height: z.number().int().positive(),
   alt: localized(nonEmpty),
+};
+
+export const exampleSchema = z.strictObject({
+  id: slug,
+  ...imageFields,
+  /** The photo the prompt was given, when the source shows it; rendered as a before/after comparison. */
+  input: z.strictObject(imageFields).optional(),
   caption: localized(nonEmpty).optional(),
   sourceUrl: httpsUrl,
   provenance: z.enum(["source-reported", "project-verified"]),

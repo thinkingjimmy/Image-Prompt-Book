@@ -51,6 +51,7 @@ function toExampleViews(entry: PromptEntry, locale: Locale): ExampleView[] {
     height: example.height,
     alt: example.alt[locale],
     sourceUrl: example.sourceUrl,
+    input: example.input && { src: mediaUrl(entry.meta.slug, example.input.src), width: example.input.width, height: example.input.height, alt: example.input.alt[locale] },
   }));
 }
 
