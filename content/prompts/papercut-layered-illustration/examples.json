@@ -1,0 +1,28 @@
+[
+  {
+    "id": "dinner-party",
+    "src": "images/dinner-party.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "Layered paper-cut illustration of four women at a dinner table with pizza and a red cake, each character with dot eyes, blush and a white sticker-like outline",
+      "zh-CN": "分层纸雕插画：四位女性围坐在摆着披萨和红色蛋糕的餐桌旁，每个角色都是圆点眼睛、腮红，外围有白色贴纸般的描边"
+    },
+    "input": {
+      "src": "images/dinner-party-photo.jpg",
+      "width": 628,
+      "height": 837,
+      "alt": {
+        "en": "Original photo: a selfie of four women at a dinner table with pizza, a red cake and glasses of juice",
+        "zh-CN": "原照片：四位女性在摆着披萨、红色蛋糕和果汁的餐桌旁自拍"
+      }
+    },
+    "sourceUrl": "https://x.com/jzaib4269/status/2068366821884047759",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Images from the author's X post (input photo and result), downloaded at the owner's request (Jimmy Wong, 2026-09-27); the input photo is cropped to the result's framing for the comparison. The author states no license.",
+      "evidence": "https://x.com/jzaib4269/status/2068366821884047759"
+    },
+    "recipe": null
+  }
+]

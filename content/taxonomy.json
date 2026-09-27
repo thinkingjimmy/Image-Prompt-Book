@@ -133,6 +133,13 @@
         "en": "Black and white",
         "zh-CN": "黑白"
       }
+    },
+    {
+      "id": "papercraft",
+      "labels": {
+        "en": "Papercraft",
+        "zh-CN": "纸艺"
+      }
     }
   ]
 }

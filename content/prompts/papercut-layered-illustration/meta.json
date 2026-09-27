@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "papercut-layered-illustration",
+  "slug": "papercut-layered-illustration",
+  "templateVersion": "1.0.0",
+  "status": "published",
+  "createdAt": "2026-09-27",
+  "updatedAt": "2026-09-27",
+  "publishedAt": "2026-09-27T12:53:49+08:00",
+  "category": "photo-art",
+  "tags": [
+    "papercraft",
+    "storybook",
+    "image-to-image"
+  ],
+  "originalLocale": "en",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.en.txt",
+  "templatePaths": {
+    "en": "template.en.txt",
+    "zh-CN": "template.zh-CN.txt"
+  },
+  "parametersPath": "parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": true,
+  "sourceRecommendedTools": [
+    "GPT Image 2.0 on ChatGPT"
+  ],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "x-post",
+      "type": "x",
+      "role": "original",
+      "title": "Jahan Zaib on X (2026-06-20)",
+      "url": "https://x.com/jzaib4269/status/2068366821884047759",
+      "author": {
+        "name": "Jahan Zaib",
+        "handle": "@jzaib4269",
+        "url": "https://x.com/jzaib4269"
+      },
+      "checkedAt": "2026-09-27"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/jzaib4269/status/2068366821884047759",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown"
+  }
+}

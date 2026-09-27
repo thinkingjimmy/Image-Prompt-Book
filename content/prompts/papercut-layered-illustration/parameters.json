@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "outline",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "white",
+      "options": [
+        {
+          "id": "white",
+          "labels": {
+            "en": "White sticker outline",
+            "zh-CN": "白色贴纸描边"
+          },
+          "replacements": {
+            "en": "Add a distinct white outer outline layer surrounding each main character, resembling a thick sticker border or white cut-paper backing, clearly separating the characters from the background. This white layer should feel like an intentional paper layer, not a glow.",
+            "zh-CN": "在每个主要角色外围加一层明显的白色外轮廓，像厚厚的贴纸边或白色衬底纸片，把角色和背景清楚地分开。这层白边应当是刻意的一层纸，而不是光晕。"
+          }
+        },
+        {
+          "id": "none",
+          "labels": {
+            "en": "No outline",
+            "zh-CN": "不加描边"
+          },
+          "replacements": {
+            "en": "Do not add an outline layer around the characters; let the stacked paper layers alone separate them from the background.",
+            "zh-CN": "角色周围不加外轮廓层，只靠叠加的纸层把角色和背景分开。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "palette",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "muted",
+      "options": [
+        {
+          "id": "muted",
+          "labels": {
+            "en": "Muted blue, green, neutral",
+            "zh-CN": "柔蓝绿与暖中性色"
+          },
+          "replacements": {
+            "en": "Use a pastel color palette with muted blues, greens, and warm neutrals, balanced and calming.",
+            "zh-CN": "使用粉彩配色，以柔和的蓝、绿和暖中性色为主，平衡而舒缓。"
+          }
+        },
+        {
+          "id": "warm",
+          "labels": {
+            "en": "Warm peach and cream",
+            "zh-CN": "暖桃与奶油色"
+          },
+          "replacements": {
+            "en": "Use a warm pastel color palette with peach, blush pink, butter yellow, and cream, balanced and calming.",
+            "zh-CN": "使用温暖的粉彩配色，以蜜桃、腮红粉、奶油黄和奶油白为主，平衡而舒缓。"
+          }
+        },
+        {
+          "id": "cool",
+          "labels": {
+            "en": "Cool mint and lavender",
+            "zh-CN": "薄荷与薰衣草"
+          },
+          "replacements": {
+            "en": "Use a cool pastel color palette with mint, sky blue, lavender, and soft gray, balanced and calming.",
+            "zh-CN": "使用清凉的粉彩配色，以薄荷绿、天蓝、薰衣草紫和柔灰为主，平衡而舒缓。"
+          }
+        }
+      ]
+    }
+  ]
+}
