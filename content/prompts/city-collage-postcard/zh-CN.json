@@ -1,0 +1,25 @@
+{
+  "title": "城市拼贴旅行明信片",
+  "summary": "为任意城市生成 3:4 旅行明信片：手写城市名、真实地标拼贴、标语和诗句、城市地图、带当天邮戳的邮票，以及经纬度坐标。",
+  "seoTitle": "城市拼贴旅行明信片 Prompt | Image Prompt Book",
+  "seoDescription": "为任意城市生成现代拼贴明信片：地标、地图、邮票邮戳与经纬度。选择城市，并复制完整 Prompt。",
+  "inputRequirement": "不需要图片。选择一个城市，或选“自己填写”后换成任意城市。想要端午版，在城市名后加“端午”两个字。",
+  "howToUse": [
+    "在 Prompt 中选择城市，或选“自己填写”后改成你的城市。",
+    "复制 Prompt，或直接在 ChatGPT 中打开。",
+    "发送后，模型会自动补全地标、标语、诗句、经纬度和日期。"
+  ],
+  "exampleNotice": "作者分享的案例效果，非实时预览。",
+  "verificationNotice": "案例来自作者的帖子，Image Prompt Book 尚未复现。",
+  "adaptationNotice": "英文翻译与城市选项由 Image Prompt Book 提供；不等于作者的原始表述或认可。",
+  "licenseNotice": "作者未声明许可；全部权利归作者所有，本页注明作者并链接原帖。",
+  "parameterLabels": {
+    "city": "城市"
+  },
+  "keywords": [
+    "旅行明信片",
+    "城市拼贴",
+    "地标拼贴",
+    "明信片"
+  ]
+}

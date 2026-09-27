@@ -1,0 +1,12 @@
+Following the spec below, create a travel postcard for [City: {{city}}]
+
+A modern travel collage postcard, portrait, aspect ratio 3:4, clean off-white background, framed by a modern white postcard border.
+Top left: the city name in large handwritten lettering; below it, a one-line slogan for the city in thin small type;
+Top right: a red dot followed by 4 landmark names; on the right side, a line of poetry set vertically;
+In the middle, a free collage of the city's signature landmarks in a realistic style, with free-form edges, varied sizes, overlapping and staggered
+At the bottom, a modern, minimal city map; bottom right, a stamp overlaid with a round postmark showing today's date;
+Scatter a few geometric color blocks in the city's theme colors at random; bottom left, the latitude and longitude in thin monospaced type.
+
+Fill in automatically: the city's 4 landmarks, 1 slogan, 1 line of poetry, its real coordinates and today's date.
+Language rule: use only the main language of the city's country across the whole image, with no mixing of languages
+If marked "Dragon Boat Festival": add zongzi, mugwort and calamus, sachets and dragon boats to the collage, make the slogan and poem echo the festival, and date the postmark on the 2026 Dragon Boat Festival, June 19.

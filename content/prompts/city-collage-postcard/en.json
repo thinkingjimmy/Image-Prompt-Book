@@ -1,0 +1,25 @@
+{
+  "title": "City Collage Travel Postcard",
+  "summary": "A 3:4 travel postcard for any city: handwritten city name, a collage of real landmarks, a slogan and a line of poetry, a city map, a stamp with today's postmark and the coordinates.",
+  "seoTitle": "City Collage Travel Postcard Prompt | Image Prompt Book",
+  "seoDescription": "Generate a modern collage postcard for any city with landmarks, a map, a stamp and postmark, and the city's coordinates. Pick a city, then copy the prompt.",
+  "inputRequirement": "No image needed. Pick a city, or choose \"Fill in your own\" and replace it with any city. Add \"Dragon Boat Festival\" after the city name for the festival version.",
+  "howToUse": [
+    "Pick a city in the prompt, or choose \"Fill in your own\" and type yours.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Send it; the model fills in the landmarks, slogan, poem, coordinates and date."
+  ],
+  "exampleNotice": "Example results shared by the author, not a live preview.",
+  "verificationNotice": "These examples come from the author's post and have not been reproduced by Image Prompt Book.",
+  "adaptationNotice": "English translation and the city option by Image Prompt Book; not the author's wording or an endorsement.",
+  "licenseNotice": "The author did not state a license. All rights stay with the author; this page credits them and links to the original post.",
+  "parameterLabels": {
+    "city": "City"
+  },
+  "keywords": [
+    "travel postcard",
+    "city collage",
+    "landmark collage",
+    "postcard"
+  ]
+}

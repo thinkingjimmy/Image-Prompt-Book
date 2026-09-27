@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "city",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "chengdu",
+      "options": [
+        {
+          "id": "chengdu",
+          "labels": {
+            "en": "Chengdu",
+            "zh-CN": "成都"
+          },
+          "replacements": {
+            "en": "Chengdu",
+            "zh-CN": "成都"
+          }
+        },
+        {
+          "id": "shanghai",
+          "labels": {
+            "en": "Shanghai",
+            "zh-CN": "上海"
+          },
+          "replacements": {
+            "en": "Shanghai",
+            "zh-CN": "上海"
+          }
+        },
+        {
+          "id": "beijing",
+          "labels": {
+            "en": "Beijing",
+            "zh-CN": "北京"
+          },
+          "replacements": {
+            "en": "Beijing",
+            "zh-CN": "北京"
+          }
+        },
+        {
+          "id": "xian",
+          "labels": {
+            "en": "Xi'an",
+            "zh-CN": "西安"
+          },
+          "replacements": {
+            "en": "Xi'an",
+            "zh-CN": "西安"
+          }
+        },
+        {
+          "id": "suzhou",
+          "labels": {
+            "en": "Suzhou",
+            "zh-CN": "苏州"
+          },
+          "replacements": {
+            "en": "Suzhou",
+            "zh-CN": "苏州"
+          }
+        },
+        {
+          "id": "custom",
+          "labels": {
+            "en": "Fill in your own",
+            "zh-CN": "自己填写"
+          },
+          "replacements": {
+            "en": "your city",
+            "zh-CN": "你的城市"
+          }
+        }
+      ]
+    }
+  ]
+}

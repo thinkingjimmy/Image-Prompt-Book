@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "city-collage-postcard",
+  "slug": "city-collage-postcard",
+  "templateVersion": "1.0.0",
+  "status": "draft",
+  "createdAt": "2026-09-27",
+  "updatedAt": "2026-09-27",
+  "publishedAt": null,
+  "category": "posters",
+  "tags": [
+    "travel",
+    "editorial",
+    "typography"
+  ],
+  "originalLocale": "zh-CN",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.zh-CN.txt",
+  "templatePaths": {
+    "en": "template.en.txt",
+    "zh-CN": "template.zh-CN.txt"
+  },
+  "parametersPath": "parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": false,
+  "sourceRecommendedTools": [],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "x-post",
+      "type": "x",
+      "role": "original",
+      "title": "阿哲Phil on X (2026-06-19)",
+      "url": "https://x.com/Formulasearch/status/2067784159532024280",
+      "author": {
+        "name": "阿哲Phil",
+        "handle": "@Formulasearch",
+        "url": "https://x.com/Formulasearch"
+      },
+      "checkedAt": "2026-09-27"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/Formulasearch/status/2067784159532024280",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown"
+  }
+}

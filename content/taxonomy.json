@@ -140,6 +140,13 @@
         "en": "Papercraft",
         "zh-CN": "纸艺"
       }
+    },
+    {
+      "id": "travel",
+      "labels": {
+        "en": "Travel",
+        "zh-CN": "旅行"
+      }
     }
   ]
 }
