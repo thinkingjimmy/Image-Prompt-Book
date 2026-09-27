@@ -1,0 +1,70 @@
+[
+  {
+    "id": "high-tide",
+    "src": "images/high-tide.jpg",
+    "width": 899,
+    "height": 1600,
+    "alt": {
+      "en": "Halftone poster: a curling ocean wave on a hot orange-to-red field, blurred milky white words HIGH TIDE above and below it, small black text \"pull of the moon\"",
+      "zh-CN": "网点海报：炽热橙红色场上一道翻卷的海浪，模糊的乳白色大字 HIGH TIDE 分列上下，黑色小字“pull of the moon”"
+    },
+    "sourceUrl": "https://x.com/VigoCreativeAI/status/2104028250511204579",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/VigoCreativeAI/status/2104028250511204579"
+    },
+    "recipe": null
+  },
+  {
+    "id": "heavy-sweet",
+    "src": "images/heavy-sweet.jpg",
+    "width": 900,
+    "height": 1600,
+    "alt": {
+      "en": "Halftone poster: a split pomegranate with falling seeds on a yellow-to-red field, blurred white words HEAVY SWEET, small black text \"weight of summer\"",
+      "zh-CN": "网点海报：黄红色场上一颗裂开的石榴和掉落的籽粒，模糊的白色大字 HEAVY SWEET，黑色小字“weight of summer”"
+    },
+    "sourceUrl": "https://x.com/VigoCreativeAI/status/2104028250511204579",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/VigoCreativeAI/status/2104028250511204579"
+    },
+    "recipe": null
+  },
+  {
+    "id": "after-hours",
+    "src": "images/after-hours.jpg",
+    "width": 900,
+    "height": 1600,
+    "alt": {
+      "en": "Halftone poster: a glossy black motorcycle helmet on a yellow field, blurred white words AFTER HOURS above and below, small black text \"follow the night\"",
+      "zh-CN": "网点海报：黄色场上一顶光亮的黑色摩托车头盔，模糊的白色大字 AFTER HOURS 分列上下，黑色小字“follow the night”"
+    },
+    "sourceUrl": "https://x.com/VigoCreativeAI/status/2104028250511204579",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/VigoCreativeAI/status/2104028250511204579"
+    },
+    "recipe": null
+  },
+  {
+    "id": "slow-drift",
+    "src": "images/slow-drift.jpg",
+    "width": 900,
+    "height": 1600,
+    "alt": {
+      "en": "Halftone poster: a golden sand dune crest dividing light and shadow, blurred white words SLOW DRIFT, small black text \"time leaves traces\"",
+      "zh-CN": "网点海报：金色沙丘脊线分开光与影，模糊的白色大字 SLOW DRIFT，黑色小字“time leaves traces”"
+    },
+    "sourceUrl": "https://x.com/VigoCreativeAI/status/2104028250511204579",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/VigoCreativeAI/status/2104028250511204579"
+    },
+    "recipe": null
+  }
+]

@@ -1,0 +1,9 @@
+Create a finished experimental editorial poster, 9:16, flat artwork with a thin cream paper edge. Ordered CMYK halftone photography, milky defocused white type, hot yellow-to-red print field.
+
+One high-contrast photographic subject and the colored background are rebuilt from regular CMYK circular halftone dots: angled rows, visible rosettes, subtle cyan and magenta registration fringes. Near-black shadows and cream highlights keep the photo readable. Ordered print screening, not random grain.
+
+One oversized title in bold grotesk, milky white, on a separate smooth layer with soft Gaussian blur and a broad airbrushed halo. No speckle or distress on the white letters. Small supporting copy and a tiny metadata line in razor-sharp black. The subject's shape guides where the title words sit.
+
+{{brief}}
+
+No extra text, no logos, no watermark, no random film grain, no vintage yellowing, no distressed or outlined white title, no mockup perspective.

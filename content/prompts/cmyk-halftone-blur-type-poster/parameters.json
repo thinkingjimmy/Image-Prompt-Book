@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "brief",
+      "type": "select",
+      "renderAs": "block",
+      "default": "custom",
+      "options": [
+        {
+          "id": "custom",
+          "labels": {
+            "en": "Fill in your own",
+            "zh-CN": "自己填写"
+          },
+          "replacements": {
+            "en": "Title: \"[MAIN_TEXT]\"\nSupporting copy: \"[SECONDARY_TEXT]\"\nMetadata: \"[META_TEXT]\"\nSubject: [ONE BOLD PHOTOGRAPHIC FORM + LIGHT]\nLayout: [HOW THE SUBJECT SPLITS OR CARRIES THE TITLE]",
+            "zh-CN": "标题：\"[主标题]\"\n辅助文案：\"[辅助文案]\"\n元信息：\"[元信息]\"\n主体：[一个大胆的摄影形体 + 光线]\n版式：[主体如何拆开或承托标题]"
+          }
+        },
+        {
+          "id": "high-tide",
+          "labels": {
+            "en": "HIGH TIDE · wave",
+            "zh-CN": "HIGH TIDE · 浪"
+          },
+          "replacements": {
+            "en": "Title: \"HIGH TIDE\"\nSupporting copy: \"pull of the moon\"\nMetadata: \"FORM STUDY 05\"\nSubject: a towering ocean wave curling into a barrel, white spray against dark water\nLayout: HIGH sits above the wave crest; TIDE runs low across the base of the wave",
+            "zh-CN": "标题：\"HIGH TIDE\"\n辅助文案：\"pull of the moon\"\n元信息：\"FORM STUDY 05\"\n主体：一道高耸卷成管状的海浪，白色浪花衬着深色海水\n版式：HIGH 位于浪峰上方；TIDE 横在海浪底部"
+          }
+        },
+        {
+          "id": "heavy-sweet",
+          "labels": {
+            "en": "HEAVY SWEET · pomegranate",
+            "zh-CN": "HEAVY SWEET · 石榴"
+          },
+          "replacements": {
+            "en": "Title: \"HEAVY SWEET\"\nSupporting copy: \"weight of summer\"\nMetadata: \"FORM STUDY 06\"\nSubject: a split pomegranate floating mid-air, its seeds falling below\nLayout: HEAVY sits above the fruit; SWEET runs across the bottom beneath the falling seeds",
+            "zh-CN": "标题：\"HEAVY SWEET\"\n辅助文案：\"weight of summer\"\n元信息：\"FORM STUDY 06\"\n主体：一颗悬在半空、裂开的石榴，籽粒向下掉落\n版式：HEAVY 位于石榴上方；SWEET 横在底部、掉落的籽粒之下"
+          }
+        },
+        {
+          "id": "after-hours",
+          "labels": {
+            "en": "AFTER HOURS · helmet",
+            "zh-CN": "AFTER HOURS · 头盔"
+          },
+          "replacements": {
+            "en": "Title: \"AFTER HOURS\"\nSupporting copy: \"follow the night\"\nMetadata: \"FORM STUDY 07\"\nSubject: a glossy black motorcycle helmet, its visor catching a streak of light\nLayout: AFTER arcs over the top of the helmet; HOURS sits across the bottom below it",
+            "zh-CN": "标题：\"AFTER HOURS\"\n辅助文案：\"follow the night\"\n元信息：\"FORM STUDY 07\"\n主体：一顶光亮的黑色摩托车头盔，面罩上掠过一道反光\n版式：AFTER 沿头盔顶部排开；HOURS 横在头盔下方"
+          }
+        },
+        {
+          "id": "slow-drift",
+          "labels": {
+            "en": "SLOW DRIFT · dune",
+            "zh-CN": "SLOW DRIFT · 沙丘"
+          },
+          "replacements": {
+            "en": "Title: \"SLOW DRIFT\"\nSupporting copy: \"time leaves traces\"\nMetadata: \"FORM STUDY 08\"\nSubject: a single sand dune crest splitting golden light from deep shadow\nLayout: SLOW sits in the lit upper sand; DRIFT sits low across the shadowed dune",
+            "zh-CN": "标题：\"SLOW DRIFT\"\n辅助文案：\"time leaves traces\"\n元信息：\"FORM STUDY 08\"\n主体：一道沙丘脊线把金色光面和深色阴影分开\n版式：SLOW 位于上方受光的沙面；DRIFT 横在下方阴影中的沙丘上"
+          }
+        }
+      ]
+    }
+  ]
+}

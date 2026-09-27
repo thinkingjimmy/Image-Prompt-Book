@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "cmyk-halftone-blur-type-poster",
+  "slug": "cmyk-halftone-blur-type-poster",
+  "templateVersion": "1.0.0",
+  "status": "published",
+  "createdAt": "2026-09-27",
+  "updatedAt": "2026-09-27",
+  "publishedAt": "2026-09-27T16:12:37+08:00",
+  "category": "posters",
+  "tags": [
+    "typography",
+    "screen-print",
+    "editorial"
+  ],
+  "originalLocale": "en",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.en.txt",
+  "templatePaths": {
+    "en": "template.en.txt",
+    "zh-CN": "template.zh-CN.txt"
+  },
+  "parametersPath": "parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": false,
+  "sourceRecommendedTools": [],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "x-post",
+      "type": "x",
+      "role": "original",
+      "title": "Vigo Zhao on X (2026-09-27)",
+      "url": "https://x.com/VigoCreativeAI/status/2104036556889796770",
+      "author": {
+        "name": "Vigo Zhao",
+        "handle": "@VigoCreativeAI",
+        "url": "https://x.com/VigoCreativeAI"
+      },
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "x-examples",
+      "type": "x",
+      "role": "supplementary",
+      "title": "Vigo Zhao on X (2026-09-27), examples",
+      "url": "https://x.com/VigoCreativeAI/status/2104028250511204579",
+      "author": {
+        "name": "Vigo Zhao",
+        "handle": "@VigoCreativeAI",
+        "url": "https://x.com/VigoCreativeAI"
+      },
+      "checkedAt": "2026-09-27"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/VigoCreativeAI/status/2104036556889796770",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown"
+  }
+}
