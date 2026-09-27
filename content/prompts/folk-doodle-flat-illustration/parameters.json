@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "palette",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "bold",
+      "options": [
+        {
+          "id": "bold",
+          "labels": {
+            "en": "Bold and playful",
+            "zh-CN": "大胆俏皮"
+          },
+          "replacements": {
+            "en": "Use a bold and playful color palette, completely different from the original image.",
+            "zh-CN": "使用大胆、俏皮的配色，与原图完全不同。"
+          }
+        },
+        {
+          "id": "pastel",
+          "labels": {
+            "en": "Soft pastel",
+            "zh-CN": "柔和粉彩"
+          },
+          "replacements": {
+            "en": "Use a soft pastel color palette, completely different from the original image.",
+            "zh-CN": "使用柔和的粉彩配色，与原图完全不同。"
+          }
+        },
+        {
+          "id": "original",
+          "labels": {
+            "en": "From the photo, brightened",
+            "zh-CN": "沿用原图并提亮"
+          },
+          "replacements": {
+            "en": "Use a color palette taken from the original image, brightened and simplified.",
+            "zh-CN": "沿用原图的配色，并提亮、简化。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "paper",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "white",
+      "options": [
+        {
+          "id": "white",
+          "labels": {
+            "en": "White paper",
+            "zh-CN": "白纸"
+          },
+          "replacements": {
+            "en": "a sheet of white paper",
+            "zh-CN": "一张白纸"
+          }
+        },
+        {
+          "id": "cream",
+          "labels": {
+            "en": "Cream paper",
+            "zh-CN": "米白纸"
+          },
+          "replacements": {
+            "en": "a sheet of warm cream paper",
+            "zh-CN": "一张温暖的米白色纸"
+          }
+        },
+        {
+          "id": "kraft",
+          "labels": {
+            "en": "Kraft paper",
+            "zh-CN": "牛皮纸"
+          },
+          "replacements": {
+            "en": "a sheet of kraft paper",
+            "zh-CN": "一张牛皮纸"
+          }
+        }
+      ]
+    }
+  ]
+}

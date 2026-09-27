@@ -1,0 +1,26 @@
+{
+  "title": "Folk Doodle Flat Illustration",
+  "summary": "Turn any photo into a cute folk-art flat illustration on white paper: bold playful colors, simplified handmade shapes and doodled flowers, hearts and stars all around.",
+  "seoTitle": "Photo to Folk Doodle Flat Illustration Prompt | Image Prompt Book",
+  "seoDescription": "Turn a photo into a whimsical folk-style flat illustration with doodles. Adjust the palette and paper, then copy the short prompt.",
+  "inputRequirement": "Requires one photo. Attach it in your image generation tool; this website does not upload or generate images.",
+  "howToUse": [
+    "Adjust the highlighted options in the prompt.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Attach your photo, then send."
+  ],
+  "exampleNotice": "Example result shared by the author, not a live preview.",
+  "verificationNotice": "This example comes from the author's post and has not been reproduced by Image Prompt Book.",
+  "adaptationNotice": "Chinese translation and adjustable options by Image Prompt Book; not the author's wording or an endorsement.",
+  "licenseNotice": "The author did not state a license. All rights stay with the author; this page credits them and links to the original post.",
+  "parameterLabels": {
+    "palette": "Palette",
+    "paper": "Paper"
+  },
+  "keywords": [
+    "folk art",
+    "flat illustration",
+    "doodle",
+    "photo to illustration"
+  ]
+}

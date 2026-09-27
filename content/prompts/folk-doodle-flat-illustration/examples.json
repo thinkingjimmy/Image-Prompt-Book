@@ -1,0 +1,28 @@
+[
+  {
+    "id": "cat-and-laptop",
+    "src": "images/cat-and-laptop.jpg",
+    "width": 1024,
+    "height": 1536,
+    "alt": {
+      "en": "Folk-style flat illustration of a girl with glasses and a bun touching noses with a cream cat beside a laptop and a small lamp, surrounded by doodled flowers, hearts and stars on white paper",
+      "zh-CN": "民间风扁平插画：戴眼镜、盘发的女孩和奶油色小猫鼻尖相碰，旁边是笔记本电脑和小台灯，白纸上点缀涂鸦花朵、爱心和星星"
+    },
+    "input": {
+      "src": "images/cat-and-laptop-photo.jpg",
+      "width": 960,
+      "height": 1440,
+      "alt": {
+        "en": "Original photo: a young woman with glasses reaching out to a white cat beside a laptop in a dim room",
+        "zh-CN": "原照片：昏暗房间里，戴眼镜的年轻女子在笔记本电脑旁伸手去碰一只白猫"
+      }
+    },
+    "sourceUrl": "https://x.com/Ciri_ai/status/2066742340434424079",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Images from the author's X post (input photo and result), downloaded at the owner's request (Jimmy Wong, 2026-09-27); the input photo is cropped to the result's 2:3 framing for the comparison. The author states no license.",
+      "evidence": "https://x.com/Ciri_ai/status/2066742340434424079"
+    },
+    "recipe": null
+  }
+]

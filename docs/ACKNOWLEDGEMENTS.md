@@ -26,6 +26,7 @@ Image Prompt Book 的每个案例都来自作者的公开分享，感谢他们�
 | City Collage Travel Postcard<br>城市拼贴旅行明信片 | 阿哲Phil ([@Formulasearch](https://x.com/Formulasearch)) | [阿哲Phil on X (2026-06-19)](https://x.com/Formulasearch/status/2067784159532024280) | [No license stated / 未声明许可](https://x.com/Formulasearch/status/2067784159532024280) |
 | Perler Bead Travel Editorial<br>拼豆旅行编辑海报 | Saul Goodman ([@Goodmanprotocol](https://x.com/Goodmanprotocol)) | [Saul Goodman on X (2026-09-27)](https://x.com/Goodmanprotocol/status/2104088919684084124) | [No license stated / 未声明许可](https://x.com/Goodmanprotocol/status/2104088919684084124) |
 | Material × Giant Type Campaign Poster<br>材质 × 巨字 Campaign 海报 | Vigo Zhao ([@VigoCreativeAI](https://x.com/VigoCreativeAI)) | [Vigo Zhao on X (2026-09-26)](https://x.com/VigoCreativeAI/status/2103785401789939796) | [No license stated / 未声明许可](https://x.com/VigoCreativeAI/status/2103785401789939796) |
+| Folk Doodle Flat Illustration<br>民间风涂鸦扁平插画 | Ciri ([@Ciri_ai](https://x.com/Ciri_ai)) | [Ciri on X (2026-06-16)](https://x.com/Ciri_ai/status/2066742340434424079) | [No license stated / 未声明许可](https://x.com/Ciri_ai/status/2066742340434424079) |
 
 The English and Chinese versions and the adjustable options on this site are our adaptations; they are not endorsed by the authors. See the [License](../README.md#license) section for what each license allows.
 

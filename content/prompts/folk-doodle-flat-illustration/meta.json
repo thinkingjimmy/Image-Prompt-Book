@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "folk-doodle-flat-illustration",
+  "slug": "folk-doodle-flat-illustration",
+  "templateVersion": "1.0.0",
+  "status": "published",
+  "createdAt": "2026-09-27",
+  "updatedAt": "2026-09-27",
+  "publishedAt": "2026-09-27T15:32:20+08:00",
+  "category": "photo-art",
+  "tags": [
+    "storybook",
+    "2d",
+    "image-to-image"
+  ],
+  "originalLocale": "en",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.en.txt",
+  "templatePaths": {
+    "en": "template.en.txt",
+    "zh-CN": "template.zh-CN.txt"
+  },
+  "parametersPath": "parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": true,
+  "sourceRecommendedTools": [
+    "GPT Image 2 on ChatGPT"
+  ],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "x-post",
+      "type": "x",
+      "role": "original",
+      "title": "Ciri on X (2026-06-16)",
+      "url": "https://x.com/Ciri_ai/status/2066742340434424079",
+      "author": {
+        "name": "Ciri",
+        "handle": "@Ciri_ai",
+        "url": "https://x.com/Ciri_ai"
+      },
+      "checkedAt": "2026-09-27"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/Ciri_ai/status/2066742340434424079",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown"
+  }
+}
