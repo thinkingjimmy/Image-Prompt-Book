@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 ../../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/storybook-photo-illustration
+ * [INPUT]: 依赖 ../../../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/storybook-photo-illustration
  * [OUTPUT]: 照片转绘本插画条目的专属测试：原文哈希一致、原版默认值逐字复现作者原文、通用版不残留秋千/母子专属描述
- * [POS]: tests/unit/prompts/photo-art 的条目套件；通用的全组合渲染由 content.test.ts 负责
+ * [POS]: tests/unit/prompts/photo-art/redraw 的条目套件；通用的全组合渲染由 content.test.ts 负责
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { createHash } from "node:crypto";
@@ -9,7 +9,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { composePrompt, defaultSelections } from "@/lib/prompt/template";
-import { combinations, promptEntry } from "../../helpers";
+import { combinations, promptEntry } from "../../../helpers";
 
 const SLUG = "storybook-photo-illustration";
 // SHA-256 of the prompt text as posted on X (captured 2026-09-27, not edited), without the final newline.

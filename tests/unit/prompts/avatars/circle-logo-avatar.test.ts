@@ -1,7 +1,7 @@
 /**
  * [INPUT]: 依赖 ../../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/circle-logo-avatar
  * [OUTPUT]: 圆形 Logo 头像改编版的专属测试：保留 DAAI 原文且哈希一致、模板只输出单个 1:1 圆形头像且不残留双拼措辞
- * [POS]: tests/unit/prompts/avatars 的条目套件；原版双拼见 photo-art/photo-circle-logo-diptych.test.ts
+ * [POS]: tests/unit/prompts/avatars 的条目套件；原版双拼见 photo-art/diptych/photo-circle-logo-diptych.test.ts
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { createHash } from "node:crypto";

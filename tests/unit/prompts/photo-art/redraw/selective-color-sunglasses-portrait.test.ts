@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 ../../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/selective-color-sunglasses-portrait
+ * [INPUT]: 依赖 ../../../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/selective-color-sunglasses-portrait
  * [OUTPUT]: 黑白人像条目的专属测试：原文与抓取时的哈希一致、默认值只修正“长传”错别字、身份锁定与留色规则在所有组合中保留
- * [POS]: tests/unit/prompts/photo-art 的条目套件；通用的全组合渲染由 content.test.ts 负责
+ * [POS]: tests/unit/prompts/photo-art/redraw 的条目套件；通用的全组合渲染由 content.test.ts 负责
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { createHash } from "node:crypto";
@@ -9,7 +9,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { defaultSelections } from "@/lib/prompt/template";
-import { combinations, composer, promptEntry } from "../../helpers";
+import { combinations, composer, promptEntry } from "../../../helpers";
 
 const SLUG = "selective-color-sunglasses-portrait";
 // SHA-256 of the prompt text as posted on X (captured 2026-09-25, not edited), without the final newline.

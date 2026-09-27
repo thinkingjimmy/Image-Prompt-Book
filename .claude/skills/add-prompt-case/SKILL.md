@@ -102,6 +102,7 @@ Start from what the author says is adjustable (README "you can change…"), then
 - The default option must reproduce the author's wording exactly.
 - **No contradictions.** Search the whole template for sentences an option would contradict and move them into the option, or neutralize them. Examples from real cases: "ivory panel" mentioned in three places vs a panel-color option; "do not standardize skin color" vs a face-color option; an "equal halves" ratio option vs a fixed "never equal halves" rule (dropped the option instead).
 - Labels (`labels.en`, `labels.zh-CN`) are short menu names; `replacements` are the prompt text. Never mix them.
+- Replacements are trimmed on load, so spaces between two adjacent tokens or before the next sentence belong in the template (`{{outline}} {{palette}} Lighting`), never at the end of a replacement.
 
 Write the generator as a throwaway Python script in the scratchpad that asserts every anchor string appears exactly once before replacing it — a silent miss leaves the author's text and your option side by side. Start it with `# -*- coding: utf-8 -*-` (the system Python 3.9 rejects long CJK lines without it), keep long upstream text in a scratch `.json`/`.txt` file rather than inline, and use quoted heredocs (`<<'EOF'`) so backticks in `ATTRIBUTION.md` are not executed by the shell.
 
@@ -121,7 +122,7 @@ pnpm test                   # add tests/unit/prompts/<category>/<slug>.test.ts, 
 pnpm verify && CI=1 pnpm exec playwright test --retries=0
 ```
 
-Unit test: `tests/unit/content.test.ts` already renders every option combination of every entry in both languages (no `{{`, `undefined`, `**` or leftover `#` headings, one trailing newline, every option changes the text). Add `tests/unit/prompts/<category>/<slug>.test.ts` (copy `photo-art/photo-abstract-editorial.test.ts`) only for what is specific: original matches the upstream hash; core rules survive every combination; defaults reproduce the author; each contradiction you fixed stays fixed.
+Unit test: `tests/unit/content.test.ts` already renders every option combination of every entry in both languages (no `{{`, `undefined`, `**` or leftover `#` headings, one trailing newline, every option changes the text). Add `tests/unit/prompts/<category>/<slug>.test.ts` (copy `photo-art/diptych/photo-abstract-editorial.test.ts`; photo-art is split into `diptych/` and `redraw/`) only for what is specific: original matches the upstream hash; core rules survive every combination; defaults reproduce the author; each contradiction you fixed stays fixed.
 
 Preview with the `dev-drafts` launch config (`IPB_PREVIEW_DRAFTS=1 pnpm dev`): check the card (cover, tags on one line, author), the detail at desktop and 375 px (chips wrap, block options lead their paragraph, notice above the buttons). New images often show "image failed to load" for the first few loads while the dev server warms up; wait and reload two or three times before treating it as a bug.
 

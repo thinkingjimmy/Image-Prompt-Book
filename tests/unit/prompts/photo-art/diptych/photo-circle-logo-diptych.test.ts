@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 ../../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/photo-circle-logo-diptych
+ * [INPUT]: 依赖 ../../../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/photo-circle-logo-diptych
  * [OUTPUT]: 圆形 Logo 双拼条目的专属测试：原文与抓取时的哈希一致、默认值逐字复现作者原文、双拼与无文字规则在所有组合中保留
- * [POS]: tests/unit/prompts/photo-art 的条目套件；头像改编版见 avatars/circle-logo-avatar.test.ts
+ * [POS]: tests/unit/prompts/photo-art/diptych 的条目套件；头像改编版见 ../../avatars/circle-logo-avatar.test.ts
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { createHash } from "node:crypto";
@@ -9,7 +9,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { defaultSelections } from "@/lib/prompt/template";
-import { combinations, composer, promptEntry } from "../../helpers";
+import { combinations, composer, promptEntry } from "../../../helpers";
 
 const SLUG = "photo-circle-logo-diptych";
 // SHA-256 of the author's reply as posted on X (captured 2026-09-25, not edited), without the final newline.
