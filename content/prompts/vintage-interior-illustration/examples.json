@@ -1,0 +1,36 @@
+[
+  {
+    "id": "reading-corner",
+    "src": "images/reading-corner.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "Risograph-style illustration of a cozy reading corner: a cream lounge chair with a knitted blanket, a wooden bookshelf, a floor lamp, plants, a side table with tea and a teddy bear on a green rug",
+      "zh-CN": "Risograph 风格插画：温馨的阅读角，奶油色休闲椅搭着针织毯，木书架、落地灯、绿植，小边桌上放着茶，绿色地毯上坐着泰迪熊"
+    },
+    "sourceUrl": "https://x.com/Taaruk_/status/2103403003793277098",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/Taaruk_/status/2103403003793277098"
+    },
+    "recipe": null
+  },
+  {
+    "id": "retro-lounge",
+    "src": "images/retro-lounge.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "Screen-print style illustration of a 1970s living room with a mustard sofa, an orange wavy rug, a cloud-shaped coffee table, a rattan sideboard, a gallery wall of botanical prints and globe lamps",
+      "zh-CN": "丝网印刷风格插画：1970 年代客厅，芥末黄沙发、橙色波浪地毯、云朵形茶几、藤编餐边柜、植物画组成的画廊墙和球形灯"
+    },
+    "sourceUrl": "https://x.com/Taaruk_/status/2103403003793277098",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/Taaruk_/status/2103403003793277098"
+    },
+    "recipe": null
+  }
+]

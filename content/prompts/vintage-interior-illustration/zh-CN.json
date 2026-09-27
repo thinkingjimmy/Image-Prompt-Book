@@ -1,0 +1,26 @@
+{
+  "title": "复古室内插画 · Risograph",
+  "summary": "做旧纸张上的手绘丝网印刷风客厅海报：中世纪与 1970 年代家具、茂盛绿植、画廊墙，以及带印刷颗粒的褪色暖色调。",
+  "seoTitle": "复古室内插画 Prompt（Risograph 客厅）| Image Prompt Book",
+  "seoDescription": "生成温馨的复古客厅插画，Risograph 与丝网印刷质感。可选择陪伴小物与配色，并复制完整 Prompt。",
+  "inputRequirement": "不需要图片。复制 Prompt 后发送到你的生图工具即可。",
+  "howToUse": [
+    "调整 Prompt 中高亮的选项。",
+    "复制 Prompt，或直接在 ChatGPT 中打开。",
+    "发送到你的生图工具。"
+  ],
+  "exampleNotice": "作者分享的案例效果，非实时预览。",
+  "verificationNotice": "案例来自作者的帖子，Image Prompt Book 尚未复现。",
+  "adaptationNotice": "中文翻译与可调选项由 Image Prompt Book 提供；不等于作者的原始表述或认可。",
+  "licenseNotice": "作者未声明许可；全部权利归作者所有，本页注明作者并链接原帖。",
+  "parameterLabels": {
+    "companion": "陪伴小物",
+    "palette": "配色"
+  },
+  "keywords": [
+    "复古室内",
+    "Risograph",
+    "客厅插画",
+    "中世纪"
+  ]
+}

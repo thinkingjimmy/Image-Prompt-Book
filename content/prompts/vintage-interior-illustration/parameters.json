@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "companion",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "teddy",
+      "options": [
+        {
+          "id": "teddy",
+          "labels": {
+            "en": "Teddy bear",
+            "zh-CN": "泰迪熊"
+          },
+          "replacements": {
+            "en": "a small charming decorative object such as a teddy bear",
+            "zh-CN": "一个可爱的小摆件，比如泰迪熊"
+          }
+        },
+        {
+          "id": "cat",
+          "labels": {
+            "en": "Sleeping cat",
+            "zh-CN": "睡着的猫"
+          },
+          "replacements": {
+            "en": "a sleeping cat curled up on a cushion",
+            "zh-CN": "一只蜷在靠垫上睡觉的猫"
+          }
+        },
+        {
+          "id": "dog",
+          "labels": {
+            "en": "Napping dog",
+            "zh-CN": "打盹的小狗"
+          },
+          "replacements": {
+            "en": "a small dog napping on the rug",
+            "zh-CN": "一只在地毯上打盹的小狗"
+          }
+        }
+      ]
+    },
+    {
+      "id": "palette",
+      "type": "select",
+      "renderAs": "block",
+      "default": "warm",
+      "options": [
+        {
+          "id": "warm",
+          "labels": {
+            "en": "Warm retro",
+            "zh-CN": "暖调复古"
+          },
+          "replacements": {
+            "en": "Color palette: warm cream, parchment beige, mustard yellow, burnt orange, terracotta, olive green, muted forest green, warm brown, and small accents of faded blue. Keep the colors slightly faded and vintage rather than bright or glossy.",
+            "zh-CN": "配色：暖奶油色、羊皮纸米色、芥末黄、焦橙、赤陶色、橄榄绿、低饱和森林绿、暖棕色，以及少量褪色蓝点缀。颜色要略微褪色、有复古感，而不是鲜亮或有光泽。"
+          }
+        },
+        {
+          "id": "sage",
+          "labels": {
+            "en": "Sage and dusty blue",
+            "zh-CN": "鼠尾草绿与灰蓝"
+          },
+          "replacements": {
+            "en": "Color palette: warm cream, parchment beige, sage green, dusty blue, soft ochre, muted rose, warm gray, and small accents of deep teal. Keep the colors slightly faded and vintage rather than bright or glossy.",
+            "zh-CN": "配色：暖奶油色、羊皮纸米色、鼠尾草绿、灰蓝、柔和赭黄、低饱和玫瑰色、暖灰，以及少量深青色点缀。颜色要略微褪色、有复古感，而不是鲜亮或有光泽。"
+          }
+        },
+        {
+          "id": "autumn",
+          "labels": {
+            "en": "Deep autumn",
+            "zh-CN": "深秋浓色"
+          },
+          "replacements": {
+            "en": "Color palette: warm cream, parchment beige, rust red, deep mustard, chocolate brown, moss green, plum, and small accents of faded navy. Keep the colors slightly faded and vintage rather than bright or glossy.",
+            "zh-CN": "配色：暖奶油色、羊皮纸米色、铁锈红、深芥末黄、巧克力棕、苔藓绿、梅子紫，以及少量褪色藏青点缀。颜色要略微褪色、有复古感，而不是鲜亮或有光泽。"
+          }
+        }
+      ]
+    }
+  ]
+}
