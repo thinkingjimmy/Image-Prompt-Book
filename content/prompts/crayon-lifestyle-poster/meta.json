@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "crayon-lifestyle-poster",
+  "slug": "crayon-lifestyle-poster",
+  "templateVersion": "1.0.0",
+  "status": "published",
+  "createdAt": "2026-09-27",
+  "updatedAt": "2026-09-27",
+  "publishedAt": "2026-09-27T08:52:19+08:00",
+  "category": "photo-art",
+  "tags": [
+    "sketch",
+    "editorial",
+    "image-to-image"
+  ],
+  "originalLocale": "en",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.en.txt",
+  "templatePaths": {
+    "en": "template.en.txt",
+    "zh-CN": "template.zh-CN.txt"
+  },
+  "parametersPath": "parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": true,
+  "sourceRecommendedTools": [],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "x-post",
+      "type": "x",
+      "role": "original",
+      "title": "苏乐 on X (2026-09-26)",
+      "url": "https://x.com/ai_suxiaole/status/2103798989850390877",
+      "author": {
+        "name": "苏乐",
+        "handle": "@ai_suxiaole",
+        "url": "https://x.com/ai_suxiaole"
+      },
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "id": "x-examples",
+      "type": "x",
+      "role": "supplementary",
+      "title": "苏乐 on X (2026-09-26), examples",
+      "url": "https://x.com/ai_suxiaole/status/2103798988579430623",
+      "author": {
+        "name": "苏乐",
+        "handle": "@ai_suxiaole",
+        "url": "https://x.com/ai_suxiaole"
+      },
+      "checkedAt": "2026-09-27"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/ai_suxiaole/status/2103798989850390877",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "title": "Crayon Lifestyle Poster",
+  "summary": "Redraw a photo of friends, family or pets as a lively sketchbook page: scratchy black crayon lines, a few vivid color fills taken from the photo, and optional handwritten headline and notes.",
+  "seoTitle": "Crayon Sketch Lifestyle Poster Prompt (Photo to Illustration) | Image Prompt Book",
+  "seoDescription": "Turn a photo into a hand-drawn crayon lifestyle poster that keeps every person, pose and prop. Adjust the accent colors and doodles, add your own headline, then copy the prompt.",
+  "inputRequirement": "Requires one photo. Attach it in your image generation tool; this website does not upload or generate images. To add lettering, replace the bracketed headline and notes; leave them as they are to get no text.",
+  "howToUse": [
+    "Adjust the highlighted options in the prompt.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Replace the bracketed headline and notes with your own words if you want lettering, attach your photo, then send."
+  ],
+  "exampleNotice": "Example results shared by the author, not a live preview.",
+  "verificationNotice": "These examples come from the author's post and have not been reproduced by Image Prompt Book.",
+  "adaptationNotice": "Chinese translation and adjustable options by Image Prompt Book; not the author's wording or an endorsement.",
+  "licenseNotice": "The author did not state a license. All rights stay with the author; this page credits them and links to the original post.",
+  "parameterLabels": {
+    "accents": "Accent colors",
+    "decorations": "Doodles"
+  },
+  "keywords": [
+    "crayon sketch",
+    "photo to illustration",
+    "sketchbook",
+    "friends illustration"
+  ]
+}

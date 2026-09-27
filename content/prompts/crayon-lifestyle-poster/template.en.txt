@@ -1,0 +1,46 @@
+Use the uploaded photograph as the sole source for all people, animals, objects, clothing, accessories, poses, expressions, interactions, camera angle, framing, and subject arrangement.
+
+Transform the photograph into one standalone hand-drawn lifestyle poster illustration on warm off-white textured paper. Output only the completed illustration—not the original photograph, not a top-and-bottom comparison, not a before-and-after layout, not a split screen, and not a collage.
+
+Preserve the source image’s number of main subjects, recognizable identities, relative positions, overlaps, viewing direction, pose, gesture, expression, body language, shot type, perspective, and overall composition. Preserve important props and interactions such as flowers, bags, sunglasses, hats, cameras, drinks, food, benches, raised hands, linked shoulders, or selfie gestures. Remove only background details that do not help explain the scene.
+
+Draw every subject with energetic, imperfect black oil-pastel, wax-crayon, charcoal, and dry-ink marks. Use bold broken outlines, scratchy repeated strokes, uneven pressure, dry gaps, rough cross-hatching, scattered speckles, loose construction lines, and occasional overshooting contours. The lines must look spontaneous and handmade rather than clean, precise, or digitally traced.
+
+Maintain recognizable faces through a small number of expressive marks. Preserve approximate face shape, hairstyle, glasses, facial hair, eye direction, mouth shape, and expression category. Simplify facial anatomy but do not replace different people with identical generic faces. Happy faces should retain their smiles; surprised or playful expressions should remain clearly readable.
+
+For animals, preserve species, facial expression, ear shape, muzzle or beak, coat markings, accessories, and relative placement. Keep humorous gestures and group relationships intact.
+
+Use black linework as the dominant visual language. Apply selective colored-crayon fills only to the most important clothing, accessories, props, and identity-defining areas. Derive these colors from the source photograph. Use loose, visibly scribbled coloring with paper showing through between strokes.
+
+{{accents}}
+
+Simplify the environment into a few expressive grounding strokes and iconic doodles. Remove photographic scenery, realistic depth, complex architecture, and unnecessary clutter unless an environmental object is essential to the action. Preserve important scene objects in simplified outline form. For overhead group scenes, retain the recognizable arrangement of people, food, cards, blankets, cameras, and other meaningful items.
+
+{{decorations}}
+
+Create an informal editorial-poster composition with the subjects occupying the central and lower portion of the page. Reserve some negative space around them for one large handwritten headline and two or three much smaller handwritten notes. Integrate the lettering naturally into the drawing without placing it inside rigid boxes.
+
+Typography module:
+Use only the exact wording supplied below.
+
+Main headline:
+[MAIN HEADLINE]
+
+Small note 1:
+[SMALL NOTE 1]
+
+Small note 2:
+[SMALL NOTE 2]
+
+Optional small note 3:
+[SMALL NOTE 3]
+
+Render the main headline as oversized handmade black brush lettering with irregular baselines, thick dry strokes, uneven spacing, and one loose underline. Render the smaller notes as casual thin handwritten lettering with short underlines or simple emphasis marks. Keep all wording readable and secondary to the subjects.
+
+If no exact wording is supplied, omit all typography. Never invent quotes, slogans, names, credits, signatures, or branding.
+
+Use a warm cream sketchbook-paper background with subtle fibers, faint grain, slight tonal variation, and no hard border. The result should feel like a joyful page torn from an independent fashion sketchbook or handmade lifestyle zine: spontaneous, optimistic, tactile, slightly messy, fashionable, humorous, and emotionally faithful to the original photograph.
+
+The final image must read first as a bold handmade black-and-color crayon illustration, and second as the recognizable people, animals, pose, and moment from the source.
+
+Avoid: retaining any part of the original photograph, comparison layouts, split screens, photorealism, smooth digital painting, clean vector art, uniform outlines, precise technical drawing, polished comic-book inking, watercolor washes, soft airbrush gradients, full-color realistic backgrounds, anime, manga, chibi proportions, generic replacement faces, changed subject count, changed pose, missing accessories, invented people, duplicated subjects, extra limbs, malformed hands, unreadable generated text, fake signatures, logos, or watermarks.

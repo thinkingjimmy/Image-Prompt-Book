@@ -1,0 +1,26 @@
+{
+  "title": "蜡笔生活海报",
+  "summary": "把朋友、家人或宠物的照片重画成一页热闹的速写本：潦草的黑色蜡笔线条、取自照片的几种鲜艳填色，还可以加上手写标题和短注。",
+  "seoTitle": "蜡笔速写生活海报 Prompt（照片转插画）| Image Prompt Book",
+  "seoDescription": "把照片变成手绘蜡笔生活海报，保留每个人物、姿势和道具。可调整强调色与装饰涂鸦，填入自己的标题，并复制完整 Prompt。",
+  "inputRequirement": "需要一张照片。请在生图工具中附上图片；本站不上传图片，也不直接生成图片。想加手写字，就替换方括号里的标题和短注；保持原样则不生成文字。",
+  "howToUse": [
+    "调整 Prompt 中高亮的选项。",
+    "复制 Prompt，或直接在 ChatGPT 中打开。",
+    "如需手写字，把方括号里的标题和短注换成你的文字，附上照片后发送。"
+  ],
+  "exampleNotice": "作者分享的案例效果，非实时预览。",
+  "verificationNotice": "案例来自作者的帖子，Image Prompt Book 尚未复现。",
+  "adaptationNotice": "中文翻译与可调选项由 Image Prompt Book 提供；不等于作者的原始表述或认可。",
+  "licenseNotice": "作者未声明许可；全部权利归作者所有，本页注明作者并链接原帖。",
+  "parameterLabels": {
+    "accents": "强调色",
+    "decorations": "装饰涂鸦"
+  },
+  "keywords": [
+    "蜡笔速写",
+    "照片转插画",
+    "速写本",
+    "好友漫画"
+  ]
+}

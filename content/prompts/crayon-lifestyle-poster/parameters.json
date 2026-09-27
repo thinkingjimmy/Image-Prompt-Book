@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "accents",
+      "type": "select",
+      "renderAs": "block",
+      "default": "three-to-five",
+      "options": [
+        {
+          "id": "three-to-five",
+          "labels": {
+            "en": "3–5 accent colors",
+            "zh-CN": "3–5 种强调色"
+          },
+          "replacements": {
+            "en": "Limit the accent palette to approximately three to five vivid colors chosen from the source, such as cobalt blue, bright yellow, hot pink, orange, green, turquoise, red, or purple. Do not color every surface. Leave skin, most background areas, and many secondary objects primarily paper white with sparse black marks.",
+            "zh-CN": "把强调色限制在大约三到五种取自原图的鲜艳颜色，例如钴蓝、亮黄、桃红、橙、绿、青绿、红或紫。不要给每个面都上色。皮肤、大部分背景和许多次要物件主要保留纸白，只有稀疏的黑色笔触。"
+          }
+        },
+        {
+          "id": "one-or-two",
+          "labels": {
+            "en": "1–2 accent colors",
+            "zh-CN": "1–2 种强调色"
+          },
+          "replacements": {
+            "en": "Limit the accent palette to only one or two vivid colors chosen from the source, such as cobalt blue, bright yellow, hot pink, orange, green, turquoise, red, or purple. Do not color every surface. Leave skin, most background areas, and many secondary objects primarily paper white with sparse black marks.",
+            "zh-CN": "把强调色限制在只有一到两种取自原图的鲜艳颜色，例如钴蓝、亮黄、桃红、橙、绿、青绿、红或紫。不要给每个面都上色。皮肤、大部分背景和许多次要物件主要保留纸白，只有稀疏的黑色笔触。"
+          }
+        },
+        {
+          "id": "five-to-seven",
+          "labels": {
+            "en": "5–7 accent colors",
+            "zh-CN": "5–7 种强调色"
+          },
+          "replacements": {
+            "en": "Limit the accent palette to approximately five to seven vivid colors chosen from the source, such as cobalt blue, bright yellow, hot pink, orange, green, turquoise, red, or purple. Do not color every surface. Leave skin, most background areas, and many secondary objects primarily paper white with sparse black marks.",
+            "zh-CN": "把强调色限制在大约五到七种取自原图的鲜艳颜色，例如钴蓝、亮黄、桃红、橙、绿、青绿、红或紫。不要给每个面都上色。皮肤、大部分背景和许多次要物件主要保留纸白，只有稀疏的黑色笔触。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "decorations",
+      "type": "select",
+      "renderAs": "block",
+      "default": "some",
+      "options": [
+        {
+          "id": "some",
+          "labels": {
+            "en": "A few doodles",
+            "zh-CN": "少量涂鸦装饰"
+          },
+          "replacements": {
+            "en": "Add a small number of cheerful hand-drawn decorative marks in open areas: a rough yellow crayon sun, simple black cloud outlines, short motion strokes, hearts, emphasis rays, or tiny grass marks. Use only decorations that support the mood and do not cover faces or important objects. Do not add every decorative symbol at once.",
+            "zh-CN": "在空白处加入少量欢快的手绘装饰笔触：粗糙的黄色蜡笔太阳、简单的黑色云朵轮廓、短促的动态线、爱心、强调放射线或细小的草丛笔触。只使用能烘托氛围、且不遮挡面孔或重要物件的装饰。不要一次加上所有装饰符号。"
+          }
+        },
+        {
+          "id": "none",
+          "labels": {
+            "en": "No doodles",
+            "zh-CN": "不加装饰"
+          },
+          "replacements": {
+            "en": "Do not add decorative marks such as suns, clouds, hearts or motion strokes; keep open areas as plain paper.",
+            "zh-CN": "不要添加太阳、云朵、爱心或动态线等装饰笔触；空白处保持纯纸面。"
+          }
+        }
+      ]
+    }
+  ]
+}
