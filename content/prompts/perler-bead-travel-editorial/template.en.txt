@@ -1,0 +1,27 @@
+Create a premium 3:4 vertical Perler Bead travel editorial artwork for {{place}}.
+
+TEXT-TO-IMAGE ONLY — generate the entire composition creatively from {{place}} alone. No reference image required.
+
+COMPOSITION
+Create an exact 50/50 vertical split. The upper half is a beautiful full-bleed realistic travel scene representing {{place}}, automatically featuring its most recognizable landmark, architecture, landscape, or cultural element.
+
+The lower half uses a warm off-white textured paper background with subtle natural grain.
+
+BEAD ARTWORK
+On the lower-left, create one large square Perler Bead artwork depicting the most iconic visual element from the upper scene. Use precise pixel-art construction with clearly visible individual melted beads, authentic plastic texture, a clean cream bead border, and a soft natural shadow.
+
+PATCH COLLECTION
+On the lower-right, arrange six small individual Perler Bead patches in a clean 2×3 grid. Each patch represents a different recognizable element associated with {{place}}. Give every patch a cream bead outline and subtle physical shadow.
+
+STYLE
+Use authentic handcrafted Perler Bead construction, visible bead holes, slightly imperfect handmade edges, matte plastic texture, precise pixel patterns, soft studio lighting, and refined tactile detail.
+
+TYPOGRAPHY
+Below the bead artwork, add exactly three short uppercase English keywords related to {{place}}, separated by “ · ”. Use thin, widely letter-spaced sans-serif typography in dark gray.
+
+FINAL AESTHETIC
+Minimal travel editorial × handcrafted Perler Bead art × collectible souvenir design × tactile lifestyle magazine aesthetic. Keep the composition clean, balanced, sophisticated, and spacious.
+
+Avoid uploaded-image references, photo recreation, duplicated elements, random landmarks, excessive text, logos, watermarks, clutter, 3D CGI, glossy plastic, distorted bead patterns, or uneven composition.
+
+FORMAT: 3:4 vertical, exact 50/50 layout, premium handcrafted editorial design.

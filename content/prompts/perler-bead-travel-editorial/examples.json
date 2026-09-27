@@ -1,0 +1,70 @@
+[
+  {
+    "id": "shanghai",
+    "src": "images/shanghai.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "Shanghai at sunset above; below, a square Perler bead picture of the Oriental Pearl Tower skyline and six bead patches, captioned SKYLINE · RIVER · CULTURE",
+      "zh-CN": "上半是日落时的上海；下半是东方明珠天际线的方形拼豆画和六枚拼豆徽章，文字为 SKYLINE · RIVER · CULTURE"
+    },
+    "sourceUrl": "https://x.com/Goodmanprotocol/status/2104088919684084124",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/Goodmanprotocol/status/2104088919684084124"
+    },
+    "recipe": null
+  },
+  {
+    "id": "seoul",
+    "src": "images/seoul.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "Seoul with cherry blossoms and N Seoul Tower above; below, a Perler bead cityscape and six patches including bibimbap and a palace gate, captioned TRADITION · MODERNITY · CULTURE",
+      "zh-CN": "上半是樱花与南山塔下的首尔；下半是拼豆城市画和六枚徽章（含拌饭与宫门），文字为 TRADITION · MODERNITY · CULTURE"
+    },
+    "sourceUrl": "https://x.com/Goodmanprotocol/status/2104088919684084124",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/Goodmanprotocol/status/2104088919684084124"
+    },
+    "recipe": null
+  },
+  {
+    "id": "istanbul",
+    "src": "images/istanbul.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "Istanbul's mosques over the Bosphorus at sunset above; below, a Perler bead panorama and six patches including a tram, tulip and tea glass, captioned HISTORY · CULTURE · BEAUTY",
+      "zh-CN": "上半是日落时博斯普鲁斯海峡边的伊斯坦布尔清真寺；下半是拼豆全景和六枚徽章（含电车、郁金香与茶杯），文字为 HISTORY · CULTURE · BEAUTY"
+    },
+    "sourceUrl": "https://x.com/Goodmanprotocol/status/2104088919684084124",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/Goodmanprotocol/status/2104088919684084124"
+    },
+    "recipe": null
+  },
+  {
+    "id": "new-york",
+    "src": "images/new-york.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "The Statue of Liberty and Manhattan at sunset above; below, a Perler bead skyline and six patches including a taxi, pretzel and apple, captioned SKYLINE · CULTURE · OPPORTUNITY",
+      "zh-CN": "上半是日落时的自由女神像与曼哈顿；下半是拼豆天际线和六枚徽章（含出租车、椒盐卷饼与苹果），文字为 SKYLINE · CULTURE · OPPORTUNITY"
+    },
+    "sourceUrl": "https://x.com/Goodmanprotocol/status/2104088919684084124",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result images from the author's X post, downloaded at the owner's request (Jimmy Wong, 2026-09-27). The author states no license.",
+      "evidence": "https://x.com/Goodmanprotocol/status/2104088919684084124"
+    },
+    "recipe": null
+  }
+]

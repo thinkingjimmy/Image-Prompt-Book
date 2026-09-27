@@ -1,0 +1,25 @@
+{
+  "title": "拼豆旅行编辑海报",
+  "summary": "为任意地点生成 3:4 旅行画页：上半是写实的日落风景，下半是代表性地标的方形拼豆画、六枚拼豆纪念徽章和三个疏朗的关键词。",
+  "seoTitle": "拼豆旅行编辑海报 Prompt | Image Prompt Book",
+  "seoDescription": "为任意城市或国家生成旅行海报：上方写实风景，下方拼豆作品与六枚拼豆徽章。选择地点，并复制完整 Prompt。",
+  "inputRequirement": "不需要图片。选择一个地点，或保留方括号字段并换成任意国家、城市或主题。",
+  "howToUse": [
+    "在 Prompt 中选择地点，或保留方括号字段自己填写。",
+    "复制 Prompt，或直接在 ChatGPT 中打开。",
+    "发送到你的生图工具。"
+  ],
+  "exampleNotice": "作者分享的案例效果，非实时预览。",
+  "verificationNotice": "案例来自作者的帖子，Image Prompt Book 尚未复现。",
+  "adaptationNotice": "中文翻译与地点选项由 Image Prompt Book 提供；不等于作者的原始表述或认可。",
+  "licenseNotice": "作者未声明许可；全部权利归作者所有，本页注明作者并链接原帖。",
+  "parameterLabels": {
+    "place": "地点"
+  },
+  "keywords": [
+    "拼豆",
+    "旅行海报",
+    "像素",
+    "纪念品"
+  ]
+}

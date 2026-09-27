@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "perler-bead-travel-editorial",
+  "slug": "perler-bead-travel-editorial",
+  "templateVersion": "1.0.0",
+  "status": "published",
+  "createdAt": "2026-09-27",
+  "updatedAt": "2026-09-27",
+  "publishedAt": "2026-09-27T15:02:54+08:00",
+  "category": "posters",
+  "tags": [
+    "pixel-art",
+    "travel",
+    "editorial"
+  ],
+  "originalLocale": "en",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.en.txt",
+  "templatePaths": {
+    "en": "template.en.txt",
+    "zh-CN": "template.zh-CN.txt"
+  },
+  "parametersPath": "parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": false,
+  "sourceRecommendedTools": [
+    "GPT Image 2.5"
+  ],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "x-post",
+      "type": "x",
+      "role": "original",
+      "title": "Saul Goodman on X (2026-09-27)",
+      "url": "https://x.com/Goodmanprotocol/status/2104088919684084124",
+      "author": {
+        "name": "Saul Goodman",
+        "handle": "@Goodmanprotocol",
+        "url": "https://x.com/Goodmanprotocol"
+      },
+      "checkedAt": "2026-09-27"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/Goodmanprotocol/status/2104088919684084124",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown"
+  }
+}

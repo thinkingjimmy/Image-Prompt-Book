@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "place",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "custom",
+      "options": [
+        {
+          "id": "custom",
+          "labels": {
+            "en": "Fill in your own",
+            "zh-CN": "自己填写"
+          },
+          "replacements": {
+            "en": "[COUNTRY / LOCATION / SUBJECT]",
+            "zh-CN": "【国家 / 地点 / 主题】"
+          }
+        },
+        {
+          "id": "shanghai",
+          "labels": {
+            "en": "Shanghai",
+            "zh-CN": "上海"
+          },
+          "replacements": {
+            "en": "Shanghai",
+            "zh-CN": "上海"
+          }
+        },
+        {
+          "id": "seoul",
+          "labels": {
+            "en": "Seoul",
+            "zh-CN": "首尔"
+          },
+          "replacements": {
+            "en": "Seoul",
+            "zh-CN": "首尔"
+          }
+        },
+        {
+          "id": "istanbul",
+          "labels": {
+            "en": "Istanbul",
+            "zh-CN": "伊斯坦布尔"
+          },
+          "replacements": {
+            "en": "Istanbul",
+            "zh-CN": "伊斯坦布尔"
+          }
+        },
+        {
+          "id": "new-york",
+          "labels": {
+            "en": "New York",
+            "zh-CN": "纽约"
+          },
+          "replacements": {
+            "en": "New York",
+            "zh-CN": "纽约"
+          }
+        }
+      ]
+    }
+  ]
+}

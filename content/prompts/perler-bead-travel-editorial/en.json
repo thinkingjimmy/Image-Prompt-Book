@@ -1,0 +1,25 @@
+{
+  "title": "Perler Bead Travel Editorial",
+  "summary": "A 3:4 travel page for any place: a realistic sunset scene on top, and below a square Perler bead picture of its icon, six bead souvenir patches and three spaced keywords.",
+  "seoTitle": "Perler Bead Travel Editorial Prompt | Image Prompt Book",
+  "seoDescription": "Generate a travel poster for any city or country: a realistic scene above, Perler bead artwork and six bead patches below. Pick a place, then copy the prompt.",
+  "inputRequirement": "No image needed. Pick a place, or keep the bracketed field and replace it with any country, city or subject.",
+  "howToUse": [
+    "Pick a place in the prompt, or keep the bracketed field and type your own.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Send it to your image generation tool."
+  ],
+  "exampleNotice": "Example results shared by the author, not a live preview.",
+  "verificationNotice": "These examples come from the author's post and have not been reproduced by Image Prompt Book.",
+  "adaptationNotice": "Chinese translation and the place option by Image Prompt Book; not the author's wording or an endorsement.",
+  "licenseNotice": "The author did not state a license. All rights stay with the author; this page credits them and links to the original post.",
+  "parameterLabels": {
+    "place": "Place"
+  },
+  "keywords": [
+    "perler bead",
+    "travel poster",
+    "pixel art",
+    "souvenir"
+  ]
+}
