@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 ../../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/mid-century-modern-cover
+ * [INPUT]: 依赖 ../../../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/mid-century-modern-cover
  * [OUTPUT]: 中世纪现代主义封面条目的专属测试：原文与抓取时的哈希一致、默认值与原文只差输入位改写、三色与满版出血规则在所有组合中保留
- * [POS]: tests/unit/prompts/posters 的条目套件；输入位改写方式同 research-report-cover.test.ts
+ * [POS]: tests/unit/prompts/posters/type-led 的条目套件；输入位改写方式同 research-report-cover.test.ts
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { createHash } from "node:crypto";
@@ -9,7 +9,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { defaultSelections } from "@/lib/prompt/template";
-import { combinations, composer, promptEntry } from "../../helpers";
+import { combinations, composer, promptEntry } from "../../../helpers";
 
 const SLUG = "mid-century-modern-cover";
 // SHA-256 of the article's code block as posted on X (captured 2026-09-27, not edited), without the final newline.

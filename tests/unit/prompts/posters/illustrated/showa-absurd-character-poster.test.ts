@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 ../../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/showa-absurd-character-poster
+ * [INPUT]: 依赖 ../../../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/showa-absurd-character-poster
  * [OUTPUT]: 昭和荒诞角色海报条目的专属测试：原文与抓取时的哈希一致、默认值逐字复现作者原文、风格公式在所有组合中保留、不加签名时不残留签名
- * [POS]: tests/unit/prompts/posters 的条目套件；通用的全组合渲染由 content.test.ts 负责
+ * [POS]: tests/unit/prompts/posters/illustrated 的条目套件；通用的全组合渲染由 content.test.ts 负责
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { createHash } from "node:crypto";
@@ -9,7 +9,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { defaultSelections } from "@/lib/prompt/template";
-import { combinations, composer, promptEntry } from "../../helpers";
+import { combinations, composer, promptEntry } from "../../../helpers";
 
 const SLUG = "showa-absurd-character-poster";
 // SHA-256 of the author's reply as posted on X (captured 2026-09-25, not edited), without the final newline.
