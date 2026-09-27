@@ -3,7 +3,7 @@
     "id": "red-cap-coffee",
     "src": "images/red-cap-coffee.jpg",
     "width": 450,
-    "height": 598,
+    "height": 572,
     "alt": {
       "en": "Crayon illustration of a young woman in a red cap and denim jacket squatting on a sidewalk with a coffee cup and a navy tote bag, colored only in the cap, jacket and bag",
       "zh-CN": "蜡笔插画：戴红色棒球帽、穿牛仔外套的年轻女子蹲在人行道上，手拿咖啡、背深蓝托特包，只有帽子、外套和包上了色"
@@ -11,7 +11,7 @@
     "input": {
       "src": "images/red-cap-coffee-photo.jpg",
       "width": 450,
-      "height": 598,
+      "height": 572,
       "alt": {
         "en": "Original photo: a young woman in a red cap and denim jacket squatting on a sidewalk with a coffee cup and a navy tote bag",
         "zh-CN": "原照片：戴红色棒球帽、穿牛仔外套的年轻女子蹲在人行道上，拿着咖啡、背深蓝托特包"
@@ -29,7 +29,7 @@
     "id": "green-jersey-stroll",
     "src": "images/green-jersey-stroll.jpg",
     "width": 450,
-    "height": 598,
+    "height": 600,
     "alt": {
       "en": "Crayon illustration of a woman in sunglasses and a green-and-yellow striped jersey walking past a café with a yellow bag and a printed tote",
       "zh-CN": "蜡笔插画：戴墨镜、穿绿黄条纹球衣的女子提着黄色包和印花托特包走过咖啡馆门口"
@@ -37,7 +37,7 @@
     "input": {
       "src": "images/green-jersey-stroll-photo.jpg",
       "width": 450,
-      "height": 598,
+      "height": 600,
       "alt": {
         "en": "Original photo: a woman in sunglasses and a green-and-yellow striped jersey walking past a café with a yellow bag and a printed tote",
         "zh-CN": "原照片：戴墨镜、穿绿黄条纹球衣的女子提着黄色包和印花托特包走过咖啡馆"
@@ -55,7 +55,7 @@
     "id": "sidewalk-selfie",
     "src": "images/sidewalk-selfie.jpg",
     "width": 450,
-    "height": 598,
+    "height": 600,
     "alt": {
       "en": "Crayon illustration seen from above of a girl in a green cap, graphic tee and cargo pants posing on cobblestones, with a yellow crayon sun and small doodles",
       "zh-CN": "俯视角度的蜡笔插画：戴绿色帽子、穿图案 T 恤和工装裤的女孩在石板路上摆姿势，配黄色蜡笔太阳和小涂鸦"
@@ -63,7 +63,7 @@
     "input": {
       "src": "images/sidewalk-selfie-photo.jpg",
       "width": 450,
-      "height": 598,
+      "height": 600,
       "alt": {
         "en": "Original photo seen from above: a girl in a green cap, graphic tee and cargo pants standing on cobblestones",
         "zh-CN": "俯拍原照片：戴绿色帽子、穿图案 T 恤和工装裤的女孩站在石板路上"
@@ -81,7 +81,7 @@
     "id": "ice-cream-friends",
     "src": "images/ice-cream-friends.jpg",
     "width": 450,
-    "height": 598,
+    "height": 594,
     "alt": {
       "en": "Crayon illustration of five friends crowding toward the camera on a city street with ice creams, in green, pink, blue and yellow accents, with a sun and hearts",
       "zh-CN": "蜡笔插画：五个朋友拿着冰淇淋在城市街头挤向镜头，点缀绿、粉、蓝、黄色，配太阳和爱心"
@@ -89,7 +89,7 @@
     "input": {
       "src": "images/ice-cream-friends-photo.jpg",
       "width": 450,
-      "height": 598,
+      "height": 594,
       "alt": {
         "en": "Original photo: five friends crowding toward the camera on a city street with ice creams",
         "zh-CN": "原照片：五个朋友拿着冰淇淋在城市街头挤向镜头"
