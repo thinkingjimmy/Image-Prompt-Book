@@ -100,3 +100,13 @@ A change is not done until L3 → L2 → L1 are checked in that order. A source 
 - Share links carry only enumerated option IDs in the URL hash, which never reaches the server.
 - CI uses a read-only token and no production secrets; it never runs on `pull_request_target`.
 - Fixture content (`IPB_CONTENT_DIR`) is confined to `tests/fixtures` and refused by production deploys.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

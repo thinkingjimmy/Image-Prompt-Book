@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "surreal-futuristic-travel-poster",
+  "slug": "surreal-futuristic-travel-poster",
+  "templateVersion": "1.0.0",
+  "status": "published",
+  "createdAt": "2026-09-30",
+  "updatedAt": "2026-09-30",
+  "publishedAt": "2026-09-30T11:16:09+08:00",
+  "category": "posters",
+  "tags": [
+    "surreal",
+    "travel",
+    "editorial"
+  ],
+  "originalLocale": "en",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.en.txt",
+  "templatePaths": {
+    "en": "templates/template.en.txt",
+    "zh-CN": "templates/template.zh-CN.txt"
+  },
+  "parametersPath": "templates/parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": false,
+  "sourceRecommendedTools": [
+    "GPT Image 2"
+  ],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "x-post",
+      "type": "x",
+      "role": "original",
+      "title": "simeon-sanai on X (2026-08-28)",
+      "url": "https://x.com/Naiknelofar788/status/2093230701986672924",
+      "author": {
+        "name": "simeon-sanai",
+        "handle": "@Naiknelofar788",
+        "url": "https://x.com/Naiknelofar788"
+      },
+      "checkedAt": "2026-09-30"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/Naiknelofar788/status/2093230701986672924",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown"
+  }
+}

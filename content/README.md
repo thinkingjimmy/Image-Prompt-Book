@@ -6,7 +6,8 @@ Git-maintained prompt library. Every file here is data: validated by `src/lib/co
 
 成员清单
 taxonomy.json: 分类与标签词表，`categories[].labels/descriptions` 与 `tags[].labels` 均需 en/zh-CN；条目只能引用这里声明的 ID
-prompts/<slug>/: 单个条目目录，目录名 = id = slug，稳定且跨语言共享；文本、选项、署名与案例图（images/）都在这一个目录里
+prompts/README.md: 条目目录地图，列出每个 Prompt 的职责与分类
+prompts/<slug>/: 单个条目目录，目录名 = id = slug，稳定且跨语言共享；文本、选项、署名与案例图（images/）都在这一个目录里；完整清单见 prompts/README.md
 
 ## Entry files
 
@@ -20,6 +21,8 @@ prompts/<slug>/: 单个条目目录，目录名 = id = slug，稳定且跨语言
 | `parameters.json` | `select` parameters (`renderAs` inline/block), default, options with `labels` (UI) and `replacements` (prompt text) per locale | Replacements are final plain strings — no tokens, HTML or includes |
 | `examples.json` | Example images | `[]` allowed for drafts; published entries need ≥1. `images/<file>` inside the entry folder (served as `/media/<slug>/<file>` only while the entry is visible), true width/height, bilingual alt, optional `input` (the photo the prompt was given: `src`, `width`, `height`, `alt`; shown as a before/after comparison, draggable on the detail page and a static split on the card), `provenance`, `rights` (`basis` + `evidence`: where the image comes from and on what terms), `recipe` (null unless project-verified) |
 | `ATTRIBUTION.md` | `## en` and `## zh-CN` blocks, each one ```text fence | Used by "Copy attribution"; keep author, source, license, changes |
+
+Template and option paths may point one subfolder below the entry root. For example, surreal-futuristic-travel-poster/templates/ holds both templates and parameters, keeping each new folder within the eight-file limit. Entry and resource folders include a README map.
 
 ## Publication gate
 

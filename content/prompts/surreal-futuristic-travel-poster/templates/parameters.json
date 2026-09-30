@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "setting",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "dreamworld",
+      "options": [
+        {
+          "id": "dreamworld",
+          "labels": {
+            "en": "Dreamlike world",
+            "zh-CN": "梦幻世界"
+          },
+          "replacements": {
+            "en": "a dreamlike futuristic world where familiar everyday life meets surreal architecture",
+            "zh-CN": "一个梦幻的未来世界，熟悉的日常生活在这里与超现实建筑交融"
+          }
+        },
+        {
+          "id": "paris",
+          "labels": {
+            "en": "Paris",
+            "zh-CN": "巴黎"
+          },
+          "replacements": {
+            "en": "a dreamlike futuristic Paris where familiar everyday life meets surreal architecture around the Eiffel Tower",
+            "zh-CN": "一个梦幻的未来巴黎，熟悉的日常生活在埃菲尔铁塔周围与超现实建筑交融"
+          }
+        },
+        {
+          "id": "beijing",
+          "labels": {
+            "en": "Beijing",
+            "zh-CN": "北京"
+          },
+          "replacements": {
+            "en": "a dreamlike futuristic Beijing where familiar everyday life meets surreal architecture around the Temple of Heaven",
+            "zh-CN": "一个梦幻的未来北京，熟悉的日常生活在天坛周围与超现实建筑交融"
+          }
+        },
+        {
+          "id": "istanbul",
+          "labels": {
+            "en": "Istanbul",
+            "zh-CN": "伊斯坦布尔"
+          },
+          "replacements": {
+            "en": "a dreamlike futuristic Istanbul where familiar everyday life meets surreal architecture along the Bosphorus, with domed mosques and slender minarets",
+            "zh-CN": "一个梦幻的未来伊斯坦布尔，熟悉的日常生活在博斯普鲁斯海峡沿岸与超现实建筑交融，圆顶清真寺与纤细宣礼塔点缀其间"
+          }
+        }
+      ]
+    },
+    {
+      "id": "palette",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "muted",
+      "options": [
+        {
+          "id": "muted",
+          "labels": {
+            "en": "Sophisticated muted",
+            "zh-CN": "精致低饱和"
+          },
+          "replacements": {
+            "en": "sophisticated muted colors",
+            "zh-CN": "精致的低饱和配色"
+          }
+        },
+        {
+          "id": "teal",
+          "labels": {
+            "en": "Teal and cream",
+            "zh-CN": "青蓝与奶油色"
+          },
+          "replacements": {
+            "en": "a sophisticated muted palette of teal, cream, and warm peach",
+            "zh-CN": "青蓝、奶油色与暖桃色组成的精致低饱和配色"
+          }
+        },
+        {
+          "id": "ochre",
+          "labels": {
+            "en": "Ochre and terracotta",
+            "zh-CN": "赭黄与赤陶色"
+          },
+          "replacements": {
+            "en": "a sophisticated muted palette of ochre, terracotta, and olive",
+            "zh-CN": "赭黄、赤陶色与橄榄绿组成的精致低饱和配色"
+          }
+        },
+        {
+          "id": "sage",
+          "labels": {
+            "en": "Sage and ivory",
+            "zh-CN": "鼠尾草绿与象牙白"
+          },
+          "replacements": {
+            "en": "a sophisticated muted palette of sage green, ivory, and dusty rose",
+            "zh-CN": "鼠尾草绿、象牙白与灰玫瑰色组成的精致低饱和配色"
+          }
+        }
+      ]
+    },
+    {
+      "id": "aspectRatio",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "portrait-4-5",
+      "options": [
+        {
+          "id": "portrait-4-5",
+          "labels": {
+            "en": "Portrait 4:5",
+            "zh-CN": "竖版 4:5"
+          },
+          "replacements": {
+            "en": "vertical 4:5",
+            "zh-CN": "竖版 4:5"
+          }
+        },
+        {
+          "id": "portrait-3-4",
+          "labels": {
+            "en": "Portrait 3:4",
+            "zh-CN": "竖版 3:4"
+          },
+          "replacements": {
+            "en": "vertical 3:4",
+            "zh-CN": "竖版 3:4"
+          }
+        },
+        {
+          "id": "portrait-2-3",
+          "labels": {
+            "en": "Portrait 2:3",
+            "zh-CN": "竖版 2:3"
+          },
+          "replacements": {
+            "en": "vertical 2:3",
+            "zh-CN": "竖版 2:3"
+          }
+        }
+      ]
+    }
+  ]
+}

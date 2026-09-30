@@ -28,6 +28,7 @@ Image Prompt Book 的每个案例都来自作者的公开分享，感谢他们�
 | Material × Giant Type Campaign Poster<br>材质 × 巨字 Campaign 海报 | Vigo Zhao ([@VigoCreativeAI](https://x.com/VigoCreativeAI)) | [Vigo Zhao on X (2026-09-26)](https://x.com/VigoCreativeAI/status/2103785401789939796) | [No license stated / 未声明许可](https://x.com/VigoCreativeAI/status/2103785401789939796) |
 | Folk Doodle Flat Illustration<br>民间风涂鸦扁平插画 | Ciri ([@Ciri_ai](https://x.com/Ciri_ai)) | [Ciri on X (2026-06-16)](https://x.com/Ciri_ai/status/2066742340434424079) | [No license stated / 未声明许可](https://x.com/Ciri_ai/status/2066742340434424079) |
 | CMYK Halftone Poster with Blurred Type<br>CMYK 网点 × 虚焦字海报 | Vigo Zhao ([@VigoCreativeAI](https://x.com/VigoCreativeAI)) | [Vigo Zhao on X (2026-09-27)](https://x.com/VigoCreativeAI/status/2104036556889796770) | [No license stated / 未声明许可](https://x.com/VigoCreativeAI/status/2104036556889796770) |
+| Surreal Futuristic Travel Poster<br>超现实未来旅行海报 | simeon-sanai ([@Naiknelofar788](https://x.com/Naiknelofar788)) | [simeon-sanai on X (2026-08-28)](https://x.com/Naiknelofar788/status/2093230701986672924) | [No license stated / 未声明许可](https://x.com/Naiknelofar788/status/2093230701986672924) |
 
 The English and Chinese versions and the adjustable options on this site are our adaptations; they are not endorsed by the authors. See the [License](../README.md#license) section for what each license allows.
 

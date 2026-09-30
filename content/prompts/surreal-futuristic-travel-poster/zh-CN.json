@@ -1,0 +1,30 @@
+{
+  "title": "超现实未来旅行海报",
+  "summary": "将梦幻的未来城市画成复古旅行艺术海报：雕塑感建筑、巨型植物、微小人物与悬浮元素，搭配低饱和配色和有触感的纸张颗粒。",
+  "seoTitle": "超现实未来旅行海报 Prompt | Image Prompt Book",
+  "seoDescription": "用复古旅行海报风格创作超现实未来城市。选择巴黎、北京、伊斯坦布尔或梦幻世界，调整低饱和配色与竖版画幅，再复制 Prompt。",
+  "inputRequirement": "无需参考图。选择一个场景，或保留原帖的梦幻世界。",
+  "howToUse": [
+    "通过高亮选项选择场景、低饱和配色和竖版画幅比例。",
+    "复制 Prompt，或直接在 ChatGPT 中打开。",
+    "将 Prompt 发送给你的生图工具。原帖推荐 GPT Image 2。"
+  ],
+  "exampleNotice": "案例图来自作者分享，并非实时预览。",
+  "verificationNotice": "这些案例来自作者原帖，Image Prompt Book 尚未复现。",
+  "adaptationNotice": "简体中文翻译与场景、配色、画幅比例选项由 Image Prompt Book 整理。英文默认值保留原帖措辞；以上改编不代表作者认可。",
+  "licenseNotice": "作者未声明许可。全部权利归作者所有；本站注明作者并链接原帖展示。",
+  "parameterLabels": {
+    "setting": "场景",
+    "palette": "配色",
+    "aspectRatio": "画幅比例"
+  },
+  "keywords": [
+    "超现实建筑",
+    "未来城市",
+    "复古旅行海报",
+    "巴黎",
+    "北京",
+    "伊斯坦布尔",
+    "艺术印刷品"
+  ]
+}

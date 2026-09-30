@@ -1,0 +1,53 @@
+[
+  {
+    "id": "paris",
+    "src": "images/paris.jpg",
+    "width": 1122,
+    "height": 1402,
+    "alt": {
+      "en": "Vintage-style Paris travel poster with the Eiffel Tower, giant pale flowers, curved elevated walkways, a streamlined train, floating platforms, a hot-air balloon, and a muted teal sky",
+      "zh-CN": "复古风巴黎旅行海报：埃菲尔铁塔、巨大的浅色花朵、弯曲的高架步道、流线型列车、悬浮平台与热气球，背景为低饱和青蓝天空"
+    },
+    "sourceUrl": "https://x.com/Naiknelofar788/status/2093230701986672924",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result image from simeon-sanai's X post, downloaded at the owner's request (Jimmy Wong, 2026-09-30). No license is stated. Original dimensions retained; re-encoded as JPEG at quality 82.",
+      "evidence": "https://x.com/Naiknelofar788/status/2093230701986672924"
+    },
+    "recipe": null
+  },
+  {
+    "id": "beijing",
+    "src": "images/beijing.jpg",
+    "width": 1122,
+    "height": 1402,
+    "alt": {
+      "en": "Vintage-style Beijing travel poster with traditional tiered roofs, futuristic towers, an angular building, an elevated train, magnolia blossoms, bamboo, floating aircraft, and an orange sun",
+      "zh-CN": "复古风北京旅行海报：传统层叠屋顶、未来感高塔、棱角分明的建筑、高架列车、木兰花、竹子与悬浮飞行器，背景有橙色太阳"
+    },
+    "sourceUrl": "https://x.com/Naiknelofar788/status/2093230701986672924",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result image from simeon-sanai's X post, downloaded at the owner's request (Jimmy Wong, 2026-09-30). No license is stated. Original dimensions retained; re-encoded as JPEG at quality 82.",
+      "evidence": "https://x.com/Naiknelofar788/status/2093230701986672924"
+    },
+    "recipe": null
+  },
+  {
+    "id": "istanbul",
+    "src": "images/istanbul.jpg",
+    "width": 1122,
+    "height": 1402,
+    "alt": {
+      "en": "Vintage-style Istanbul travel poster with domed mosques, slender minarets, a waterway with boats, a distant suspension bridge, floating airships, giant flowers, and a pale sun",
+      "zh-CN": "复古风伊斯坦布尔旅行海报：圆顶清真寺、纤细宣礼塔、航道与船只、远处的悬索桥、悬浮飞艇和巨型花朵，背景有浅色太阳"
+    },
+    "sourceUrl": "https://x.com/Naiknelofar788/status/2093230701986672924",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Result image from simeon-sanai's X post, downloaded at the owner's request (Jimmy Wong, 2026-09-30). No license is stated. Original dimensions retained; re-encoded as JPEG at quality 82.",
+      "evidence": "https://x.com/Naiknelofar788/status/2093230701986672924"
+    },
+    "recipe": null
+  }
+]

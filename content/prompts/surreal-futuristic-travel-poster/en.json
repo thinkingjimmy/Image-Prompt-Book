@@ -1,0 +1,30 @@
+{
+  "title": "Surreal Futuristic Travel Poster",
+  "summary": "A dreamlike future city rendered as a vintage travel art print, with sculptural architecture, oversized plants, tiny people, floating elements, muted colors, and tactile paper grain.",
+  "seoTitle": "Surreal Futuristic Travel Poster Prompt | Image Prompt Book",
+  "seoDescription": "Create a surreal future city in a vintage travel-poster style. Choose Paris, Beijing, Istanbul, or a dreamlike world, adjust the palette and aspect ratio, then copy.",
+  "inputRequirement": "No image needed. Choose a setting, or keep the original dreamlike world.",
+  "howToUse": [
+    "Choose the setting, muted palette, and portrait aspect ratio in the highlighted options.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Send it to your image generation tool. The source recommends GPT Image 2."
+  ],
+  "exampleNotice": "Example results shared by the author, not a live preview.",
+  "verificationNotice": "These examples come from the author's post and have not been reproduced by Image Prompt Book.",
+  "adaptationNotice": "Simplified Chinese translation and adjustable setting, palette, and aspect ratio by Image Prompt Book. English defaults preserve the source wording; the adaptations are not endorsed by the author.",
+  "licenseNotice": "The author did not state a license. All rights stay with the author; this page credits them and links to the original post.",
+  "parameterLabels": {
+    "setting": "Setting",
+    "palette": "Palette",
+    "aspectRatio": "Aspect ratio"
+  },
+  "keywords": [
+    "surreal architecture",
+    "futuristic city",
+    "vintage travel poster",
+    "Paris",
+    "Beijing",
+    "Istanbul",
+    "art print"
+  ]
+}
