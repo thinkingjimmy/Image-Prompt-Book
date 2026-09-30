@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "sky",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "pastel",
+      "options": [
+        {
+          "id": "pastel",
+          "labels": {
+            "en": "Pastel sunset",
+            "zh-CN": "粉彩日落"
+          },
+          "replacements": {
+            "en": "soft peach, blush pink, dusty orange, and warm lavender clouds",
+            "zh-CN": "柔和的桃色、淡粉色、灰橙色和暖淡紫色云层"
+          }
+        },
+        {
+          "id": "scattered",
+          "labels": {
+            "en": "Scattered pink clouds",
+            "zh-CN": "零散粉云"
+          },
+          "replacements": {
+            "en": "scattered soft peach and blush pink clouds",
+            "zh-CN": "零散的柔和桃色和淡粉色云层"
+          }
+        },
+        {
+          "id": "bands",
+          "labels": {
+            "en": "Warm cloud bands",
+            "zh-CN": "暖色云带"
+          },
+          "replacements": {
+            "en": "long bands of dusty orange and warm lavender clouds",
+            "zh-CN": "绵长的灰橙色和暖淡紫色云带"
+          }
+        }
+      ]
+    },
+    {
+      "id": "caption",
+      "type": "select",
+      "renderAs": "block",
+      "default": "same-sky",
+      "options": [
+        {
+          "id": "same-sky",
+          "labels": {
+            "en": "Same sky",
+            "zh-CN": "同一片天空"
+          },
+          "replacements": {
+            "en": "“SAME SKY”\n“DIFFERENT STORIES”",
+            "zh-CN": "“SAME SKY”\n“DIFFERENT STORIES”"
+          }
+        },
+        {
+          "id": "postcard",
+          "labels": {
+            "en": "Postcard from Paris",
+            "zh-CN": "巴黎明信片"
+          },
+          "replacements": {
+            "en": "“POSTCARDS FROM PARIS”\n“WISH YOU WERE HERE”",
+            "zh-CN": "“POSTCARDS FROM PARIS”\n“WISH YOU WERE HERE”"
+          }
+        },
+        {
+          "id": "dusk",
+          "labels": {
+            "en": "Paris at dusk",
+            "zh-CN": "巴黎暮色"
+          },
+          "replacements": {
+            "en": "“PARIS AT DUSK”\n“MOMENTS TO KEEP”",
+            "zh-CN": "“PARIS AT DUSK”\n“MOMENTS TO KEEP”"
+          }
+        }
+      ]
+    },
+    {
+      "id": "aspectRatio",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "portrait-4-5",
+      "options": [
+        {
+          "id": "portrait-4-5",
+          "labels": {
+            "en": "4:5 portrait",
+            "zh-CN": "4:5 竖版"
+          },
+          "replacements": {
+            "en": "4:5",
+            "zh-CN": "4:5"
+          }
+        },
+        {
+          "id": "portrait-3-4",
+          "labels": {
+            "en": "3:4 portrait",
+            "zh-CN": "3:4 竖版"
+          },
+          "replacements": {
+            "en": "3:4",
+            "zh-CN": "3:4"
+          }
+        },
+        {
+          "id": "portrait-2-3",
+          "labels": {
+            "en": "2:3 portrait",
+            "zh-CN": "2:3 竖版"
+          },
+          "replacements": {
+            "en": "2:3",
+            "zh-CN": "2:3"
+          }
+        }
+      ]
+    }
+  ]
+}

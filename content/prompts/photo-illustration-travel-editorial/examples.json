@@ -1,0 +1,36 @@
+[
+  {
+    "id": "paris",
+    "src": "images/paris.jpg",
+    "width": 1080,
+    "height": 1440,
+    "alt": {
+      "en": "Paris travel poster with a sunset photograph of the Eiffel Tower and city rooftops above an ivory illustration of the tower, peach sun, skyline, and large Paris serif title",
+      "zh-CN": "巴黎旅行海报：上方是日落时分的埃菲尔铁塔与城市屋顶照片，下方是象牙白底的铁塔、桃色太阳和天际线插画，配有大号衬线 Paris 标题"
+    },
+    "sourceUrl": "https://x.com/Taaruk_/status/2105219293294256598",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Complete result poster from Taaruk’s X post, downloaded at the owner’s request (Jimmy Wong, 2026-09-30). No license is stated. Original 1080 × 1440 dimensions and both panels retained; re-encoded as JPEG at quality 82 without resizing or cropping.",
+      "evidence": "https://x.com/Taaruk_/status/2105219293294256598"
+    },
+    "recipe": null
+  },
+  {
+    "id": "lighthouse",
+    "src": "images/lighthouse.jpg",
+    "width": 1080,
+    "height": 1440,
+    "alt": {
+      "en": "Travel poster with a white coastal lighthouse, red-roofed house, rocky shore, and crashing waves above an ivory flat illustration of the same scene with birds, a sun, and A Brighter Horizon lettering",
+      "zh-CN": "旅行海报：上方是白色海岸灯塔、红屋顶房屋、礁石与浪花照片，下方为同一场景的象牙白底扁平插画，配有飞鸟、太阳和 A Brighter Horizon 文字"
+    },
+    "sourceUrl": "https://x.com/Taaruk_/status/2105219293294256598",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Complete result poster from Taaruk’s X post, downloaded at the owner’s request (Jimmy Wong, 2026-09-30). No license is stated. Original 1080 × 1440 dimensions and both panels retained; re-encoded as JPEG at quality 82 without resizing or cropping.",
+      "evidence": "https://x.com/Taaruk_/status/2105219293294256598"
+    },
+    "recipe": null
+  }
+]

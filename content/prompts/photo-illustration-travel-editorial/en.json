@@ -1,0 +1,32 @@
+{
+  "title": "Photo × Illustration Travel Editorial",
+  "summary": "Pair a cinematic travel photograph with a minimalist illustration on ivory paper. Choose the Paris sunset or coastal lighthouse prompt, then adjust the sky or waves, subtitle, and portrait ratio.",
+  "seoTitle": "Photo × Illustration Travel Poster Prompt | Image Prompt Book",
+  "seoDescription": "Create a Paris or lighthouse travel poster with cinematic photography, a flat illustration, and elegant serif type. Customize the bilingual prompt and copy it into ChatGPT.",
+  "inputRequirement": "No reference image is required. The prompt generates both the photographic scene and its illustrated interpretation as one poster.",
+  "howToUse": [
+    "Choose Paris or Lighthouse, then adjust the highlighted options.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Send it to an image generation tool. The source recommends GPT Image 2 on ChatGPT."
+  ],
+  "exampleNotice": "These are complete source posters, with photography above illustration. They are 3:4 images; the original prompts request 4:5. Changing options updates the prompt, not the examples.",
+  "verificationNotice": "Source examples have not been reproduced by Image Prompt Book. The source recommends GPT Image 2 on ChatGPT; the exact model and settings are not independently verified.",
+  "adaptationNotice": "Both source prompts are preserved as separate editable versions and translated in full into Simplified Chinese. English lettering remains unchanged in both languages. Sky or wave conditions, subtitles, and portrait ratios are adjustable; English defaults reproduce each source prompt. Added choices are project adaptations, not author endorsements.",
+  "licenseNotice": "License: none stated. All rights remain with the author; shown here with credit and a link to the original post. Removed on the author’s request.",
+  "parameterLabels": {
+    "sky": "Sunset sky",
+    "seaState": "Wave conditions",
+    "caption": "Subtitle",
+    "aspectRatio": "Portrait ratio"
+  },
+  "keywords": [
+    "travel editorial",
+    "Paris",
+    "Eiffel Tower",
+    "lighthouse",
+    "photo illustration",
+    "minimalist travel poster",
+    "serif typography",
+    "Taaruk"
+  ]
+}

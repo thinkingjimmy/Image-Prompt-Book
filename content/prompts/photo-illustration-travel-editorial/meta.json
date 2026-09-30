@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "id": "photo-illustration-travel-editorial",
+  "slug": "photo-illustration-travel-editorial",
+  "templateVersion": "1.0.0",
+  "status": "published",
+  "createdAt": "2026-09-30",
+  "updatedAt": "2026-09-30",
+  "publishedAt": "2026-09-30T20:51:55+08:00",
+  "category": "posters",
+  "tags": [
+    "travel",
+    "editorial",
+    "minimal",
+    "typography"
+  ],
+  "originalLocale": "en",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.en.txt",
+  "templatePaths": {
+    "en": "paris/template.en.txt",
+    "zh-CN": "paris/template.zh-CN.txt"
+  },
+  "parametersPath": "paris/parameters.json",
+  "variants": [
+    {
+      "id": "paris",
+      "labels": {
+        "en": "Paris",
+        "zh-CN": "巴黎"
+      },
+      "templateVersion": "1.0.0",
+      "templatePaths": {
+        "en": "paris/template.en.txt",
+        "zh-CN": "paris/template.zh-CN.txt"
+      },
+      "parametersPath": "paris/parameters.json"
+    },
+    {
+      "id": "lighthouse",
+      "labels": {
+        "en": "Lighthouse",
+        "zh-CN": "海岸灯塔"
+      },
+      "templateVersion": "1.0.0",
+      "templatePaths": {
+        "en": "lighthouse/template.en.txt",
+        "zh-CN": "lighthouse/template.zh-CN.txt"
+      },
+      "parametersPath": "lighthouse/parameters.json"
+    }
+  ],
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": false,
+  "sourceRecommendedTools": [
+    "GPT Image 2 on ChatGPT"
+  ],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "x-post",
+      "type": "x",
+      "role": "original",
+      "title": "Taaruk on X (2026-09-30)",
+      "url": "https://x.com/Taaruk_/status/2105219293294256598",
+      "author": {
+        "name": "Taaruk",
+        "handle": "@Taaruk_",
+        "url": "https://x.com/Taaruk_"
+      },
+      "checkedAt": "2026-09-30"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/Taaruk_/status/2105219293294256598",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown"
+  }
+}

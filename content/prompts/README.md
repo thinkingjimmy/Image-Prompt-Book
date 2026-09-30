@@ -19,6 +19,7 @@ papercut-layered-illustration/: Photo to Paper-Cut Layered Illustration; photo-a
 perler-bead-travel-editorial/: Perler Bead Travel Editorial; posters entry, source text, bilingual templates, options, attribution, and local examples.
 photo-abstract-editorial/: Photo + Abstract Memory Panel; photo-art entry, source text, bilingual templates, options, attribution, and local examples.
 photo-circle-logo-diptych/: Photo × Minimal Circle Logo Diptych; photo-art entry, source text, bilingual templates, options, attribution, and local examples.
+photo-illustration-travel-editorial/: Photo × Illustration Travel Editorial; posters entry, two original prompts, bilingual editable variants, attribution, and local examples.
 photo-memory-card/: Photo Memory Card — Crayon Sketch; photo-art entry, source text, bilingual templates, options, attribution, and local examples.
 photo-modernist-poster/: Photo × Modernist Poster Diptych; photo-art entry, source text, bilingual templates, options, attribution, and local examples.
 research-report-cover/: Research Report Cover — Anthropic-Inspired; posters entry, source text, bilingual templates, options, attribution, and local examples.

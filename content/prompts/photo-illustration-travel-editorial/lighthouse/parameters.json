@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "seaState",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "powerful",
+      "options": [
+        {
+          "id": "powerful",
+          "labels": {
+            "en": "Crashing waves",
+            "zh-CN": "汹涌浪花"
+          },
+          "replacements": {
+            "en": "powerful ocean waves crash against the shoreline",
+            "zh-CN": "汹涌的海浪猛烈拍打海岸"
+          }
+        },
+        {
+          "id": "rolling",
+          "labels": {
+            "en": "Rolling waves",
+            "zh-CN": "层层海浪"
+          },
+          "replacements": {
+            "en": "rolling ocean waves break along the shoreline",
+            "zh-CN": "层层海浪沿海岸涌起并破碎"
+          }
+        },
+        {
+          "id": "gentle",
+          "labels": {
+            "en": "Gentle waves",
+            "zh-CN": "轻柔海浪"
+          },
+          "replacements": {
+            "en": "gentle ocean waves wash against the shoreline",
+            "zh-CN": "轻柔的海浪缓缓涌上海岸"
+          }
+        }
+      ]
+    },
+    {
+      "id": "caption",
+      "type": "select",
+      "renderAs": "block",
+      "default": "same-sea",
+      "options": [
+        {
+          "id": "same-sea",
+          "labels": {
+            "en": "Same sea",
+            "zh-CN": "同一片海"
+          },
+          "replacements": {
+            "en": "“SAME SEA”\n“BRIGHTER”\n“DAYS”",
+            "zh-CN": "“SAME SEA”\n“BRIGHTER”\n“DAYS”"
+          }
+        },
+        {
+          "id": "beginnings",
+          "labels": {
+            "en": "New beginnings",
+            "zh-CN": "新的开始"
+          },
+          "replacements": {
+            "en": "“SAME SEA”\n“NEW”\n“BEGINNINGS”",
+            "zh-CN": "“SAME SEA”\n“NEW”\n“BEGINNINGS”"
+          }
+        },
+        {
+          "id": "horizons",
+          "labels": {
+            "en": "Open horizons",
+            "zh-CN": "开阔天际"
+          },
+          "replacements": {
+            "en": "“COASTAL LIGHT”\n“OPEN”\n“HORIZONS”",
+            "zh-CN": "“COASTAL LIGHT”\n“OPEN”\n“HORIZONS”"
+          }
+        }
+      ]
+    },
+    {
+      "id": "aspectRatio",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "portrait-4-5",
+      "options": [
+        {
+          "id": "portrait-4-5",
+          "labels": {
+            "en": "4:5 portrait",
+            "zh-CN": "4:5 竖版"
+          },
+          "replacements": {
+            "en": "4:5",
+            "zh-CN": "4:5"
+          }
+        },
+        {
+          "id": "portrait-3-4",
+          "labels": {
+            "en": "3:4 portrait",
+            "zh-CN": "3:4 竖版"
+          },
+          "replacements": {
+            "en": "3:4",
+            "zh-CN": "3:4"
+          }
+        },
+        {
+          "id": "portrait-2-3",
+          "labels": {
+            "en": "2:3 portrait",
+            "zh-CN": "2:3 竖版"
+          },
+          "replacements": {
+            "en": "2:3",
+            "zh-CN": "2:3"
+          }
+        }
+      ]
+    }
+  ]
+}

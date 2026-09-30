@@ -1,0 +1,32 @@
+{
+  "title": "摄影 × 插画旅行编辑海报",
+  "summary": "把电影感旅行摄影与象牙白纸上的极简插画组合成海报。可切换巴黎日落与海岸灯塔两套 Prompt，调整天空或海浪、副标题和竖版比例。",
+  "seoTitle": "摄影 × 插画旅行海报 Prompt | Image Prompt Book",
+  "seoDescription": "用电影感摄影、扁平插画与优雅衬线字体生成巴黎或灯塔旅行海报。提供完整双语 Prompt，可调整天空、海浪、副标题与画幅，并复制到 ChatGPT。",
+  "inputRequirement": "无需参考图。Prompt 会生成摄影场景及其插画诠释，并将两者组合为一张完整海报。",
+  "howToUse": [
+    "选择巴黎或海岸灯塔版本，再调整正文中高亮的选项。",
+    "复制 Prompt，或直接在 ChatGPT 中打开。",
+    "将 Prompt 发送给生图工具；原帖推荐在 ChatGPT 中使用 GPT Image 2。"
+  ],
+  "exampleNotice": "示例是上半摄影、下半插画的完整原帖海报。原图比例为 3:4，原始 Prompt 要求 4:5。调整选项会更新 Prompt，示例图保持不变。",
+  "verificationNotice": "Image Prompt Book 尚未复现这些原帖示例。作者推荐在 ChatGPT 中使用 GPT Image 2，实际模型及生成设置未经本站独立验证。",
+  "adaptationNotice": "两套原始 Prompt 分别保留为可切换的编辑版本，并完整翻译为简体中文。两个语言版本均保留原定的英文画面文字。天空或海浪状态、副标题和竖版比例可调整；各版本的英文默认值完整复现原文。新增选项为本站改编，不代表作者认可。",
+  "licenseNotice": "许可：未声明。全部权利归作者所有；本站注明作者并链接原帖展示。如作者提出要求，将移除该条目。",
+  "parameterLabels": {
+    "sky": "日落天空",
+    "seaState": "海浪状态",
+    "caption": "副标题",
+    "aspectRatio": "竖版比例"
+  },
+  "keywords": [
+    "旅行编辑海报",
+    "巴黎",
+    "埃菲尔铁塔",
+    "海岸灯塔",
+    "摄影插画",
+    "极简旅行海报",
+    "衬线字体",
+    "Taaruk"
+  ]
+}
