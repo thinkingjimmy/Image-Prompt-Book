@@ -2,7 +2,7 @@
 
 > L2 | 父级: ../AGENTS.md
 
-`pnpm test` runs the unit suites (Vitest, fixtures rebuilt automatically). `pnpm test:e2e` runs Playwright against an isolated production build of the fixture content. `pnpm verify` runs lint, typecheck, unit tests, content check and build — the same as CI before E2E.
+`pnpm test` runs the unit suites (Vitest, fixtures rebuilt automatically). `pnpm test:e2e` runs Playwright against an isolated production build of the fixture content. `pnpm verify` runs lint, typecheck, unit tests, content check and build — the same as CI before E2E. Typechecking runs next typegen first so Next.js declarations are available in a fresh checkout without a prior dev session or build.
 
 成员清单
 vitest.config.mts: 单元测试配置（pnpm test 以 -c 指向），root 指回仓库根，globalSetup 重建 fixture

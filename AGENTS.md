@@ -37,6 +37,7 @@ Open http://localhost:3000. Draft entries appear with `IPB_PREVIEW_DRAFTS=1 pnpm
 | Command | What it does |
 | --- | --- |
 | `pnpm test` | Unit tests (fixtures rebuilt automatically); watch mode: `pnpm exec vitest -c tests/vitest.config.mts` |
+| `pnpm typecheck` | Generate Next.js declarations, then check TypeScript — also works in a fresh checkout |
 | `pnpm verify` | Lint, typecheck, unit tests, content check and production build — run before every push |
 | `pnpm test:e2e` | Playwright on an isolated fixture build (Chromium, mobile, Firefox, WebKit) |
 | `pnpm content:check` | Validate every entry and print why it is or isn't public |

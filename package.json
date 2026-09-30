@@ -12,7 +12,7 @@
     "build": "pnpm content:check && next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
     "content:check": "tsx scripts/check-content.ts",
     "content:import": "tsx scripts/import-appendix.ts",
     "links:check": "tsx scripts/check-links.ts",
