@@ -1,0 +1,185 @@
+[Fill-in information]
+
+Theme: [Enter the theme]
+Core idea: [Use 1-3 sentences to explain the relationship, contradiction, change, or viewpoint this image should truly express]
+Aspect ratio: {{format}}
+Background color: {{background}}
+Visual direction: [Optional. Specify subjects, objects, or imagery you would like to include; if you have no specific ideas, write “use your own judgment”]
+
+────────────────────
+
+Using the information above, create a purely visual conceptual cover image.
+
+[Overall goal]
+This is a sophisticated conceptual illustration for an article, content cover, or thematic presentation.
+Do not simply turn the theme into an explanatory illustration.
+First understand the core relationship behind the theme, then translate the abstract concept into a clear, clever, memorable visual metaphor.
+
+The entire image should look like a conceptual cover produced by a sophisticated magazine or design studio:
+restrained, refined, quiet, minimal, and strongly editorial.
+
+────────────────────
+[Fixed style]
+
+Keep the overall style fixed as:
+
+neo-vintage editorial collage,
+engraving collage,
+tattoo-like pen-and-ink illustration,
+classical sculpture texture,
+surreal conceptual editorial cover,
+minimal visual metaphor.
+
+In other words:
+a neo-vintage engraving metaphor style,
+a vintage copperplate print / pen engraving feel,
+combining the texture of classical sculpture with modern editorial collage compositions.
+
+────────────────────
+[Background rules]
+
+The background must use a large area of flat Morandi color,
+with low saturation and a restrained, refined, unified palette.
+
+Keep the background uncomplicated: no glare, cyber neon, or flashy gradients.
+A very slight paper texture or printed grain is acceptable, but keep the overall image clean.
+
+────────────────────
+[Subject rules]
+
+Subjects should be primarily black and white or grayscale,
+with fine engraved hatching, copperplate print texture, etched texture, and a pen-drawn feel.
+
+Subjects may include:
+- Figures with a sculptural texture
+- Parts of the human body (hands, heads, shoulders and necks, half-length figures, torsos)
+- Everyday objects with a sculptural feel
+- Objects combining classical and modern elements
+- Mechanical hands, books, feathers, typewriters, keys, light bulbs, birds, stone columns, paper, discs, nodes, geometric symbols, and more
+
+Do not limit figures to the statue of David.
+Do not repeatedly generate the same classic statue face.
+Favor “generalized human sculptural forms” or “parts of the human body”,
+retaining the character of classical sculpture without turning it into a single repeated template.
+
+────────────────────
+[Linework and materials]
+
+The visual language of the lines should include:
+- tattoo-like pen-and-ink linework
+- engraving texture
+- etching illustration
+- copperplate-style shading
+- fine hatch lines
+
+The image should combine:
+1. Black-and-white engraved texture
+2. A minimal flat-color background
+
+The contrast of “an intricately textured subject + a minimal background” is the defining feature.
+
+────────────────────
+[Color rules]
+
+Limit the overall palette to:
+- 1 main Morandi background color
+- 1-2 very restrained supporting accent colors
+
+Suggested accent colors:
+matte gold, pale ochre, light apricot, misty blue, sage gray green, warm taupe, gray purple, and faded brass.
+
+Do not use clashing highly saturated colors,
+rainbow colors,
+too many colors,
+or a palette that shows off for its own sake.
+
+────────────────────
+[Composition rules]
+
+1. Keep the overall image simple
+2. Preserve generous negative space
+3. Keep only one core visual event
+4. Limit the number of elements to {{elementCount}}
+5. Compose it like a sophisticated magazine cover, with a clear hierarchy
+6. The subject may be {{placement}}, but the overall composition must remain balanced
+7. Localized surreal relationships are allowed, but do not let elements pile up uncontrollably
+
+If the aspect ratio is 5:2:
+emphasize horizontal storytelling, negative space, and a single action relationship,
+and do not fill the entire image with content.
+
+────────────────────
+[Metaphor rules]
+
+This is the most important part.
+
+Do not generate an “explanation of the theme”.
+Do not make an infographic.
+Do not pile up icons.
+Do not make an ordinary technology poster.
+
+First distill the “core relationship” behind the theme, then turn it into a simple, powerful visual metaphor.
+
+Relationships you may express include, but are not limited to:
+- Connection / rupture
+- Attraction / repulsion
+- Input / output
+- Chaos / focus
+- Growth / depletion
+- Control / loss of control
+- Human / machine
+- Past / future
+- Individual / system
+- Exploration / arrival
+- Noise / signal
+- Knowledge / retrieval
+- Creation / transformation
+
+The final image should read like a visual sentence,
+attracting the viewer at first glance and revealing its meaning at the second.
+
+────────────────────
+[Atmosphere]
+
+The overall atmosphere should be:
+- Refined
+- Minimal
+- Conceptual
+- Intellectual
+- Quiet
+- Humanistic
+- A subtle blend of technology and classical elements
+- Editorial and design-conscious
+- Slightly surreal
+
+────────────────────
+[Prohibited elements]
+
+Do not include:
+- Title text
+- Logos
+- Watermarks
+- Cyberpunk
+- Neon lights
+- Technology UI filling the image
+- Piles of complex scenes
+- Pure photographic realism
+- Cartoon 3D
+- A cheap AI technology aesthetic
+- The same repeated David head
+- Excessively religious imagery
+- Meaningless decorative borders
+- Collage overloaded with information
+
+────────────────────
+[Output requirements]
+
+Output one purely visual cover image.
+Do not add text.
+Ensure:
+- A unified style
+- A Morandi-colored background
+- Subjects with black-and-white engraved / sculptural texture
+- A clear metaphor
+- A refined, simple image
+- An image ready to use as a content cover

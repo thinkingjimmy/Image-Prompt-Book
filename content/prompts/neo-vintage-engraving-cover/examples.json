@@ -1,0 +1,70 @@
+[
+  {
+    "id": "sculpture-collage",
+    "src": "images/sculpture-collage.jpg",
+    "width": 1600,
+    "height": 640,
+    "alt": {
+      "en": "A grayscale classical sculptural head filled with a door, stairs, and a book, with birds, floating fragments, and a muted gold circle on a warm beige background",
+      "zh-CN": "暖米色背景上，灰阶古典雕塑头像中拼贴着门、阶梯与书本，周围有鸟、漂浮碎片和哑金色圆形"
+    },
+    "sourceUrl": "https://x.com/AdrianPunk115/status/2105214202134851725",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Complete image from Adrian Punk’s X article, downloaded at the owner’s request (Jimmy Wong, 2026-10-01). No license is stated. Reduced from 1983 × 793 to 1600 × 640 pixels and re-encoded at JPEG quality 82 without cropping or enlargement.",
+      "evidence": "https://x.com/AdrianPunk115/status/2105214202134851725"
+    },
+    "recipe": null
+  },
+  {
+    "id": "knowledge-keyhole",
+    "src": "images/knowledge-keyhole.jpg",
+    "width": 1600,
+    "height": 640,
+    "alt": {
+      "en": "An engraved sculptural head and a stream of pages, gears, and fragments narrowing toward a small gold keyhole on a misty purple background",
+      "zh-CN": "雾紫背景上，雕刻质感头像与书页、齿轮和碎片汇成细流，朝右侧小小的金色钥匙孔收拢"
+    },
+    "sourceUrl": "https://x.com/AdrianPunk115/status/2105214202134851725",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Complete image from Adrian Punk’s X article, downloaded at the owner’s request (Jimmy Wong, 2026-10-01). No license is stated. Reduced from 1983 × 793 to 1600 × 640 pixels and re-encoded at JPEG quality 82 without cropping or enlargement.",
+      "evidence": "https://x.com/AdrianPunk115/status/2105214202134851725"
+    },
+    "recipe": null
+  },
+  {
+    "id": "doors-and-keys",
+    "src": "images/doors-and-keys.jpg",
+    "width": 1600,
+    "height": 640,
+    "alt": {
+      "en": "An engraved outstretched hand reaching toward floating arched doors, stairs, islands, and keys, with a gold doorway on a misty purple background",
+      "zh-CN": "雾紫背景上，一只雕刻质感的手伸向漂浮的拱门、阶梯、小岛与钥匙，右侧有金色门洞"
+    },
+    "sourceUrl": "https://x.com/AdrianPunk115/status/2105214202134851725",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Complete image from Adrian Punk’s X article, downloaded at the owner’s request (Jimmy Wong, 2026-10-01). No license is stated. Reduced from 1983 × 793 to 1600 × 640 pixels and re-encoded at JPEG quality 82 without cropping or enlargement.",
+      "evidence": "https://x.com/AdrianPunk115/status/2105214202134851725"
+    },
+    "recipe": null
+  },
+  {
+    "id": "attention-threads",
+    "src": "images/attention-threads.jpg",
+    "width": 1600,
+    "height": 640,
+    "alt": {
+      "en": "A fragmented engraved face connected by fine gold threads to small reaction symbols and a gold circle on an olive khaki background",
+      "zh-CN": "橄榄卡其背景上，碎片化雕刻人脸由细金线连接至小型互动符号与金色圆形"
+    },
+    "sourceUrl": "https://x.com/AdrianPunk115/status/2105214202134851725",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Complete image from Adrian Punk’s X article, downloaded at the owner’s request (Jimmy Wong, 2026-10-01). No license is stated. Reduced from 1983 × 793 to 1600 × 640 pixels and re-encoded at JPEG quality 82 without cropping or enlargement.",
+      "evidence": "https://x.com/AdrianPunk115/status/2105214202134851725"
+    },
+    "recipe": null
+  }
+]

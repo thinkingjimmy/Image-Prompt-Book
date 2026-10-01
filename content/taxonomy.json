@@ -154,6 +154,13 @@
         "en": "Intaglio",
         "zh-CN": "凹版雕刻"
       }
+    },
+    {
+      "id": "engraving",
+      "labels": {
+        "en": "Engraving",
+        "zh-CN": "雕刻"
+      }
     }
   ]
 }

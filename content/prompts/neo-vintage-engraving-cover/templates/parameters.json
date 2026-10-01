@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "format",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "wide",
+      "options": [
+        {
+          "id": "wide",
+          "labels": {
+            "en": "5:2 wide",
+            "zh-CN": "5:2 宽幅"
+          },
+          "replacements": {
+            "en": "5:2",
+            "zh-CN": "5:2"
+          }
+        },
+        {
+          "id": "landscape",
+          "labels": {
+            "en": "16:9 landscape",
+            "zh-CN": "16:9 横向"
+          },
+          "replacements": {
+            "en": "16:9",
+            "zh-CN": "16:9"
+          }
+        },
+        {
+          "id": "portrait",
+          "labels": {
+            "en": "3:4 portrait",
+            "zh-CN": "3:4 竖向"
+          },
+          "replacements": {
+            "en": "3:4",
+            "zh-CN": "3:4"
+          }
+        },
+        {
+          "id": "square",
+          "labels": {
+            "en": "1:1 square",
+            "zh-CN": "1:1 方形"
+          },
+          "replacements": {
+            "en": "1:1",
+            "zh-CN": "1:1"
+          }
+        }
+      ]
+    },
+    {
+      "id": "background",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "blue-gray",
+      "options": [
+        {
+          "id": "blue-gray",
+          "labels": {
+            "en": "Blue gray",
+            "zh-CN": "灰蓝"
+          },
+          "replacements": {
+            "en": "blue gray",
+            "zh-CN": "灰蓝"
+          }
+        },
+        {
+          "id": "gray-green",
+          "labels": {
+            "en": "Gray green",
+            "zh-CN": "灰绿"
+          },
+          "replacements": {
+            "en": "gray green",
+            "zh-CN": "灰绿"
+          }
+        },
+        {
+          "id": "warm-beige",
+          "labels": {
+            "en": "Warm beige",
+            "zh-CN": "暖米"
+          },
+          "replacements": {
+            "en": "warm beige",
+            "zh-CN": "暖米"
+          }
+        },
+        {
+          "id": "misty-purple",
+          "labels": {
+            "en": "Misty purple",
+            "zh-CN": "雾紫"
+          },
+          "replacements": {
+            "en": "misty purple",
+            "zh-CN": "雾紫"
+          }
+        },
+        {
+          "id": "olive-khaki",
+          "labels": {
+            "en": "Olive khaki",
+            "zh-CN": "橄榄卡其"
+          },
+          "replacements": {
+            "en": "olive khaki",
+            "zh-CN": "橄榄卡其"
+          }
+        },
+        {
+          "id": "warm-taupe",
+          "labels": {
+            "en": "Warm taupe",
+            "zh-CN": "暖灰褐"
+          },
+          "replacements": {
+            "en": "warm taupe",
+            "zh-CN": "暖灰褐"
+          }
+        }
+      ]
+    },
+    {
+      "id": "elementCount",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "auto",
+      "options": [
+        {
+          "id": "auto",
+          "labels": {
+            "en": "2-5 subjects",
+            "zh-CN": "2-5 个主体"
+          },
+          "replacements": {
+            "en": "2-5 main subjects",
+            "zh-CN": "2-5 个主体以内"
+          }
+        },
+        {
+          "id": "2",
+          "labels": {
+            "en": "2 subjects",
+            "zh-CN": "2 个主体"
+          },
+          "replacements": {
+            "en": "2 main subjects",
+            "zh-CN": "2 个主体"
+          }
+        },
+        {
+          "id": "3",
+          "labels": {
+            "en": "3 subjects",
+            "zh-CN": "3 个主体"
+          },
+          "replacements": {
+            "en": "3 main subjects",
+            "zh-CN": "3 个主体"
+          }
+        },
+        {
+          "id": "4",
+          "labels": {
+            "en": "4 subjects",
+            "zh-CN": "4 个主体"
+          },
+          "replacements": {
+            "en": "4 main subjects",
+            "zh-CN": "4 个主体"
+          }
+        },
+        {
+          "id": "5",
+          "labels": {
+            "en": "5 subjects",
+            "zh-CN": "5 个主体"
+          },
+          "replacements": {
+            "en": "5 main subjects",
+            "zh-CN": "5 个主体"
+          }
+        }
+      ]
+    },
+    {
+      "id": "placement",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "auto",
+      "options": [
+        {
+          "id": "auto",
+          "labels": {
+            "en": "Balanced · auto",
+            "zh-CN": "平衡 · 自动"
+          },
+          "replacements": {
+            "en": "on the left, on the right, or in the center",
+            "zh-CN": "偏左、偏右、居中"
+          }
+        },
+        {
+          "id": "left",
+          "labels": {
+            "en": "Left",
+            "zh-CN": "偏左"
+          },
+          "replacements": {
+            "en": "on the left",
+            "zh-CN": "偏左"
+          }
+        },
+        {
+          "id": "right",
+          "labels": {
+            "en": "Right",
+            "zh-CN": "偏右"
+          },
+          "replacements": {
+            "en": "on the right",
+            "zh-CN": "偏右"
+          }
+        },
+        {
+          "id": "center",
+          "labels": {
+            "en": "Center",
+            "zh-CN": "居中"
+          },
+          "replacements": {
+            "en": "in the center",
+            "zh-CN": "居中"
+          }
+        }
+      ]
+    }
+  ]
+}

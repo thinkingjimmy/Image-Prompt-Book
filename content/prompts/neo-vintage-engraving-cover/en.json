@@ -1,0 +1,34 @@
+{
+  "title": "Neo-Vintage Engraving Cover",
+  "summary": "Translate an abstract idea into a visual metaphor with classical sculptural forms, fine engraved linework, and a quiet Morandi background. Adjust the format, background color, subject count, and placement.",
+  "seoTitle": "Neo-Vintage Engraving Cover Prompt | Image Prompt Book",
+  "seoDescription": "Create a conceptual editorial cover with black-and-white engraving, classical sculpture textures, and Morandi colors. Customize the bilingual prompt around your theme and core idea.",
+  "inputRequirement": "No reference photo is required. Fill in the theme, core idea, and optional visual direction after copying the prompt.",
+  "howToUse": [
+    "Adjust the highlighted format, background color, subject count, and placement options.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Replace the bracketed theme, core idea, and visual direction with your own information, then send. If you have no visual direction in mind, enter “use your own judgment”."
+  ],
+  "exampleNotice": "These are the article cover and three complete examples from the source. Changing options updates the prompt, not the examples.",
+  "verificationNotice": "Image Prompt Book has not reproduced these examples. The source does not specify a model, generation settings, or the exact theme and core idea used for each image.",
+  "adaptationNotice": "The original Chinese prompt is retained verbatim, and the English version translates every instruction. Headings and manual fill-in fields use plain brackets. The default selects the source’s 5:2 format and first suggested background color, blue gray. Subject count and placement retain the source wording by default. All choices follow the source’s ranges and examples; the single visual event, restrained accents, engraved subjects, and exclusions remain fixed. These adaptations are not author endorsements.",
+  "licenseNotice": "License: none stated. All rights remain with the author; shown here with credit and a link to the original article. Removed on the author’s request.",
+  "parameterLabels": {
+    "format": "Canvas format",
+    "background": "Morandi background",
+    "elementCount": "Subject count",
+    "placement": "Subject placement"
+  },
+  "keywords": [
+    "neo-vintage",
+    "engraving",
+    "editorial cover",
+    "visual metaphor",
+    "Morandi colors",
+    "classical sculpture",
+    "pen-and-ink",
+    "conceptual collage",
+    "Adrian Punk",
+    "AdrianPunk115"
+  ]
+}
