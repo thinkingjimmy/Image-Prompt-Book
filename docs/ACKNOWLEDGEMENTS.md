@@ -30,6 +30,7 @@ Image Prompt Book 的每个案例都来自作者的公开分享，感谢他们�
 | CMYK Halftone Poster with Blurred Type<br>CMYK 网点 × 虚焦字海报 | Vigo Zhao ([@VigoCreativeAI](https://x.com/VigoCreativeAI)) | [Vigo Zhao on X (2026-09-27)](https://x.com/VigoCreativeAI/status/2104036556889796770) | [No license stated / 未声明许可](https://x.com/VigoCreativeAI/status/2104036556889796770) |
 | Surreal Futuristic Travel Poster<br>超现实未来旅行海报 | simeon-sanai ([@Naiknelofar788](https://x.com/Naiknelofar788)) | [simeon-sanai on X (2026-08-28)](https://x.com/Naiknelofar788/status/2093230701986672924) | [No license stated / 未声明许可](https://x.com/Naiknelofar788/status/2093230701986672924) |
 | Photo × Illustration Travel Editorial<br>摄影 × 插画旅行编辑海报 | Taaruk ([@Taaruk_](https://x.com/Taaruk_)) | [Taaruk on X (2026-09-30)](https://x.com/Taaruk_/status/2105219293294256598) | [No license stated / 未声明许可](https://x.com/Taaruk_/status/2105219293294256598) |
+| Photo × Intaglio Study Poster<br>照片 × 凹版雕刻研究海报 | 蛋黄堡 ([@Hamburgerai](https://x.com/Hamburgerai)) | [蛋黄堡 on X (2026-09-27)](https://x.com/Hamburgerai/status/2104159061826834864) | [No license stated / 未声明许可](https://x.com/Hamburgerai/status/2104159061826834864) |
 
 The English and Chinese versions and the adjustable options on this site are our adaptations; they are not endorsed by the authors. See the [License](../README.md#license) section for what each license allows.
 

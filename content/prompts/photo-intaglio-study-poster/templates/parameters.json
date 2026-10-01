@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "format",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "auto",
+      "options": [
+        {
+          "id": "auto",
+          "labels": {
+            "en": "Auto orientation",
+            "zh-CN": "自动方向"
+          },
+          "replacements": {
+            "en": "vertical 3:4 or horizontal 4:3",
+            "zh-CN": "竖向 3:4 或横向 4:3"
+          }
+        },
+        {
+          "id": "portrait",
+          "labels": {
+            "en": "3:4 portrait",
+            "zh-CN": "3:4 竖向"
+          },
+          "replacements": {
+            "en": "vertical 3:4",
+            "zh-CN": "竖向 3:4"
+          }
+        },
+        {
+          "id": "landscape",
+          "labels": {
+            "en": "4:3 landscape",
+            "zh-CN": "4:3 横向"
+          },
+          "replacements": {
+            "en": "horizontal 4:3",
+            "zh-CN": "横向 4:3"
+          }
+        }
+      ]
+    },
+    {
+      "id": "layout",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "auto",
+      "options": [
+        {
+          "id": "auto",
+          "labels": {
+            "en": "Auto comparison",
+            "zh-CN": "自动对比布局"
+          },
+          "replacements": {
+            "en": "Choose an above-and-below or side-by-side comparison according to the input composition",
+            "zh-CN": "根据输入构图选择上下或左右对比"
+          }
+        },
+        {
+          "id": "stacked",
+          "labels": {
+            "en": "Above and below",
+            "zh-CN": "上下对比"
+          },
+          "replacements": {
+            "en": "Use an above-and-below comparison",
+            "zh-CN": "采用上下对比布局"
+          }
+        },
+        {
+          "id": "side-by-side",
+          "labels": {
+            "en": "Side by side",
+            "zh-CN": "左右对比"
+          },
+          "replacements": {
+            "en": "Use a side-by-side comparison",
+            "zh-CN": "采用左右对比布局"
+          }
+        }
+      ]
+    },
+    {
+      "id": "palette",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "source-palette",
+      "options": [
+        {
+          "id": "source-palette",
+          "labels": {
+            "en": "Source palette",
+            "zh-CN": "原帖配色"
+          },
+          "replacements": {
+            "en": "warm white, gray beige, pale cyan, faded green, ochre yellow, or low-saturation paper and ink colors sampled from the original image",
+            "zh-CN": "暖白、灰米、淡青、褪绿、赭黄或从原图提炼的低饱和纸张与油墨色"
+          }
+        },
+        {
+          "id": "warm-white",
+          "labels": {
+            "en": "Warm white · charcoal",
+            "zh-CN": "暖白 · 炭黑"
+          },
+          "replacements": {
+            "en": "warm white paper with low-saturation charcoal ink",
+            "zh-CN": "暖白纸张与低饱和炭黑油墨"
+          }
+        },
+        {
+          "id": "gray-beige",
+          "labels": {
+            "en": "Gray beige · gray",
+            "zh-CN": "灰米 · 深灰"
+          },
+          "replacements": {
+            "en": "gray beige paper with low-saturation dark gray ink",
+            "zh-CN": "灰米色纸张与低饱和深灰油墨"
+          }
+        },
+        {
+          "id": "pale-cyan",
+          "labels": {
+            "en": "Pale cyan · blue gray",
+            "zh-CN": "淡青 · 蓝灰"
+          },
+          "replacements": {
+            "en": "pale cyan paper with low-saturation blue-gray ink",
+            "zh-CN": "淡青色纸张与低饱和蓝灰油墨"
+          }
+        },
+        {
+          "id": "faded-green",
+          "labels": {
+            "en": "Faded green · deep green",
+            "zh-CN": "褪绿 · 深绿"
+          },
+          "replacements": {
+            "en": "faded green paper with low-saturation deep green ink",
+            "zh-CN": "褪绿色纸张与低饱和深绿油墨"
+          }
+        },
+        {
+          "id": "ochre",
+          "labels": {
+            "en": "Ochre · brown",
+            "zh-CN": "赭黄 · 棕色"
+          },
+          "replacements": {
+            "en": "ochre yellow paper with low-saturation brown ink",
+            "zh-CN": "赭黄色纸张与低饱和棕色油墨"
+          }
+        }
+      ]
+    },
+    {
+      "id": "sampleText",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "either",
+      "options": [
+        {
+          "id": "either",
+          "labels": {
+            "en": "Either specimen label",
+            "zh-CN": "原帖样张文字"
+          },
+          "replacements": {
+            "en": "Allow only a few specimen fields, such as SECURITY STUDY 02 or INTAGLIO SAMPLE",
+            "zh-CN": "仅允许少量样张字段，如 SECURITY STUDY 02 或 INTAGLIO SAMPLE"
+          }
+        },
+        {
+          "id": "security-study",
+          "labels": {
+            "en": "SECURITY STUDY 02",
+            "zh-CN": "SECURITY STUDY 02"
+          },
+          "replacements": {
+            "en": "Allow only the specimen field SECURITY STUDY 02",
+            "zh-CN": "仅允许样张字段 SECURITY STUDY 02"
+          }
+        },
+        {
+          "id": "intaglio-sample",
+          "labels": {
+            "en": "INTAGLIO SAMPLE",
+            "zh-CN": "INTAGLIO SAMPLE"
+          },
+          "replacements": {
+            "en": "Allow only the specimen field INTAGLIO SAMPLE",
+            "zh-CN": "仅允许样张字段 INTAGLIO SAMPLE"
+          }
+        },
+        {
+          "id": "none",
+          "labels": {
+            "en": "No specimen text",
+            "zh-CN": "不加样张文字"
+          },
+          "replacements": {
+            "en": "Do not add any specimen text",
+            "zh-CN": "不添加任何样张文字"
+          }
+        }
+      ]
+    }
+  ]
+}

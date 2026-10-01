@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "photo-intaglio-study-poster",
+  "slug": "photo-intaglio-study-poster",
+  "templateVersion": "1.0.0",
+  "status": "published",
+  "createdAt": "2026-10-01",
+  "updatedAt": "2026-10-01",
+  "publishedAt": "2026-10-01T11:07:24+08:00",
+  "category": "photo-art",
+  "tags": [
+    "intaglio",
+    "image-to-image",
+    "travel"
+  ],
+  "originalLocale": "zh-CN",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.zh-CN.txt",
+  "templatePaths": {
+    "en": "templates/template.en.txt",
+    "zh-CN": "templates/template.zh-CN.txt"
+  },
+  "parametersPath": "templates/parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": true,
+  "sourceRecommendedTools": [],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "x-post",
+      "type": "x",
+      "role": "original",
+      "title": "蛋黄堡 on X (2026-09-27)",
+      "url": "https://x.com/Hamburgerai/status/2104159061826834864",
+      "author": {
+        "name": "蛋黄堡",
+        "handle": "@Hamburgerai",
+        "url": "https://x.com/Hamburgerai"
+      },
+      "checkedAt": "2026-10-01"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/Hamburgerai/status/2104159061826834864",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown"
+  }
+}

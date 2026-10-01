@@ -1,0 +1,33 @@
+{
+  "title": "Photo × Intaglio Study Poster",
+  "summary": "Pair your photograph with a banknote-inspired intaglio reinterpretation, built from fine engraving, guilloche patterns, and textured paper. Adjust the format, comparison layout, paper and ink palette, and specimen lettering.",
+  "seoTitle": "Photo × Intaglio Study Poster Prompt | Image Prompt Book",
+  "seoDescription": "Turn a travel or portrait photo into an intaglio study poster with fine engraved lines and guilloche patterns. Customize the bilingual prompt and use it with your reference photo.",
+  "inputRequirement": "Requires one reference photo. Attach it in your image generation tool; the prompt keeps a photographic panel and reinterprets the same subjects as intaglio art.",
+  "howToUse": [
+    "Adjust the highlighted format, comparison layout, palette, and specimen-text options.",
+    "Copy the prompt, or open it directly in ChatGPT.",
+    "Attach your reference photo and send. The source does not specify a model or tool."
+  ],
+  "exampleNotice": "These are four complete posters from the source, with a photograph beside its engraved interpretation. Changing options updates the prompt, not the examples.",
+  "verificationNotice": "Image Prompt Book has not reproduced these examples. The model, generation settings, and standalone reference photos are not provided by the source.",
+  "adaptationNotice": "The Chinese default preserves the source prompt exactly; the English version translates every sentence. Format, comparison layout, paper and ink colors, and specimen text are adjustable. Photo share, subject consistency, engraved linework, and the source’s specimen-only restrictions remain fixed. Added options are project adaptations, not author endorsements.",
+  "licenseNotice": "License: none stated. All rights remain with the author; shown here with credit and a link to the original post. Removed on the author’s request.",
+  "parameterLabels": {
+    "format": "Canvas format",
+    "layout": "Comparison layout",
+    "palette": "Paper and ink",
+    "sampleText": "Specimen text"
+  },
+  "keywords": [
+    "intaglio",
+    "engraving",
+    "guilloche",
+    "banknote study",
+    "travel souvenir",
+    "portrait",
+    "security printing",
+    "Hamburgerai",
+    "蛋黄堡"
+  ]
+}

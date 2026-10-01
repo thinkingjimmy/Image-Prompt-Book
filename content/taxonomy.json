@@ -147,6 +147,13 @@
         "en": "Travel",
         "zh-CN": "旅行"
       }
+    },
+    {
+      "id": "intaglio",
+      "labels": {
+        "en": "Intaglio",
+        "zh-CN": "凹版雕刻"
+      }
     }
   ]
 }
