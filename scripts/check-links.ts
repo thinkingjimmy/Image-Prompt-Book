@@ -1,23 +1,30 @@
 /**
- * [INPUT]: 依赖 @/lib/content/load 读取所有条目的来源、作者、许可与案例来源链接，依赖全局 fetch
- * [OUTPUT]: CLI：逐个请求外链并打印状态报告；`--strict` 时有失效链接则非零退出
- * [POS]: scripts 的独立外链巡检，由维护者手动或定时运行；不参与构建、不修改或删除任何来源记录
+ * [INPUT]: Content loader, optional --slug filters, Node argument parsing, and fetch.
+ * [OUTPUT]: CLI link report; --strict fails on unreachable links and --slug scopes imports.
+ * [POS]: scripts external-link checker; keeps full-library audits separate from entry imports.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { loadContentLibrary } from "@/lib/content/load";
 import { contentConfig } from "@/lib/site";
+import { parseArgs } from "node:util";
 
 const TIMEOUT_MS = 10_000;
-const strict = process.argv.includes("--strict");
+const { values } = parseArgs({ options: { strict: { type: "boolean" }, slug: { type: "string", multiple: true } } });
+const strict = values.strict;
 
 type Link = { slug: string; label: string; url: string };
 
 function collectLinks(): Link[] {
   const config = contentConfig();
-  const { entries } = loadContentLibrary({ root: config.root, allowFixtures: config.isFixture });
+  const { entries, issues } = loadContentLibrary({ root: config.root, allowFixtures: config.isFixture });
+  if (issues.length > 0) throw new Error(issues.join("\n"));
+  for (const slug of values.slug ?? []) {
+    if (!entries.some((entry) => entry.meta.slug === slug)) throw new Error(`Unknown prompt: ${slug}`);
+  }
   const links: Link[] = [];
   for (const entry of entries) {
     const slug = entry.meta.slug;
+    if (values.slug && !values.slug.includes(slug)) continue;
     for (const source of entry.meta.sources) {
       links.push({ slug, label: `source:${source.id}`, url: source.url });
       if (source.author?.url) links.push({ slug, label: `author:${source.id}`, url: source.author.url });
@@ -56,8 +63,8 @@ async function main() {
     if (!ok) broken++;
     console.log(`${ok ? "✓" : "✗"} ${status.padEnd(12)} ${link.slug} ${link.label} ${link.url}`);
   }
-  console.log(`\n${links.length} links, ${broken} not reachable. Nothing was changed; review failures by hand.`);
+  console.log(`\n${links.length} references (${unique.length} unique URLs), ${broken} not reachable. Nothing was changed; review failures by hand.`);
   if (strict && broken > 0) process.exit(1);
 }
 
-void main();
+void main().catch((error) => { console.error(error); process.exitCode = 1; });

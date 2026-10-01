@@ -26,7 +26,7 @@ Template and option paths may point one subfolder below the entry root. For exam
 
 ## Publication gate
 
-An entry is public only when **all** hold (`publicationBlockers()`): `status: "published"` with `publishedAt`, at least one example image, and complete en/zh-CN content, templates and attribution. The gallery, search, categories, detail pages and sitemap all use this one predicate. Drafts are visible only in local development with `IPB_PREVIEW_DRAFTS=1`: review an entry there, then switch it to `published` — there is no separate approval step.
+An entry is public only when **all** hold (`publicationBlockers()`): `status: "published"` with `publishedAt`, at least one example image, and complete en/zh-CN content, templates and attribution. The gallery, search, categories, detail pages and sitemap all use this one predicate. Author in draft, then prepare local published metadata and review the reused production build with `pnpm test:prompt` before committing/pushing. Draft previews remain available with `IPB_PREVIEW_DRAFTS=1`; they are for requested drafts or unresolved publication blockers. There is no separate approval step.
 
 ## Renaming
 

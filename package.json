@@ -18,6 +18,7 @@
     "links:check": "tsx scripts/check-links.ts",
     "test": "vitest run -c tests/vitest.config.mts",
     "test:e2e": "playwright test -c tests/playwright.config.ts",
+    "test:prompt": "tsx scripts/prompts/check.ts",
     "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm build",
     "vitals": "tsx scripts/measure-vitals.ts"
   },

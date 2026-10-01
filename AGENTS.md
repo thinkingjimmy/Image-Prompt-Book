@@ -42,7 +42,8 @@ Open http://localhost:3000. Draft entries appear with `IPB_PREVIEW_DRAFTS=1 pnpm
 | `pnpm test:e2e` | Playwright on an isolated fixture build (Chromium, mobile, Firefox, WebKit) |
 | `pnpm content:check` | Validate every entry and print why it is or isn't public |
 | `pnpm content:import <slug>` | Import a normative appendix from `docs/appendix/` verbatim |
-| `pnpm links:check` | Report unreachable source links (never changes content) |
+| `pnpm links:check [--slug <slug>...]` | Report unreachable source links globally or for selected entries (never changes content) |
+| `pnpm test:prompt <slug...> [--checks <json>]` | Reuse the verified production build for real-entry bilingual E2E and saved screenshots/traces/timings |
 | `pnpm vitals [baseUrl]` | Measure LCP/CLS/requests under fixed mobile conditions |
 
 Deploy with `pnpm build && pnpm start`. Set `SITE_URL=https://imagepromptbook.com` and `IPB_DEPLOY_ENV=production` on production only; every other environment is served `noindex`.
@@ -52,11 +53,11 @@ Deploy with `pnpm build && pnpm start`. Set `SITE_URL=https://imagepromptbook.co
 Coding agents: use the project skill [`.claude/skills/add-prompt-case`](./.claude/skills/add-prompt-case/SKILL.md) — it covers pinning the source, license, images, templates, options and tests, with `photo-abstract-editorial` as a worked example.
 
 1. Read [`content/README.md`](./content/README.md) for the file format.
-2. Create `content/prompts/<slug>/` with `meta.json`, `original.<lang>.txt`, `en.json`, `zh-CN.json`, `template.en.txt`, `template.zh-CN.txt`, `parameters.json`, `examples.json` and `ATTRIBUTION.md`. Keep `status: "draft"`.
+2. Create `content/prompts/<slug>/` with metadata, original, bilingual page copy, examples and attribution. Put templates and parameters in `templates/`, images in `images/`, and include README maps so each folder stays within eight files. Keep `status: "draft"` while authoring.
 3. Put example images in `content/prompts/<slug>/images/`; record true size, bilingual alt text, source and rights in `examples.json`.
-4. Run `pnpm content:check` and `pnpm test`. Every combination is checked automatically; add `tests/unit/prompts/<category>/<slug>.test.ts` only for prompt-specific rules.
-5. Review it locally with `IPB_PREVIEW_DRAFTS=1 pnpm dev`, then set `status: "published"` and `publishedAt`. Commit and push; CI checks structure only. If the entry came from an issue, link the issue in the commit.
-6. Credit the author: add a row to `docs/ACKNOWLEDGEMENTS.md` (the READMEs and the About page link to it).
+4. Credit the author in `docs/ACKNOWLEDGEMENTS.md` and record independent source/default expectations in scratch. Finish content/maps before validation; do not add per-entry unit tests or temporary browser scripts.
+5. Prepare local `status: "published"` and `publishedAt`, run scoped `pnpm links:check --slug <slug>` and one `pnpm verify`, then `pnpm test:prompt <slug> --checks <json>`. Review its saved desktop/mobile screenshots before commit/push. `verify` already checks all combinations and builds; entry E2E reuses that build. Batch entries share one verify/server. Requested drafts use `IPB_PREVIEW_DRAFTS=1 pnpm dev` and the runner's `--url` option.
+6. Commit explicit task files and push after preview passes. CI runs verify and browser tests. Check CI and the live page; link an originating issue in the commit when applicable.
 
 Content rules:
 

@@ -12,4 +12,5 @@ tests/fixtures/.generated/
 .vercel
 # Local agent/editor settings; project skills are shared
 .claude/*
+!.claude/README.md
 !.claude/skills/

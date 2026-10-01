@@ -1,0 +1,13 @@
+# references/
+
+> L2 | Parent: [../README.md](../README.md)
+
+Members
+
+sources.md: Pinning for X, GitHub, websites; read matching section only.
+rights-and-images.md: Rights, acknowledgements, conditional image transformations.
+verification.md: Shared runner, independent expectations, batch imports, shipping.
+photo-abstract-editorial.md: Historical multilingual GitHub/custom-license example.
+photo-memory-card.md: Historical X/unstated-terms example and option/resize lessons.
+
+[PROTOCOL]: Update this header when making changes, then check README.md.

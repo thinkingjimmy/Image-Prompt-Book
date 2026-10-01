@@ -21,7 +21,7 @@ fixtures/build.ts: 生成 fixtures/.generated/（git 忽略，全部 fixture:tru
 
 ## Adding a prompt
 
-The generic suite in `unit/content.test.ts` covers every new entry automatically. Add `unit/prompts/<category>/<slug>.test.ts` only for what is specific to that prompt: the original's hash, defaults that reproduce the author, and each contradiction between options you fixed.
+The generic suite in `unit/content.test.ts` covers every new entry automatically. Do not add per-entry unit tests. Record independent source hashes, normalized defaults, and required clauses in a scratch expectation JSON, then run `pnpm test:prompt <slug...> --checks <json>` after one `pnpm verify`. The real-entry runner in `scripts/prompts/` reuses the production build, checks every bilingual variant/option, copy/share/reset, images, attribution, gallery/sitemap and mobile layout, and saves repeatable artifacts under `tests/test-results/prompt-import/<timestamp>/`. Use `--url <local URL>` for an already running draft dev server. Full fixture E2E is reserved locally for app changes or release validation.
 
 ## E2E projects
 
