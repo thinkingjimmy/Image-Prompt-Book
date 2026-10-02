@@ -32,6 +32,7 @@ Image Prompt Book 的每个案例都来自作者的公开分享，感谢他们�
 | Photo × Illustration Travel Editorial<br>摄影 × 插画旅行编辑海报 | Taaruk ([@Taaruk_](https://x.com/Taaruk_)) | [Taaruk on X (2026-09-30)](https://x.com/Taaruk_/status/2105219293294256598) | [No license stated / 未声明许可](https://x.com/Taaruk_/status/2105219293294256598) |
 | Photo × Intaglio Study Poster<br>照片 × 凹版雕刻研究海报 | 蛋黄堡 ([@Hamburgerai](https://x.com/Hamburgerai)) | [蛋黄堡 on X (2026-09-27)](https://x.com/Hamburgerai/status/2104159061826834864) | [No license stated / 未声明许可](https://x.com/Hamburgerai/status/2104159061826834864) |
 | Neo-Vintage Engraving Cover<br>新复古雕刻隐喻封面 | Adrian Punk ([@AdrianPunk115](https://x.com/AdrianPunk115)) | [Adrian Punk on X (2026-09-30)](https://x.com/AdrianPunk115/status/2105214202134851725) | [No license stated / 未声明许可](https://x.com/AdrianPunk115/status/2105214202134851725) |
+| Photo to Japanese Flat Poster<br>照片转日系扁平海报 | DAAI ([@daaihq](https://x.com/daaihq)) | [DAAI prompt on X (2026-09-27)](https://x.com/daaihq/status/2104164641425576290) | [No license stated / 未声明许可](https://x.com/daaihq/status/2104164641425576290) |
 
 The English and Chinese versions and the adjustable options on this site are our adaptations; they are not endorsed by the authors. See the [License](../README.md#license) section for what each license allows.
 

@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "id": "japanese-flat-photo-poster",
+  "slug": "japanese-flat-photo-poster",
+  "templateVersion": "1.0.0",
+  "status": "published",
+  "createdAt": "2026-10-02",
+  "updatedAt": "2026-10-02",
+  "publishedAt": "2026-10-02T08:58:11+08:00",
+  "category": "photo-art",
+  "tags": [
+    "image-to-image",
+    "2d",
+    "screen-print",
+    "minimal"
+  ],
+  "originalLocale": "zh-CN",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.zh-CN.txt",
+  "templatePaths": {
+    "en": "templates/template.en.txt",
+    "zh-CN": "templates/template.zh-CN.txt"
+  },
+  "parametersPath": "templates/parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": true,
+  "sourceRecommendedTools": [
+    "GPT Image"
+  ],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "prompt-reply",
+      "type": "x",
+      "role": "original",
+      "title": "DAAI on X — complete prompt (2026-09-27)",
+      "url": "https://x.com/daaihq/status/2104164641425576290",
+      "author": {
+        "name": "DAAI",
+        "handle": "@daaihq",
+        "url": "https://x.com/daaihq"
+      },
+      "checkedAt": "2026-10-02"
+    },
+    {
+      "id": "example-post",
+      "type": "x",
+      "role": "supplementary",
+      "title": "DAAI on X — photo and illustration examples (2026-09-27)",
+      "url": "https://x.com/daaihq/status/2104164632483234207",
+      "author": {
+        "name": "DAAI",
+        "handle": "@daaihq",
+        "url": "https://x.com/daaihq"
+      },
+      "checkedAt": "2026-10-02"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/daaihq/status/2104164641425576290",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "subject",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "source",
+      "options": [
+        {
+          "id": "source",
+          "labels": {
+            "en": "People and animals",
+            "zh-CN": "人物与动物"
+          },
+          "replacements": {
+            "en": "people, cats, dogs, and other animal subjects",
+            "zh-CN": "人物、猫、狗等动物主体"
+          }
+        },
+        {
+          "id": "person",
+          "labels": {
+            "en": "Person",
+            "zh-CN": "人物"
+          },
+          "replacements": {
+            "en": "human subjects",
+            "zh-CN": "人物主体"
+          }
+        },
+        {
+          "id": "cat",
+          "labels": {
+            "en": "Cat",
+            "zh-CN": "猫"
+          },
+          "replacements": {
+            "en": "cat subjects",
+            "zh-CN": "猫主体"
+          }
+        },
+        {
+          "id": "dog",
+          "labels": {
+            "en": "Dog",
+            "zh-CN": "狗"
+          },
+          "replacements": {
+            "en": "dog subjects",
+            "zh-CN": "狗主体"
+          }
+        }
+      ]
+    },
+    {
+      "id": "palette",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "source",
+      "options": [
+        {
+          "id": "source",
+          "labels": {
+            "en": "Source colors",
+            "zh-CN": "原帖配色"
+          },
+          "replacements": {
+            "en": "the original prompt's light gray, black, and blue, as well as lively combinations of vibrant dopamine colors",
+            "zh-CN": "原提示词中的浅灰、黑、蓝，以及多巴胺色系的活跃搭配"
+          }
+        },
+        {
+          "id": "coastal",
+          "labels": {
+            "en": "Gray · black · blue",
+            "zh-CN": "浅灰 · 黑 · 蓝"
+          },
+          "replacements": {
+            "en": "the original prompt's light gray, black, and blue",
+            "zh-CN": "原提示词中的浅灰、黑、蓝"
+          }
+        },
+        {
+          "id": "vibrant",
+          "labels": {
+            "en": "Vibrant colors",
+            "zh-CN": "多巴胺配色"
+          },
+          "replacements": {
+            "en": "lively combinations of vibrant dopamine colors",
+            "zh-CN": "多巴胺色系的活跃搭配"
+          }
+        }
+      ]
+    }
+  ]
+}

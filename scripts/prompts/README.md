@@ -5,7 +5,7 @@
 Members
 
 check.ts: `pnpm test:prompt <slug...> [--checks <json>] [--url <local URL>]`; reads real entries and independent source expectations, records timings and browser artifacts, and reuses the completed production build.
-browser.ts: Parallel bilingual entry E2E checks for all variants, options, copy/share/reset, attribution, media, reference input, gallery/sitemap, and 375 px layout.
+browser.ts: Parallel bilingual entry E2E checks for all variants, options, copy/share/reset, attribution, media, comparison controls, reference input, gallery/sitemap, and 375 px layout.
 server.ts: Starts one production server on a free loopback port and stops only that child process; never builds or replaces an existing server.
 
 ## Failure inventory
@@ -17,6 +17,7 @@ Written before implementing the runner:
 - Truncated originals, changed defaults, dropped required clauses, broken images, and missing attribution must fail.
 - Every option and variant must reach the clipboard; shared settings must restore in a fresh page, and reset must restore defaults.
 - Comparison inputs, reference-image notices, gallery visibility, sitemap membership, and mobile overflow must be checked.
+- Comparisons must start centered, respond to Home/End and arrow keys without exceeding bounds, track pointer drags at desktop and mobile widths, and reset when switching examples; gallery cards must retain both stages.
 - Browser errors must fail the run; failures must retain a report and trace.
 - A failed or interrupted run must stop its own server without touching other processes.
 

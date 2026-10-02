@@ -13,6 +13,7 @@ folk-doodle-flat-illustration/: Folk Doodle Flat Illustration; photo-art entry, 
 fuse-bead-editorial-poster/: Fuse Bead Editorial Poster; photo-art entry, source text, bilingual templates, options, attribution, and local examples.
 giant-object-world/: Giant Object World — Screen Print; posters entry, source text, bilingual templates, options, attribution, and local examples.
 grokbot-capsule-icon/: Minimal Bot Icon — Grokbot Style; avatars entry, source text, bilingual templates, options, attribution, and local examples.
+japanese-flat-photo-poster/: Photo to Japanese Flat Poster; photo-art entry, complete Chinese source and bilingual templates, subject/palette options, attribution, and two input/result comparisons.
 material-type-campaign-poster/: Material × Giant Type Campaign Poster; posters entry, source text, bilingual templates, options, attribution, and local examples.
 mid-century-modern-cover/: Mid-Century Modern Cover; posters entry, source text, bilingual templates, options, attribution, and local examples.
 neo-vintage-engraving-cover/: Neo-Vintage Engraving Cover; posters entry, verbatim Chinese article prompt, complete bilingual templates, four option groups, and four local examples.

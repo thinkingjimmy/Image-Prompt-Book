@@ -1,6 +1,6 @@
 /**
  * [INPUT]: Real PromptEntry records, independent expectations, and a running local site.
- * [OUTPUT]: checkEntry(), PromptChecks, bilingual UI assertions, screenshots, and traces.
+ * [OUTPUT]: checkEntry(), PromptChecks, bilingual UI and comparison-control assertions, screenshots, and traces.
  * [POS]: scripts/prompts browser verification; shared by every import instead of per-entry scripts.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -107,6 +107,30 @@ async function checkShare(page: Page, base: string, entry: PromptEntry, variant:
   }
 }
 
+async function checkComparison(page: Page) {
+  const frame = page.getByTestId("compare-slider");
+  const handle = frame.getByRole("slider");
+  await expect(handle).toHaveAttribute("aria-valuemin", "0");
+  await expect(handle).toHaveAttribute("aria-valuemax", "100");
+  await expect(handle).toHaveAttribute("aria-valuenow", "50");
+  for (const [key, value] of [["Home", 0], ["ArrowLeft", 0], ["ArrowRight", 5], ["End", 100], ["ArrowRight", 100], ["ArrowLeft", 95]] as const) {
+    await handle.press(key);
+    await expect(handle).toHaveAttribute("aria-valuenow", String(value));
+  }
+  await frame.scrollIntoViewIfNeeded();
+  const box = await frame.boundingBox();
+  assert(box && box.width > 0 && box.height > 0, "Comparison frame has no area");
+  const y = Math.max(box.y + 20, Math.min(box.y + box.height / 3, page.viewportSize()!.height - 20));
+  await page.mouse.move(box.x + box.width / 4, y);
+  await page.mouse.down();
+  await expect(handle).toHaveAttribute("aria-valuenow", "25");
+  await page.mouse.move(box.x + box.width * 0.75, y);
+  await expect(handle).toHaveAttribute("aria-valuenow", "75");
+  await page.mouse.up();
+  await page.mouse.move(box.x + box.width / 4, y);
+  await expect(handle).toHaveAttribute("aria-valuenow", "75");
+}
+
 async function checkImages(page: Page, entry: PromptEntry, locale: Locale) {
   const figure = page.locator("figure").first();
   for (const [index, example] of entry.examples.entries()) {
@@ -119,9 +143,16 @@ async function checkImages(page: Page, entry: PromptEntry, locale: Locale) {
       await expect(rendered).toHaveCount(1);
       await expect.poll(() => rendered.evaluate((node) => (node as HTMLImageElement).complete && (node as HTMLImageElement).naturalWidth > 0)).toBe(true);
     }
+    if (example.input) await checkComparison(page);
   }
   if (entry.examples.length > 1) {
     await page.getByRole("button", { name: messages[locale].showExample.replace("{index}", "1"), exact: true }).click();
+  }
+  if (entry.examples[0]?.input) {
+    const frame = page.getByTestId("compare-slider");
+    if (entry.examples.length > 1) await expect(frame.getByRole("slider")).toHaveAttribute("aria-valuenow", "50");
+    await frame.click({ position: { x: (await frame.boundingBox())!.width / 2, y: 30 } });
+    await expect(frame.getByRole("slider")).toHaveAttribute("aria-valuenow", "50");
   }
 }
 
@@ -192,6 +223,7 @@ export async function checkEntry(browser: Browser, entry: PromptEntry, base: str
         await page.screenshot({ path: path.join(variantDir, "desktop.png"), fullPage: true });
         await page.setViewportSize({ width: 375, height: 812 });
         await checkMobile(page, variant, locale);
+        await checkImages(page, entry, locale);
         await page.screenshot({ path: path.join(variantDir, "mobile.png"), fullPage: true });
         writeFileSync(path.join(variantDir, "README.md"), `# ${variant.id} screenshots\n\nDesktop: 1440 px. Mobile: 375 px. Checks run against the real entry.\n\n[PROTOCOL]: Update this header when making changes, then check README.md.\n`);
         await page.setViewportSize({ width: 1440, height: 1000 });
@@ -201,6 +233,12 @@ export async function checkEntry(browser: Browser, entry: PromptEntry, base: str
         const response = await page.goto(`${base}/${locale}?q=${encodeURIComponent(content.title)}&sort=latest`, { waitUntil: "networkidle" });
         assert.equal(response?.status(), 200);
         await expect(page.locator(`a[href="/${locale}/prompts/${entry.meta.slug}"]`).first()).toBeVisible();
+        if (entry.examples[0]?.input) {
+          const cover = entry.examples[0];
+          const card = page.locator("article").filter({ has: page.getByRole("heading", { name: content.title, exact: true }) });
+          for (const image of [cover, cover.input!]) await expect(card.getByAltText(image.alt[locale], { exact: true })).toHaveCount(1);
+          await expect(card.locator("[style*='clip-path']")).toHaveCSS("clip-path", "inset(0px 50% 0px 0px)");
+        }
         await page.screenshot({ path: path.join(dir, "gallery.png"), fullPage: true });
       }
       assert.deepEqual(errors, [], `${locale}: browser errors`);

@@ -1,0 +1,27 @@
+{
+  "title": "Photo to Japanese Flat Poster",
+  "summary": "Turn a person or pet photo into a Japanese-style flat illustration poster with screen-print grain, an overhead viewpoint, and generous negative space, while keeping the subject recognizable.",
+  "seoTitle": "Photo to Japanese Flat Illustration Poster Prompt | Image Prompt Book",
+  "seoDescription": "Transform a person or pet photo into a grainy Japanese-style flat poster. Compare two source examples, adjust subject focus and colors, then copy the complete prompt.",
+  "inputRequirement": "Requires one photo containing a person, cat, dog, or another animal. Attach it in your image generation tool before sending the prompt.",
+  "howToUse": [
+    "Choose the subject focus and palette, or keep the source defaults.",
+    "Copy the complete prompt or open it in ChatGPT.",
+    "Attach your photo and send. The prompt requests a 3:4 portrait diptych, with the original subject above and its flat illustration below."
+  ],
+  "exampleNotice": "Two photo-to-illustration comparisons from the author: a Shiba Inu and a coastal portrait. Drag the divider to compare each pair.",
+  "verificationNotice": "The source uses the GPT Image hashtag without specifying a version. These source-reported examples have not been reproduced by Image Prompt Book.",
+  "adaptationNotice": "Complete English translation and adjustable subject and palette options by Image Prompt Book. The original 3:4 stacked composition remains in the prompt; the source images are split into photo and illustration frames for the requested comparison viewer. These adaptations are not endorsed by the author.",
+  "licenseNotice": "The author did not state a license. All rights remain with the author; this page provides credit and links to the source.",
+  "parameterLabels": {
+    "subject": "Subject focus",
+    "palette": "Palette"
+  },
+  "keywords": [
+    "Japanese flat illustration",
+    "photo to poster",
+    "pet illustration",
+    "screen print",
+    "Ryo Takemasa"
+  ]
+}

@@ -1,0 +1,54 @@
+[
+  {
+    "id": "shiba",
+    "src": "images/shiba-after.jpg",
+    "width": 1086,
+    "height": 824,
+    "alt": {
+      "en": "A Shiba Inu on a black-sand shoreline, reinterpreted as a flat illustration with orange fur, textured color fields, and a blue sea",
+      "zh-CN": "黑沙海岸上的柴犬被转成扁平插画，保留橙色毛发，搭配颗粒色块与蓝色海面"
+    },
+    "input": {
+      "src": "images/shiba-before.jpg",
+      "width": 1086,
+      "height": 620,
+      "alt": {
+        "en": "Reference photograph of a Shiba Inu looking up on a black-sand shoreline beside sea foam",
+        "zh-CN": "柴犬在黑沙海岸抬头望向镜头，身旁是海浪泡沫的参考照片"
+      }
+    },
+    "sourceUrl": "https://x.com/daaihq/status/2104164632483234207",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Input and result frames from DAAI’s public X post, imported at Jimmy Wong’s request (2026-10-02) for the existing before/after component. No license is stated in the captured post. Input crop: 1086 × 620 at (0, 0); result crop: 1086 × 824 at (0, 624). Four seam rows were omitted. JPEG quality 82; no enlargement or registration.",
+      "evidence": "https://x.com/daaihq/status/2104164632483234207"
+    },
+    "recipe": null
+  },
+  {
+    "id": "coastal-portrait",
+    "src": "images/coastal-portrait-after.jpg",
+    "width": 1086,
+    "height": 871,
+    "alt": {
+      "en": "A person in a yellow coat and blue scarf looking back on a black-sand shore, rendered as a grainy flat editorial illustration",
+      "zh-CN": "穿黄色外套、戴蓝色围巾的人在黑沙海岸回头，画面被转成带颗粒纹理的扁平编辑插画"
+    },
+    "input": {
+      "src": "images/coastal-portrait-before.jpg",
+      "width": 1086,
+      "height": 573,
+      "alt": {
+        "en": "Reference photograph of a person in a yellow coat and blue scarf looking back beside the sea",
+        "zh-CN": "穿黄色外套、戴蓝色围巾的人在海边回头的参考照片"
+      }
+    },
+    "sourceUrl": "https://x.com/daaihq/status/2104164632483234207",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Input and result frames from DAAI’s public X post, imported at Jimmy Wong’s request (2026-10-02) for the existing before/after component. No license is stated in the captured post. Input crop: 1086 × 573 at (0, 0); result crop: 1086 × 871 at (0, 577). Four seam rows were omitted. JPEG quality 82; no enlargement or registration.",
+      "evidence": "https://x.com/daaihq/status/2104164632483234207"
+    },
+    "recipe": null
+  }
+]
