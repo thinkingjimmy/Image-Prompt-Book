@@ -1,5 +1,5 @@
 /**
- * [INPUT]: 依赖 content/ 的真实首个案例文件，依赖 node:zlib 生成纯色 PNG，依赖 src/lib/content/query 的 PAGE_SIZE
+ * [INPUT]: 依赖 content/ 的真实首个案例文件，依赖 node:zlib 生成纯色 PNG，依赖 @/lib/content/query 的 PAGE_SIZE
  * [OUTPUT]: 默认导出 buildFixtures()，生成 tests/fixtures/.generated/content（taxonomy、合成条目、fixture 化的首个案例与图片）；直接执行时即生成
  * [POS]: tests/fixtures 的测试数据生成器：Vitest globalSetup 与 E2E webServer 各调用一次；所有记录带 fixture:true，生产内容根会拒绝它们
  * [PROTOCOL]: Update this header when making changes, then check README.md.
@@ -8,7 +8,7 @@ import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs"
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { crc32, deflateSync } from "node:zlib";
-import { PAGE_SIZE } from "../../src/lib/content/query.ts";
+import { PAGE_SIZE } from "@/lib/content/query";
 
 const OUT = path.join(process.cwd(), "tests", "fixtures", ".generated", "content");
 const REAL_SLUG = "grokbot-capsule-icon";
