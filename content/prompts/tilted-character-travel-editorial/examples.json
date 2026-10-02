@@ -1,0 +1,70 @@
+[
+  {
+    "id": "example-01",
+    "src": "images/example-01.jpg",
+    "width": 900,
+    "height": 1600,
+    "alt": {
+      "en": "A horned, dark-haired fantasy character leans sideways into a white Japanese travel poster with oversized navy lettering and thin orange graphics.",
+      "zh-CN": "深色头发、头戴角饰的幻想角色歪头闯入白底日系旅行海报，周围排有超大深蓝文字与橙色细线图形。"
+    },
+    "sourceUrl": "https://x.com/VoxcatAI/status/2102949893895762092",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Source-posted example by VoxCat (@VoxcatAI); no image license is stated. Re-encoded from the full 941 × 1672 source to JPEG quality 82 with a maximum 1600 px long edge, without cropping or enlargement. Author rights are retained; depicted fictional-character designs and lettering may have separate rights. Shown with source attribution under the project owner’s standing inclusion policy.",
+      "evidence": "https://x.com/VoxcatAI/status/2102949893895762092"
+    },
+    "recipe": null
+  },
+  {
+    "id": "example-02",
+    "src": "images/example-02.jpg",
+    "width": 900,
+    "height": 1600,
+    "alt": {
+      "en": "A red-and-gold masked armored character tilts its head into a travel-editorial poster with large Chinese lettering, vertical Japanese text, and a tidy information strip.",
+      "zh-CN": "红金色面具装甲角色歪头进入旅行编辑海报，画面带有超大中文、竖排日文和规整的底部信息栏。"
+    },
+    "sourceUrl": "https://x.com/VoxcatAI/status/2102949893895762092",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Source-posted example by VoxCat (@VoxcatAI); no image license is stated. Re-encoded from the full 941 × 1672 source to JPEG quality 82 with a maximum 1600 px long edge, without cropping or enlargement. Author rights are retained; depicted fictional-character designs and lettering may have separate rights. Shown with source attribution under the project owner’s standing inclusion policy.",
+      "evidence": "https://x.com/VoxcatAI/status/2102949893895762092"
+    },
+    "recipe": null
+  },
+  {
+    "id": "example-03",
+    "src": "images/example-03.jpg",
+    "width": 900,
+    "height": 1600,
+    "alt": {
+      "en": "A panda tilts its head in front of a glass-fronted city street, framed by large Chengdu lettering and white, blue, and purple travel-magazine graphics.",
+      "zh-CN": "熊猫在玻璃立面的城市街景前歪头，周围排有超大成都字样与白、蓝、紫色旅行杂志图形。"
+    },
+    "sourceUrl": "https://x.com/VoxcatAI/status/2102949893895762092",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Source-posted example by VoxCat (@VoxcatAI); no image license is stated. Re-encoded from the full 941 × 1672 source to JPEG quality 82 with a maximum 1600 px long edge, without cropping or enlargement. Author rights are retained; depicted fictional-character designs and lettering may have separate rights. Shown with source attribution under the project owner’s standing inclusion policy.",
+      "evidence": "https://x.com/VoxcatAI/status/2102949893895762092"
+    },
+    "recipe": null
+  },
+  {
+    "id": "example-04",
+    "src": "images/example-04.jpg",
+    "width": 900,
+    "height": 1600,
+    "alt": {
+      "en": "A pink-haired, fox-eared fantasy character leans sideways into an Inazuma-themed travel poster with multilingual type, generous whitespace, and orange accents.",
+      "zh-CN": "粉色头发、狐狸耳朵的幻想角色横向歪头进入稻妻主题旅行海报，搭配多语言文字、大面积留白与橙色点缀。"
+    },
+    "sourceUrl": "https://x.com/VoxcatAI/status/2102949893895762092",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Source-posted example by VoxCat (@VoxcatAI); no image license is stated. Re-encoded from the full 941 × 1672 source to JPEG quality 82 with a maximum 1600 px long edge, without cropping or enlargement. Author rights are retained; depicted fictional-character designs and lettering may have separate rights. Shown with source attribution under the project owner’s standing inclusion policy.",
+      "evidence": "https://x.com/VoxcatAI/status/2102949893895762092"
+    },
+    "recipe": null
+  }
+]

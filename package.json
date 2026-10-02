@@ -19,6 +19,8 @@
     "test": "vitest run -c tests/vitest.config.mts",
     "test:e2e": "playwright test -c tests/playwright.config.ts",
     "test:prompt": "tsx scripts/prompts/check.ts",
+    "prompt:prepare": "node --import tsx scripts/prompts/prepare.ts",
+    "prompt:profile": "node --import tsx scripts/prompts/profile.ts",
     "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm build",
     "vitals": "tsx scripts/measure-vitals.ts"
   },

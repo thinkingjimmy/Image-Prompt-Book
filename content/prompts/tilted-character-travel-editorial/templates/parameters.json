@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "entrySide",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "source",
+      "options": [
+        {
+          "id": "source",
+          "labels": {
+            "en": "Right or lower right",
+            "zh-CN": "右侧或右下方"
+          },
+          "replacements": {
+            "en": "the right or lower right",
+            "zh-CN": "右侧或右下方"
+          }
+        },
+        {
+          "id": "right",
+          "labels": {
+            "en": "Right",
+            "zh-CN": "右侧"
+          },
+          "replacements": {
+            "en": "the right",
+            "zh-CN": "右侧"
+          }
+        },
+        {
+          "id": "lower-right",
+          "labels": {
+            "en": "Lower right",
+            "zh-CN": "右下方"
+          },
+          "replacements": {
+            "en": "the lower right",
+            "zh-CN": "右下方"
+          }
+        }
+      ]
+    },
+    {
+      "id": "expression",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "source",
+      "options": [
+        {
+          "id": "source",
+          "labels": {
+            "en": "Confused, curious, or aloof",
+            "zh-CN": "困惑、好奇或冷淡"
+          },
+          "replacements": {
+            "en": "slightly confused, curious, or aloof",
+            "zh-CN": "略带困惑、好奇或冷淡感"
+          }
+        },
+        {
+          "id": "confused",
+          "labels": {
+            "en": "Confused",
+            "zh-CN": "困惑"
+          },
+          "replacements": {
+            "en": "slightly confused",
+            "zh-CN": "略带困惑感"
+          }
+        },
+        {
+          "id": "curious",
+          "labels": {
+            "en": "Curious",
+            "zh-CN": "好奇"
+          },
+          "replacements": {
+            "en": "curious",
+            "zh-CN": "带有好奇感"
+          }
+        },
+        {
+          "id": "aloof",
+          "labels": {
+            "en": "Aloof",
+            "zh-CN": "冷淡"
+          },
+          "replacements": {
+            "en": "aloof",
+            "zh-CN": "略带冷淡感"
+          }
+        }
+      ]
+    },
+    {
+      "id": "background",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "source",
+      "options": [
+        {
+          "id": "source",
+          "labels": {
+            "en": "Source setting choices",
+            "zh-CN": "原帖场景选项"
+          },
+          "replacements": {
+            "en": "light-blue tiles, glass, walls, a hotel, a station, a travel setting, or a minimal interior",
+            "zh-CN": "浅蓝色瓷砖、玻璃、墙面、酒店、车站、旅行场景或极简室内"
+          }
+        },
+        {
+          "id": "tiles",
+          "labels": {
+            "en": "Light-blue tiles",
+            "zh-CN": "浅蓝瓷砖"
+          },
+          "replacements": {
+            "en": "light-blue tiles",
+            "zh-CN": "浅蓝色瓷砖"
+          }
+        },
+        {
+          "id": "hotel",
+          "labels": {
+            "en": "Hotel",
+            "zh-CN": "酒店"
+          },
+          "replacements": {
+            "en": "a hotel",
+            "zh-CN": "酒店"
+          }
+        },
+        {
+          "id": "minimal-interior",
+          "labels": {
+            "en": "Minimal interior",
+            "zh-CN": "极简室内"
+          },
+          "replacements": {
+            "en": "a minimal interior",
+            "zh-CN": "极简室内"
+          }
+        }
+      ]
+    }
+  ]
+}

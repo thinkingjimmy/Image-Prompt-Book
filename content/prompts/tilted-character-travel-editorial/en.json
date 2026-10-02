@@ -1,0 +1,30 @@
+{
+  "title": "Tilted Character Travel Editorial",
+  "summary": "Turn a character into a Japanese travel-magazine poster: an extreme close-up and sharply tilted head interrupt a precise editorial grid, oversized Chinese type, and deadpan travel information.",
+  "seoTitle": "Tilted Character Travel Editorial Prompt",
+  "seoDescription": "Create a Japanese travel-editorial poster with a sideways character close-up, multilingual typography, and restrained colors. Customize the pose, expression, and setting.",
+  "inputRequirement": "Enter a character name in [Character]. The source describes direct text-to-image generation; a reference image is not required.",
+  "howToUse": [
+    "Choose the entry side, expression, and background, then copy the complete prompt.",
+    "Replace [Character] with your character name while keeping the identifying features and the rest of the instructions.",
+    "Paste the prompt into your image generator. The author reports using GPT Image 2; keep the 70–90° head tilt, direct eye contact, and formal travel-editorial layout.",
+    "Review the multilingual lettering, recognizable features, and information hierarchy in the result. Adjust the character name or travel copy in the copied text if needed."
+  ],
+  "exampleNotice": "Four examples from the author’s original X post are shown as complete posters, resized without cropping. They illustrate the source’s style; the exact prompts, selections, and generation settings for each image are not provided.",
+  "verificationNotice": "The author reports generating these examples with GPT Image 2. This project has not independently generated or model-verified them.",
+  "adaptationNotice": "The Chinese default preserves the full source prompt, and English is a complete translation. The selectors narrow alternatives explicitly named in the source. The character placeholder remains editable in the copied text.",
+  "licenseNotice": "The source states no prompt or image license. The author retains their rights, commercial-use permission is unknown, and depicted character designs or text may have separate rights.",
+  "parameterLabels": {
+    "entrySide": "Entry side",
+    "expression": "Expression",
+    "background": "Background"
+  },
+  "keywords": [
+    "Japanese travel editorial",
+    "tilted head",
+    "character poster",
+    "meme",
+    "GPT Image 2",
+    "VoxCat"
+  ]
+}

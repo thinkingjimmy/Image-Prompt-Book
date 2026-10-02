@@ -44,6 +44,8 @@ Open http://localhost:3000. Draft entries appear with `IPB_PREVIEW_DRAFTS=1 pnpm
 | `pnpm content:import <slug>` | Import a normative appendix from `docs/appendix/` verbatim |
 | `pnpm links:check [--slug <slug>...]` | Report unreachable source links globally or for selected entries (never changes content) |
 | `pnpm test:prompt <slug...> [--checks <json>]` | Reuse the verified production build for real-entry bilingual E2E and saved screenshots/traces/timings |
+| `pnpm prompt:prepare <manifest> [--dry-run]` | Generate a reviewed draft entry, image dimensions, maps, credits, and independent source/default checks |
+| `pnpm prompt:profile start\|mark\|run\|report --out <artifact>` | Record local phase/command timings and actual per-response tokens; separate development and import |
 | `pnpm vitals [baseUrl]` | Measure LCP/CLS/requests under fixed mobile conditions |
 
 Deploy with `pnpm build && pnpm start`. Set `SITE_URL=https://imagepromptbook.com` and `IPB_DEPLOY_ENV=production` on production only; every other environment is served `noindex`.

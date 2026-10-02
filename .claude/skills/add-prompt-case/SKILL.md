@@ -5,17 +5,23 @@ description: Import and publish a prompt in Image Prompt Book from a source link
 
 # Add a prompt case
 
-Deliver a published entry, source credit, and a checked live URL. Apply the owner's existing authorization; ask only when an actual blocker remains. Follow `AGENTS.md` and read `content/README.md` once for the schema. Source capture, translation, and editorial decisions require judgment; repeated verification belongs to the shared runner.
+Deliver a published entry, source credit, and a checked live URL. Apply the owner's existing authorization; ask only when an actual blocker remains. Read `content/README.md` once. Translation, rights, options, and image selection require judgment; file generation, measurement, and verification use the shared tools.
+
+## Reusable tools
+
+Read [import-tools.md](references/import-tools.md) for the manifest shape and commands. Save one source snapshot and one reviewed manifest; `pnpm prompt:prepare <manifest>` writes files/maps/credits and independent expectations. Read paths from metadata rather than guessing a historical entry's layout. Read source-specific references only when needed; do not reload entire examples, acknowledgements, or schemas for each phase.
+
+When timing/token records are requested, use `prompt:profile`; never rebuild a per-entry collector. Separate `development` from `import` when reusable tools need changes. Record phase boundaries, wrap commands, and start one bounded terminal-accounting reader at completion. Keep raw logs and usage reports local under ignored `tests/test-results`.
 
 ## Default path
 
-1. **Capture once.** Save the complete prompt, metadata, and image URLs in a task-specific scratch directory. Hash the exact prompt without the final newline added by this project. Reuse those files throughout the import. Read [sources.md](references/sources.md) only for the relevant source type.
+1. **Capture once.** Check whether the requested source is already imported. Save the complete extracted prompt as a UTF-8 scratch file immediately, then save metadata and image URLs beside it and reuse them. If the caption points to comments, inspect the author's prompt reply directly. An X long-note ID is not the body: expand the author reply in the browser when public metadata omits its full text. Do not reconstruct captures from session logs. If access is blocked, ask the necessary question early while continuing independent preparation. Hash the exact source without the project's added final newline. Read [sources.md](references/sources.md) only for the relevant source type.
 2. **Record rights.** Credit the source author and link; unknown stays unknown. Unstated terms use `LicenseRef-Unspecified`, `sourceLicenseUrl: null`, `commercialUse: "unknown"`, and the author's retained-rights notice, covered by the owner's standing policy. For custom terms, conflicts, or image transformations, read [rights-and-images.md](references/rights-and-images.md).
 3. **Prepare examples.** Download permitted source assets concurrently, view every small preview, and record real dimensions and bilingual alt text. Retain a full collage/photo-art comparison when the prompt itself asks for that composition. Separate a genuine input/result pair only when it shows two separate stages. Re-encode without enlarging; cover first. Source examples use `provenance: "source-reported"`, `recipe: null`.
-4. **Write the entry.** Preserve `original.<lang>.txt` verbatim (UTF-8, LF, one final newline). Supply complete en/zh-CN page copy and templates; never summarize translations. Use the layout below and add rows to `content/prompts/README.md` and `docs/ACKNOWLEDGEMENTS.md`.
+4. **Write the manifest.** Save verbatim original and independent full en/zh-CN defaults before adding tokens. Supply complete bilingual page copy, source-supported choices, image/rights records, and attribution. Run `prompt:prepare --dry-run`, then generate the entry and maps. Never summarize translations or invent source evidence.
 5. **Review choices.** Expose only choices supported by the source, with 2–6 options each. Defaults reproduce source wording. Check the entire text for contradictory fixed clauses. Preserve required input, identity/composition constraints, exclusions, and complete instructions in both languages.
 6. **Prepare local publication.** Finish data/maps/credits, then set local `status: "published"` and offset `publishedAt`. Production preview must pass before commit/push; editing these fields does not ship the entry. Use a draft dev preview only for requested drafts or unresolved publication blockers.
-7. **Verify once, ship.** Run the commands below. Fix failures and rerun only checks invalidated by the fix. Stage this task's files, commit with a short English conventional message, and push the authorized main branch. Check CI and the live page once; back off while deployment is pending.
+7. **Verify once, ship.** Run the commands below. Fix failures and rerun only checks invalidated by the fix. Reuse existing comparison checks; extend shared tools only for a demonstrated missing requirement. Stage explicit task files, commit, and push the authorized main branch. Check CI and the live page, then finish; report formatting does not trigger another validation pass.
 
 ```text
 content/prompts/<slug>/

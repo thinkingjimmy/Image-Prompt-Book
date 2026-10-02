@@ -4,7 +4,7 @@
 
 Members
 
-SKILL.md: Import decisions and one validation pass against a reused production build.
-references/: Conditional procedures, independent expectations, historical examples.
+SKILL.md: Reviewed-manifest imports, reusable timing/token records, and one validation pass.
+references/: Tool/manifest contract, conditional source/rights procedures, and historical examples.
 
 [PROTOCOL]: Update this header when making changes, then check README.md.

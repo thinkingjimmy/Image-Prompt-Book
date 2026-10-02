@@ -31,6 +31,7 @@ showa-absurd-character-poster/: Showa Absurd Character Poster; posters entry, so
 storybook-character-portrait/: Storybook Character Portrait; avatars entry, source text, bilingual templates, options, attribution, and local examples.
 storybook-photo-illustration/: Photo to Storybook Illustration — Kawaii Gouache; photo-art entry, source text, bilingual templates, options, attribution, and local examples.
 surreal-futuristic-travel-poster/: Surreal Futuristic Travel Poster; posters entry, source text, bilingual templates, options, attribution, and local examples.
+tilted-character-travel-editorial/: Tilted Character Travel Editorial; posters entry with complete bilingual prompts, reviewed options, attribution, and local examples.
 vintage-interior-illustration/: Vintage Interior Illustration — Risograph; posters entry, source text, bilingual templates, options, attribution, and local examples.
 
 Each entry is self-contained. Content paths may point one folder below meta.json; the surreal-futuristic-travel-poster entry keeps editable resources in templates/ to stay within the per-folder file limit.

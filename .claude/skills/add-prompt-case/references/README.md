@@ -4,6 +4,7 @@
 
 Members
 
+import-tools.md: Manifest-based file generation and local phase/command/token profiling.
 sources.md: Pinning for X, GitHub, websites; read matching section only.
 rights-and-images.md: Rights, acknowledgements, conditional image transformations.
 verification.md: Shared runner, independent expectations, batch imports, shipping.
