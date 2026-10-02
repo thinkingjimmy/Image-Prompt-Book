@@ -1,5 +1,5 @@
 /**
- * [INPUT]: 依赖 @/lib/content 的 PromptEntry/contentFor，依赖同目录 ExampleGallery/ModalTitle/PromptAbout 与 workbench/ 的 PromptStateProvider/CustomizeView/PromptActions，依赖 @/components/ui/scroll-area
+ * [INPUT]: 依赖 @/lib/content 的 PromptEntry/contentFor，依赖 @/components/gallery/compare-stack 的 displayedAspect，依赖同目录 ExampleGallery/ModalTitle/PromptAbout 与 workbench/ 的 PromptStateProvider/CustomizeView/PromptActions，依赖 @/components/ui/scroll-area
  * [OUTPUT]: 对外提供 PromptDetail 服务端组件与 toPromptData()（服务端 → 客户端的最小可序列化数据）
  * [POS]: components/prompt 的共用详情（参考 ImageFX）：左栏为按比例满铺的案例图；右栏标题 + 作者·许可一行 + 摘要 + Prompt 工具行（版本切换 + 修改后出现的重置） + 可编辑 Prompt 与其后的“关于这个 Prompt”（同一自绘滚动区）+ 主操作（复制 / ChatGPT / 分享）。独立页与弹窗同一组件，只以 variant 区分尺寸与标题元素
  * [PROTOCOL]: Update this header when making changes, then check README.md.
@@ -15,6 +15,7 @@ import type { PromptEntry } from "@/lib/content/load";
 import { contentConfig, mediaUrl } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { ModalTitle } from "./detail-modal";
+import { displayedAspect } from "@/components/gallery/compare-stack";
 import { ExampleGallery, type ExampleView } from "./example-gallery";
 import { PromptAbout, TEXT_LINK } from "./prompt-about";
 import { CustomizeView } from "./workbench/customize-view";
@@ -51,6 +52,7 @@ function toExampleViews(entry: PromptEntry, locale: Locale): ExampleView[] {
     height: example.height,
     alt: example.alt[locale],
     sourceUrl: example.sourceUrl,
+    comparison: example.comparison,
     input: example.input && { src: mediaUrl(entry.meta.slug, example.input.src), width: example.input.width, height: example.input.height, alt: example.input.alt[locale] },
   }));
 }
@@ -65,7 +67,7 @@ export async function PromptDetail({ entry, locale, variant }: { entry: PromptEn
 
   // On wide screens the image pane takes exactly the image's proportions at the detail height, so it never letterboxes.
   const frame = {
-    "--ar": cover ? cover.width / cover.height : 1,
+    "--ar": cover ? displayedAspect(cover) : 1,
     "--detail-h": variant === "modal" ? "min(86dvh, 780px)" : "max(560px, calc(100dvh - 10rem))",
     "--left-max": variant === "modal" ? `calc(94vw - ${RIGHT_COLUMN}px)` : `calc(100% - ${RIGHT_COLUMN - 40}px)`,
   } as CSSProperties;

@@ -1,6 +1,6 @@
 /**
  * [INPUT]: 依赖 zod 的 schema 能力，依赖 @/i18n/config 的 LOCALES
- * [OUTPUT]: 对外提供 metaSchema/localeContentSchema/parametersSchema/examplesSchema（案例图可带 input 原图用于前后对比）/taxonomySchema 及对应类型、isHttpsUrl()
+ * [OUTPUT]: 对外提供 metaSchema/localeContentSchema/parametersSchema/examplesSchema（案例图可带 input 原图；默认左右对比，comparison: "stack" 为上下接缝）/taxonomySchema 及对应类型、isHttpsUrl()
  * [POS]: lib/content 的单文件结构契约，被 load.ts 做跨文件校验前的第一道闸门；跨文件规则不在此处
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -159,8 +159,9 @@ const imageFields = {
 export const exampleSchema = z.strictObject({
   id: slug,
   ...imageFields,
-  /** The photo the prompt was given, when the source shows it; rendered as a before/after comparison. */
+  /** The photo the prompt was given, when the source shows it. Default view is a left/right wipe; "stack" shows both images in full, photo above result. */
   input: z.strictObject(imageFields).optional(),
+  comparison: z.enum(["split", "stack"]).optional(),
   caption: localized(nonEmpty).optional(),
   sourceUrl: httpsUrl,
   provenance: z.enum(["source-reported", "project-verified"]),
@@ -175,7 +176,7 @@ export const exampleSchema = z.strictObject({
       generatedAt: isoDate,
     })
     .nullable(),
-});
+}).refine((example) => !example.comparison || example.input, { path: ["comparison"], message: "comparison requires an input image" });
 
 export const examplesSchema = z.array(exampleSchema);
 

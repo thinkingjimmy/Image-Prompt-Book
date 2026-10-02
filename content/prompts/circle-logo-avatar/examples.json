@@ -8,6 +8,7 @@
       "en": "Circle-logo avatar: a young man with tousled short hair, head tilted up, drawn in white cut-out shapes inside a solid black circle on white",
       "zh-CN": "圆形 Logo 头像：蓬松短发、微微仰头的年轻男子，以白色剪影块面画在白底上的黑色正圆里"
     },
+    "comparison": "stack",
     "input": {
       "src": "images/short-hair-photo.jpg",
       "width": 452,
@@ -42,6 +43,7 @@
       "en": "Circle-logo avatar: a man with long wavy hair, round wire glasses and a goatee, in white cut-out shapes inside a solid black circle on white",
       "zh-CN": "圆形 Logo 头像：长卷发、戴圆框眼镜、留山羊胡的男子，以白色剪影块面画在白底上的黑色正圆里"
     },
+    "comparison": "stack",
     "input": {
       "src": "images/round-glasses-photo.jpg",
       "width": 700,

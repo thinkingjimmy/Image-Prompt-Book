@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 @/lib/content 的 PromptEntry/Taxonomy，依赖同目录 CardLink/ExampleImage/CompareFrame，依赖 @/lib/site 的 mediaUrl
+ * [INPUT]: 依赖 @/lib/content 的 PromptEntry/Taxonomy，依赖同目录 CardLink/ExampleImage/CompareFrame/CompareStack，依赖 @/lib/site 的 mediaUrl
  * [OUTPUT]: 对外提供 PromptCard 服务端组件
- * [POS]: components/gallery 的卡片：主图（封面带 input 原图时为静态 50% 左右对比）→ 标题 → 单行统一样式的标签（含需参考图，溢出渐隐）→ 作者名（链接）；一个 Prompt 只占一张卡片
+ * [POS]: components/gallery 的卡片：主图（封面带 input 原图时为静态 50% 左右对比；comparison 为 stack 时为上下接缝）→ 标题 → 单行统一样式的标签（含需参考图，溢出渐隐）→ 作者名（链接）；一个 Prompt 只占一张卡片
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { ImageIcon, ImagePlus } from "lucide-react";
@@ -15,6 +15,7 @@ import { contentConfig, mediaUrl } from "@/lib/site";
 import { promptPath } from "@/lib/seo/urls";
 import { CardLink } from "./card-link";
 import { CompareFrame } from "./compare-frame";
+import { CompareStack } from "./compare-stack";
 import { ExampleImage } from "./example-image";
 
 const tagClass = "inline-flex h-6 shrink-0 items-center gap-1 whitespace-nowrap rounded-full border border-border bg-card/60 px-2.5 text-xs text-muted-foreground";
@@ -34,7 +35,17 @@ export async function PromptCard({ entry, locale, taxonomy, eager }: { entry: Pr
     <li className="mb-5 list-none sm:mb-7">
       <article className="group">
         <CardLink href={href} tabIndex={-1} aria-hidden className="relative block overflow-hidden rounded-[14px] bg-muted sm:rounded-[18px] shadow-[0_1px_2px_rgba(28,27,25,0.05)] ring-1 ring-black/[0.06]">
-          {cover?.input ? (
+          {cover?.input && cover.comparison === "stack" ? (
+            // Both pictures in full: the result is not a registered wipe of the photo.
+            <CompareStack
+              before={{ src: mediaUrl(entry.meta.slug, cover.input.src), width: cover.input.width, height: cover.input.height, alt: cover.input.alt[locale] }}
+              after={{ src: mediaUrl(entry.meta.slug, cover.src), width: cover.width, height: cover.height, alt: cover.alt[locale] }}
+              sizes={CARD_SIZES}
+              eager={eager}
+              unoptimized={contentConfig().isFixture}
+              className="transition-transform duration-300 ease-out group-hover:scale-[1.02]"
+            />
+          ) : cover?.input ? (
             // A static split at 50%: the card hints at the comparison, the detail page lets you drag it.
             <CompareFrame
               before={{ src: mediaUrl(entry.meta.slug, cover.input.src), width: cover.input.width, height: cover.input.height, alt: cover.input.alt[locale] }}

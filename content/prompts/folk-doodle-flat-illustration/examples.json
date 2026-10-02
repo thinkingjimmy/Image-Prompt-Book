@@ -8,6 +8,7 @@
       "en": "Folk-style flat illustration of a girl with glasses and a bun touching noses with a cream cat beside a laptop and a small lamp, surrounded by doodled flowers, hearts and stars on white paper",
       "zh-CN": "民间风扁平插画：戴眼镜、盘发的女孩和奶油色小猫鼻尖相碰，旁边是笔记本电脑和小台灯，白纸上点缀涂鸦花朵、爱心和星星"
     },
+    "comparison": "stack",
     "input": {
       "src": "images/cat-and-laptop-photo.jpg",
       "width": 960,
