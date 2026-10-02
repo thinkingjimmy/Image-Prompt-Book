@@ -4,7 +4,7 @@
  * [POS]: lib/content 的列表状态规则，服务端筛选/分页与客户端搜索框共用同一规范化逻辑，保证 URL 与结果一致
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
-export const PAGE_SIZE = 24;
+export const PAGE_SIZE = 48;
 export const MAX_QUERY_LENGTH = 100;
 export const MAX_TAGS = 5;
 export const SORT_ORDERS = ["featured", "latest"] as const;

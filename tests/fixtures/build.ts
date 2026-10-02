@@ -1,5 +1,5 @@
 /**
- * [INPUT]: 依赖 content/ 的真实首个案例文件，依赖 node:zlib 生成纯色 PNG
+ * [INPUT]: 依赖 content/ 的真实首个案例文件，依赖 node:zlib 生成纯色 PNG，依赖 src/lib/content/query 的 PAGE_SIZE
  * [OUTPUT]: 默认导出 buildFixtures()，生成 tests/fixtures/.generated/content（taxonomy、合成条目、fixture 化的首个案例与图片）；直接执行时即生成
  * [POS]: tests/fixtures 的测试数据生成器：Vitest globalSetup 与 E2E webServer 各调用一次；所有记录带 fixture:true，生产内容根会拒绝它们
  * [PROTOCOL]: Update this header when making changes, then check README.md.
@@ -8,6 +8,7 @@ import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs"
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { crc32, deflateSync } from "node:zlib";
+import { PAGE_SIZE } from "../../src/lib/content/query.ts";
 
 const OUT = path.join(process.cwd(), "tests", "fixtures", ".generated", "content");
 const REAL_SLUG = "grokbot-capsule-icon";
@@ -87,9 +88,10 @@ export default function buildFixtures() {
     },
   ]);
 
-  // Synthetic entries: enough for two pages, mixed aspect ratios, one long title and one hostile string.
+  // One real entry plus these synthetics is PAGE_SIZE + 6, so the catalog still has a 6-card second page.
+  const SYNTHETIC_COUNT = PAGE_SIZE + 5;
   const SIZES: [number, number][] = [[800, 1000], [1000, 1000], [1000, 700], [700, 1200]];
-  for (let index = 1; index <= 29; index++) {
+  for (let index = 1; index <= SYNTHETIC_COUNT; index++) {
     const slug = `fixture-sample-${String(index).padStart(2, "0")}`;
     const dir = path.join(OUT, "prompts", slug);
     mkdirSync(dir, { recursive: true });

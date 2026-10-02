@@ -6,7 +6,7 @@
  */
 import { describe, expect, it } from "vitest";
 import type { Parameter } from "@/lib/content/schema";
-import { isIndexableListQuery, listQueryToSearch, matchesQuery, normalizeSearchText, paginate, parseListQuery, sortItems } from "@/lib/content/query";
+import { isIndexableListQuery, listQueryToSearch, matchesQuery, normalizeSearchText, PAGE_SIZE, paginate, parseListQuery, sortItems } from "@/lib/content/query";
 import { decodeShareHash, encodeShareHash } from "@/lib/prompt/share";
 import { composePrompt, parseTemplate, sanitizeSelections, TemplateError, toParagraphs } from "@/lib/prompt/template";
 import { promptEntry } from "./helpers";
@@ -161,8 +161,8 @@ describe("list query", () => {
   });
 
   it("paginates and flags out-of-range pages", () => {
-    const list = Array.from({ length: 30 }, (_, index) => index);
-    expect(paginate(list, 2)).toMatchObject({ items: list.slice(24), totalPages: 2, outOfRange: false });
+    const list = Array.from({ length: PAGE_SIZE + 6 }, (_, index) => index);
+    expect(paginate(list, 2)).toMatchObject({ items: list.slice(PAGE_SIZE), totalPages: 2, outOfRange: false });
     expect(paginate(list, 3).outOfRange).toBe(true);
     expect(paginate([], 1)).toMatchObject({ totalPages: 1, outOfRange: false });
   });

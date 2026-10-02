@@ -1,5 +1,5 @@
 /**
- * [INPUT]: 依赖 fixture 内容（31 条已发布 + 1 草稿）与 ./helpers 的 test/expect/SLUG/pickOption
+ * [INPUT]: 依赖 fixture 内容（54 条已发布 + 1 草稿）与 ./helpers 的 test/expect/SLUG/pickOption
  * [OUTPUT]: 浏览流程 E2E：首页双语、搜索/标签/排序/分页 URL 恢复、规范化重定向、空态、404、恶意内容与坏图；路由弹窗的打开/关闭/后退/前进/刷新/新标签、语言切换保留选项、Esc 分层与焦点（AC-01–AC-05/12/17/21/23）；前后对比（卡片静态分屏、详情拖动/键盘、无原图时保留放大）
  * [POS]: tests/e2e 的列表与详情导航套件
  * [PROTOCOL]: Update this header when making changes, then check README.md.
@@ -15,7 +15,7 @@ test.describe("gallery", () => {
     await expect(page).toHaveURL(/\/en$/);
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Explore image prompts. Make them yours.");
-    await expect(cards(page)).toHaveCount(24);
+    await expect(cards(page)).toHaveCount(48);
     await expect(cards(page).first().getByRole("heading")).toHaveText("Minimal Bot Icon — Grokbot Style");
 
     await page.goto("/zh-CN");
@@ -64,7 +64,7 @@ test.describe("gallery", () => {
     await search.fill("fixture watercolor");
     await search.press("Enter");
     await expect(page).toHaveURL(/q=fixture\+watercolor/);
-    await expect(page.getByText("9 prompts")).toBeVisible();
+    await expect(page.getByText("17 prompts")).toBeVisible();
 
     // Chinese labels are searchable from any UI language.
     await page.goto("/en?q=%E6%9C%BA%E5%99%A8%E4%BA%BA");
@@ -74,13 +74,13 @@ test.describe("gallery", () => {
   test("the combined filter menu combines tags with AND and unknown tags are dropped", async ({ page }) => {
     await page.goto("/en?tags=watercolor,bogus&page=1");
     await expect(page).toHaveURL(/\/en\?tags=watercolor$/);
-    await expect(page.getByText("9 prompts")).toBeVisible();
+    await expect(page.getByText("17 prompts")).toBeVisible();
 
     const openFilters = () => page.getByRole("button", { name: "Filter by category and tags" }).click();
     await openFilters();
     await page.getByRole("menuitemcheckbox", { name: "Fixture" }).click();
     await expect(page).toHaveURL(/tags=watercolor%2Cfixture-only/);
-    await expect(page.getByText("9 prompts")).toBeVisible();
+    await expect(page.getByText("17 prompts")).toBeVisible();
     await page.getByRole("menuitemcheckbox", { name: "Minimal" }).click();
     await expect(page.getByText("No prompts match these filters")).toBeVisible();
     await page.keyboard.press("Escape");
@@ -141,7 +141,7 @@ test.describe("gallery", () => {
   test("categories with content are routes; empty or unknown categories are 404", async ({ page, request }) => {
     await page.goto("/en/categories/illustration");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Illustration");
-    await expect(cards(page)).toHaveCount(24);
+    await expect(cards(page)).toHaveCount(48);
     expect((await request.get("/en/categories/logos")).status()).toBe(404);
     expect((await request.get("/en/categories/nope")).status()).toBe(404);
   });
