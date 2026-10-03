@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 @playwright/test 的 defineConfig/devices
- * [OUTPUT]: 默认导出 E2E 配置：chromium 全量，mobile/firefox/webkit 跑 @mobile/@smoke，webServer 自动构建 fixture 站点
- * [POS]: tests 的端到端测试入口（pnpm test:e2e 以 -c 指向此文件），与 e2e/ 配合；fixture 由 fixtures/build.ts 生成，报告写入 tests/ 下
+ * [INPUT]: Playwright configuration/devices and the isolated fixture build.
+ * [OUTPUT]: Browser projects, fixture server and module-scoped E2E output.
+ * [POS]: Main E2E entry point; preserves analytics and prompt-import artifacts in sibling result folders.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import path from "node:path";
@@ -16,7 +16,7 @@ export default defineConfig({
   workers: process.env.CI ? 2 : "50%",
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,
-  outputDir: "test-results",
+  outputDir: "test-results/e2e",
   reporter: process.env.CI ? [["github"], ["html", { open: "never", outputFolder: "playwright-report" }]] : [["list"]],
   use: {
     baseURL: `http://localhost:${PORT}`,

@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 ./prompt-state 的状态与提示，依赖 @/lib/prompt/clipboard，依赖 @/components/ui 的 Button/Dialog
- * [OUTPUT]: 对外提供 PromptActions 客户端组件：part=primary（复制 Prompt、在 ChatGPT 中使用、分享图标按钮带悬停提示）/ reset（仅在修改后出现）
- * [POS]: components/prompt/workbench 的操作集合；复制内容始终来自同一 selections 状态，剪贴板失败时给出可全选文本，不虚报成功
+ * [INPUT]: Prompt state, clipboard helper, safe analytics events and Button/Dialog UI.
+ * [OUTPUT]: PromptActions for copy, ChatGPT, share and reset; successful actions emit identifier-only usage events.
+ * [POS]: Workbench action row; preserves manual-copy fallback and never reports failed copying as success.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 "use client";
@@ -12,6 +12,7 @@ import { Tooltip as TooltipPrimitive } from "radix-ui";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { trackPromptEvent } from "@/lib/analytics/events";
 import { copyText } from "@/lib/prompt/clipboard";
 import { usePromptState } from "./prompt-state";
 
@@ -19,14 +20,15 @@ const quietIcon = "size-8 rounded-full text-muted-foreground hover:text-foregrou
 
 export function PromptActions({ part }: { part: "primary" | "reset" }) {
   const t = useTranslations("detail");
-  const { output, edited, reset, shareUrl, notify } = usePromptState();
+  const { data, variant, output, edited, reset, shareUrl, notify } = usePromptState();
   const [manual, setManual] = useState<string | null>(null);
   const [justCopied, setJustCopied] = useState(false);
   const copiedTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
-  async function copy(text: string, success: string) {
+  async function copy(text: string, success: string, event: "copy_prompt" | "share_prompt") {
     if (await copyText(text)) {
       notify(success);
+      trackPromptEvent(event, { prompt_slug: data.slug, locale: data.uiLocale, variant: variant.id });
       return true;
     }
     setManual(text);
@@ -45,7 +47,7 @@ export function PromptActions({ part }: { part: "primary" | "reset" }) {
           aria-label={t("copyPrompt")}
           className="h-10 min-w-0 flex-1 gap-1.5 rounded-full px-3 text-sm [&_svg]:size-4"
           onClick={async () => {
-            if (await copy(output, t("copied"))) {
+            if (await copy(output, t("copied"), "copy_prompt")) {
               setJustCopied(true);
               clearTimeout(copiedTimer.current);
               copiedTimer.current = setTimeout(() => setJustCopied(false), 1600);
@@ -68,6 +70,7 @@ export function PromptActions({ part }: { part: "primary" | "reset" }) {
               // Also on the clipboard, in case ChatGPT ignores the pre-fill (e.g. signed out).
               void copyText(output);
               notify(t("chatgptOpened"), "info");
+              trackPromptEvent("open_chatgpt", { prompt_slug: data.slug, locale: data.uiLocale, variant: variant.id });
             }}
           >
             <span className="truncate @sm:hidden">ChatGPT</span>
@@ -83,7 +86,7 @@ export function PromptActions({ part }: { part: "primary" | "reset" }) {
                 size="icon"
                 className="size-10 shrink-0 rounded-full bg-card [&_svg]:size-4"
                 aria-label={t("share")}
-                onClick={() => void copy(shareUrl(), t("linkCopied"))}
+                onClick={() => void copy(shareUrl(), t("linkCopied"), "share_prompt")}
               >
                 <Share2 aria-hidden />
               </Button>

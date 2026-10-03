@@ -10,6 +10,7 @@ tests/playwright-report/
 tests/test-results/
 tests/fixtures/.generated/
 .vercel
+.seo-cache/
 # Local agent/editor settings; project skills are shared
 .claude/*
 !.claude/README.md

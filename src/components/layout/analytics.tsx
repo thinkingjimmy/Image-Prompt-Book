@@ -1,20 +1,18 @@
 /**
- * [INPUT]: 依赖 next/script 的 Script，依赖 @/lib/site 的 GA_MEASUREMENT_ID/isProductionDeploy
- * [OUTPUT]: 对外提供 Analytics 组件（Google Analytics gtag.js）
- * [POS]: components/layout 的统计注入，被根布局渲染；仅生产部署输出，预览、本地与 E2E 不上报
+ * [INPUT]: next/script and site configuration for the measurement ID, allowed origin and analytics eligibility.
+ * [OUTPUT]: Analytics with one origin-gated Google tag initialization after hydration.
+ * [POS]: Root-layout analytics; fixture, E2E, preview and local access do not collect production data.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import Script from "next/script";
-import { GA_MEASUREMENT_ID, isProductionDeploy } from "@/lib/site";
+import { GA_MEASUREMENT_ID, GA_ORIGIN, isAnalyticsEnabled } from "@/lib/site";
 
 export function Analytics() {
-  if (!isProductionDeploy()) return null;
+  if (!isAnalyticsEnabled()) return null;
+  // Production HTML can be opened locally; verify the browser origin before requesting the tag.
   return (
-    <>
-      <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
-      <Script id="gtag-init" strategy="afterInteractive">
-        {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}');`}
-      </Script>
-    </>
+    <Script id="gtag-init" strategy="afterInteractive">
+      {`if(window.location.origin===${JSON.stringify(GA_ORIGIN)}){window.dataLayer=window.dataLayer||[];window.gtag=function(){window.dataLayer.push(arguments);};window.gtag('js',new Date());window.gtag('config',${JSON.stringify(GA_MEASUREMENT_ID)});var tag=document.createElement('script');tag.async=true;tag.src=${JSON.stringify(`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`)};document.head.appendChild(tag);}`}
+    </Script>
   );
 }

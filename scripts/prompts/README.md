@@ -5,7 +5,7 @@
 Members
 
 check.ts: `pnpm test:prompt <slug...> [--checks <json>] [--url <local URL>]`; reads real entries and independent source expectations, records timings and browser artifacts, and reuses the completed production build.
-browser.ts: Parallel bilingual entry E2E checks for all variants, options, copy/share/reset, attribution, media, comparison controls, reference input, gallery/sitemap, and 375 px layout.
+browser.ts: Bilingual entry E2E with isolated analytics requests and saved network evidence; checks variants, options, copy/share/reset, media, attribution, comparison controls, gallery/sitemap and 375 px layout.
 server.ts: Starts one production server on a free loopback port and stops only that child process; never builds or replaces an existing server.
 prepare.ts: `pnpm prompt:prepare <manifest> [--dry-run]`; validates captured source/defaults and writes an entry, measured images, maps, credit, and independent E2E expectations.
 profile.ts: `pnpm prompt:profile start|mark|run|report`; records phases and command wall time, reads actual per-response usage, and exports local-only timing/token reports.

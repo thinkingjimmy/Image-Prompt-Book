@@ -9,7 +9,7 @@ src/ - Next.js app (4 subdirs: app routes, components UI, lib content/prompt/SEO
 content/ - Prompt library: one self-contained folder per prompt (text, options, credits, images/), validated at build time, never executed
 scripts/ - Content import, validation, link check, performance measurement
 tests/ - Vitest unit, Playwright E2E, their configs and the fixture builder (see tests/README.md)
-docs/ - Acknowledgements, README screenshot (images/), first-entry appendix (appendix/), SEO guidelines and requirements (seo/)
+docs/ - Acknowledgements, README screenshot (images/), first-entry appendix (appendix/), SEO guidelines and requirements (seo/), analytics implementation and acceptance (analytics/)
 .github/ - CI and issue templates (source lead, translation, problem, rights request)
 .claude/skills/ - Agent skills; add-prompt-case imports a new prompt end to end
 </directory>
@@ -40,6 +40,7 @@ Open http://localhost:3000. Draft entries appear with `IPB_PREVIEW_DRAFTS=1 pnpm
 | `pnpm typecheck` | Generate Next.js declarations, then check TypeScript — also works in a fresh checkout |
 | `pnpm verify` | Lint, typecheck, unit tests, content check and production build — run before every push |
 | `pnpm test:e2e` | Playwright on an isolated fixture build (Chromium, mobile, Firefox, WebKit) |
+| `pnpm test:analytics` | Focused fixture/production-origin analytics E2E; intercept Google traffic and retain JSON, traces and screenshots |
 | `pnpm content:check` | Validate every entry and print why it is or isn't public |
 | `pnpm content:import <slug>` | Import a normative appendix from `docs/appendix/` verbatim |
 | `pnpm links:check [--slug <slug>...]` | Report unreachable source links globally or for selected entries (never changes content) |
@@ -99,7 +100,7 @@ A change is not done until L3 → L2 → L1 are checked in that order. A source 
 ## Security model
 
 - No accounts, database, uploads or model API keys; the only runtime config is the public `SITE_URL`.
-- Google Analytics (`GA_MEASUREMENT_ID` in `src/lib/site.ts`) loads only when `IPB_DEPLOY_ENV=production`; previews, local and E2E builds send nothing.
+- Google Analytics (`GA_MEASUREMENT_ID`/`GA_ORIGIN` in `src/lib/site.ts`) requires a real production build, no E2E/fixture/preview flags, and the actual production browser origin. All project browser verification separately blocks Google requests. Prompt usage events contain identifiers only; pageviews remain owned by GA4 enhanced measurement.
 - Prompt text and sources are data: rendered as escaped text, never executed. Links must be absolute HTTPS; `javascript:` and `data:` URLs are rejected by content validation.
 - Share links carry only enumerated option IDs in the URL hash, which never reaches the server.
 - CI uses a read-only token and no production secrets; it never runs on `pull_request_target`.

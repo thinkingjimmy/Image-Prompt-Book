@@ -1,10 +1,11 @@
 /**
- * [INPUT]: 依赖 playwright 的 chromium 与 CDP（网络/CPU 节流），依赖一个已启动的站点（默认 http://localhost:3200）
- * [OUTPUT]: CLI：在固定条件下测量首页与详情页的 LCP、CLS、请求数与传输体积，打印 Markdown 表格
- * [POS]: scripts 的性能记录工具；结果只代表所记录的设备/网络/内容条件，不是现场 INP 或全站保证
+ * [INPUT]: Playwright Chromium/CDP, a running site and the shared analytics request blocker.
+ * [OUTPUT]: Fixed-condition LCP/CLS/request/byte observations without sending synthetic analytics.
+ * [POS]: Performance CLI; laboratory observations do not establish field INP or site-wide compliance.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { chromium, devices } from "@playwright/test";
+import { blockAnalytics } from "../tests/analytics/network";
 
 const BASE = process.argv[2] ?? "http://localhost:3200";
 const PAGES = ["/en", "/en/prompts/grokbot-capsule-icon"];
@@ -15,6 +16,7 @@ const CPU_RATE = 4;
 async function measure(path: string) {
   const browser = await chromium.launch();
   const context = await browser.newContext({ ...devices["Pixel 7"] });
+  await blockAnalytics(context);
   const page = await context.newPage();
   const cdp = await context.newCDPSession(page);
   await cdp.send("Network.enable");

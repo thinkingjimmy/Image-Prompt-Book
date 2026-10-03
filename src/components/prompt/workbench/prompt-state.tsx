@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 @/lib/prompt 的 template/share/draft（默认值、hash 解码、草稿读写），依赖 next-intl 的 useTranslations
- * [OUTPUT]: 对外提供 PromptStateProvider、usePromptState()、PromptData/VariantData 类型
- * [POS]: components/prompt/workbench 的唯一状态源：当前版本（精简/完整）与每个版本各自的 selections（Prompt 语言固定为站点语言）；编辑视图、复制、分享都从这里读，初始化优先级：分享 hash → 草稿 → 默认值
+ * [INPUT]: Template/share/draft helpers, safe analytics events and next-intl translations.
+ * [OUTPUT]: PromptStateProvider, usePromptState(), PromptData/VariantData and intentional option-change events.
+ * [POS]: Workbench state source; restores hash/draft/default state without counting hydration as user editing.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 "use client";
@@ -9,6 +9,7 @@
 import { useTranslations } from "next-intl";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type { Locale } from "@/i18n/config";
+import { trackPromptEvent } from "@/lib/analytics/events";
 import type { Parameter } from "@/lib/content/schema";
 import { readDraft, writeDraft } from "@/lib/prompt/draft";
 import { decodeShareHash, encodeShareHash } from "@/lib/prompt/share";
@@ -132,7 +133,11 @@ export function PromptStateProvider({ data, children }: { data: PromptData; chil
       edited,
       output: composePrompt({ record: { parameters: variant.parameters, templates: { [outputLocale]: variant.template } }, selections, outputLocale }),
       setVariant: setVariantId,
-      setSelection: (parameterId, optionId) => setSelectionsByVariant((current) => ({ ...current, [variant.id]: { ...(current[variant.id] ?? defaults), [parameterId]: optionId } })),
+      setSelection: (parameterId, optionId) => {
+        if (selections[parameterId] === optionId) return;
+        setSelectionsByVariant((current) => ({ ...current, [variant.id]: { ...(current[variant.id] ?? defaults), [parameterId]: optionId } }));
+        trackPromptEvent("change_prompt_option", { prompt_slug: data.slug, locale: data.uiLocale, variant: variant.id, parameter_id: parameterId, option_id: optionId });
+      },
       reset: () => setSelectionsByVariant((current) => ({ ...current, [variant.id]: defaultSelections(variant.parameters) })),
       shareUrl: () => {
         const base = `${window.location.origin}/${data.uiLocale}/prompts/${data.slug}`;

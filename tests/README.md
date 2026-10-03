@@ -6,13 +6,15 @@
 
 成员清单
 vitest.config.mts: 单元测试配置（pnpm test 以 -c 指向），root 指回仓库根，globalSetup 重建 fixture
-playwright.config.ts: E2E 配置（pnpm test:e2e 以 -c 指向），webServer 在仓库根构建 fixture 站点；报告与 trace 写入 tests/playwright-report、tests/test-results（git 忽略）
+playwright.config.ts: E2E 配置（pnpm test:e2e 以 -c 指向），fixture 站点与 tests/test-results/e2e 独立产物目录，不清理统计专项或 Prompt 导入的兄弟目录；HTML 报告在 tests/playwright-report
+playwright.analytics.config.ts: pnpm test:analytics 的统计专项入口，fixture 与真实内容生产构建同时验证，Google 请求拦截，JSON/trace/截图写入 tests/test-results/analytics
+analytics/: 统计隔离、UTM 与 copy/open/share/option 事件的独立 E2E，以及所有浏览器验证共用的请求阻断器（见 analytics/README.md）
 unit/helpers.ts: 共享工具——真实 content/ 的 library、promptEntry()、combinations()、composer()
 unit/content.test.ts: 内容通用套件——每个条目每个版本的全部组合 × 输出语言完整、单语言、互不相同；校验闸门拒绝各类坏内容（临时副本注入错误）
 unit/lib.test.ts: 纯逻辑——模板引擎、分享 hash、搜索/筛选/排序/分页
 unit/i18n.test.ts: 界面文案键与 ICU 占位符在各语言一致；说明页双语结构一致
 unit/prompts/<category>/<slug>.test.ts: 条目专属语义，按条目分类分子目录（avatars / photo-art/{diptych,redraw} / posters/{type-led,illustrated}），每层不超过 8 个文件，超出再按类型拆分——原文哈希、默认值复现作者原文、选项之间无矛盾；grokbot 另含附录导入保真与 golden（由附录独立替换计算，不存文件）
-e2e/helpers.ts: 等待水合的 test、剪贴板/存储注入、按 fixture 计算期望 Prompt
+e2e/helpers.ts: 等待水合的 test、每个 context 的 GA 请求阻断与网络证据、剪贴板/存储注入、按 fixture 计算期望 Prompt（见 e2e/README.md）
 e2e/gallery.spec.ts: 列表（双语、搜索/标签/排序/分页、404、恶意内容、坏图）与详情导航（路由弹窗、后退/前进、刷新、新标签、语言切换、Esc 分层）与前后对比（卡片静态分屏、详情拖动/键盘）
 e2e/editor.spec.ts: 选项编辑、复制、分享链接、版本切换、存储/剪贴板失败、Use in ChatGPT
 e2e/seo.spec.ts: 服务端 HTML（含“关于这个 Prompt”全部字段）、画廊 H1 可见且在页脚首段、无 JS 阅读、canonical/hreflang/robots、sitemap、JSON-LD 与可见内容一致（摘要、图片署名、不声称图片许可）
@@ -25,7 +27,7 @@ The generic suite in `unit/content.test.ts` covers every new entry automatically
 
 ## E2E projects
 
-Chromium runs everything. Mobile (Pixel 7) runs `@mobile` and `@smoke`; Firefox and WebKit run `@smoke`. The server uses `IPB_CONTENT_DIR`, `IPB_DIST_DIR=.next-e2e`, `IPB_DEPLOY_ENV=production` and `SITE_URL=https://imagepromptbook.com`, so it never touches a real build.
+Chromium runs everything. Mobile (Pixel 7) runs `@mobile` and `@smoke`; Firefox and WebKit run `@smoke`. The server uses `IPB_CONTENT_DIR`, `IPB_DIST_DIR=.next-e2e`, `IPB_DEPLOY_ENV=production`, `IPB_E2E=1` and `SITE_URL=https://imagepromptbook.com`, so it never touches a real build. The application excludes fixture/E2E analytics, and every test context separately blocks Google requests.
 
 ## Known limits
 

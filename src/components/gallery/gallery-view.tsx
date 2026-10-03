@@ -1,12 +1,13 @@
 /**
- * [INPUT]: 依赖 @/lib/content 的 catalog/query（筛选、排序、分页、规范化），依赖同目录 PromptCard/ListControls，依赖 @/lib/seo 的 URL 与 JSON-LD
- * [OUTPUT]: 对外提供 GalleryView 服务端组件与 resolveListing()（页面与 metadata 共用的列表解析）
- * [POS]: components/gallery 的列表主视图，被首页与分类页复用；负责非规范 URL 重定向、超范围 404、空态与分页；页面 H1 与介绍放在列表之后、作为页脚首段（data-footer-lead），网格上方不加任何内容
+ * [INPUT]: Content catalog/query, analytics attribution parsing, gallery cards/controls and SEO URLs/JSON-LD.
+ * [OUTPUT]: GalleryView and resolveListing() with separate canonical state and attribution-preserving landing search.
+ * [POS]: Shared homepage/category gallery; normalizes list URLs, preserves campaign attribution and keeps the visible heading after the grid.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { getTranslations } from "next-intl/server";
 import { notFound, redirect } from "next/navigation";
 import type { Locale } from "@/i18n/config";
+import { attributionParams, isAttributionParam } from "@/lib/analytics/attribution";
 import { contentFor, getLibrary, getVisibleEntries, queryCatalog } from "@/lib/content/catalog";
 import { listQueryToSearch, parseListQuery, type RawSearchParams } from "@/lib/content/query";
 import { absoluteUrl } from "@/lib/site";
@@ -19,18 +20,22 @@ import { PromptCard } from "./prompt-card";
 function rawSearch(params: RawSearchParams): string {
   const search = new URLSearchParams();
   for (const [key, value] of Object.entries(params)) {
+    if (isAttributionParam(key)) continue;
     for (const item of Array.isArray(value) ? value : value === undefined ? [] : [value]) search.append(key, item);
   }
   const text = search.toString();
   return text ? `?${text}` : "";
 }
 
-/** Parses list params against the taxonomy; `canonical` is the only accepted spelling of this state. */
+/** Canonical list state excludes campaign attribution; normalization redirects retain allowed attribution. */
 export function resolveListing(params: RawSearchParams) {
   const knownTags = getLibrary().taxonomy.tags.map((tag) => tag.id);
   const query = parseListQuery(params, knownTags);
   const canonical = listQueryToSearch(query);
-  return { query, canonical, isCanonical: canonical === rawSearch(params) };
+  const landing = new URLSearchParams(canonical);
+  for (const [key, value] of attributionParams(params)) landing.set(key, value);
+  const landingSearch = landing.size ? `?${landing}` : "";
+  return { query, canonical, landingSearch, isCanonical: canonical === rawSearch(params) };
 }
 
 type GalleryViewProps = {
@@ -42,8 +47,8 @@ type GalleryViewProps = {
 export async function GalleryView({ locale, searchParams, category }: GalleryViewProps) {
   const t = await getTranslations({ locale, namespace: "gallery" });
   const nav = await getTranslations({ locale, namespace: "nav" });
-  const { query, isCanonical } = resolveListing(searchParams);
-  if (!isCanonical) redirect(listHref(locale, query, category?.id));
+  const { query, landingSearch, isCanonical } = resolveListing(searchParams);
+  if (!isCanonical) redirect(`${listHref(locale, {}, category?.id)}${landingSearch}`);
 
   const result = queryCatalog(query, category?.id);
   if (result.outOfRange) notFound();

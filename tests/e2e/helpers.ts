@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 @playwright/test 的 Page，依赖 @/lib 的内容加载与 composePrompt（计算期望文本）
- * [OUTPUT]: 对外提供 test（goto 后等待网络空闲）/expect/SLUG/FIXTURE_CONTENT、captureClipboard()/denyClipboard()/breakSessionStorage()/copied()/expectedPrompt()/pickOption()/copyPrompt()
- * [POS]: tests/e2e 的共享工具；剪贴板与存储以注入脚本模拟，跨浏览器稳定且不依赖系统权限
+ * [INPUT]: Playwright, the analytics network blocker, fixture content and prompt composition.
+ * [OUTPUT]: Hydrated test/expect fixtures with intercepted analytics evidence, clipboard/storage helpers and prompt expectations.
+ * [POS]: Shared browser isolation for E2E; external analytics is blocked before application navigation.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import path from "node:path";
@@ -9,11 +9,17 @@ import { test as base, expect, type Page } from "@playwright/test";
 import type { Locale } from "@/i18n/config";
 import { loadContentLibrary } from "@/lib/content/load";
 import { composePrompt, defaultSelections, type Selections } from "@/lib/prompt/template";
+import { blockAnalytics } from "../analytics/network";
 
 export const SLUG = "grokbot-capsule-icon";
 
 /** `page.goto` also waits for the network to settle, so interactions never race hydration. */
-export const test = base.extend({
+export const test = base.extend<{ analyticsRequests: string[] }>({
+  analyticsRequests: [async ({ context }, provide, info) => {
+    const requests = await blockAnalytics(context);
+    await provide(requests);
+    await info.attach("intercepted-analytics-requests", { body: JSON.stringify(requests, null, 2), contentType: "application/json" });
+  }, { auto: true }],
   page: async ({ page }, provide) => {
     const goto = page.goto.bind(page);
     page.goto = async (url, options) => {
@@ -69,8 +75,8 @@ export async function copied(page: Page): Promise<string[]> {
 
 /** Opens a parameter's select (by stable parameter ID) and chooses an option by its visible label. */
 export async function pickOption(page: Page, parameterId: string, optionLabel: string) {
-  const scope = page.getByRole("dialog").or(page.locator("main")).first();
-  await scope.locator(`[data-parameter="${parameterId}"]`).click();
+  const scope = page.getByTestId("prompt-text").filter({ visible: true }).first();
+  await scope.locator(`[data-parameter="${parameterId}"]`).first().click();
   await page.getByRole("menuitemradio", { name: optionLabel, exact: true }).click();
   await expect(page.getByRole("menu")).toHaveCount(0);
 }

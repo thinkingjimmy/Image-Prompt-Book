@@ -1,7 +1,7 @@
 /**
- * [INPUT]: Real PromptEntry records, independent expectations, and a running local site.
+ * [INPUT]: Real PromptEntry records, independent expectations, a running local site and the shared analytics blocker.
  * [OUTPUT]: checkEntry(), PromptChecks, bilingual UI and comparison-control assertions, screenshots, and traces.
- * [POS]: scripts/prompts browser verification; shared by every import instead of per-entry scripts.
+ * [POS]: Shared import browser verification; all contexts intercept analytics and preserve network evidence.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import assert from "node:assert/strict";
@@ -14,6 +14,7 @@ import { composePrompt, defaultSelections, type Selections } from "@/lib/prompt/
 import { mediaUrl } from "@/lib/site";
 import en from "@/i18n/messages/en.json";
 import zh from "@/i18n/messages/zh-CN.json";
+import { blockAnalytics } from "../../tests/analytics/network";
 
 export type PromptChecks = {
   originalSha256?: string;
@@ -195,6 +196,7 @@ export async function checkEntry(browser: Browser, entry: PromptEntry, base: str
     const dir = path.join(artifact, locale);
     mkdirSync(dir, { recursive: true });
     const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce" });
+    const analyticsRequests = await blockAnalytics(context);
     await context.tracing.start({ screenshots: true, snapshots: true, sources: true });
     const errors: string[] = [];
     context.on("page", (page) => page.on("pageerror", (error) => errors.push(error.message)));
@@ -243,6 +245,7 @@ export async function checkEntry(browser: Browser, entry: PromptEntry, base: str
       }
       assert.deepEqual(errors, [], `${locale}: browser errors`);
     } finally {
+      writeFileSync(path.join(dir, "analytics-requests.json"), JSON.stringify(analyticsRequests, null, 2) + "\n");
       await context.tracing.stop({ path: path.join(dir, "browser-trace.zip") });
       await context.close();
       writeFileSync(path.join(dir, "README.md"), `# ${locale} browser artifacts\n\nScreenshots cover each variant at 1440 px and 375 px. browser-trace.zip records the actual UI interactions; gallery.png is present for published entries.\n\n[PROTOCOL]: Update this header when making changes, then check README.md.\n`);
