@@ -1,11 +1,11 @@
 # Image Prompt Book - open-source gallery of editable image generation prompts
 
-Next.js 16 (App Router) + React 19 + TypeScript 5.9 + Tailwind CSS 4 + shadcn/ui + next-intl 4 + Zod 4 + Vitest + Playwright
+Next.js 16 (App Router) + React 19 + TypeScript 5.9 + Tailwind CSS 4 + shadcn/ui + next-intl 4 + Zod 4 + Sharp 0.35.4 + Vitest + Playwright
 
 `README.md` is for people (what the project is, how to contribute, licenses). This file is for maintainers and coding agents changing code or content. Outside contributions arrive only as issues — pull requests are not accepted.
 
 <directory>
-src/ - Next.js app (4 subdirs: app routes, components UI, lib content/prompt/SEO logic, i18n incl. UI messages)
+src/ - Next.js app (4 subdirs: app routes, components UI, lib content/prompt/SEO/image delivery logic, i18n incl. UI messages)
 content/ - Prompt library: one self-contained folder per prompt (text, options, credits, images/), validated at build time, never executed
 scripts/ - Content import, validation, link check, performance measurement
 tests/ - Vitest unit, Playwright E2E, their configs and the fixture builder (see tests/README.md)

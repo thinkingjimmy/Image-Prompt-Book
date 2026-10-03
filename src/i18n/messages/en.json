@@ -74,6 +74,7 @@
     "hashApplied": "Loaded the shared options.",
     "examples": "Example images",
     "viewLarge": "View larger image",
+    "viewOriginal": "View original image",
     "showExample": "Show example {index}",
     "imageSource": "Image source",
     "noExamples": "No example image yet. Nothing is generated from your options.",

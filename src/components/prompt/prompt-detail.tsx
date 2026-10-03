@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 @/lib/content 的 PromptEntry/contentFor，依赖 @/components/gallery/compare-stack 的 displayedAspect，依赖同目录 ExampleGallery/ModalTitle/PromptAbout 与 workbench/ 的 PromptStateProvider/CustomizeView/PromptActions，依赖 @/components/ui/scroll-area
- * [OUTPUT]: 对外提供 PromptDetail 服务端组件与 toPromptData()（服务端 → 客户端的最小可序列化数据）
- * [POS]: components/prompt 的共用详情（参考 ImageFX）：左栏为按比例满铺的案例图；右栏标题 + 作者·许可一行 + 摘要 + Prompt 工具行（版本切换 + 修改后出现的重置） + 可编辑 Prompt 与其后的“关于这个 Prompt”（同一自绘滚动区）+ 主操作（复制 / ChatGPT / 分享）。独立页与弹窗同一组件，只以 variant 区分尺寸与标题元素
+ * [INPUT]: Content catalog, versioned media/original URLs, image proportions, localized navigation and the prompt workbench.
+ * [OUTPUT]: PromptDetail and toPromptData() for shared standalone/modal details and minimal client prompt data.
+ * [POS]: Server detail composer; resolves registered image previews/originals and passes the layout variant to ExampleGallery.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { ArrowLeft, ImagePlus } from "lucide-react";
@@ -13,6 +13,7 @@ import { Link } from "@/i18n/navigation";
 import { contentFor } from "@/lib/content/catalog";
 import type { PromptEntry } from "@/lib/content/load";
 import { contentConfig, mediaUrl } from "@/lib/site";
+import { optimizedMediaUrl } from "@/lib/images/source";
 import { cn } from "@/lib/utils";
 import { ModalTitle } from "./detail-modal";
 import { displayedAspect } from "@/components/gallery/compare-stack";
@@ -47,13 +48,14 @@ export function toPromptData(entry: PromptEntry, locale: Locale): PromptData {
 function toExampleViews(entry: PromptEntry, locale: Locale): ExampleView[] {
   return entry.examples.map((example) => ({
     id: example.id,
-    src: mediaUrl(entry.meta.slug, example.src),
+    src: optimizedMediaUrl(entry.meta.slug, example.src, example.width),
+    originalSrc: mediaUrl(entry.meta.slug, example.src),
     width: example.width,
     height: example.height,
     alt: example.alt[locale],
     sourceUrl: example.sourceUrl,
     comparison: example.comparison,
-    input: example.input && { src: mediaUrl(entry.meta.slug, example.input.src), width: example.input.width, height: example.input.height, alt: example.input.alt[locale] },
+    input: example.input && { src: optimizedMediaUrl(entry.meta.slug, example.input.src, example.input.width), width: example.input.width, height: example.input.height, alt: example.input.alt[locale] },
   }));
 }
 
@@ -84,6 +86,7 @@ export async function PromptDetail({ entry, locale, variant }: { entry: PromptEn
       <article style={frame} className={cn("flex flex-col md:h-[var(--detail-h)] md:flex-row", variant === "page" && "overflow-clip rounded-[24px] bg-card ring-1 ring-black/[0.06]")}>
         <ExampleGallery
           examples={toExampleViews(entry, locale)}
+          variant={variant}
           unoptimized={contentConfig().isFixture}
           className="w-full shrink-0 md:h-full md:w-[min(calc(var(--detail-h)*var(--ar)),var(--left-max))]"
         />

@@ -1,3 +1,7 @@
+# [INPUT]: pnpm, Node, Playwright and the real-content production build.
+# [OUTPUT]: Verification, image delivery evidence and cross-browser fixture acceptance.
+# [POS]: Read-only CI for main pushes and ordinary pull requests.
+# [PROTOCOL]: Update this header when making changes, then check README.md.
 name: CI
 
 on:
@@ -32,8 +36,16 @@ jobs:
         run: pnpm verify
       - name: Install Playwright browsers
         run: pnpm exec playwright install --with-deps chromium firefox webkit
+      - name: Real-image delivery tests
+        run: pnpm exec playwright test -c tests/images/playwright.config.ts
       - name: End-to-end tests
         run: pnpm test:e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: image-delivery-evidence
+          path: tests/test-results/images
+          retention-days: 7
       - uses: actions/upload-artifact@v4
         if: failure()
         with:

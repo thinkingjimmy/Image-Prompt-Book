@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 @/lib/content 的 PromptEntry/Taxonomy，依赖同目录 CardLink/ExampleImage/CompareFrame/CompareStack，依赖 @/lib/site 的 mediaUrl
- * [OUTPUT]: 对外提供 PromptCard 服务端组件
- * [POS]: components/gallery 的卡片：主图（封面带 input 原图时为静态 50% 左右对比；comparison 为 stack 时为上下接缝）→ 标题 → 单行统一样式的标签（含需参考图，溢出渐隐）→ 作者名（链接）；一个 Prompt 只占一张卡片
+ * [INPUT]: Content/taxonomy, localized copy, content-versioned image URLs and shared card/comparison renderers.
+ * [OUTPUT]: PromptCard with stage-bounded responsive images, layout-matched sizes and unchanged content/source links.
+ * [POS]: One image-first card per prompt; registered comparisons keep their existing layout and reading order.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { ImageIcon, ImagePlus } from "lucide-react";
@@ -11,7 +11,8 @@ import { Link } from "@/i18n/navigation";
 import { contentFor } from "@/lib/content/catalog";
 import type { PromptEntry } from "@/lib/content/load";
 import type { Taxonomy } from "@/lib/content/schema";
-import { contentConfig, mediaUrl } from "@/lib/site";
+import { contentConfig } from "@/lib/site";
+import { optimizedMediaUrl } from "@/lib/images/source";
 import { promptPath } from "@/lib/seo/urls";
 import { CardLink } from "./card-link";
 import { CompareFrame } from "./compare-frame";
@@ -19,7 +20,7 @@ import { CompareStack } from "./compare-stack";
 import { ExampleImage } from "./example-image";
 
 const tagClass = "inline-flex h-6 shrink-0 items-center gap-1 whitespace-nowrap rounded-full border border-border bg-card/60 px-2.5 text-xs text-muted-foreground";
-const CARD_SIZES = "(max-width: 767px) 50vw, (max-width: 1023px) 33vw, (max-width: 1439px) 25vw, 20vw";
+const CARD_SIZES = "(max-width: 479px) calc((100vw - 44px) / 2), (max-width: 639px) calc((100vw - 48px) / 2), (max-width: 767px) calc((100vw - 64px) / 2), (max-width: 1023px) calc((100vw - 88px) / 3), (max-width: 1439px) calc((100vw - 124px) / 4), (max-width: 1799px) calc((100vw - 160px) / 5), 328px";
 
 export async function PromptCard({ entry, locale, taxonomy, eager }: { entry: PromptEntry; locale: Locale; taxonomy: Taxonomy; eager: boolean }) {
   const t = await getTranslations({ locale, namespace: "gallery" });
@@ -38,9 +39,10 @@ export async function PromptCard({ entry, locale, taxonomy, eager }: { entry: Pr
           {cover?.input && cover.comparison === "stack" ? (
             // Both pictures in full: the result is not a registered wipe of the photo.
             <CompareStack
-              before={{ src: mediaUrl(entry.meta.slug, cover.input.src), width: cover.input.width, height: cover.input.height, alt: cover.input.alt[locale] }}
-              after={{ src: mediaUrl(entry.meta.slug, cover.src), width: cover.width, height: cover.height, alt: cover.alt[locale] }}
+              before={{ src: optimizedMediaUrl(entry.meta.slug, cover.input.src, cover.input.width), width: cover.input.width, height: cover.input.height, alt: cover.input.alt[locale] }}
+              after={{ src: optimizedMediaUrl(entry.meta.slug, cover.src, cover.width), width: cover.width, height: cover.height, alt: cover.alt[locale] }}
               sizes={CARD_SIZES}
+              stage="card"
               eager={eager}
               unoptimized={contentConfig().isFixture}
               className="transition-transform duration-300 ease-out group-hover:scale-[1.02]"
@@ -48,21 +50,23 @@ export async function PromptCard({ entry, locale, taxonomy, eager }: { entry: Pr
           ) : cover?.input ? (
             // A static split at 50%: the card hints at the comparison, the detail page lets you drag it.
             <CompareFrame
-              before={{ src: mediaUrl(entry.meta.slug, cover.input.src), width: cover.input.width, height: cover.input.height, alt: cover.input.alt[locale] }}
-              after={{ src: mediaUrl(entry.meta.slug, cover.src), width: cover.width, height: cover.height, alt: cover.alt[locale] }}
+              before={{ src: optimizedMediaUrl(entry.meta.slug, cover.input.src, cover.input.width), width: cover.input.width, height: cover.input.height, alt: cover.input.alt[locale] }}
+              after={{ src: optimizedMediaUrl(entry.meta.slug, cover.src, cover.width), width: cover.width, height: cover.height, alt: cover.alt[locale] }}
               position={50}
               sizes={CARD_SIZES}
+              stage="card"
               eager={eager}
               unoptimized={contentConfig().isFixture}
               className="transition-transform duration-300 ease-out group-hover:scale-[1.02]"
             />
           ) : cover ? (
             <ExampleImage
-              src={mediaUrl(entry.meta.slug, cover.src)}
+              src={optimizedMediaUrl(entry.meta.slug, cover.src, cover.width)}
               width={cover.width}
               height={cover.height}
               alt={cover.alt[locale]}
               sizes={CARD_SIZES}
+              stage="card"
               eager={eager}
               unoptimized={contentConfig().isFixture}
               className="transition-transform duration-300 ease-out group-hover:scale-[1.02]"

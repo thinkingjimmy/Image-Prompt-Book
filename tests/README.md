@@ -8,6 +8,7 @@
 vitest.config.mts: 单元测试配置（pnpm test 以 -c 指向），root 指回仓库根，globalSetup 重建 fixture
 playwright.config.ts: E2E 配置（pnpm test:e2e 以 -c 指向），fixture 站点与 tests/test-results/e2e 独立产物目录，不清理统计专项或 Prompt 导入的兄弟目录；HTML 报告在 tests/playwright-report
 playwright.analytics.config.ts: pnpm test:analytics 的统计专项入口，fixture 与真实内容生产构建同时验证，Google 请求拦截，JSON/trace/截图写入 tests/test-results/analytics
+images/: Real-content static WebP HTTP/browser acceptance on desktop/mobile, reuses the verified build and saves response sizes/screenshots/traces (see images/README.md)
 analytics/: 统计隔离、UTM 与 copy/open/share/option 事件的独立 E2E，以及所有浏览器验证共用的请求阻断器（见 analytics/README.md）
 unit/helpers.ts: 共享工具——真实 content/ 的 library、promptEntry()、combinations()、composer()
 unit/content.test.ts: 内容通用套件——每个条目每个版本的全部组合 × 输出语言完整、单语言、互不相同；校验闸门拒绝各类坏内容（临时副本注入错误）

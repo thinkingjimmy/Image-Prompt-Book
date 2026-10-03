@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 @/components/gallery/compare-frame 的 CompareFrame/CompareHandle，依赖 next-intl 的 useTranslations
- * [OUTPUT]: 对外提供 CompareSlider 客户端组件
- * [POS]: components/prompt 的前后对比：在详情图片区按住（鼠标或触摸）拖动分隔线，把手可聚焦并支持方向键 / Home / End；被 example-gallery 在案例带 input 原图时使用
+ * [INPUT]: Shared CompareFrame/CompareHandle, localized labels and React pointer/keyboard state.
+ * [OUTPUT]: CompareSlider with responsive image sizes, pointer dragging and keyboard control.
+ * [POS]: Interactive detail comparison used by ExampleGallery when an example has a split input image.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 "use client";
@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 const STEP = 5;
 const clamp = (value: number) => Math.min(100, Math.max(0, value));
 
-export function CompareSlider({ before, after, eager, unoptimized, className }: { before: CompareImage; after: CompareImage; eager: boolean; unoptimized: boolean; className?: string }) {
+export function CompareSlider({ before, after, eager, unoptimized, className, sizes }: { before: CompareImage; after: CompareImage; eager: boolean; unoptimized: boolean; className?: string; sizes: string }) {
   const t = useTranslations("detail");
   const [position, setPosition] = useState(50);
   const [dragging, setDragging] = useState(false);
@@ -57,7 +57,7 @@ export function CompareSlider({ before, after, eager, unoptimized, className }: 
         before={before}
         after={after}
         position={position}
-        sizes="(max-width: 767px) 100vw, 60vw"
+        sizes={sizes}
         eager={eager}
         unoptimized={unoptimized}
         className="size-full"

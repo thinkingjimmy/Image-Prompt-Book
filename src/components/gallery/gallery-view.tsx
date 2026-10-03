@@ -91,7 +91,7 @@ export async function GalleryView({ locale, searchParams, category }: GalleryVie
           <>
             <ul className="masonry" aria-label={t("results", { count: result.total })}>
               {result.items.map((entry, index) => (
-                <PromptCard key={entry.meta.slug} entry={entry} locale={locale} taxonomy={library.taxonomy} eager={index < 4} />
+                <PromptCard key={entry.meta.slug} entry={entry} locale={locale} taxonomy={library.taxonomy} eager={index === 0} />
               ))}
             </ul>
             <Pagination locale={locale} query={query} category={category?.id} totalPages={result.totalPages} />

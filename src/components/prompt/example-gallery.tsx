@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 @/components/gallery/example-image、compare-frame 的 CompareImage、compare-stack 的 CompareStack/displayedAspect，依赖同目录 CompareSlider，依赖 radix-ui Dialog 作大图层
- * [OUTPUT]: 对外提供 ExampleGallery 客户端组件与 ExampleView 类型
- * [POS]: components/prompt 的图片区：图片即左栏（满铺 cover、按图片比例定宽），缩略图、来源链接与“完整图/撑满”切换悬浮其上，可放大；案例带 input 原图时主图换成可拖动的左右对比，comparison 为 stack 时换成上下接缝；参数变化绝不替换或伪造图片
+ * [INPUT]: Versioned image views, shared comparison/image renderers, localized copy and Radix Dialog.
+ * [OUTPUT]: ExampleGallery and ExampleView with bounded previews/thumbnails, loaded-preview backdrops and explicit zoom/original actions.
+ * [POS]: Shared page/modal image pane; preserves comparison interaction, source attribution and image-first layout.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 "use client";
@@ -19,6 +19,7 @@ import { CompareSlider } from "./compare-slider";
 export type ExampleView = {
   id: string;
   src: string;
+  originalSrc: string;
   width: number;
   height: number;
   alt: string;
@@ -32,13 +33,19 @@ export type ExampleView = {
  * The image *is* the left pane: edge to edge, cover-fit, sized by the parent to its own aspect ratio,
  * with thumbnails and the source link floating on top instead of taking layout space.
  */
-export function ExampleGallery({ examples, unoptimized, className }: { examples: ExampleView[]; unoptimized: boolean; className?: string }) {
+export function ExampleGallery({ examples, unoptimized, className, variant }: { examples: ExampleView[]; unoptimized: boolean; className?: string; variant: "page" | "modal" }) {
   const t = useTranslations("detail");
   const [index, setIndex] = useState(0);
   const [zoomed, setZoomed] = useState(false);
+  const lightboxClose = useRef<HTMLButtonElement>(null);
   // "cover" fills the pane edge to edge; "contain" shows the whole image over a blurred copy of itself.
   const [fit, setFit] = useState<"cover" | "contain">("cover");
   const current = examples[index];
+  const imageSrc = current?.src;
+  const [loadedPreview, setLoadedPreview] = useState<{ image: string; src: string } | null>(null);
+  const rememberPreview = useCallback((src: string) => {
+    if (imageSrc) setLoadedPreview((previous) => previous?.image === imageSrc && previous.src === src ? previous : { image: imageSrc, src });
+  }, [imageSrc]);
 
   if (!current) {
     return (
@@ -52,18 +59,23 @@ export function ExampleGallery({ examples, unoptimized, className }: { examples:
   }
 
   const stacked = current.comparison === "stack" && current.input;
+  const aspect = displayedAspect(current);
+  const sizes = variant === "modal"
+    ? `(max-width: 767px) 100vw, min(calc(94vw - 440px), calc(min(86dvh, 780px) * ${aspect}))`
+    : `(max-width: 639px) calc(100vw - 32px), (max-width: 767px) calc(100vw - 48px), min(calc(min(100vw, 1400px) - 464px), calc(max(560px, 100dvh - 160px) * ${aspect}))`;
+  const previewSrc = loadedPreview?.image === current.src ? loadedPreview.src : undefined;
   const glass = "bg-black/35 text-white ring-1 ring-white/10 backdrop-blur-md";
   return (
     <figure className={cn("relative overflow-hidden bg-muted", className)} style={{ aspectRatio: displayedAspect(current) }}>
-      {fit === "contain" && !current.input && (
+      {fit === "contain" && !current.input && previewSrc && (
         // eslint-disable-next-line @next/next/no-img-element -- decorative blurred backdrop reuses the already-loaded image
-        <img src={current.src} alt="" aria-hidden className="absolute inset-0 size-full scale-110 object-cover opacity-70 blur-2xl" />
+        <img src={previewSrc} alt="" aria-hidden decoding="async" className="absolute inset-0 size-full scale-110 object-cover opacity-70 blur-2xl" />
       )}
       {stacked && current.input ? (
-        <CompareStack key={current.id} before={current.input} after={current} eager={index === 0} unoptimized={unoptimized} sizes="(max-width: 767px) 100vw, 60vw" />
+        <CompareStack key={current.id} before={current.input} after={current} eager={index === 0} unoptimized={unoptimized} sizes={sizes} />
       ) : current.input ? (
         // Dragging owns the pointer here, so a comparison trades click-to-zoom and the fit toggle for the slider.
-        <CompareSlider key={current.id} before={current.input} after={current} eager={index === 0} unoptimized={unoptimized} />
+        <CompareSlider key={current.id} before={current.input} after={current} eager={index === 0} unoptimized={unoptimized} sizes={sizes} />
       ) : (
         <>
           <button type="button" onClick={() => setZoomed(true)} className="absolute inset-0 cursor-zoom-in" aria-label={`${t("viewLarge")}: ${current.alt}`}>
@@ -76,7 +88,8 @@ export function ExampleGallery({ examples, unoptimized, className }: { examples:
               alt={current.alt}
               eager={index === 0}
               unoptimized={unoptimized}
-              sizes="(max-width: 767px) 100vw, 60vw"
+              sizes={sizes}
+              onReady={rememberPreview}
               className="h-full w-full bg-transparent"
             />
           </button>
@@ -115,6 +128,10 @@ export function ExampleGallery({ examples, unoptimized, className }: { examples:
           <DialogPrimitive.Overlay className="fixed inset-0 z-[60] grid place-items-center overflow-auto bg-black/70 p-4 backdrop-blur-xl data-[state=open]:animate-in data-[state=open]:fade-in-0">
             <DialogPrimitive.Content
               aria-describedby={undefined}
+              onOpenAutoFocus={(event) => {
+                event.preventDefault();
+                lightboxClose.current?.focus();
+              }}
               // Closing on our own keydown keeps Esc on the innermost layer even if the layer stack is momentarily out of order.
               onKeyDown={(event) => {
                 if (event.key === "Escape") setZoomed(false);
@@ -129,12 +146,19 @@ export function ExampleGallery({ examples, unoptimized, className }: { examples:
                 fit="contain"
                 eager
                 unoptimized={unoptimized}
-                sizes="100vw"
+                sizes={`min(calc(100vw - 32px), 1400px, calc((100dvh - 96px) * ${current.width / current.height}))`}
+                stage="zoom"
                 className="max-h-[calc(100dvh-6rem)] w-auto max-w-[min(100%,1400px)] rounded-lg bg-transparent"
               />
-              <DialogPrimitive.Close className="grid size-10 place-items-center rounded-full bg-white/15 text-white hover:bg-white/25" aria-label={t("close")}>
-                <X className="size-5" aria-hidden />
-              </DialogPrimitive.Close>
+              <div className="flex items-center gap-3">
+                <a href={current.originalSrc} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center gap-1.5 rounded-full bg-white/15 px-4 text-sm text-white hover:bg-white/25">
+                  {t("viewOriginal")}
+                  <ExternalLink className="size-3.5" aria-hidden />
+                </a>
+                <DialogPrimitive.Close ref={lightboxClose} className="grid size-10 place-items-center rounded-full bg-white/15 text-white hover:bg-white/25" aria-label={t("close")}>
+                  <X className="size-5" aria-hidden />
+                </DialogPrimitive.Close>
+              </div>
             </DialogPrimitive.Content>
           </DialogPrimitive.Overlay>
         </DialogPrimitive.Portal>
@@ -221,7 +245,7 @@ function ThumbnailTray({
             onClick={() => onSelect(itemIndex)}
             className={cn("size-10 shrink-0 snap-start overflow-hidden rounded-full ring-2 ring-transparent ring-inset transition sm:size-11", itemIndex === index ? "ring-white" : "opacity-60 hover:opacity-90")}
           >
-            <ExampleImage src={example.src} width={example.width} height={example.height} alt="" sizes="44px" unoptimized={unoptimized} className="size-full" />
+            <ExampleImage src={example.src} width={example.width} height={example.height} alt="" sizes="44px" stage="thumbnail" unoptimized={unoptimized} className="size-full" />
           </button>
         ))}
       </div>

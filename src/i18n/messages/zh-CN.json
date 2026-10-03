@@ -74,6 +74,7 @@
     "hashApplied": "已载入分享的设置。",
     "examples": "案例图片",
     "viewLarge": "查看大图",
+    "viewOriginal": "查看原始图片",
     "showExample": "显示第 {index} 张案例",
     "imageSource": "图片来源",
     "noExamples": "尚无案例图。本站不会根据你的选项生成图片。",
