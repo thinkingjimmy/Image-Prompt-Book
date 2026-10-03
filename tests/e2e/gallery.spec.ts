@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 fixture 内容（54 条已发布 + 1 草稿）与 ./helpers 的 test/expect/SLUG/pickOption
- * [OUTPUT]: 浏览流程 E2E：首页双语、搜索/标签/排序/分页 URL 恢复、规范化重定向、空态、404、恶意内容与坏图；路由弹窗的打开/关闭/后退/前进/刷新/新标签、语言切换保留选项、Esc 分层与焦点（AC-01–AC-05/12/17/21/23）；前后对比（卡片静态分屏、详情拖动/键盘、无原图时保留放大）
- * [POS]: tests/e2e 的列表与详情导航套件
+ * [INPUT]: Fixture content (54 published entries and one draft), Playwright Page, and shared hydrated/isolated browser helpers.
+ * [OUTPUT]: Gallery/filter/pagination E2E, attribution-preserving normalization with clean metadata, modal/history/locale/focus navigation, and image-comparison checks.
+ * [POS]: Gallery and detail navigation suite; campaign normalization saves a screenshot alongside its browser trace.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import type { Page } from "@playwright/test";
@@ -35,7 +35,7 @@ test.describe("gallery", () => {
     await expect(card.getByText("Turn a person or character")).toHaveCount(0);
   });
 
-  test("pagination uses real links and normalizes page numbers", async ({ page }) => {
+  test("pagination uses real links and normalizes page numbers while preserving attribution", async ({ page }, info) => {
     await page.goto("/en");
     await expect(page.getByText("Page 1 of 2")).toBeVisible();
     await page.getByRole("link", { name: "Next" }).click();
@@ -47,7 +47,9 @@ test.describe("gallery", () => {
     await page.goto("/en?page=1");
     await expect(page).toHaveURL(/\/en$/);
     await page.goto("/en?page=abc&utm_source=x");
-    await expect(page).toHaveURL(/\/en$/);
+    await expect(page).toHaveURL(/\/en\?utm_source=x$/);
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://imagepromptbook.com/en");
+    await info.attach("normalized-campaign-landing", { body: await page.screenshot(), contentType: "image/png" });
     expect((await page.request.get("/en?page=3", { maxRedirects: 0 })).status()).toBe(404);
   });
 

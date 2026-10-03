@@ -60,10 +60,11 @@
 | `pnpm lint` | 通过 |
 | `pnpm typecheck` | 通过 |
 | `pnpm test:analytics` | 12 项通过，桌面/手机、fixture/真实生产构建；无跳过、失败或 flaky |
-| 相关既有流程的 Chromium E2E | 7 项通过：首页、分页/筛选 SEO、详情 SEO、全部参数编辑、分享、剪贴板失败、ChatGPT 交接 |
+| 相关既有流程的 Chromium E2E | 7 项通过：首页、分页/筛选 SEO、详情 SEO、全部参数编辑、分享、剪贴板失败、ChatGPT 交接；另补验 1 项分页规范化，UTM 保留与 canonical 干净均通过 |
 | 测试所需 fixture 与真实内容生产构建 | 均构建成功 |
 | 2026-10-03 发布前 `pnpm verify` | 通过：lint、类型检查、159 项既有测试、29 条内容校验与生产构建 |
 | 发布前复用 E2E 证据的源码核对 | 16 个相关文件 SHA256 与上述 19 项通过记录完全一致 |
+| 发布后的正式站 HTTP 验收 | 英文首页和中文头像分类带 UTM 均首次 200、归因保留、canonical 干净，新的 origin 守卫初始化代码已出现在正式 HTML |
 
 可重复执行：
 
@@ -71,12 +72,14 @@
 pnpm lint
 pnpm typecheck
 pnpm test:analytics
-PLAYWRIGHT_JSON_OUTPUT_FILE="$PWD/tests/test-results/e2e/report.json" pnpm test:e2e --project=chromium --workers=2 tests/e2e/gallery.spec.ts tests/e2e/seo.spec.ts tests/e2e/editor.spec.ts --grep 'root redirects|default pagination|detail pages are|all seven|share copies|when the clipboard is denied|Use in ChatGPT' --reporter=list,json --trace=on
+PLAYWRIGHT_JSON_OUTPUT_FILE="$PWD/tests/test-results/e2e/report.json" pnpm test:e2e --project=chromium --workers=2 tests/e2e/gallery.spec.ts tests/e2e/seo.spec.ts tests/e2e/editor.spec.ts --grep 'root redirects|pagination uses real|default pagination|detail pages are|all seven|share copies|when the clipboard is denied|Use in ChatGPT' --reporter=list,json --trace=on
 ```
 
 统计实施阶段没有新增或执行单元测试，没有运行全套 E2E；本次发布前按项目要求运行 `pnpm verify`，包含既有单元测试。专项报告为 `tests/test-results/analytics/report.json`，12 份 trace 位于其 `artifacts/` 子目录，成功操作的四个事件载荷另存为附件。专项报告与 trace 已归档至 `.seo-cache/evidence/analytics/analytics-e2e.tar.gz`；七项回归报告为 `tests/test-results/e2e/report.json`，报告、请求附件及 trace 归档至 `regressions.tar.gz`，命令和结果记录在 `verification.json`。普通 E2E 写入独立 `tests/test-results/e2e/`，避免清除其他证据。JSON 输出选项见 [Playwright 官方说明](https://playwright.dev/docs/test-reporters#json-reporter)。
 
 浏览器代理将正式域名请求映射到本地生产服务器，并把 Google 标签响应替换为空脚本；测试没有向线上网站或 GA4 发送模拟事件。证据证明应用的隔离和队列行为，未验证 Google 远端接收、完整标签的 SPA 处理或正式报告的归因结果。
+
+单独补验的分页规范化保留截图、trace 和 Google 请求拦截记录；公开 HTTP 验收不执行 JavaScript、不发送统计事件。发布与压缩样本证据在本地忽略的 `.seo-cache/publication.tar.gz`，因此 HTTP 验收不等于 GA4 已处理四种产品事件。
 
 ## 发布验收与新基线
 
