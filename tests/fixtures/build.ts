@@ -1,6 +1,6 @@
 /**
  * [INPUT]: 依赖 content/ 的真实首个案例文件，依赖 node:zlib 生成纯色 PNG，依赖 @/lib/content/query 的 PAGE_SIZE
- * [OUTPUT]: 默认导出 buildFixtures()，生成 tests/fixtures/.generated/content（taxonomy、合成条目、fixture 化的首个案例与图片）；直接执行时即生成
+ * [OUTPUT]: 默认导出 buildFixtures()，生成 tests/fixtures/.generated/content（taxonomy、合成条目、fixture 化的首个案例与图片、一篇三条成员的测试专题）；直接执行时即生成
  * [POS]: tests/fixtures 的测试数据生成器：Vitest globalSetup 与 E2E webServer 各调用一次；所有记录带 fixture:true，生产内容根会拒绝它们
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -185,6 +185,56 @@ export default function buildFixtures() {
       path.join(dir, "ATTRIBUTION.md"),
       `# Attribution — ${slug}\n\n## en\n\n\`\`\`text\nFixture attribution ${index}\n\`\`\`\n\n## zh-CN\n\n\`\`\`text\n测试署名 ${index}\n\`\`\`\n`,
     );
+  }
+
+  const collectionDir = path.join(OUT, "collections", "fixture-collection");
+  mkdirSync(collectionDir, { recursive: true });
+  json(path.join(collectionDir, "meta.json"), {
+    schemaVersion: 1,
+    id: "fixture-collection",
+    slug: "fixture-collection",
+    status: "published",
+    createdAt: "2026-08-01",
+    updatedAt: "2026-08-20",
+    publishedAt: "2026-08-20T12:00:00Z",
+    fixture: true,
+    categories: ["illustration"],
+    series: "fixture-series",
+    cover: "fixture-sample-01",
+    groups: [{ id: "picks", members: [REAL_SLUG, "fixture-sample-01", "fixture-sample-02"] }],
+  });
+  for (const locale of ["en", "zh-CN"] as const) {
+    const zh = locale === "zh-CN";
+    json(path.join(collectionDir, `${locale}.json`), {
+      title: zh ? "测试专题" : "Fixture collection",
+      subtitle: zh ? "三条合成条目怎么选" : "How to pick among three fixture prompts",
+      heading: zh ? "测试专题：怎么选这三条 Prompt" : "Fixture collection: how to pick these three prompts",
+      seoTitle: zh ? "测试专题 | Image Prompt Book" : "Fixture Collection | Image Prompt Book",
+      lead: zh ? "这篇专题只存在于测试数据里，用来核对专题页、卡片和双向链接。" : "This collection exists only in fixture data, so tests can check the page, the card and the two-way links.",
+      groups: { picks: { title: zh ? "三条测试条目" : "Three fixture prompts" } },
+      members: {
+        [REAL_SLUG]: {
+          why: zh ? "真实条目的测试副本，用来核对弹窗详情。" : "The real entry's fixture copy, used to check the detail modal.",
+          goodFor: zh ? "编辑器与详情流程" : "Editor and detail flows",
+          notFor: zh ? "当作真实收录" : "Treating it as a real published pick",
+          adjust: zh ? "脸色、构图与描边" : "Face color, crop and outline",
+        },
+        "fixture-sample-01": {
+          why: zh ? "瀑布流里的第一条合成卡。" : "The first synthetic card in the gallery.",
+          goodFor: zh ? "列表与分页" : "Listing and pagination",
+          notFor: zh ? "真实案例" : "A real example",
+          adjust: zh ? "风格" : "Style",
+        },
+        "fixture-sample-02": {
+          why: zh ? "带参考图对比的第二条合成卡。" : "The second synthetic card, with a comparison photo.",
+          goodFor: zh ? "对比视图" : "The comparison view",
+          notFor: zh ? "真实案例" : "A real example",
+          adjust: zh ? "风格" : "Style",
+        },
+      },
+      choose: [zh ? "要测详情弹窗就打开机器人头像；要测对比就打开第二条。" : "Open the bot icon to test the detail modal; open the second sample to test the comparison."],
+      caution: zh ? "测试内容，不要外发。" : "Fixture copy. Do not publish it.",
+    });
   }
 
   // A draft that must never become reachable.

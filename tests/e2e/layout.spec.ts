@@ -1,13 +1,96 @@
 /**
- * [INPUT]: 依赖 @axe-core/playwright 的 AxeBuilder，依赖 ./helpers 的 test/expect/SLUG
- * [OUTPUT]: 无障碍与布局 E2E：axe WCAG A/AA 扫描（首页、详情、弹窗、说明页）、1–5 列断点、375/768 无横向溢出、超长查询截断；移动端无横向滚动、全屏弹窗与可达操作栏（AC-17/AC-21，IPB-016/080/081/082）
- * [POS]: tests/e2e 的质量底线套件；断点矩阵只在桌面 Chromium 跑，移动端用例只在 mobile 项目跑
+ * [INPUT]: Axe accessibility analysis and shared hydrated browser fixtures.
+ * [OUTPUT]: WCAG A/AA checks, two-to-five gallery columns beside the sidebar, overflow/query limits and mobile prompt dialogs.
+ * [POS]: Layout acceptance; desktop Chromium drives the width matrix and the mobile project covers touch viewports.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import AxeBuilder from "@axe-core/playwright";
-import { expect, SLUG, test } from "./helpers";
+import { expect, filterMenu, searchField, SLUG, test } from "./helpers";
 
 const WCAG = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"];
+
+test("Canvas search preserves its draft and uses keyboard-only focus @smoke", async ({ page }, info) => {
+  await page.goto("/en");
+  const trigger = page.getByRole("button", { name: "Search prompts", exact: true });
+  await expect(page.getByRole("searchbox")).toHaveCount(0);
+  await trigger.click();
+  const field = await searchField(page);
+  await expect(field).toBeFocused();
+  await expect(field).toHaveCSS("font-size", "16px");
+  await expect(field).toHaveCSS("outline-style", "none");
+  await field.fill("watercolor");
+  await field.press("Escape");
+  await expect(trigger).toBeFocused();
+  await expect(page.getByRole("searchbox")).toHaveCount(0);
+  await trigger.press("Enter");
+  await expect(field).toHaveValue("watercolor");
+  await expect(field).toHaveCSS("outline-style", "solid");
+  await field.press("Enter");
+  await expect(page).toHaveURL(/q=watercolor/);
+  await page.getByRole("button", { name: "Close search" }).click();
+  await expect(trigger).toBeFocused();
+  const screenshot = info.outputPath("canvas-search.png");
+  await page.screenshot({ path: screenshot });
+  await info.attach("canvas-search", { path: screenshot, contentType: "image/png" });
+});
+
+test("Canvas filters use a borderless keyboard-accessible dropdown @smoke", async ({ page }, info) => {
+  await page.goto("/en");
+  const trigger = page.getByRole("button", { name: "Filters", exact: true });
+  await expect(trigger).toHaveCSS("border-top-width", "0px");
+  const menu = await filterMenu(page);
+  const option = menu.getByRole("menuitemcheckbox", { name: "Filter by tag Watercolor" });
+  await option.hover();
+  await expect(option).toHaveCSS("outline-style", "none");
+  await expect(menu.locator('[class*="scrollbar-width:none"]')).toHaveCount(1);
+  const { violations } = await new AxeBuilder({ page }).include('[role="menu"]').withTags(WCAG).analyze();
+  expect(violations.map((item) => item.id)).toEqual([]);
+  await page.keyboard.press("Escape");
+  await expect(trigger).toBeFocused();
+  await trigger.press("ArrowDown");
+  await page.keyboard.press("w");
+  await expect(option).toBeFocused();
+  await expect(option).toHaveCSS("outline-style", "solid");
+  await page.screenshot({ path: info.outputPath("canvas-filter-menu.png") });
+  await option.press("Enter");
+  await expect(page).toHaveURL(/tags=watercolor/);
+  await expect(page.getByRole("button", { name: "Filters, 1 tag selected" })).toBeVisible();
+});
+
+test("Canvas keeps its surface anchored, aligns sort labels and has a compact Line footer", async ({ page, isMobile }, info) => {
+  test.skip(isMobile, "desktop surface geometry");
+  await page.goto("/zh-CN");
+  const sort = page.getByRole("navigation", { name: "排序" }).getByRole("link", { name: "精选" });
+  const label = sort.locator("span");
+  const titleX = (await page.getByRole("banner").getByText("探索", { exact: true }).boundingBox())!.x;
+  expect((await label.boundingBox())!.x).toBe(titleX);
+  const underline = await label.evaluate((node) => ({ width: parseFloat(getComputedStyle(node, "::after").width), text: node.getBoundingClientRect().width }));
+  expect(Math.abs(underline.width - underline.text)).toBeLessThan(1);
+  await expect(page.locator("ul.masonry > li").first().locator('a[aria-hidden="true"]').first()).toHaveCSS("border-top-left-radius", "12px");
+  await page.mouse.wheel(0, 700);
+  await expect.poll(async () => (await page.getByRole("banner").boundingBox())!.y).toBe(16);
+  const surface = await page.evaluate(() => {
+    const style = getComputedStyle(document.body, "::before");
+    return { position: style.position, left: style.left, right: style.right, top: style.top, radius: style.borderTopLeftRadius };
+  });
+  expect(surface).toEqual({ position: "fixed", left: "240px", right: "0px", top: "16px", radius: "12px" });
+  await page.getByRole("contentinfo").scrollIntoViewIfNeeded();
+  await expect(page.locator("[data-footer-lead]").getByRole("link")).toHaveCount(1);
+  await expect(page.getByRole("contentinfo").locator("div")).toHaveCSS("padding-bottom", "16px");
+  await page.screenshot({ path: info.outputPath("canvas-line-footer.png") });
+  await info.attach("canvas-surface", { body: JSON.stringify({ surface, titleX, underline }), contentType: "application/json" });
+});
+
+test("Canvas tag selection caps at five and preserves category, search and sort @smoke", async ({ page }) => {
+  await page.goto("/en/categories/illustration?q=fixture&tags=minimal,2d,bot-icon,image-to-image,watercolor&sort=latest");
+  const menu = await filterMenu(page);
+  await expect(menu.getByRole("menuitemcheckbox", { name: "Fixture", exact: true })).toBeDisabled();
+  await expect(menu.getByRole("menuitemcheckbox", { checked: true })).toHaveCount(5);
+  await menu.getByRole("menuitemcheckbox", { name: "Remove tag Minimal" }).click();
+  await expect(page).toHaveURL(/\/en\/categories\/illustration\?q=fixture&tags=2d%2Cbot-icon%2Cimage-to-image%2Cwatercolor&sort=latest$/);
+  const reopened = await filterMenu(page);
+  await expect(reopened.getByRole("menuitemcheckbox", { name: "Filter by tag Fixture", exact: true })).toBeEnabled();
+});
 
 test.describe("axe", () => {
   for (const url of ["/en", "/zh-CN", `/en/prompts/${SLUG}`, `/zh-CN/prompts/${SLUG}`, "/en/licenses", "/en?q=nothing-matches"]) {
@@ -39,8 +122,9 @@ test.describe("responsive gallery", () => {
     [375, 2],
     [600, 2],
     [800, 3],
-    [1200, 4],
-    [1500, 5],
+    [1200, 3],
+    [1500, 4],
+    [1800, 5],
   ];
   for (const [width, columns] of matrix) {
     test(`${width}px shows ${columns} column(s) without horizontal scroll`, async ({ page }) => {

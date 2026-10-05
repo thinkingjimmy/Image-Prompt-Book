@@ -4,7 +4,10 @@
     "homeDescription": "Browse real image prompt examples, adjust the key options inline, and copy the complete prompt in English or Chinese. Open source, with original sources and licenses.",
     "categoryTitle": "{category} Image Prompts with Examples | Image Prompt Book",
     "pageSuffix": "Page {page}",
-    "searchTitle": "Search results | Image Prompt Book"
+    "searchTitle": "Search results | Image Prompt Book",
+    "collectionsTitle": "Image Prompt Collections: Pick the Right Prompt | Image Prompt Book",
+    "collectionsCategoryTitle": "{category} Prompt Collections | Image Prompt Book",
+    "collectionsDescription": "Each collection picks a few prompts you can use right away and explains what each is good for, what it is not good for, and how to choose."
   },
   "nav": {
     "home": "Image Prompt Book home",
@@ -12,21 +15,27 @@
     "search": "Search prompts",
     "searchPlaceholder": "Search",
     "clearSearch": "Clear search",
-    "category": "Category",
-    "allCategories": "All prompts",
     "sort": "Sort",
     "featured": "Featured",
     "latest": "Latest",
     "language": "Language",
+    "changeLanguage": "Change language, current language: {language}",
     "github": "GitHub",
-    "submit": "Submit a prompt",
     "about": "About",
-    "contribute": "Contribute",
     "licenses": "Licenses",
     "footerNote": "Open-source code under MIT. Prompts and images keep their own licenses.",
-    "hello": "Say hi to Jimmy on X",
-    "filter": "Filter by category and tags",
-    "tags": "Tags"
+    "authorX": "Jimmy on X",
+    "tags": "Tags",
+    "collections": "Collections",
+    "allCollections": "All collections",
+    "filterCollections": "Filter collections by category",
+    "explore": "Explore",
+    "categories": "Categories",
+    "sidebar": "Site navigation",
+    "menu": "Open navigation",
+    "closeMenu": "Close navigation",
+    "siteTools": "Site tools",
+    "closeSearch": "Close search"
   },
   "gallery": {
     "heading": "Explore image prompts. Make them yours.",
@@ -41,7 +50,7 @@
     "emptyBody": "Try a different search, or clear the filters to see everything.",
     "clearFilters": "Clear filters",
     "catalogEmptyTitle": "No published prompts yet",
-    "catalogEmptyBody": "Prompts appear here once they are published. You can suggest one on GitHub.",
+    "catalogEmptyBody": "The collection is being curated. Prompts appear here once they are published.",
     "errorTitle": "The gallery could not be loaded",
     "errorBody": "Something went wrong while loading prompts. This is not an empty result.",
     "retry": "Try again",
@@ -54,7 +63,12 @@
     "moreImages": "+{count}",
     "moreImagesLabel": "{count, plural, one {# more example image} other {# more example images}}",
     "noImage": "No example image yet",
-    "imageFailed": "Image failed to load"
+    "imageFailed": "Image failed to load",
+    "allTags": "All tags",
+    "filters": "Filters",
+    "filterLabel": "Filter tags",
+    "selectedTags": "{count}/{max} selected",
+    "filterCount": "Filters, {count, plural, one {# tag selected} other {# tags selected}}"
   },
   "detail": {
     "backToGallery": "Back to gallery",
@@ -102,7 +116,9 @@
     "compare": "Compare the original photo and the result",
     "compareValue": "{value}% original photo",
     "compareBefore": "Original",
-    "compareAfter": "Result"
+    "compareAfter": "Result",
+    "aboutCollections": "In collections",
+    "collectionName": "{title}"
   },
   "notFound": {
     "title": "Page not found",
@@ -112,22 +128,30 @@
   "pages": {
     "aboutTitle": "About Image Prompt Book",
     "aboutDescription": "What Image Prompt Book is, how to use editable prompts, and what the site deliberately does not do.",
-    "contributeTitle": "Contribute a prompt",
-    "contributeDescription": "Suggest a prompt, better wording or a fix through a GitHub issue — no code needed.",
     "licensesTitle": "Licenses",
     "licensesDescription": "How the open-source code, third-party prompts, translations and example images are licensed.",
     "breadcrumbHome": "Gallery"
   },
-  "submit": {
-    "title": "Submit a prompt",
-    "body": "Found a prompt worth sharing? No code needed — open a GitHub issue and we'll take it from there.",
-    "sourceTitle": "Suggest a prompt",
-    "sourceBody": "Share the link, what it makes and who made it. We check the license before adding anything.",
-    "sourceCta": "Open an issue",
-    "wordingTitle": "Improve wording",
-    "wordingBody": "A translation or sentence that could read better? Suggest it in an issue.",
-    "wordingCta": "Open an issue",
-    "guide": "How contributions work",
-    "rights": "Report a rights issue"
+  "collections": {
+    "kicker": "Collection",
+    "count": "{count, plural, one {# prompt} other {# prompts}}",
+    "curatedBy": "Curated by {name}",
+    "updated": "Updated {date}",
+    "promptBy": "Prompt by {name}",
+    "goodFor": "Good for",
+    "notFor": "Not for",
+    "adjust": "You can adjust",
+    "open": "Open and adjust the prompt",
+    "openLabel": "Open and adjust {title}",
+    "more": "More collections",
+    "browseAll": "Browse all {category}",
+    "categoryCollections": "{category} collections",
+    "indexHeading": "Collections",
+    "footerLead": "Collections:",
+    "footerAll": "All collections",
+    "readCollections": "Read the collections:",
+    "clearCategory": "Show all collections",
+    "breadcrumb": "Collections",
+    "indexCount": "{count, plural, one {# collection} other {# collections}}"
   }
 }

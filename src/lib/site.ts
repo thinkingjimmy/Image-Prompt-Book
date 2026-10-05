@@ -1,6 +1,6 @@
 /**
  * [INPUT]: Runtime site/deploy/content/E2E environment, node:path and the i18n Locale type.
- * [OUTPUT]: Site constants, GA_MEASUREMENT_ID/GA_ORIGIN, siteUrl(), deployment/analytics/content guards and URL helpers.
+ * [OUTPUT]: Site constants (including the collection curator), GA_MEASUREMENT_ID/GA_ORIGIN, siteUrl(), deployment/analytics/content guards and URL helpers.
  * [POS]: Shared server configuration for SEO, content isolation, analytics eligibility and repository links.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -13,6 +13,8 @@ export const GA_MEASUREMENT_ID = "G-9XPFRGZTK3";
 export const GA_ORIGIN = "https://imagepromptbook.com";
 // The author posts in English and Chinese from separate accounts; each locale greets the matching one.
 export const AUTHOR_X_URL: Record<Locale, string> = { en: "https://x.com/hellojimmywong", "zh-CN": "https://x.com/thinkingjimmy" };
+/** Who selects and writes the collections; the original prompt authors are credited per prompt. */
+export const CURATOR_NAME = "Jimmy Wong";
 const FIXTURE_ROOT = path.join("tests", "fixtures");
 
 export function isProductionDeploy(): boolean {

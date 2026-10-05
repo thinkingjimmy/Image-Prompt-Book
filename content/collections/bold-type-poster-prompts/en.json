@@ -1,0 +1,44 @@
+{
+  "title": "Bold type posters",
+  "subtitle": "Let one idea carry the whole key visual",
+  "heading": "Bold type poster prompts: let one idea carry the whole key visual",
+  "seoTitle": "Bold Type Campaign Poster Prompts: Oversized Type, Material, CMYK and Showa | Image Prompt Book",
+  "lead": "None of these four need a reference image. Each one is a giant headline plus one strong subject. They differ in how type and subject meet: type sits behind, the subject cuts through the letters, the title blurs into texture, or the words become a slogan.",
+  "groups": {
+    "behind": { "title": "Type sits behind; the subject sits in front" },
+    "texture": { "title": "Type becomes part of the surface" },
+    "slogan": { "title": "The words are a slogan; the subject is a character" }
+  },
+  "members": {
+    "campaign-poster-oversized-type": {
+      "why": "One large subject plus one “anomaly”, a wall of oversized type behind them and a high-contrast flat color. This is the most general starting point in the set.",
+      "goodFor": "Turning one line or one selling point into a 9:16 social key visual",
+      "notFor": "A poster that needs several paragraphs or a complex type hierarchy",
+      "adjust": "Anomaly, background and material; write the title and idea at the start of the prompt"
+    },
+    "material-type-campaign-poster": {
+      "why": "Only three things: a close-up of a real material, a flat color field, and a giant white condensed title the subject weaves through.",
+      "goodFor": "Brand, fabric or food pictures that have to show texture",
+      "notFor": "A picture that needs a person or a scene to tell a story",
+      "adjust": "Four brief presets, or fill in the title, subject, lens and colors yourself"
+    },
+    "cmyk-halftone-blur-type-poster": {
+      "why": "The subject is rebuilt in CMYK halftone. The giant title is softly out of focus; only the tiny black type is sharp. It reads more like experimental print.",
+      "goodFor": "An event, exhibition or show poster that can live with a title that is not fully readable",
+      "notFor": "Paid placement where the headline has to be read at a glance",
+      "adjust": "Four brief presets, or fill in the title, support copy, subject and layout yourself"
+    },
+    "showa-absurd-character-poster": {
+      "why": "A character is dropped into a giant, stuck or floating moment, then framed as a Showa tokusatsu poster. The huge title does the shouting.",
+      "goodFor": "A character, IP or meme-style publicity poster",
+      "notFor": "A restrained, high-end brand key visual",
+      "adjust": "Character: four options, or replace it; plus a signature"
+    }
+  },
+  "choose": [
+    "If this is your first bold-type poster, start with the oversized campaign poster. The structure is the most complete, and three option groups change the picture clearly.",
+    "If the subject is a material rather than an object, switch to material and giant type. If you want the title to recede into texture and look more experimental, use the CMYK halftone blur.",
+    "If the lead is a character and you want humor, use the Showa absurd character poster."
+  ],
+  "caution": "Giant generated titles often have wrong or broken characters. Check the type before you publish. If needed, generate only the picture and set the title later."
+}

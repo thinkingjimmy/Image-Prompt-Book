@@ -1,6 +1,6 @@
 /**
  * [INPUT]: Playwright, the analytics network blocker, fixture content and prompt composition.
- * [OUTPUT]: Hydrated test/expect fixtures with intercepted analytics evidence, clipboard/storage helpers and prompt expectations.
+ * [OUTPUT]: Hydrated test/expect fixtures, shared desktop/mobile navigation, language/tag menus and expandable search, intercepted analytics evidence, clipboard/storage helpers and prompt expectations.
  * [POS]: Shared browser isolation for E2E; external analytics is blocked before application navigation.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -32,6 +32,42 @@ export const test = base.extend<{ analyticsRequests: string[] }>({
 });
 export { expect };
 export const FIXTURE_CONTENT = path.resolve("tests/fixtures/.generated/content");
+
+/** Returns the visible sidebar, opening the shared drawer on narrow screens. */
+export async function navigationRoot(page: Page) {
+  const sidebar = page.locator("aside");
+  if (await sidebar.isVisible()) return sidebar;
+  const drawer = page.getByRole("dialog", { name: /Site navigation|站点导航/ });
+  if (!(await drawer.isVisible())) await page.getByRole("button", { name: /Open navigation|打开导航/ }).click();
+  await expect(drawer).toBeVisible();
+  return drawer;
+}
+
+/** Opens the language menu in the visible sidebar or drawer. */
+export async function languageMenu(page: Page) {
+  const root = await navigationRoot(page);
+  const name = /Change language, current language:|切换语言，当前语言：/;
+  await root.getByRole("button", { name }).click();
+  const menu = page.getByRole("menu", { name });
+  await expect(menu).toBeVisible();
+  return menu;
+}
+
+/** Opens the icon search only when the field is collapsed. */
+export async function searchField(page: Page) {
+  const input = page.getByRole("searchbox");
+  if (!(await input.isVisible())) await page.getByRole("banner").getByRole("button", { name: /Search prompts|搜索 Prompt/, exact: true }).click();
+  await expect(input).toBeVisible();
+  return input;
+}
+
+/** Opens the compact tag-filter dropdown. */
+export async function filterMenu(page: Page) {
+  await page.getByRole("main").getByRole("button", { name: /Filters|筛选/ }).click();
+  const menu = page.getByRole("menu", { name: /Filter tags|筛选标签/ });
+  await expect(menu).toBeVisible();
+  return menu;
+}
 
 const library = loadContentLibrary({ root: FIXTURE_CONTENT, allowFixtures: true });
 export const grokbot = library.entries.find((entry) => entry.meta.slug === SLUG)!;

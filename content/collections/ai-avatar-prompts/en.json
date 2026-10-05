@@ -1,0 +1,37 @@
+{
+  "title": "AI avatars",
+  "subtitle": "Choose by how much likeness you want to keep",
+  "heading": "AI avatar prompts: choose by how much likeness you want to keep",
+  "seoTitle": "AI Avatar Prompts: Circle Logo, Bot Icon and Storybook Portrait | Image Prompt Book",
+  "lead": "All three need a reference photo. They differ in how much of the person they keep: a side-profile inside a circle logo, a flat robot face, or a storybook character that still has your hair, clothes and glasses.",
+  "groups": {
+    "symbol": { "title": "You only need a recognizable mark" },
+    "likeness": { "title": "You want people to still see you" }
+  },
+  "members": {
+    "circle-logo-avatar": {
+      "why": "It draws a side face or a pet's head as a Japanese-minimal logo inside a solid black circle. The mark stays readable even when it is tiny.",
+      "goodFor": "Social avatars and a personal brand mark",
+      "notFor": "Any place where the face and expression have to be clear",
+      "adjust": "Palette: white on black, ivory on ink, or white on vermilion"
+    },
+    "grokbot-capsule-icon": {
+      "why": "It turns a person or character into a flat 2D robot face with two black capsule eyes. This is the one with the most options you can change.",
+      "goodFor": "An AI product face, or a matching set of team avatars",
+      "notFor": "A portrait that should still look like you at a glance",
+      "adjust": "Face color, blush, background, crop, tilt, coloring and outline"
+    },
+    "storybook-character-portrait": {
+      "why": "It keeps the real hair, clothes and glasses, then redraws the person as a storybook character with a round head, rosy cheeks and gouache-and-crayon texture.",
+      "goodFor": "A warm personal avatar for family or education",
+      "notFor": "A formal or business portrait",
+      "adjust": "Framing, pose and background color"
+    }
+  },
+  "choose": [
+    "If the avatar has to stay readable at a very small size, start with the circle logo — it keeps only the outline.",
+    "If you want a shared character look and you are willing to tune it, use the bot icon. Its seven option groups cover color, crop and outline.",
+    "If friends should still recognize you, use the storybook portrait. It keeps hair, clothes and glasses."
+  ],
+  "caution": "All three need you to attach a photo in the image tool. This site does not upload or generate images."
+}

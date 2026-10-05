@@ -1,12 +1,15 @@
 # src/components/layout/
 
-> L2 | 父级: ../../../AGENTS.md
+> L2 | Parent: [../README.md](../README.md)
 
-成员清单
-header/: 顶部导航子模块（site-header、header-shell、search-box、filter-menu、sort-select），详见 header/README.md
-language-switcher.tsx: 页脚语言下拉，整页切换并保留路径、slug 与列表参数
-site-footer.tsx: 页脚链接、“代码 MIT / 内容各自许可”声明与语言下拉；紧跟 data-footer-lead 时去掉自身分隔线并上收，与之连成一个页脚
-json-ld.tsx: 结构化数据注入（转义 `<`）
-analytics.tsx: Google Analytics（afterInteractive），仅真实生产构建且无 E2E/fixture/预览标记输出；实际浏览器 origin 必须为 https://imagepromptbook.com 才加载与初始化 gtag
+Members
+
+sidebar/: Shared desktop navigation and mobile drawer with icon-led browsing and left-aligned X/GitHub/language/text About utilities; see sidebar/README.md.
+header/: Viewport-inset section name, compact mobile navigation trigger and expandable icon search; see header/README.md. Tag/sort controls belong to gallery/list-controls.
+language-switcher.tsx: Icon-only LanguageSwitcher opens an upward dropdown of configured native locale names with a current-language checkmark and 32px controls with 44px hit areas; native links preserve the path, slug and query on full navigation.
+site-footer.tsx: FooterLead composes the Line heading/index-link row; SiteFooter renders one license statement with 16px bottom/safe-area spacing.
+json-ld.tsx: Structured-data script injection with escaped `<` characters.
+controls/: Shared keyboard focus modality for search and tag dropdown; see controls/README.md.
+analytics.tsx: afterInteractive analytics restricted to real production builds and the production browser origin; never loads for fixture/E2E content.
 
 [PROTOCOL]: Update this header when making changes, then check README.md.

@@ -1,11 +1,12 @@
 /**
- * [INPUT]: 依赖 ./load 的 loadContentLibrary/publicationBlockers，依赖 ./query 的筛选排序分页，依赖 @/lib/site 的 contentConfig
- * [OUTPUT]: 对外提供 getLibrary()/getVisibleEntries()/findEntry()/findRedirect()/getActiveCategories()/queryCatalog()/entryDate()/isVisible()
- * [POS]: lib/content 的服务端目录门面；首页、分类、搜索、详情、sitemap 全部经由 isVisible 这一个发布谓词取数
+ * [INPUT]: 依赖 ./load 的 loadContentLibrary/publicationBlockers，依赖 ./collections 的 collectionBlockers，依赖 ./query 的筛选排序分页，依赖 @/lib/site 的 contentConfig
+ * [OUTPUT]: 对外提供 getLibrary()/getVisibleEntries()/findEntry()/findRedirect()/getActiveCategories()/queryCatalog()/entryDate()/isVisible()，以及专题的 getVisibleCollections()/findCollection()/findCollectionRedirect()/collectionsInCategory()/featuredCollections()/collectionsWithMember()/collectionContentFor()、CollectionView 类型
+ * [POS]: lib/content 的服务端目录门面；首页、分类、搜索、详情、专题、sitemap 全部经由 isVisible 这一个发布谓词取数；专题只显示可见成员，可见成员不足时整篇不可见
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { LOCALES, type Locale } from "@/i18n/config";
 import { contentConfig } from "@/lib/site";
+import { collectionBlockers, MIN_COLLECTION_MEMBERS, type CollectionEntry } from "./collections";
 import { loadContentLibrary, publicationBlockers, type ContentLibrary, type PromptEntry } from "./load";
 import { matchesQuery, paginate, sortItems, type ListQuery } from "./query";
 
@@ -81,5 +82,61 @@ export function queryCatalog(query: ListQuery, category?: string) {
 export function contentFor(entry: PromptEntry, locale: Locale) {
   const content = entry.content[locale];
   if (!content) throw new Error(`${entry.meta.slug} has no ${locale} content`);
+  return content;
+}
+
+/** A visible collection with only its visible members; groups left empty are dropped. */
+export type CollectionView = {
+  collection: CollectionEntry;
+  members: PromptEntry[];
+  groups: { id: string; members: PromptEntry[] }[];
+  cover: PromptEntry;
+};
+
+function viewOf(collection: CollectionEntry): CollectionView | null {
+  const visible = new Map(getVisibleEntries().map((entry) => [entry.meta.slug, entry]));
+  const groups = collection.meta.groups
+    .map((group) => ({ id: group.id, members: group.members.flatMap((slug) => visible.get(slug) ?? []) }))
+    .filter((group) => group.members.length > 0);
+  const members = groups.flatMap((group) => group.members);
+  if (members.length < MIN_COLLECTION_MEMBERS) return null;
+  const published = collectionBlockers(collection, new Set(visible.keys())).length === 0;
+  const preview = contentConfig().previewDrafts && collection.meta.status === "draft" && LOCALES.every((locale) => collection.content[locale]);
+  if (!published && !preview) return null;
+  return { collection, members, groups, cover: visible.get(collection.meta.cover) ?? members[0]! };
+}
+
+/** Newest first: a substantive update moves a collection to the front. */
+export function getVisibleCollections(): CollectionView[] {
+  return getLibrary()
+    .collections.flatMap((collection) => viewOf(collection) ?? [])
+    .sort((a, b) => b.collection.meta.updatedAt.localeCompare(a.collection.meta.updatedAt) || a.collection.meta.slug.localeCompare(b.collection.meta.slug));
+}
+
+export function findCollection(slug: string): CollectionView | undefined {
+  return getVisibleCollections().find((view) => view.collection.meta.slug === slug);
+}
+
+export function findCollectionRedirect(slug: string): string | undefined {
+  return getVisibleCollections().find((view) => view.collection.meta.redirectFrom?.includes(slug))?.collection.meta.slug;
+}
+
+export function collectionsInCategory(category?: string): CollectionView[] {
+  return getVisibleCollections().filter((view) => !category || view.collection.meta.categories.includes(category));
+}
+
+/** Gallery cards: newest collection of each series only, so one subject never takes several slots. */
+export function featuredCollections(category?: string): CollectionView[] {
+  const seen = new Set<string>();
+  return collectionsInCategory(category).filter((view) => !seen.has(view.collection.meta.series) && seen.add(view.collection.meta.series));
+}
+
+export function collectionsWithMember(slug: string): CollectionView[] {
+  return getVisibleCollections().filter((view) => view.members.some((entry) => entry.meta.slug === slug));
+}
+
+export function collectionContentFor(collection: CollectionEntry, locale: Locale) {
+  const content = collection.content[locale];
+  if (!content) throw new Error(`collection ${collection.meta.slug} has no ${locale} content`);
   return content;
 }

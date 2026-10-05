@@ -1,11 +1,11 @@
 /**
- * [INPUT]: Fixture content (54 published entries and one draft), Playwright Page, and shared hydrated/isolated browser helpers.
- * [OUTPUT]: Gallery/filter/pagination E2E, attribution-preserving normalization with clean metadata, modal/history/locale/focus navigation, and image-comparison checks.
+ * [INPUT]: Fixture content (54 published entries and one draft), Playwright Page, and shared hydrated/isolated browser, navigation and language-menu helpers.
+ * [OUTPUT]: Gallery dropdown/sort/sidebar/pagination E2E, attribution-preserving normalization with clean metadata, prompt/collection modal/history/locale/focus navigation, and image-comparison checks.
  * [POS]: Gallery and detail navigation suite; campaign normalization saves a screenshot alongside its browser trace.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import type { Page } from "@playwright/test";
-import { expect, pickOption, SLUG, test } from "./helpers";
+import { expect, filterMenu, languageMenu, navigationRoot, pickOption, searchField, SLUG, test } from "./helpers";
 
 const cards = (page: Page) => page.locator("ul.masonry > li");
 
@@ -15,8 +15,13 @@ test.describe("gallery", () => {
     await expect(page).toHaveURL(/\/en$/);
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Explore image prompts. Make them yours.");
-    await expect(cards(page)).toHaveCount(48);
+    await expect(cards(page)).toHaveCount(49);
+    await expect(page.locator("[data-collection-card]")).toHaveCount(1);
     await expect(cards(page).first().getByRole("heading")).toHaveText("Minimal Bot Icon — Grokbot Style");
+    const navigation = await navigationRoot(page);
+    await expect(navigation.getByRole("link", { name: "Collections", exact: true })).toHaveAttribute("href", "/en/collections");
+    if (await page.getByRole("dialog").isVisible()) await page.keyboard.press("Escape");
+    await expect(page.locator("[data-footer-lead]").getByRole("link", { name: "All collections" })).toHaveAttribute("href", "/en/collections");
 
     await page.goto("/zh-CN");
     await expect(page.locator("html")).toHaveAttribute("lang", "zh-CN");
@@ -29,7 +34,8 @@ test.describe("gallery", () => {
     await expect(page.locator(`main h2 a[href="/en/prompts/${SLUG}"]`)).toHaveCount(1);
     const card = cards(page).first();
     await expect(card.getByText("+1", { exact: true })).toBeVisible();
-    await expect(card.getByText("Needs a reference image")).toBeVisible();
+    await expect(card.getByText("Needs a reference image")).toHaveCount(0);
+    await expect(card.locator('a[href*="?tags="]')).toHaveCount(0);
     await expect(card.getByRole("link", { name: "APG", exact: true })).toHaveAttribute("href", "https://x.com/multi_serio_ai");
     // Image-first cards: no summary text.
     await expect(card.getByText("Turn a person or character")).toHaveCount(0);
@@ -55,7 +61,7 @@ test.describe("gallery", () => {
 
   test("search is debounced, AND-matched, case/width-insensitive and restorable", async ({ page }) => {
     await page.goto("/en");
-    const search = page.getByRole("searchbox", { name: "Search prompts" });
+    const search = await searchField(page);
     await search.fill("ＺＥＢＲＡ");
     await expect(page).toHaveURL(/q=ZEBRA/);
     await expect(cards(page)).toHaveCount(1);
@@ -73,62 +79,35 @@ test.describe("gallery", () => {
     await expect(cards(page)).toHaveCount(1);
   });
 
-  test("the combined filter menu combines tags with AND and unknown tags are dropped", async ({ page }) => {
+  test("the filter dropdown combines tags with AND and unknown tags are dropped", async ({ page }) => {
     await page.goto("/en?tags=watercolor,bogus&page=1");
     await expect(page).toHaveURL(/\/en\?tags=watercolor$/);
     await expect(page.getByText("17 prompts")).toBeVisible();
 
-    const openFilters = () => page.getByRole("button", { name: "Filter by category and tags" }).click();
-    await openFilters();
-    await page.getByRole("menuitemcheckbox", { name: "Fixture" }).click();
+    await (await filterMenu(page)).getByRole("menuitemcheckbox", { name: "Filter by tag Fixture", exact: true }).click();
     await expect(page).toHaveURL(/tags=watercolor%2Cfixture-only/);
     await expect(page.getByText("17 prompts")).toBeVisible();
-    await page.getByRole("menuitemcheckbox", { name: "Minimal" }).click();
+    await (await filterMenu(page)).getByRole("menuitemcheckbox", { name: "Filter by tag Minimal", exact: true }).click();
     await expect(page.getByText("No prompts match these filters")).toBeVisible();
-    await page.keyboard.press("Escape");
-
-    const active = page.getByRole("group", { name: "Tags" });
-    await active.getByRole("link", { name: "Remove tag Minimal" }).click();
+    await (await filterMenu(page)).getByRole("menuitemcheckbox", { name: "Remove tag Minimal" }).click();
     await expect(page).toHaveURL(/tags=watercolor%2Cfixture-only$/);
-    await active.getByRole("link", { name: "Clear filters" }).click();
+    await page.getByRole("main").getByRole("link", { name: "Clear filters" }).click();
     await expect(page).toHaveURL(/\/en$/);
-    await expect(page.getByRole("group", { name: "Tags" })).toHaveCount(0);
+    await expect((await filterMenu(page)).getByRole("menuitem", { name: "All tags", exact: true })).toHaveAttribute("aria-current", "true");
   });
 
-  test("the filter menu switches categories and keeps the search", async ({ page }) => {
+  test("sidebar category navigation starts a fresh gallery", async ({ page }) => {
     await page.goto("/en?q=fixture");
-    await page.getByRole("button", { name: "Filter by category and tags" }).click();
-    await page.getByRole("menuitem", { name: "Illustration" }).click();
-    await expect(page).toHaveURL(/\/en\/categories\/illustration\?q=fixture$/);
-    await expect(page.getByRole("button", { name: "Filter by category and tags" })).toContainText("Illustration");
-  });
-
-  test("the + button opens the submit dialog with the issue link", async ({ page }) => {
-    await page.goto("/en");
-    await page.locator("header").getByRole("button", { name: "Submit a prompt" }).click();
-    const dialog = page.getByRole("dialog", { name: "Submit a prompt" });
-    await expect(dialog).toBeVisible();
-    await expect(dialog.getByRole("link", { name: /Suggest a prompt/ })).toHaveAttribute("href", "https://github.com/thinkingjimmy/Image-Prompt-Book/issues/new?template=source-lead.yml");
-    await page.keyboard.press("Escape");
-    await expect(dialog).toHaveCount(0);
-    await expect(page).toHaveURL(/\/en$/);
-  });
-
-  test("the header shows only the icon, the combined filter and the 👋 link", async ({ page }) => {
-    await page.goto("/en");
-    const header = page.locator("header");
-    await expect(header.getByRole("link", { name: "Image Prompt Book home" })).toHaveText("");
-    await expect(header.getByRole("link", { name: "Say hi to Jimmy on X" })).toHaveAttribute("href", "https://x.com/hellojimmywong");
-    await expect(header.getByRole("navigation", { name: "Language" })).toHaveCount(0);
-    await page.goto("/zh-CN");
-    await expect(page.locator("header").getByRole("link", { name: "在 X 上和 Jimmy 打招呼" })).toHaveAttribute("href", "https://x.com/thinkingjimmy");
+    const navigation = await navigationRoot(page);
+    await navigation.getByRole("link", { name: /^Illustration/ }).click();
+    await expect(page).toHaveURL(/\/en\/categories\/illustration$/);
+    await expect(page.locator("#site-search")).toHaveValue("");
   });
 
   test("featured and latest sorts are deterministic", async ({ page }) => {
     await page.goto("/en");
     await expect(cards(page).nth(1).getByRole("heading")).toHaveText("Fixture sample 2");
-    await page.getByRole("button", { name: /^Sort/ }).click();
-    await page.getByRole("menuitemradio", { name: "Latest" }).click();
+    await page.getByRole("navigation", { name: "Sort" }).getByRole("link", { name: "Latest" }).click();
     await expect(page).toHaveURL(/sort=latest/);
     await expect(cards(page).nth(1).getByRole("heading")).toHaveText("Fixture sample 27");
   });
@@ -143,7 +122,8 @@ test.describe("gallery", () => {
   test("categories with content are routes; empty or unknown categories are 404", async ({ page, request }) => {
     await page.goto("/en/categories/illustration");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Illustration");
-    await expect(cards(page)).toHaveCount(48);
+    await expect(cards(page)).toHaveCount(49);
+    await expect(page.locator("[data-collection-card]")).toHaveCount(1);
     expect((await request.get("/en/categories/logos")).status()).toBe(404);
     expect((await request.get("/en/categories/nope")).status()).toBe(404);
   });
@@ -173,6 +153,54 @@ test.describe("gallery", () => {
 });
 
 test.describe("detail navigation", () => {
+  test("a prompt's collection link opens a modal and returns to the standalone prompt @smoke", async ({ page }) => {
+    await page.goto(`/en/prompts/${SLUG}`);
+    const link = page.getByTestId("prompt-about").getByRole("link", { name: "Fixture collection: how to pick these three prompts" });
+    await link.click();
+    const dialog = page.getByRole("dialog");
+    await expect(dialog).toBeVisible();
+    await expect(page).toHaveURL(/\/en\/collections\/fixture-collection$/);
+    await dialog.getByRole("button", { name: "Close", exact: true }).click();
+    await expect(dialog).toHaveCount(0);
+    await expect(page).toHaveURL(new RegExp(`/en/prompts/${SLUG}$`));
+    await expect(link).toBeFocused();
+  });
+
+  test("collection cards open a modal; nested prompts return to the collection scroll and focus @smoke", async ({ page }, info) => {
+    await page.goto("/en");
+    const card = page.locator("[data-collection-card]");
+    await expect(card.getByText(/Curated by|Updated|3 prompts/)).toHaveCount(0);
+    const title = card.locator("h2 a");
+    await card.locator('a[aria-hidden="true"]').click();
+    await expect(page).toHaveURL(/\/en\/collections\/fixture-collection$/);
+    const dialog = page.getByRole("dialog");
+    await expect(dialog).toBeVisible();
+    await expect(dialog.locator("[data-modal-title]")).toBeFocused();
+    await expect(page.locator("ul.masonry")).toBeAttached();
+    const member = dialog.locator("h3 a").last();
+    const href = await member.getAttribute("href");
+    await member.scrollIntoViewIfNeeded();
+    const before = await dialog.locator(".detail-modal-viewport").evaluate((node) => node.scrollTop);
+    await page.screenshot({ path: info.outputPath("collection-modal.png") });
+    await member.click();
+    await expect(page).toHaveURL(new RegExp(`${href}$`));
+    await expect(dialog.getByTestId("prompt-text")).toBeVisible();
+    await dialog.getByRole("button", { name: "Close", exact: true }).click();
+    await expect(page).toHaveURL(/\/en\/collections\/fixture-collection$/);
+    await expect(dialog.locator("h3 a").last()).toBeFocused();
+    await expect.poll(async () => Math.abs((await dialog.locator(".detail-modal-viewport").evaluate((node) => node.scrollTop)) - before)).toBeLessThan(40);
+    await page.keyboard.press("Escape");
+    await expect(dialog).toHaveCount(0);
+    await expect(page).toHaveURL(/\/en$/);
+    await expect(title).toBeFocused();
+    await page.goForward();
+    await expect(dialog).toBeVisible();
+    await page.reload();
+    await expect(dialog).toHaveCount(0);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Fixture collection: how to pick these three prompts");
+    await info.attach("collection-return", { body: JSON.stringify({ href, scrollBefore: before, refreshedUrl: page.url() }), contentType: "application/json" });
+  });
+
   test("a card opens the modal over the list; closing restores filters, page, scroll and focus @smoke", async ({ page }) => {
     await page.goto("/en/categories/illustration?page=2");
     const link = page.locator("main h2 a").last();
@@ -225,7 +253,7 @@ test.describe("detail navigation", () => {
     await page.goto("/en");
     const [popup] = await Promise.all([context.waitForEvent("page"), page.locator(`main h2 a[href="/en/prompts/${SLUG}"]`).click({ modifiers: ["ControlOrMeta"] })]);
     // A new tab starts as about:blank; wait for the real navigation instead of the first load event.
-    await popup.waitForURL(new RegExp(`/en/prompts/${SLUG}$`));
+    await popup.waitForURL(new RegExp(`/en/prompts/${SLUG}$`), { waitUntil: "domcontentloaded" });
     // Modifier-clicks open background tabs whose animation frames are throttled, so read state once instead of polling.
     expect(await popup.locator('[role="dialog"]').count()).toBe(0);
     expect(await popup.locator("h1").textContent()).toBe("Minimal Bot Icon — Grokbot Style");
@@ -241,11 +269,11 @@ test.describe("detail navigation", () => {
     await expect(page).toHaveURL(/\/en$/);
   });
 
-  test("switching the site language keeps the slug and options and switches the prompt language", async ({ page }) => {
+  test("switching the site language keeps the slug and options and switches the prompt language @smoke", async ({ page }) => {
     await page.goto(`/en/prompts/${SLUG}`);
     await pickOption(page, "tilt", "Strong 20°");
-    await page.locator("footer").getByRole("button", { name: "Language" }).click();
-    await page.getByRole("menuitem", { name: "简体中文" }).click();
+    const language = await languageMenu(page);
+    await language.getByRole("menuitem", { name: "简体中文", exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`/zh-CN/prompts/${SLUG}$`));
     await expect(page.locator("html")).toHaveAttribute("lang", "zh-CN");
     await expect(page.locator('[data-parameter="tilt"]')).toHaveText(/20°/);

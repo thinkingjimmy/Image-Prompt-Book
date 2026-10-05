@@ -1,18 +1,22 @@
 /**
- * [INPUT]: 依赖 radix-ui Dialog，依赖 @/components/ui/scroll-area，依赖 next/navigation 的 useRouter/usePathname，依赖 @/lib/prompt/opened-from-list
- * [OUTPUT]: 对外提供 DetailModal（路由弹窗外壳）与 ModalTitle
- * [POS]: components/prompt 的拦截路由弹窗：桌面双栏、窄屏全屏；只有确认从本站列表打开时才 router.back()，否则回到 Gallery
+ * [INPUT]: Radix Dialog, shared ScrollArea, router hooks, the intercepted view's stable href and modal origin/focus tracking.
+ * [OUTPUT]: DetailModal with href, optional className and per-view scroll restoration, plus ModalTitle.
+ * [POS]: Shared prompt/collection route modal; native history returns to the opening list or collection, with nested-layer Escape and focus restoration.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 "use client";
 
 import { X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Dialog as DialogPrimitive } from "radix-ui";
-import { useEffect, useRef, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, type ReactNode } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { restoreListFocus, wasOpenedFromList } from "@/lib/prompt/opened-from-list";
+import { cn } from "@/lib/utils";
+
+const scrollPositions = new Map<string, number>();
+let returningFrom: string | undefined;
 
 export function ModalTitle({ children }: { children: ReactNode }) {
   return (
@@ -22,16 +26,34 @@ export function ModalTitle({ children }: { children: ReactNode }) {
   );
 }
 
-export function DetailModal({ children }: { children: ReactNode }) {
+export function DetailModal({ children, href, className }: { children: ReactNode; href: string; className?: string }) {
   const t = useTranslations("detail");
   const locale = useLocale();
   const router = useRouter();
-  const pathname = usePathname();
+  const pathname = href;
   const content = useRef<HTMLDivElement>(null);
+  const releaseScroll = useRef<(() => void) | undefined>(undefined);
+
+  // The Radix portal mounts after the shell's effects; bind restoration when its DOM is ready.
+  const bindContent = useCallback((node: HTMLDivElement | null) => {
+    releaseScroll.current?.();
+    releaseScroll.current = undefined;
+    content.current = node;
+    const viewport = node?.querySelector<HTMLElement>(".detail-modal-viewport");
+    if (!viewport) return;
+    viewport.scrollTop = scrollPositions.get(pathname) ?? 0;
+    const remember = () => scrollPositions.set(pathname, viewport.scrollTop);
+    viewport.addEventListener("scroll", remember, { passive: true });
+    releaseScroll.current = () => {
+      remember();
+      viewport.removeEventListener("scroll", remember);
+    };
+  }, [pathname]);
 
   // The modal unmounts through navigation, so Radix never sees a close; hand focus back to the card ourselves.
   useEffect(
     () => () => {
+      if (window.location.pathname !== pathname) returningFrom = pathname;
       requestAnimationFrame(() => {
         if (window.location.pathname !== pathname) restoreListFocus(pathname);
       });
@@ -40,6 +62,7 @@ export function DetailModal({ children }: { children: ReactNode }) {
   );
 
   function close() {
+    returningFrom = pathname;
     if (wasOpenedFromList(pathname)) router.back();
     else router.push(`/${locale}`, { scroll: false });
   }
@@ -49,7 +72,7 @@ export function DetailModal({ children }: { children: ReactNode }) {
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay className="glass-overlay fixed inset-0 z-50 grid place-items-center data-[state=open]:animate-in data-[state=open]:fade-in-0 md:p-6">
           <DialogPrimitive.Content
-            ref={content}
+            ref={bindContent}
             aria-describedby={undefined}
             // Long content: focus the title, never an input that would pop the mobile keyboard.
             // Esc belongs to the innermost layer: never close the detail while a lightbox or menu sits above it.
@@ -59,18 +82,20 @@ export function DetailModal({ children }: { children: ReactNode }) {
             }}
             onOpenAutoFocus={(event) => {
               event.preventDefault();
-              content.current?.querySelector<HTMLElement>("[data-modal-title]")?.focus();
+              const restored = returningFrom && restoreListFocus(returningFrom);
+              returningFrom = undefined;
+              if (!restored) content.current?.querySelector<HTMLElement>("[data-modal-title]")?.focus({ preventScroll: true });
             }}
-            className="relative flex h-dvh w-full flex-col overflow-hidden bg-background shadow-2xl outline-none data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-[0.98] md:h-auto md:w-auto md:max-w-[94vw] md:rounded-[24px]"
+            className={cn("relative flex h-dvh w-full flex-col overflow-hidden bg-background shadow-2xl outline-none data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-[0.98] md:h-auto md:w-auto md:max-w-[94vw] md:rounded-lg", className)}
           >
             <DialogPrimitive.Close
               aria-label={t("close")}
-              className="absolute top-[max(0.75rem,env(safe-area-inset-top))] right-3 z-20 grid size-10 place-items-center rounded-full border border-border bg-card/95 text-foreground shadow-sm backdrop-blur transition-colors hover:bg-muted"
+              className="site-control site-icon-control absolute top-[max(0.75rem,env(safe-area-inset-top))] right-3 z-20 bg-card/95 text-foreground backdrop-blur"
             >
-              <X className="size-5" aria-hidden />
+              <X className="size-4" aria-hidden />
             </DialogPrimitive.Close>
             {/* Phones scroll the whole sheet; wider screens keep the image fixed and scroll only the prompt. */}
-            <ScrollArea className="h-full" contentClassName="pt-[env(safe-area-inset-top)] md:h-full md:pt-0">
+            <ScrollArea className="h-full" viewportClassName="detail-modal-viewport" contentClassName="pt-[env(safe-area-inset-top)] md:h-full md:pt-0">
               {children}
             </ScrollArea>
           </DialogPrimitive.Content>

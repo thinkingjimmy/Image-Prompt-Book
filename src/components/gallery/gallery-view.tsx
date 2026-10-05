@@ -1,21 +1,27 @@
 /**
- * [INPUT]: Content catalog/query, analytics attribution parsing, gallery cards/controls and SEO URLs/JSON-LD.
+ * [INPUT]: Content catalog/query (including collections), analytics attribution parsing, gallery cards/controls, collection cards/index link and Line FooterLead and SEO URLs/JSON-LD.
  * [OUTPUT]: GalleryView and resolveListing() with separate canonical state and attribution-preserving landing search.
- * [POS]: Shared homepage/category gallery; normalizes list URLs, preserves campaign attribution and keeps the visible heading after the grid.
+ * [POS]: Shared homepage/category gallery; normalizes list URLs, preserves campaign attribution, shows the tag/sort toolbar above the grid (an @container for masonry columns), slots collection cards into the unfiltered first page and keeps the compact visible heading/index link after the grid.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { getTranslations } from "next-intl/server";
 import { notFound, redirect } from "next/navigation";
 import type { Locale } from "@/i18n/config";
 import { attributionParams, isAttributionParam } from "@/lib/analytics/attribution";
-import { contentFor, getLibrary, getVisibleEntries, queryCatalog } from "@/lib/content/catalog";
+import { contentFor, featuredCollections, getLibrary, getVisibleEntries, queryCatalog } from "@/lib/content/catalog";
 import { listQueryToSearch, parseListQuery, type RawSearchParams } from "@/lib/content/query";
 import { absoluteUrl } from "@/lib/site";
 import { collectionJsonLd } from "@/lib/seo/structured-data";
 import { listHref, promptPath, withLocale } from "@/lib/seo/urls";
+import { CollectionCard } from "@/components/collections/collection-card";
+import { CollectionIndexLink } from "@/components/collections/collection-index";
+import { FooterLead } from "@/components/layout/site-footer";
 import { JsonLd } from "@/components/layout/json-ld";
-import { EmptyState, Pagination, TagFilters } from "./list-controls";
+import { EmptyState, ListToolbar, Pagination } from "./list-controls";
 import { PromptCard } from "./prompt-card";
+
+/** Prompt-card positions a collection card is placed before. Index 0 stays a prompt: it is the eager LCP image. */
+const COLLECTION_SLOTS = [2, 10, 18];
 
 function rawSearch(params: RawSearchParams): string {
   const search = new URLSearchParams();
@@ -46,7 +52,6 @@ type GalleryViewProps = {
 
 export async function GalleryView({ locale, searchParams, category }: GalleryViewProps) {
   const t = await getTranslations({ locale, namespace: "gallery" });
-  const nav = await getTranslations({ locale, namespace: "nav" });
   const { query, landingSearch, isCanonical } = resolveListing(searchParams);
   if (!isCanonical) redirect(`${listHref(locale, {}, category?.id)}${landingSearch}`);
 
@@ -55,16 +60,19 @@ export async function GalleryView({ locale, searchParams, category }: GalleryVie
 
   const library = getLibrary();
   const scope = getVisibleEntries().filter((entry) => !category || entry.meta.category === category.id);
-  const availableTags = library.taxonomy.tags.filter((tag) => scope.some((entry) => entry.meta.tags.includes(tag.id)));
+  const availableTags = library.taxonomy.tags.filter((tag) => query.tags.includes(tag.id) || scope.some((entry) => entry.meta.tags.includes(tag.id)));
   const filtered = Boolean(query.q || query.tags.length);
   const catalogEmpty = scope.length === 0;
+  // Collection cards join only the unfiltered first page; they never count toward the page size or the ItemList.
+  const collections = featuredCollections(category?.id);
+  const slotted = !filtered && query.page === 1 ? collections : [];
   const heading = category ? category.label : t("heading");
   const intro = category ? t("categoryIntro", { description: category.description }) : t("intro");
 
   return (
     <>
       {/* w-full: main becomes a column flexbox on gallery pages, where auto margins alone would shrink this box. */}
-      <div className="mx-auto mb-16 w-full max-w-[1800px] px-4 pt-2 sm:px-6 lg:px-8">
+      <div className="@container mx-auto mb-8 w-full max-w-[1800px] px-4 pt-2 sm:px-6 lg:px-8">
         <JsonLd
           data={collectionJsonLd({
             locale,
@@ -75,12 +83,12 @@ export async function GalleryView({ locale, searchParams, category }: GalleryVie
           })}
         />
 
-        {filtered && !catalogEmpty && (
-          <TagFilters locale={locale} tags={availableTags.map((tag) => ({ id: tag.id, label: tag.labels[locale] }))} query={query} category={category?.id} total={result.total} />
+        {!catalogEmpty && (
+          <ListToolbar locale={locale} tags={availableTags.map((tag) => ({ id: tag.id, label: tag.labels[locale] }))} query={query} category={category?.id} total={result.total} />
         )}
 
         {catalogEmpty ? (
-          <EmptyState title={t("catalogEmptyTitle")} body={t("catalogEmptyBody")} action={{ label: nav("contribute"), href: withLocale(locale, "/contribute") }} />
+          <EmptyState title={t("catalogEmptyTitle")} body={t("catalogEmptyBody")} />
         ) : result.total === 0 ? (
           <EmptyState
             title={t("emptyTitle")}
@@ -90,22 +98,20 @@ export async function GalleryView({ locale, searchParams, category }: GalleryVie
         ) : (
           <>
             <ul className="masonry" aria-label={t("results", { count: result.total })}>
-              {result.items.map((entry, index) => (
-                <PromptCard key={entry.meta.slug} entry={entry} locale={locale} taxonomy={library.taxonomy} eager={index === 0} />
-              ))}
+              {result.items.flatMap((entry, index) => {
+                const card = <PromptCard key={entry.meta.slug} entry={entry} locale={locale} eager={index === 0} />;
+                const slot = COLLECTION_SLOTS.indexOf(index);
+                const view = slot >= 0 ? slotted[slot] : undefined;
+                return view ? [<CollectionCard key={`collection-${view.collection.meta.slug}`} view={view} locale={locale} />, card] : [card];
+              })}
             </ul>
             <Pagination locale={locale} query={query} category={category?.id} totalPages={result.totalPages} />
           </>
         )}
       </div>
-      {/* Image-first like jevable.com: nothing sits above the grid. The page's heading opens the footer instead,
-          visible to everyone; SiteFooter drops its own top rule when this lead is present. */}
-      <section data-footer-lead className="mt-auto border-t border-border/60">
-        <div className="mx-auto flex max-w-[1800px] flex-col gap-1 px-4 pt-8 sm:px-6 lg:px-8">
-          <h1 className="text-[15px] leading-snug font-semibold tracking-tight">{heading}</h1>
-          <p className="max-w-xl text-sm text-muted-foreground">{intro}</p>
-        </div>
-      </section>
+      <FooterLead title={heading}>
+        <CollectionIndexLink locale={locale} />
+      </FooterLead>
     </>
   );
 }

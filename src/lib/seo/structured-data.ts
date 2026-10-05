@@ -1,6 +1,6 @@
 /**
  * [INPUT]: 依赖 @/lib/site 的 absoluteUrl/SITE_NAME/REPO_URL，依赖 @/lib/content/schema 的 Example/Source 类型
- * [OUTPUT]: 对外提供 websiteJsonLd/collectionJsonLd/breadcrumbJsonLd/creativeWorkJsonLd、imageCredit() 与 serializeJsonLd()
+ * [OUTPUT]: 对外提供 websiteJsonLd/collectionJsonLd/articleJsonLd（专题：策展人署名 + 成员 ItemList）/breadcrumbJsonLd/creativeWorkJsonLd、imageCredit() 与 serializeJsonLd()
  * [POS]: lib/seo 的结构化数据构建器；只描述页面上真实存在的事实（description 即页面可见摘要），不输出评分、评论或下载量；图片只署名可推断的作者，不虚构图片许可
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -54,6 +54,38 @@ export function collectionJsonLd(input: { locale: Locale; name: string; descript
     url: input.url,
     inLanguage: input.locale,
     mainEntity: {
+      "@type": "ItemList",
+      itemListElement: input.items.map((item, index) => ({ "@type": "ListItem", position: index + 1, name: item.name, url: item.url })),
+    },
+  };
+}
+
+/** A curated collection: the curator is the author; each prompt's own author is credited on its section and detail page. */
+export function articleJsonLd(input: {
+  locale: Locale;
+  headline: string;
+  description: string;
+  url: string;
+  datePublished: string | null;
+  dateModified: string;
+  author: string;
+  image: string;
+  items: { name: string; url: string }[];
+}): Json {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: input.headline,
+    description: input.description,
+    url: input.url,
+    mainEntityOfPage: input.url,
+    inLanguage: input.locale,
+    ...(input.datePublished ? { datePublished: input.datePublished } : {}),
+    dateModified: input.dateModified,
+    author: { "@type": "Person", name: input.author },
+    publisher: { "@type": "Organization", name: SITE_NAME, url: absoluteUrl("/") },
+    image: [input.image],
+    hasPart: {
       "@type": "ItemList",
       itemListElement: input.items.map((item, index) => ({ "@type": "ListItem", position: index + 1, name: item.name, url: item.url })),
     },

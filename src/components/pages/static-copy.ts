@@ -1,12 +1,12 @@
 /**
- * [INPUT]: 依赖 @/i18n/config 的 Locale，依赖 @/lib/site 的 REPO_URL/repoIssueUrl/repoReadmeUrl
- * [OUTPUT]: 对外提供 STATIC_COPY（About/Contribute/Licenses 的中英文完整正文）与 StaticSection 类型
- * [POS]: components/pages 的说明页文案；每种语言维护完整句式，不逐词拼接，链接只指向真实仓库与模板
+ * [INPUT]: Locale/StaticPage contracts and repository/rights-request URLs.
+ * [OUTPUT]: Bilingual STATIC_COPY for About/Licenses and StaticLink/StaticSection/StaticCopy types.
+ * [POS]: Complete authored static-page copy, including sidebar language guidance and source/rights attribution.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import type { Locale } from "@/i18n/config";
 import type { StaticPage } from "@/lib/seo/urls";
-import { REPO_URL, repoIssueUrl, repoReadmeUrl } from "@/lib/site";
+import { REPO_URL, repoIssueUrl } from "@/lib/site";
 
 export type StaticLink = { label: string; href: string };
 export type StaticSection = { heading: string; paragraphs?: string[]; items?: string[]; links?: StaticLink[] };
@@ -23,7 +23,7 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
         {
           heading: "A curated collection",
           paragraphs: [
-            "This is a personal, curated collection. Every prompt is picked purely by my own taste, and only the ones I think are genuinely good go live — so a suggestion may not be added, and that's no judgment of your work.",
+            "This is a personal, curated collection. I choose every prompt by my own taste and publish the ones I find useful and inspiring.",
           ],
         },
         {
@@ -52,7 +52,7 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
         {
           heading: "Languages",
           paragraphs: [
-            "The interface and every editable template are available in English and Simplified Chinese. The prompt always follows the site language you choose at the bottom of the page.",
+            "The interface and every editable template are available in English and Simplified Chinese. Choose your language in the sidebar, or open the navigation menu on mobile. Editable prompts follow that language.",
           ],
         },
         {
@@ -67,12 +67,11 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
           ],
           items: [
             "Credited to the wrong person: if we credited someone who reposted a prompt rather than created it, open a rights request with evidence, such as a link to the earlier original post.",
-            "Default terms: unless the source says otherwise, we treat a publicly shared prompt as fine to share with credit. If you'd rather not be included, open a rights request and we'll remove it. If you'd like your prompt included, suggest it in an issue.",
+            "Default terms: unless the source says otherwise, we treat a publicly shared prompt as fine to share with credit. If you'd rather not be included, open a rights request and we'll remove it.",
             "Images and real people: AI image results can be unpredictable and may resemble real people or existing works. If you hold the rights to something shown here, including your own likeness, open a rights request and we'll take it down.",
           ],
           links: [
             { label: "Request a takedown", href: repoIssueUrl("rights-request.yml") },
-            { label: "Suggest a prompt", href: repoIssueUrl("source-lead.yml") },
           ],
         },
       ],
@@ -82,7 +81,7 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
       sections: [
         {
           heading: "个人策展",
-          paragraphs: ["这是一个个人策展的合集。收录完全按照我个人的品味，只上线我认为真正好的 Prompt——所以推荐的内容不一定会被收录，这并不代表对你作品的评价。"],
+          paragraphs: ["这是一个个人策展的合集。我按个人品味挑选每个 Prompt，收录自己认为实用且有启发的内容。"],
         },
         {
           heading: "如何使用",
@@ -105,7 +104,7 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
         },
         {
           heading: "语言",
-          paragraphs: ["界面与每个可编辑模板均提供英文与简体中文。Prompt 始终跟随页面底部选择的站点语言。"],
+          paragraphs: ["界面与每个可编辑模板均提供英文与简体中文。在侧栏底部选择语言，手机上先打开导航菜单。可编辑的 Prompt 会跟随所选语言。"],
         },
         {
           heading: "致谢",
@@ -117,70 +116,11 @@ export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
           paragraphs: ["Prompt 的版权很难追溯到最初的作者。本站收录的内容大多来自 GitHub 和 X（Twitter），每个详情页都会注明并链接来源。以下请求都通过 GitHub Issue 提交。"],
           items: [
             "署名有误：如果我们署名的是转发者而不是原创者，请提交权利反馈并附上证据，例如更早的原帖链接。",
-            "默认规则：除非来源另有说明，我们默认公开分享的 Prompt 可以在署名的前提下转载分享。如果你不希望被收录，请提交权利反馈，我们会移除；如果你希望自己的 Prompt 被收录，也欢迎通过 Issue 推荐。",
+            "默认规则：除非来源另有说明，我们默认公开分享的 Prompt 可以在署名的前提下转载分享。如果你不希望被收录，请提交权利反馈，我们会移除。",
             "图片与真人：AI 生图的结果不完全可控，可能与真实人物或已有作品相似。如果你是相关内容的权利人（包括你本人的肖像），请提交权利反馈，我们会将其下架。",
           ],
           links: [
             { label: "申请下架", href: repoIssueUrl("rights-request.yml") },
-            { label: "推荐 Prompt", href: repoIssueUrl("source-lead.yml") },
-          ],
-        },
-      ],
-    },
-  },
-  contribute: {
-    en: {
-      lead: "Anyone can help. You do not need to write code to suggest a prompt.",
-      sections: [
-        {
-          heading: "Suggest a source",
-          paragraphs: ["Found a great prompt? Share the link, what it does, and how to reach the author. Maintainers check the license before anything is imported."],
-          links: [{ label: "Suggest a source on GitHub", href: repoIssueUrl("source-lead.yml") }],
-        },
-        {
-          heading: "Improve a translation",
-          paragraphs: ["Each language keeps complete sentences. Suggest better wording for a prompt or the interface through an issue."],
-          links: [{ label: "Report a translation issue", href: repoIssueUrl("translation.yml") }],
-        },
-        {
-          heading: "Report a problem or idea",
-          paragraphs: ["Something broken, confusing or missing? Tell us in an issue. We don't accept pull requests — maintainers make every change, so rights and quality are reviewed in one place."],
-          links: [{ label: "Report a problem", href: repoIssueUrl("problem.yml") }],
-        },
-        {
-          heading: "Rights or privacy concerns",
-          paragraphs: ["If content on this site involves your work or personal data, open a rights request. You never need to post sensitive identity documents publicly."],
-          links: [
-            { label: "Open a rights request", href: repoIssueUrl("rights-request.yml") },
-            { label: "Security policy", href: repoReadmeUrl("en", "security") },
-          ],
-        },
-      ],
-    },
-    "zh-CN": {
-      lead: "任何人都可以参与。推荐 Prompt 不需要会写代码。",
-      sections: [
-        {
-          heading: "提交来源线索",
-          paragraphs: ["发现了优秀的 Prompt？提供链接、效果说明，以及可联系作者的方式即可。维护者会在导入前核对许可。"],
-          links: [{ label: "在 GitHub 提交来源线索", href: repoIssueUrl("source-lead.yml") }],
-        },
-        {
-          heading: "改进翻译",
-          paragraphs: ["每种语言都维护完整句式。Prompt 或界面有更好的表述，请通过 Issue 告诉我们。"],
-          links: [{ label: "反馈翻译问题", href: repoIssueUrl("translation.yml") }],
-        },
-        {
-          heading: "反馈问题或建议",
-          paragraphs: ["发现错误、不好用或缺少的功能？请提交 Issue。本项目不接受 Pull Request——所有修改由维护者完成，权利与质量在同一处审核。"],
-          links: [{ label: "反馈问题", href: repoIssueUrl("problem.yml") }],
-        },
-        {
-          heading: "权利或隐私问题",
-          paragraphs: ["如果本站内容涉及你的作品或个人信息，请提交权利反馈。你无需公开任何敏感身份证明。"],
-          links: [
-            { label: "提交权利反馈", href: repoIssueUrl("rights-request.yml") },
-            { label: "安全报告说明", href: repoReadmeUrl("zh-CN", "security") },
           ],
         },
       ],

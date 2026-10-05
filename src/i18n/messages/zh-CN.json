@@ -4,7 +4,10 @@
     "homeDescription": "浏览真实的生图 Prompt 案例，在句子中直接调整关键选项，并以中文或英文复制完整 Prompt。开源，保留原始出处与许可。",
     "categoryTitle": "{category}生图 Prompt 与案例 | Image Prompt Book",
     "pageSuffix": "第 {page} 页",
-    "searchTitle": "搜索结果 | Image Prompt Book"
+    "searchTitle": "搜索结果 | Image Prompt Book",
+    "collectionsTitle": "生图 Prompt 专题：按任务挑选合适的 Prompt | Image Prompt Book",
+    "collectionsCategoryTitle": "{category}生图 Prompt 专题 | Image Prompt Book",
+    "collectionsDescription": "每篇专题挑出几条可以直接使用的 Prompt，写清楚各自适合什么、不适合什么，以及怎么选。"
   },
   "nav": {
     "home": "Image Prompt Book 首页",
@@ -12,21 +15,27 @@
     "search": "搜索 Prompt",
     "searchPlaceholder": "搜索",
     "clearSearch": "清除搜索",
-    "category": "分类",
-    "allCategories": "全部 Prompt",
     "sort": "排序",
     "featured": "精选",
     "latest": "最新",
     "language": "语言",
+    "changeLanguage": "切换语言，当前语言：{language}",
     "github": "GitHub",
-    "submit": "提交 Prompt",
     "about": "关于",
-    "contribute": "参与贡献",
     "licenses": "许可说明",
     "footerNote": "网站代码以 MIT 开源；Prompt 与图片各自保留原有许可。",
-    "hello": "在 X 上和 Jimmy 打招呼",
-    "filter": "按分类和标签筛选",
-    "tags": "标签"
+    "authorX": "Jimmy 的 X",
+    "tags": "标签",
+    "collections": "专题",
+    "allCollections": "全部专题",
+    "filterCollections": "按分类筛选专题",
+    "explore": "探索",
+    "categories": "分类",
+    "sidebar": "站点导航",
+    "menu": "打开导航",
+    "closeMenu": "关闭导航",
+    "siteTools": "站点工具",
+    "closeSearch": "关闭搜索"
   },
   "gallery": {
     "heading": "发现喜欢的效果，调整成自己的版本。",
@@ -41,7 +50,7 @@
     "emptyBody": "换个关键词试试，或清除筛选查看全部内容。",
     "clearFilters": "清除筛选",
     "catalogEmptyTitle": "暂时还没有已发布的 Prompt",
-    "catalogEmptyBody": "条目发布后会出现在这里。你可以在 GitHub 上推荐内容。",
+    "catalogEmptyBody": "内容正在策展中，Prompt 发布后会出现在这里。",
     "errorTitle": "Gallery 加载失败",
     "errorBody": "加载 Prompt 时出现问题，这不是“没有结果”。",
     "retry": "重试",
@@ -54,7 +63,12 @@
     "moreImages": "+{count}",
     "moreImagesLabel": "另有 {count} 张案例图",
     "noImage": "尚无案例图",
-    "imageFailed": "图片加载失败"
+    "imageFailed": "图片加载失败",
+    "allTags": "全部标签",
+    "filters": "筛选",
+    "filterLabel": "筛选标签",
+    "selectedTags": "已选 {count}/{max}",
+    "filterCount": "筛选，已选择 {count} 个标签"
   },
   "detail": {
     "backToGallery": "返回 Gallery",
@@ -102,7 +116,9 @@
     "compare": "对比原图与效果",
     "compareValue": "原图占 {value}%",
     "compareBefore": "原图",
-    "compareAfter": "效果"
+    "compareAfter": "效果",
+    "aboutCollections": "收录于专题",
+    "collectionName": "《{title}》"
   },
   "notFound": {
     "title": "页面不存在",
@@ -112,22 +128,30 @@
   "pages": {
     "aboutTitle": "关于 Image Prompt Book",
     "aboutDescription": "Image Prompt Book 是什么、如何使用可编辑 Prompt，以及本站刻意不做的事情。",
-    "contributeTitle": "贡献 Prompt",
-    "contributeDescription": "通过 GitHub Issue 推荐 Prompt、改进措辞或反馈问题，无需写代码。",
     "licensesTitle": "许可说明",
     "licensesDescription": "开源代码、第三方 Prompt、翻译改编与案例图片分别适用的许可。",
     "breadcrumbHome": "Gallery"
   },
-  "submit": {
-    "title": "提交 Prompt",
-    "body": "发现值得分享的 Prompt？不需要写代码，开一个 GitHub Issue 就好，剩下的交给我们。",
-    "sourceTitle": "推荐一个 Prompt",
-    "sourceBody": "附上链接、效果说明和作者信息。我们会先确认许可再收录。",
-    "sourceCta": "开 Issue",
-    "wordingTitle": "改进措辞",
-    "wordingBody": "翻译或句子可以更好？在 Issue 中告诉我们。",
-    "wordingCta": "开 Issue",
-    "guide": "贡献流程说明",
-    "rights": "反馈权利问题"
+  "collections": {
+    "kicker": "专题",
+    "count": "{count, plural, other {# 个案例}}",
+    "curatedBy": "{name} 策展",
+    "updated": "{date}更新",
+    "promptBy": "原作者 {name}",
+    "goodFor": "适合",
+    "notFor": "不适合",
+    "adjust": "可以调整",
+    "open": "打开并调整 Prompt",
+    "openLabel": "打开并调整“{title}”",
+    "more": "更多专题",
+    "browseAll": "浏览全部{category}",
+    "categoryCollections": "{category}专题",
+    "indexHeading": "专题",
+    "footerLead": "专题：",
+    "footerAll": "全部专题",
+    "readCollections": "阅读专题：",
+    "clearCategory": "查看全部专题",
+    "breadcrumb": "专题",
+    "indexCount": "{count, plural, other {# 篇专题}}"
   }
 }

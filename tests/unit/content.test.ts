@@ -136,4 +136,41 @@ describe("content validation", () => {
     const { issues } = setup((dir) => editJson(path.join(dir, "meta.json"), (value) => ({ ...value, fixture: true })));
     expect(issues.join("\n")).toContain("fixture records are not allowed");
   });
+
+  it("loads published collections and rejects a missing member or missing copy", () => {
+    const { issues, collections } = setup(() => {});
+    expect(collections.length).toBeGreaterThanOrEqual(3);
+    expect(issues.join("\n")).not.toContain("collections/");
+
+    const broken = setup((dir) => {
+      const collection = path.join(path.dirname(path.dirname(dir)), "collections", "ai-avatar-prompts");
+      editJson(path.join(collection, "meta.json"), (value) => ({
+        ...value,
+        groups: [{ id: "symbol", members: ["circle-logo-avatar", "does-not-exist", "storybook-character-portrait"] }],
+      }));
+    });
+    expect(broken.issues.join("\n")).toContain("unknown member prompt does-not-exist");
+  });
+
+  it("will not publish a collection with fewer than three public members", () => {
+    const { issues } = setup((dir) => {
+      const collection = path.join(path.dirname(path.dirname(dir)), "collections", "ai-avatar-prompts");
+      editJson(path.join(collection, "meta.json"), (value) => ({
+        ...value,
+        cover: "circle-logo-avatar",
+        groups: [{ id: "symbol", members: ["circle-logo-avatar", "grokbot-capsule-icon"] }],
+      }));
+      editJson(path.join(collection, "en.json"), (value) => {
+        const members = value.members as Record<string, unknown>;
+        delete members["storybook-character-portrait"];
+        return { ...value, groups: { symbol: { title: "Symbol" } }, members };
+      });
+      editJson(path.join(collection, "zh-CN.json"), (value) => {
+        const members = value.members as Record<string, unknown>;
+        delete members["storybook-character-portrait"];
+        return { ...value, groups: { symbol: { title: "符号" } }, members };
+      });
+    });
+    expect(issues.join("\n")).toContain("needs at least 3 published members");
+  });
 });

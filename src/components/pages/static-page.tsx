@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 ./static-copy 的 STATIC_COPY，依赖 @/lib/seo 的 pageMetadata/staticPath，依赖 next-intl/server
- * [OUTPUT]: 对外提供 StaticPageView 服务端组件与 staticPageMetadata()
- * [POS]: components/pages 的说明页渲染器，被 about/contribute/licenses 三个路由复用
+ * [INPUT]: Bilingual STATIC_COPY, localized page messages and SEO pageMetadata/staticPath helpers.
+ * [OUTPUT]: StaticPageView and staticPageMetadata().
+ * [POS]: Shared renderer/metadata for the About and Licenses routes.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { ExternalLink } from "lucide-react";

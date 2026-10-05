@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 @/lib/content/catalog 的 findEntry，依赖 @/components/prompt 的 DetailModal/PromptDetail，依赖 @/lib/seo 的 promptMetadata
- * [OUTPUT]: 默认导出被拦截的详情弹窗，generateMetadata（与独立详情一致）
- * [POS]: app/[locale]/(site)/@modal 的拦截路由；从列表软导航进入时渲染，刷新或直接访问则由独立详情页接管
+ * [INPUT]: Catalog prompt lookup, locale validation, shared DetailModal/PromptDetail and canonical prompt metadata.
+ * [OUTPUT]: InterceptedPrompt with a stable per-view modal href, and generateMetadata shared with the standalone detail.
+ * [POS]: Native @modal interception for soft prompt navigation; direct visits and refreshes render the standalone page.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import type { Metadata } from "next";
@@ -30,7 +30,7 @@ export default async function InterceptedPrompt({ params }: Props) {
   const entry = findEntry(slug);
   if (!entry) notFound();
   return (
-    <DetailModal>
+    <DetailModal href={`/${locale}/prompts/${slug}`}>
       <PromptDetail entry={entry} locale={locale} variant="modal" />
     </DetailModal>
   );

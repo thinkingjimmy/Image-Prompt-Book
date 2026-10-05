@@ -8,6 +8,8 @@ Git-maintained prompt library. Every file here is data: validated by `src/lib/co
 taxonomy.json: 分类与标签词表，`categories[].labels/descriptions` 与 `tags[].labels` 均需 en/zh-CN；条目只能引用这里声明的 ID
 prompts/README.md: 条目目录地图，列出每个 Prompt 的职责与分类
 prompts/<slug>/: 单个条目目录，目录名 = id = slug，稳定且跨语言共享；文本、选项、署名与案例图（images/）都在这一个目录里；完整清单见 prompts/README.md
+collections/README.md: 专题目录地图
+collections/<slug>/: 一篇策展专题，目录名 = id = slug；meta.json 引用已发布 Prompt slug，en.json / zh-CN.json 写点评与怎么选，不复制 Prompt 全文；完整清单见 collections/README.md
 
 ## Entry files
 
@@ -26,7 +28,7 @@ Template and option paths may point one subfolder below the entry root. For exam
 
 ## Publication gate
 
-An entry is public only when **all** hold (`publicationBlockers()`): `status: "published"` with `publishedAt`, at least one example image, and complete en/zh-CN content, templates and attribution. The gallery, search, categories, detail pages and sitemap all use this one predicate. Author in draft, then prepare local published metadata and review the reused production build with `pnpm test:prompt` before committing/pushing. Draft previews remain available with `IPB_PREVIEW_DRAFTS=1`; they are for requested drafts or unresolved publication blockers. There is no separate approval step.
+An entry is public only when **all** hold (`publicationBlockers()`): `status: "published"` with `publishedAt`, at least one example image, and complete en/zh-CN content, templates and attribution. A collection is public only when `collectionBlockers()` is empty: published with `publishedAt`, complete en/zh-CN copy, and at least three public members. The gallery, search, categories, collections, detail pages and sitemap all use these predicates. Author in draft, then prepare local published metadata and review the reused production build with `pnpm test:prompt` before committing/pushing. Draft previews remain available with `IPB_PREVIEW_DRAFTS=1`; they are for requested drafts or unresolved publication blockers. There is no separate approval step.
 
 ## Renaming
 

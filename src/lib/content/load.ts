@@ -1,15 +1,16 @@
 /**
- * [INPUT]: 依赖 node:fs/path 读取内容目录，依赖 image-size 读取真实尺寸，依赖 ./schema 的单文件 schema，依赖 @/lib/prompt/template 的 parseTemplate
- * [OUTPUT]: 对外提供 loadContentLibrary()、publicationBlockers()、PromptEntry/PromptVariant/ContentLibrary 类型
- * [POS]: lib/content 的加载与跨文件校验器，被 catalog.ts（运行时）与 scripts/check-content.ts（CI）共用，是“内容是否合法”的唯一判定；支持多版本（variants，如精简/完整），逐版本校验模板与参数
+ * [INPUT]: 依赖 node:fs/path 读取内容目录，依赖 image-size 读取真实尺寸，依赖 ./files 的读取器、./schema 的单文件 schema 与 ./collections 的专题加载，依赖 @/lib/prompt/template 的 parseTemplate
+ * [OUTPUT]: 对外提供 loadContentLibrary()（条目 + 专题）、publicationBlockers()、PromptEntry/PromptVariant/ContentLibrary 类型
+ * [POS]: lib/content 的加载与跨文件校验器，被 catalog.ts（运行时）与 scripts/check-content.ts（CI）共用，是“内容是否合法”的唯一判定；支持多版本（variants，如精简/完整），逐版本校验模板与参数；专题在条目之后加载，以便核对成员
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { imageSize } from "image-size";
-import type { z } from "zod";
 import { LOCALES, type Locale } from "@/i18n/config";
 import { parseTemplate, templateTokenIds } from "@/lib/prompt/template";
+import { loadCollections, type CollectionEntry } from "./collections";
+import { readJson, readText } from "./files";
 import {
   examplesSchema,
   localeContentSchema,
@@ -49,11 +50,12 @@ export type PromptEntry = {
 export type ContentLibrary = {
   taxonomy: Taxonomy;
   entries: PromptEntry[];
+  collections: CollectionEntry[];
   issues: string[];
 };
 
 export type LoadOptions = {
-  /** Directory holding taxonomy.json and prompts/. */
+  /** Directory holding taxonomy.json, prompts/ and collections/. */
   root: string;
   /** Only fixture roots may contain `fixture: true` records. */
   allowFixtures: boolean;
@@ -72,39 +74,6 @@ export function publicationBlockers(entry: PromptEntry): string[] {
     if (!entry.attribution[locale]) blockers.push(`missing ${locale} attribution`);
   }
   return blockers;
-}
-
-function readJson<T extends z.ZodType>(file: string, schema: T, issues: string[], label: string): z.infer<T> | null {
-  if (!existsSync(file)) {
-    issues.push(`${label}: file not found`);
-    return null;
-  }
-  let data: unknown;
-  try {
-    data = JSON.parse(readFileSync(file, "utf8"));
-  } catch (error) {
-    issues.push(`${label}: invalid JSON (${(error as Error).message})`);
-    return null;
-  }
-  const result = schema.safeParse(data);
-  if (!result.success) {
-    for (const issue of result.error.issues) issues.push(`${label}: ${issue.path.join(".") || "(root)"} ${issue.message}`);
-    return null;
-  }
-  return result.data;
-}
-
-function readText(file: string, issues: string[], label: string): string | null {
-  if (!existsSync(file)) {
-    issues.push(`${label}: file not found`);
-    return null;
-  }
-  const text = readFileSync(file, "utf8");
-  if (text.includes("\r")) issues.push(`${label}: must use LF line endings`);
-  if (!text.endsWith("\n") || text.endsWith("\n\n")) issues.push(`${label}: must end with exactly one newline`);
-  if (text.trim().length === 0) issues.push(`${label}: is empty`);
-  if (text.charCodeAt(0) === 0xfeff) issues.push(`${label}: must not start with a BOM`);
-  return text;
 }
 
 /** ATTRIBUTION.md holds one ```text block per locale under a `## <locale>` heading. */
@@ -289,7 +258,7 @@ function loadEntry(dir: string, options: LoadOptions, taxonomy: Taxonomy, issues
 export function loadContentLibrary(options: LoadOptions): ContentLibrary {
   const issues: string[] = [];
   const taxonomy = readJson(path.join(options.root, "taxonomy.json"), taxonomySchema, issues, "taxonomy.json");
-  if (!taxonomy) return { taxonomy: { schemaVersion: 1, categories: [], tags: [] }, entries: [], issues };
+  if (!taxonomy) return { taxonomy: { schemaVersion: 1, categories: [], tags: [] }, entries: [], collections: [], issues };
 
   for (const [kind, terms] of [["category", taxonomy.categories], ["tag", taxonomy.tags]] as const) {
     if (new Set(terms.map((term) => term.id)).size !== terms.length) issues.push(`taxonomy.json: duplicate ${kind} id`);
@@ -317,5 +286,7 @@ export function loadContentLibrary(options: LoadOptions): ContentLibrary {
       claimed.set(old, entry.meta.slug);
     }
   }
-  return { taxonomy, entries, issues };
+  const publicSlugs = new Set(entries.filter((entry) => publicationBlockers(entry).length === 0).map((entry) => entry.meta.slug));
+  const collections = loadCollections({ ...options, taxonomy, entries, publicSlugs }, issues);
+  return { taxonomy, entries, collections, issues };
 }

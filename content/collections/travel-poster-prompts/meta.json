@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "travel-poster-prompts",
+  "slug": "travel-poster-prompts",
+  "status": "published",
+  "createdAt": "2026-10-04",
+  "updatedAt": "2026-10-04",
+  "publishedAt": "2026-10-04T14:10:00+08:00",
+  "categories": ["posters", "photo-art"],
+  "series": "travel-posters",
+  "cover": "city-collage-postcard",
+  "groups": [
+    { "id": "place-only", "members": ["city-collage-postcard", "perler-bead-travel-editorial"] },
+    { "id": "mood", "members": ["surreal-futuristic-travel-poster", "photo-illustration-travel-editorial"] },
+    { "id": "own-assets", "members": ["photo-intaglio-study-poster", "tilted-character-travel-editorial"] }
+  ]
+}

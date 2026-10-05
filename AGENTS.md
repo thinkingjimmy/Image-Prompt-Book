@@ -6,7 +6,7 @@ Next.js 16 (App Router) + React 19 + TypeScript 5.9 + Tailwind CSS 4 + shadcn/ui
 
 <directory>
 src/ - Next.js app (4 subdirs: app routes, components UI, lib content/prompt/SEO/image delivery logic, i18n incl. UI messages)
-content/ - Prompt library: one self-contained folder per prompt (text, options, credits, images/), validated at build time, never executed
+content/ - Prompt library: one self-contained folder per prompt (text, options, credits, images/) plus curated collections that reference published slugs; validated at build time, never executed
 scripts/ - Content import, validation, link check, performance measurement
 tests/ - Vitest unit, Playwright E2E, their configs and the fixture builder (see tests/README.md)
 docs/ - Acknowledgements, README screenshot (images/), first-entry appendix (appendix/), SEO guidelines and requirements (seo/), analytics implementation and acceptance (analytics/)
@@ -18,7 +18,7 @@ docs/ - Acknowledgements, README screenshot (images/), first-entry appendix (app
 package.json - Scripts and exact dependency pins; `packageManager` pins pnpm
 .nvmrc - Node 22
 .env.example - SITE_URL, IPB_DEPLOY_ENV, IPB_PREVIEW_DRAFTS
-next.config.ts - Next.js config (honors IPB_DIST_DIR for the isolated E2E build)
+next.config.ts - Next.js config (honors IPB_DIST_DIR for isolated builds and accepts loopback-IP previews; dev tools sit at bottom-right to avoid sidebar controls)
 eslint.config.mjs / postcss.config.mjs / components.json - Lint, Tailwind, shadcn/ui
 </config>
 

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "ai-avatar-prompts",
+  "slug": "ai-avatar-prompts",
+  "status": "published",
+  "createdAt": "2026-10-04",
+  "updatedAt": "2026-10-04",
+  "publishedAt": "2026-10-04T14:00:00+08:00",
+  "categories": ["avatars"],
+  "series": "avatars",
+  "cover": "circle-logo-avatar",
+  "groups": [
+    { "id": "symbol", "members": ["circle-logo-avatar", "grokbot-capsule-icon"] },
+    { "id": "likeness", "members": ["storybook-character-portrait"] }
+  ]
+}

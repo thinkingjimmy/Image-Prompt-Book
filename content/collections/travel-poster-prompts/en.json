@@ -1,0 +1,56 @@
+{
+  "title": "AI travel posters",
+  "subtitle": "Pick one by what you already have",
+  "heading": "AI travel poster prompts: pick one by what you already have",
+  "seoTitle": "AI Travel Poster Prompts: City Collage, Perler Beads, Intaglio and Magazine | Image Prompt Book",
+  "lead": "These travel posters start from different things. Some need only a place name. Some need your own photo or character. Some try to pack landmarks and information; others only need a mood. Look at what you have, then at what the picture has to do.",
+  "groups": {
+    "place-only": { "title": "You only have a place name, and you want information" },
+    "mood": { "title": "Accuracy does not matter; you want a mood" },
+    "own-assets": { "title": "You already have a photo or a character" }
+  },
+  "members": {
+    "city-collage-postcard": {
+      "why": "A handwritten city name, landmark collage, map, postmark and coordinates go onto one 3:4 postcard. This is the densest information layout in the set.",
+      "goodFor": "A city souvenir card, or a festival card (add “端午” after the city name)",
+      "notFor": "Official print that needs exact coordinates or a correct map",
+      "adjust": "City: six options, or type your own"
+    },
+    "perler-bead-travel-editorial": {
+      "why": "The top half is a realistic sunset; the bottom half is a square perler-bead landmark and six bead badges. Photo and handmade each take half the page.",
+      "goodFor": "A series of pages that can reuse a country, a city or a theme",
+      "notFor": "A single illustration style with no realistic photo",
+      "adjust": "Place: five options, or replace with any location"
+    },
+    "surreal-futuristic-travel-poster": {
+      "why": "The city is invented: sculptural buildings, giant plants and floating pieces, in a low-saturation vintage travel-poster grain.",
+      "goodFor": "A concept poster, or an ideal city that does not map to a real place",
+      "notFor": "City publicity that has to show a real landmark",
+      "adjust": "Setting, palette and aspect ratio"
+    },
+    "photo-illustration-travel-editorial": {
+      "why": "The same scene appears twice: a cinematic photograph and a spare illustration on ivory paper. There are two original prompts, Paris at sunset and a coastal lighthouse.",
+      "goodFor": "A magazine-like vertical poster with little type",
+      "notFor": "A layout that has to hold a lot of itinerary text",
+      "adjust": "Sky or waves, caption and vertical ratio"
+    },
+    "photo-intaglio-study-poster": {
+      "why": "One area stays a real photograph; the same subject is redrawn next to it in banknote-like intaglio hatching, like a print study sheet.",
+      "goodFor": "Travel photos of buildings, bell towers or statues with a clear outline",
+      "notFor": "No reference photo, or a photo whose subject is small and broken up",
+      "adjust": "Format, comparison layout, paper-and-ink palette and sample text"
+    },
+    "tilted-character-travel-editorial": {
+      "why": "A close-up, steeply tilted character sits inside a tidy Japanese travel-magazine grid. The joke comes from that clash.",
+      "goodFor": "Travel publicity for an IP character, mascot or pet",
+      "notFor": "A serious city image or a landscape-only poster",
+      "adjust": "Entry side, expression and background; replace the character name in the prompt"
+    }
+  },
+  "choose": [
+    "If you want a souvenir with a place name and landmarks quickly, try the city collage postcard first. For a quieter page that can become a series, switch to the perler-bead editorial.",
+    "If the picture does not have to match a real city, the surreal futuristic poster leaves room to invent, and the photo-and-illustration pair stays more like a magazine.",
+    "If you already have a photo, the intaglio study is the only one here that needs a reference image. If you have a character instead of a photo, use the tilted-character magazine poster."
+  ],
+  "caution": "Place names, maps, coordinates and small type in every example are generated. Check them before you use the picture as official material."
+}

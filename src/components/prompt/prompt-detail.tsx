@@ -1,7 +1,7 @@
 /**
  * [INPUT]: Content catalog, versioned media/original URLs, image proportions, localized navigation and the prompt workbench.
  * [OUTPUT]: PromptDetail and toPromptData() for shared standalone/modal details and minimal client prompt data.
- * [POS]: Server detail composer; resolves registered image previews/originals and passes the layout variant to ExampleGallery.
+ * [POS]: Server detail composer with shared 12px page corners; resolves registered image previews/originals and passes the layout variant to ExampleGallery.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { ArrowLeft, ImagePlus } from "lucide-react";
@@ -83,7 +83,7 @@ export async function PromptDetail({ entry, locale, variant }: { entry: PromptEn
         </Link>
       )}
       {/* overflow-clip (not hidden) rounds the card without becoming a scroll container, so the action bar can stay sticky. */}
-      <article style={frame} className={cn("flex flex-col md:h-[var(--detail-h)] md:flex-row", variant === "page" && "overflow-clip rounded-[24px] bg-card ring-1 ring-black/[0.06]")}>
+      <article style={frame} className={cn("flex flex-col md:h-[var(--detail-h)] md:flex-row", variant === "page" && "overflow-clip rounded-lg bg-card ring-1 ring-black/[0.06]")}>
         <ExampleGallery
           examples={toExampleViews(entry, locale)}
           variant={variant}

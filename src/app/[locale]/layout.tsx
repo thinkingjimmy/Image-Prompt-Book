@@ -1,11 +1,12 @@
 /**
- * [INPUT]: 依赖 next-intl 的 NextIntlClientProvider/setRequestLocale，依赖 @/i18n 的 routing/LOCALES，依赖 @/components/layout 的 SiteFooter/Analytics 与 layout/header 的 SiteHeader，依赖 @/components/ui/scroll-area 的 PageScrollbar
- * [OUTPUT]: 默认导出根布局（<html lang>、js 标记、全站导航与页脚、自研整页滚动条、生产环境 Google Analytics；main 含 data-footer-lead 时转为纵向 flex，让它贴住页脚），generateStaticParams
- * [POS]: app 的根布局位于 [locale] 下，使 lang 随语言变化；未知语言在此返回 404
+ * [INPUT]: Global styles, next/font/google Geist, next-intl locale/provider, locale configuration and shared sidebar/header/footer/scrollbar/analytics components.
+ * [OUTPUT]: LocaleLayout and generateStaticParams; localized HTML with the Geist font variable, inset Canvas shell and Line footer placement and production analytics.
+ * [POS]: App Router root under [locale]; sets the document language and rejects unsupported locales.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import "../globals.css";
 import type { Viewport } from "next";
+import { Geist } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -13,15 +14,18 @@ import type { ReactNode } from "react";
 import { Analytics } from "@/components/layout/analytics";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/header/site-header";
+import { SiteSidebar } from "@/components/layout/sidebar/site-sidebar";
 import { PageScrollbar } from "@/components/ui/scroll-area";
 import { isLocale, LOCALES } from "@/i18n/config";
+
+const geist = Geist({ subsets: ["latin"], display: "swap", variable: "--font-geist" });
 
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }
 
 export const viewport: Viewport = {
-  themeColor: "#f7f6f3",
+  themeColor: "#efeee8",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -33,20 +37,22 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} className={geist.variable} suppressHydrationWarning>
       <head>
         {/* Marks JS availability before paint: without it every prompt view stays visible and readable. */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
-      {/* Column layout: main grows, so the footer stays at the bottom even when there is little content. */}
-      <body className="flex min-h-dvh flex-col">
+      <body className="min-h-dvh">
         <NextIntlClientProvider>
-          <SiteHeader locale={locale} />
-          {/* A footer lead (the gallery heading) is pinned to the bottom of main, so it always sits against the footer. */}
-          <main id="main" tabIndex={-1} className="flex-1 outline-none has-[>[data-footer-lead]]:flex has-[>[data-footer-lead]]:flex-col">
-            {children}
-          </main>
-          <SiteFooter locale={locale} />
+          <SiteSidebar locale={locale} />
+          <div className="site-canvas">
+            <SiteHeader locale={locale} />
+            {/* A footer lead (the gallery heading) is pinned to the bottom of main, so it always sits against the footer. */}
+            <main id="main" tabIndex={-1} className="flex-1 outline-none has-[>[data-footer-lead]]:flex has-[>[data-footer-lead]]:flex-col">
+              {children}
+            </main>
+            <SiteFooter locale={locale} />
+          </div>
           <PageScrollbar />
         </NextIntlClientProvider>
         <Analytics />

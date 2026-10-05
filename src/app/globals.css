@@ -1,4 +1,10 @@
-@import "tailwindcss";
+/**
+ * [INPUT]: Tailwind CSS scoped to src/, animation utilities, the root layout's Geist variable and shared site component classes.
+ * [OUTPUT]: Shared 12px corners, compact controls with 44px hit areas, Canvas surfaces, keyboard focus styles and responsive masonry columns.
+ * [POS]: Global App Router styles; the fixed Canvas surface and sticky header share the desktop inset beside the sidebar.
+ * [PROTOCOL]: Update this header when making changes, then check README.md.
+ */
+@import "tailwindcss" source("../");
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -6,8 +12,10 @@
 @custom-variant js (&:where(.js *));
 
 :root {
-  --radius: 0.875rem;
-  --background: #f7f6f3;
+  --radius: 0.75rem;
+  --background: #ffffff;
+  --sidebar: oklch(0.945 0.009 85);
+  --control-hover: oklch(0.93 0.006 85);
   --foreground: #1c1b19;
   --card: #ffffff;
   --card-foreground: #1c1b19;
@@ -17,7 +25,7 @@
   --primary-foreground: #fbfaf8;
   --secondary: #eeece7;
   --secondary-foreground: #1c1b19;
-  --muted: #eeece7;
+  --muted: oklch(0.97 0.004 85);
   --muted-foreground: #5f5c55;
   --accent: #efebf7;
   --accent-foreground: #3f3566;
@@ -35,6 +43,7 @@
 
 @theme inline {
   --color-background: var(--background);
+  --color-sidebar: var(--sidebar);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
@@ -58,22 +67,28 @@
   --color-success: var(--success);
   --color-warning-bg: var(--warning-bg);
   --color-warning-foreground: var(--warning-foreground);
-  --radius-sm: calc(var(--radius) - 6px);
-  --radius-md: calc(var(--radius) - 4px);
+  --radius-xs: var(--radius);
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-xl: var(--radius);
+  --radius-2xl: var(--radius);
+  --radius-3xl: var(--radius);
+  --radius-4xl: var(--radius);
+  --radius-full: var(--radius);
   --font-sans: var(--font-sans-stack);
 }
 
 @layer base {
   :root {
-    --font-sans-stack: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+    --font-sans-stack: var(--font-geist), ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
   }
   * {
     @apply border-border outline-ring/50;
   }
   html {
     -webkit-text-size-adjust: 100%;
+    font-synthesis: none;
     /* The system scrollbar is replaced by <PageScrollbar />; scrolling itself stays native. */
     scrollbar-width: none;
   }
@@ -121,6 +136,86 @@
 }
 
 @layer components {
+  .site-canvas {
+    display: flex;
+    min-height: 100dvh;
+    flex-direction: column;
+  }
+  .site-header { position: sticky; top: 0; z-index: 20; background: var(--background); }
+  .site-control {
+    position: relative;
+    display: inline-flex;
+    height: 32px;
+    min-height: 32px;
+    align-items: center;
+    gap: 8px;
+    border-radius: var(--radius);
+    padding: 0 12px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.5;
+    touch-action: manipulation;
+    transition: background-color 120ms ease-out, color 120ms ease-out;
+  }
+  /* A 32px visible control retains a 44px target; neighboring controls leave 12px between them. */
+  .site-control::before { content: ""; position: absolute; inset: -6px; border-radius: inherit; }
+  .site-icon-control { width: 32px; flex-shrink: 0; justify-content: center; padding: 0; }
+  .site-control[aria-current="page"] { background: var(--card); color: var(--foreground); }
+  @media (hover: hover) and (pointer: fine) {
+    .site-control:hover { background: var(--control-hover); color: var(--foreground); }
+    .site-tools .site-control:hover { background: rgb(255 255 255 / 0.72); }
+  }
+  .site-search { position: relative; margin-left: auto; width: 44px; height: 44px; flex-shrink: 0; }
+  .site-search[data-open="true"], html:not(.js) .site-search { width: min(320px, calc(100vw - 88px)); }
+  .site-search-form { position: relative; display: flex; height: 44px; align-items: center; border-radius: var(--radius); background: var(--muted); }
+  .js .site-search[data-open="false"] .site-search-form { display: none; }
+  .js .site-search-fallback .site-search-form { display: none; }
+  .site-search-trigger { position: absolute; top: 6px; right: 6px; }
+  html:not(.js) .site-search-trigger, html:not(.js) .site-search-close { display: none; }
+  .keyboard-focus-scope:focus-visible, .keyboard-focus-scope :focus-visible { outline: none; box-shadow: none; }
+  .keyboard-focus-scope[data-keyboard-focus="true"]:focus-visible,
+  .keyboard-focus-scope[data-keyboard-focus="true"] :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  .filter-menu-item {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    border-radius: var(--radius);
+    padding: 0 12px;
+    font-size: 13px;
+    color: var(--muted-foreground);
+    outline: none;
+  }
+  .filter-menu-item[data-highlighted], .filter-menu-item[data-state="checked"] {
+    background: var(--muted);
+    color: var(--foreground);
+  }
+  .filter-menu-item[data-disabled] { opacity: 0.5; }
+  @media (min-width: 1024px) {
+    body { isolation: isolate; background: var(--sidebar); }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 16px 0 0 240px;
+      z-index: -1;
+      border-radius: var(--radius) 0 0 0;
+      background: var(--background);
+      pointer-events: none;
+    }
+    .site-canvas { margin-left: 240px; padding-top: 16px; }
+    .site-header { top: 16px; border-top-left-radius: var(--radius); }
+    .site-header::before {
+      content: "";
+      position: absolute;
+      inset: -16px 0 100%;
+      background: var(--sidebar);
+      pointer-events: none;
+    }
+  }
   /* Shared frosted-glass backdrop for every modal layer. */
   .glass-overlay {
     background: rgb(40 38 34 / 0.28);
@@ -128,15 +223,16 @@
     -webkit-backdrop-filter: blur(14px) saturate(120%);
   }
   /* Gallery masonry: CSS columns keep DOM/keyboard order = column-by-column reading order. */
-  /* Two columns even on phones (owner decision), with a tighter gap below 480px. */
+  /* Two columns even on phones (owner decision), with a tighter gap below 480px.
+     Columns follow the gallery container (an @container beside the sidebar), not the viewport. */
   .masonry {
     column-gap: 0.75rem;
     columns: 2;
   }
-  @media (min-width: 480px) { .masonry { column-gap: 1rem; } }
-  @media (min-width: 768px) { .masonry { columns: 3; column-gap: 1.25rem; } }
-  @media (min-width: 1024px) { .masonry { columns: 4; } }
-  @media (min-width: 1440px) { .masonry { columns: 5; column-gap: 1.5rem; } }
+  @container (min-width: 440px) { .masonry { column-gap: 1rem; } }
+  @container (min-width: 700px) { .masonry { columns: 3; column-gap: 1.25rem; } }
+  @container (min-width: 940px) { .masonry { columns: 4; } }
+  @container (min-width: 1300px) { .masonry { columns: 5; column-gap: 1.5rem; } }
   .masonry > * {
     break-inside: avoid;
   }

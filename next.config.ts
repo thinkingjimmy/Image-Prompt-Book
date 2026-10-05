@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 next 的 NextConfig，依赖 next-intl/plugin，依赖 IPB_DEPLOY_ENV/IPB_DIST_DIR 环境变量
- * [OUTPUT]: 默认导出 Next 配置（/→/en、安全头、非生产 X-Robots-Tag noindex、图片格式、独立 E2E 构建目录）
- * [POS]: 项目根的运行配置；站点级 URL/内容根规则在 src/lib/site.ts
+ * [INPUT]: NextConfig, next-intl/plugin and IPB_DEPLOY_ENV/IPB_DIST_DIR environment variables.
+ * [OUTPUT]: Next configuration for redirects, security/indexing headers, loopback development origins, image delivery, isolated builds and a bottom-right dev indicator.
+ * [POS]: Root runtime configuration; site URL/content-root rules live in src/lib/site.ts.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import type { NextConfig } from "next";
@@ -11,9 +11,13 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const indexable = process.env.IPB_DEPLOY_ENV === "production";
 
 const nextConfig: NextConfig = {
+  // The in-app preview uses the loopback IP instead of localhost.
+  allowedDevOrigins: ["127.0.0.1"],
   // E2E builds against fixture content use their own output directory so they never overwrite a real build.
   distDir: process.env.IPB_DIST_DIR ?? ".next",
   poweredByHeader: false,
+  // Keep developer tools clear of the sidebar's language and utility controls.
+  devIndicators: { position: "bottom-right" },
   images: {
     formats: ["image/avif", "image/webp"],
     localPatterns: [{ pathname: "/media/**", search: "" }],

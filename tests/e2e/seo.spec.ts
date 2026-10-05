@@ -1,6 +1,6 @@
 /**
  * [INPUT]: 依赖 fixture 构建（IPB_DEPLOY_ENV=production、SITE_URL=https://imagepromptbook.com）
- * [OUTPUT]: SEO E2E：服务端 HTML 完整性（含“关于这个 Prompt”全部字段）、画廊 H1 对人可见且位于网格之后的页脚首段、无 JS 可读默认 Prompt、canonical/hreflang/robots 矩阵、sitemap/robots.txt、结构化数据与可见内容一致（摘要、图片署名）、只提供站点实际展示的图片（AC-18/19/21）
+ * [OUTPUT]: SEO E2E：服务端 HTML 完整性（含“关于这个 Prompt”全部字段）、画廊 H1 对人可见且位于网格之后的页脚首段、无 JS 可读默认 Prompt、canonical/hreflang/robots 矩阵、sitemap/robots.txt（含专题）、专题/详情双向链接与 Article ItemList、结构化数据与可见内容一致（摘要、图片署名）、只提供站点实际展示的图片（AC-18/19/21）
  * [POS]: tests/e2e 的可索引性套件
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -61,6 +61,18 @@ test.describe("without JavaScript", () => {
     await page.locator("main h2 a").first().click();
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   });
+
+  test("search and tag filtering work as native forms and links", async ({ page }) => {
+    await page.goto("/en");
+    await page.getByRole("navigation", { name: "Filter tags" }).getByRole("link", { name: "Watercolor", exact: true }).click();
+    await expect(page).toHaveURL(/tags=watercolor/);
+    const field = page.getByRole("searchbox", { name: "Search prompts" });
+    await expect(field).toBeVisible();
+    await field.fill("fixture");
+    await field.press("Enter");
+    await expect(page).toHaveURL(/q=fixture/);
+    await expect(page.locator("ul.masonry")).toBeVisible();
+  });
 });
 
 test("gallery headings are visible text that opens the footer, never above the grid", async ({ page }) => {
@@ -72,7 +84,8 @@ test("gallery headings are visible text that opens the footer, never above the g
     const h1 = page.getByRole("heading", { level: 1 });
     await expect(h1, url).toHaveText(heading);
     const lead = page.locator("[data-footer-lead]");
-    await expect(lead.locator("p"), url).not.toBeEmpty();
+    await expect(lead.getByRole("link", { name: "All collections" }), url).toHaveAttribute("href", "/en/collections");
+    await expect(lead.locator("p")).toHaveCount(0);
     // Real text for people, not a 1px screen-reader clip.
     expect((await h1.boundingBox())!.width, url).toBeGreaterThan(40);
     // The gallery stays image-first: the heading comes after the grid and sits flush against the footer.
@@ -123,9 +136,42 @@ test("sitemap lists only published pages with real dates and translations", asyn
   expect(xml).toContain(`hreflang="zh-CN" href="${ORIGIN}/zh-CN/prompts/${SLUG}"`);
   expect(xml).toContain("<lastmod>2026-09-23</lastmod>");
   expect(xml).toContain(`<loc>${ORIGIN}/en/categories/illustration</loc>`);
+  expect(xml).toContain(`<loc>${ORIGIN}/en/collections</loc>`);
+  expect(xml).toContain(`<loc>${ORIGIN}/en/collections/fixture-collection</loc>`);
   expect(xml).not.toContain("fixture-draft");
   expect(xml).not.toContain("/categories/logos");
+  expect(xml).not.toContain("/contribute");
   expect(xml).not.toMatch(/<loc>[^<]*\?/);
+});
+
+test("collection pages are indexable, bidirectional and match the ItemList", async ({ page, request }) => {
+  await page.goto("/en/collections/fixture-collection");
+  const meta = await head(page);
+  expect(meta.canonical).toBe(`${ORIGIN}/en/collections/fixture-collection`);
+  expect(meta.robots).toBe("index, follow");
+  expect(meta.alternates).toEqual({
+    en: `${ORIGIN}/en/collections/fixture-collection`,
+    "zh-CN": `${ORIGIN}/zh-CN/collections/fixture-collection`,
+    "x-default": `${ORIGIN}/en/collections/fixture-collection`,
+  });
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Fixture collection: how to pick these three prompts");
+  await expect(page.getByRole("link", { name: "Open and adjust Minimal Bot Icon — Grokbot Style" })).toHaveAttribute("href", `/en/prompts/${SLUG}`);
+
+  const blocks = await page.locator('script[type="application/ld+json"]').allTextContents();
+  const data = blocks.flatMap((block) => JSON.parse(block));
+  const article = data.find((item: { "@type": string }) => item["@type"] === "Article");
+  expect(article.author).toEqual({ "@type": "Person", name: "Jimmy Wong" });
+  expect(article.hasPart.itemListElement).toHaveLength(3);
+  expect(article.hasPart.itemListElement[0]).toMatchObject({ position: 1, url: `${ORIGIN}/en/prompts/${SLUG}` });
+
+  await page.goto(`/en/prompts/${SLUG}`);
+  await expect(page.getByRole("link", { name: "Fixture collection: how to pick these three prompts" })).toHaveAttribute("href", "/en/collections/fixture-collection");
+
+  await page.goto("/en/collections?category=illustration");
+  expect((await head(page)).robots).toBe("noindex, follow");
+  expect(await page.locator('link[rel="canonical"]').getAttribute("href")).toBe(`${ORIGIN}/en/collections?category=illustration`);
+
+  expect((await request.get("/en/collections?category=logos", { maxRedirects: 0 })).status()).toBe(307);
 });
 
 test("robots.txt allows crawling filtered pages and points to the sitemap", async ({ request }) => {

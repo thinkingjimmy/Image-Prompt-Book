@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "bold-type-poster-prompts",
+  "slug": "bold-type-poster-prompts",
+  "status": "published",
+  "createdAt": "2026-10-04",
+  "updatedAt": "2026-10-04",
+  "publishedAt": "2026-10-04T14:20:00+08:00",
+  "categories": ["posters"],
+  "series": "bold-type-posters",
+  "cover": "campaign-poster-oversized-type",
+  "groups": [
+    { "id": "behind", "members": ["campaign-poster-oversized-type", "material-type-campaign-poster"] },
+    { "id": "texture", "members": ["cmyk-halftone-blur-type-poster"] },
+    { "id": "slogan", "members": ["showa-absurd-character-poster"] }
+  ]
+}

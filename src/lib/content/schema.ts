@@ -1,6 +1,6 @@
 /**
  * [INPUT]: 依赖 zod 的 schema 能力，依赖 @/i18n/config 的 LOCALES
- * [OUTPUT]: 对外提供 metaSchema/localeContentSchema/parametersSchema/examplesSchema（案例图可带 input 原图；默认左右对比，comparison: "stack" 为上下接缝）/taxonomySchema 及对应类型、isHttpsUrl()
+ * [OUTPUT]: 对外提供 metaSchema/localeContentSchema/parametersSchema/examplesSchema（案例图可带 input 原图；默认左右对比，comparison: "stack" 为上下接缝）/taxonomySchema、专题的 collectionMetaSchema/collectionContentSchema 及对应类型、isHttpsUrl()
  * [POS]: lib/content 的单文件结构契约，被 load.ts 做跨文件校验前的第一道闸门；跨文件规则不在此处
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -187,7 +187,53 @@ export const taxonomySchema = z.strictObject({
   tags: z.array(termSchema).min(1),
 });
 
+/** A curated collection: published prompts grouped by the reader's task, with editorial copy per member. */
+export const collectionMetaSchema = z.strictObject({
+  schemaVersion: z.literal(1),
+  id: slug,
+  slug,
+  status: z.enum(["draft", "published", "archived"]),
+  createdAt: isoDate,
+  /** Change only on substantive edits: it is the visible "updated" date, dateModified and sitemap lastmod. */
+  updatedAt: isoDate,
+  publishedAt: isoDateTime.nullable(),
+  redirectFrom: z.array(slug).optional(),
+  fixture: z.boolean().optional(),
+  /** The first category is primary: it labels the page, its breadcrumb filter and the "browse all" link. */
+  categories: z.array(slug).min(1),
+  /** Collections on the same subject share a series; listings show only the newest of each series. */
+  series: slug,
+  /** Member whose first example image is the share image. */
+  cover: slug,
+  groups: z.array(z.strictObject({ id: slug, members: z.array(slug).min(1) })).min(1),
+});
+
+const collectionMemberCopySchema = z.strictObject({
+  why: nonEmpty,
+  goodFor: nonEmpty,
+  notFor: nonEmpty,
+  adjust: nonEmpty,
+});
+
+export const collectionContentSchema = z.strictObject({
+  /** Short name for cards and breadcrumbs. */
+  title: nonEmpty,
+  /** One line under the title on cards. */
+  subtitle: nonEmpty,
+  /** The page H1. */
+  heading: nonEmpty,
+  seoTitle: nonEmpty,
+  /** Visible introduction; also the meta and structured-data description. */
+  lead: nonEmpty,
+  groups: z.record(z.string(), z.strictObject({ title: nonEmpty })),
+  members: z.record(z.string(), collectionMemberCopySchema),
+  choose: z.array(nonEmpty).min(1),
+  caution: nonEmpty.optional(),
+});
+
 export type PromptMeta = z.infer<typeof metaSchema>;
+export type CollectionMeta = z.infer<typeof collectionMetaSchema>;
+export type CollectionContent = z.infer<typeof collectionContentSchema>;
 export type LocaleContent = z.infer<typeof localeContentSchema>;
 export type Parameter = z.infer<typeof parameterSchema>;
 export type ParameterOption = z.infer<typeof optionSchema>;

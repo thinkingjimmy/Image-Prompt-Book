@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 @/i18n/navigation 的 Link，依赖 @/lib/prompt/opened-from-list 的 markOpenedFromList
- * [OUTPUT]: 对外提供 CardLink（真实详情 anchor；普通左键记录“从列表打开”以便弹窗关闭时安全后退）
- * [POS]: components/gallery 的详情链接；中键、Cmd/Ctrl 点击与新标签保持浏览器原生行为
+ * [INPUT]: Locale-aware Link and modal origin/focus tracking
+ * [OUTPUT]: CardLink, recording plain-click origins for native detail modals while preserving modified-click browser behavior
+ * [POS]: Shared prompt/collection detail anchor; used by gallery cards and collection member links
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 "use client";
