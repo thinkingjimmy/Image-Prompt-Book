@@ -21,7 +21,7 @@ When timing/token records are requested, use `prompt:profile`; never rebuild a p
 4. **Write the manifest.** Save verbatim original and independent full en/zh-CN defaults before adding tokens. Supply complete bilingual page copy, source-supported choices, image/rights records, and attribution. Run `prompt:prepare --dry-run`, then generate the entry and maps. Never summarize translations or invent source evidence.
 5. **Review choices.** Expose only choices supported by the source, with 2–6 options each. Defaults reproduce source wording. Check the entire text for contradictory fixed clauses. Preserve required input, identity/composition constraints, exclusions, and complete instructions in both languages.
 6. **Prepare local publication.** Finish data/maps/credits, then set local `status: "published"` and offset `publishedAt`. Production preview must pass before commit/push; editing these fields does not ship the entry. Use a draft dev preview only for requested drafts or unresolved publication blockers.
-7. **Verify once, ship.** Run the commands below. Fix failures and rerun only checks invalidated by the fix. Reuse existing comparison checks; extend shared tools only for a demonstrated missing requirement. Stage explicit task files, commit, and push the authorized main branch. Check CI and the live page, then finish; report formatting does not trigger another validation pass.
+7. **Verify once, ship.** Run the commands below. Fix failures and rerun only checks invalidated by the fix. Reuse existing comparison checks; extend shared tools only for a demonstrated missing requirement. Stage explicit public task files; never stage or force-add private `docs/` data. Check `git diff --cached --name-only` before committing, then push the authorized main branch. Check CI and the live page, then finish; report formatting does not trigger another validation pass.
 
 ```text
 content/prompts/<slug>/
@@ -31,7 +31,7 @@ content/prompts/<slug>/
   images/     local examples and README.md
 ```
 
-Folders stay within eight files. `meta.templatePaths` and `meta.parametersPath` point into `templates/`. Add bilingual category/tag labels to `content/taxonomy.json` only when existing terms do not fit.
+Folders stay within eight files. `meta.templatePaths` and `meta.parametersPath` point into `templates/`. Keep public author credits in `content/ACKNOWLEDGEMENTS.md`; `docs/` is ignored local material. Add bilingual category/tag labels to `content/taxonomy.json` only when existing terms do not fit.
 
 ## Template decisions
 

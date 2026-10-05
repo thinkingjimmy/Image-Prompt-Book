@@ -1,5 +1,5 @@
 /**
- * [INPUT]: A reviewed manifest, captured originals/defaults, local images, and content schemas.
+ * [INPUT]: A reviewed manifest, captured originals/defaults, local images, content schemas and public content acknowledgements.
  * [OUTPUT]: A draft entry, measured examples, directory maps, credit, and independent checks.
  * [POS]: scripts/prompts deterministic import writer; editorial decisions stay in the manifest.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
@@ -142,7 +142,7 @@ function main() {
   const next = rows.find((match) => match[1]! > slug);
   const offset = next?.index ?? rows.at(-1)!.index! + rows.at(-1)![0].length;
   parent = `${parent.slice(0, offset)}${row}${parent.slice(offset)}`;
-  const ackPath = "docs/ACKNOWLEDGEMENTS.md";
+  const ackPath = "content/ACKNOWLEDGEMENTS.md";
   const ack = readFileSync(ackPath, "utf8");
   const source = meta.sources.find((item) => item.role === "original")!;
   assert(source, "An original source is required");

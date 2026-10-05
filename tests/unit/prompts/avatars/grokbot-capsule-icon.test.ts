@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 scripts/lib/appendix 的附录解析，依赖 ../../helpers 的 promptEntry/combinations/composer，依赖 content/prompts/grokbot-capsule-icon
- * [OUTPUT]: 首个条目的专属测试：文件与规范性附录逐项一致（发布字段除外）、韩文原文 SHA-256、默认输出与附录独立替换结果一致（golden）、风格核心与选项语义回归（AC-06–AC-11）
- * [POS]: tests/unit/prompts/avatars 的条目套件；通用的全组合渲染由 content.test.ts 负责，这里只证明本条目的语义，不证明生图质量
+ * [INPUT]: Public source fixtures, shared promptEntry/combinations/composer helpers, and the Grokbot content entry.
+ * [OUTPUT]: Source fidelity, original hashes, independent defaults, and variant semantics without private docs.
+ * [POS]: tests/unit/prompts/avatars entry regression suite; content.test.ts covers generic combinations.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { createHash } from "node:crypto";
@@ -9,7 +9,8 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { LOCALES, type Locale } from "@/i18n/config";
-import { readAppendix } from "../../../../scripts/lib/appendix";
+import shortSource from "../../../fixtures/grokbot-capsule-icon/short.json";
+import fullSource from "../../../fixtures/grokbot-capsule-icon/full.json";
 import { combinations, composer, promptEntry } from "../../helpers";
 
 const SLUG = "grokbot-capsule-icon";
@@ -18,7 +19,7 @@ const FULL_ORIGINAL_SHA256 = "b0ab40da1d0399c587be0a1cfe4ebb46bed0bb50c86436420c
 
 const dir = path.join("content", "prompts", SLUG);
 const read = (name: string) => readFileSync(path.join(dir, name), "utf8");
-const appendix = readAppendix(SLUG);
+const appendix = { ...shortSource, fullOriginal: fullSource.original, full: fullSource };
 const entry = promptEntry(SLUG);
 const full = entry.variants.find((variant) => variant.id === "full")!;
 const compose = composer(entry);
@@ -26,7 +27,7 @@ const composeFull = composer(full);
 
 type AppendixParameter = { id: string; default: string; options: { id: string; replacements: Record<string, string> }[] };
 
-/** Golden oracle: plain split/join on the appendix, deliberately independent of composePrompt. */
+/** Golden oracle: plain split/join on frozen source data, independent of composePrompt and private docs. */
 function appendixDefault(templates: Record<Locale, string>, parameters: unknown, locale: Locale): string {
   let text = templates[locale];
   for (const parameter of (parameters as { parameters: AppendixParameter[] }).parameters) {
@@ -39,7 +40,7 @@ function appendixDefault(templates: Record<Locale, string>, parameters: unknown,
 // Publishing happens after the import, so fidelity ignores the publication fields.
 const unpublished = (meta: unknown) => ({ ...(meta as object), status: null, publishedAt: null, updatedAt: null, featuredRank: null });
 
-describe("import fidelity (normative appendix)", () => {
+describe("import fidelity (public source baseline)", () => {
   it("meta, page copy, parameters and examples equal the appendix", () => {
     expect(unpublished(JSON.parse(read("meta.json")))).toEqual(unpublished(appendix.meta));
     expect(JSON.parse(read("en.json"))).toEqual(appendix.locales.en);

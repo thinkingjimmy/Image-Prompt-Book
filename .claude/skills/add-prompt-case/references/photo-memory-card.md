@@ -13,7 +13,7 @@ Result: `content/prompts/photo-memory-card/` (images in `images/`), `tests/unit/
 ## 2. License
 
 - Post and bio state no terms (bio: "AI & Tech | … DM for Collaborations"). Recorded `LicenseRef-Unspecified` ("No license stated"), `licenseUrl` = the post, `sourceLicenseUrl: null`, `commercialUse: "unknown"`, review pending; notices say all rights stay with the author.
-- Credited in `docs/ACKNOWLEDGEMENTS.md` as "No license stated / 未声明许可"; taken down if the author files a rights request.
+- Credited in `content/ACKNOWLEDGEMENTS.md` as "No license stated / 未声明许可"; taken down if the author files a rights request.
 - Flagged to the owner: the concept (photo on top, hand-made rendition below, handwritten English phrase) is close to `photo-abstract-editorial`, whose author has complained about copies.
 
 ## 3. Images
@@ -26,3 +26,5 @@ Result: `content/prompts/photo-memory-card/` (images in `images/`), `tests/unit/
 - Options: paper (4), color patch (3, incl. none), sketch medium (4), handwritten text (3), mood (3) — 432 combinations.
 - Dropped a split-ratio option: the text says "top half / bottom half", so anything but 50/50 would contradict it.
 - The "no text" choice first read "…but add and subtle Risograph grain" → made `{{phrase}}` replace the whole sentence ("Add subtle Risograph grain, but no text."). The entry test pins this and that defaults reproduce the post byte for byte.
+
+[PROTOCOL]: Update this header when making changes, then check README.md.

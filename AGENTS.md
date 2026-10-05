@@ -6,11 +6,11 @@ Next.js 16 (App Router) + React 19 + TypeScript 5.9 + Tailwind CSS 4 + shadcn/ui
 
 <directory>
 src/ - Next.js app (4 subdirs: app routes, components UI, lib content/prompt/SEO/image delivery logic, i18n incl. UI messages)
-content/ - Prompt library: one self-contained folder per prompt (text, options, credits, images/) plus curated collections that reference published slugs; validated at build time, never executed
+content/ - Public author acknowledgements and prompt library: one self-contained folder per prompt (text, options, credits, images/) plus curated collections that reference published slugs; validated at build time, never executed
 scripts/ - Content import, validation, link check, performance measurement
 tests/ - Vitest unit, Playwright E2E, their configs and the fixture builder (see tests/README.md)
-docs/ - Acknowledgements, README screenshot (images/), first-entry appendix (appendix/), SEO guidelines and requirements (seo/), analytics implementation and acceptance (analytics/)
-.github/ - CI and issue templates (source lead, translation, problem, rights request)
+docs/ - Local-only maintainer documents, source appendices, SEO/analytics plans and data; ignored by Git and optional in public checkouts
+.github/ - CI, issue templates (source lead, translation, problem, rights request), and public README assets
 .claude/skills/ - Agent skills; add-prompt-case imports a new prompt end to end
 </directory>
 
@@ -58,7 +58,7 @@ Coding agents: use the project skill [`.claude/skills/add-prompt-case`](./.claud
 1. Read [`content/README.md`](./content/README.md) for the file format.
 2. Create `content/prompts/<slug>/` with metadata, original, bilingual page copy, examples and attribution. Put templates and parameters in `templates/`, images in `images/`, and include README maps so each folder stays within eight files. Keep `status: "draft"` while authoring.
 3. Put example images in `content/prompts/<slug>/images/`; record true size, bilingual alt text, source and rights in `examples.json`.
-4. Credit the author in `docs/ACKNOWLEDGEMENTS.md` and record independent source/default expectations in scratch. Finish content/maps before validation; do not add per-entry unit tests or temporary browser scripts.
+4. Credit the author in `content/ACKNOWLEDGEMENTS.md` and record independent source/default expectations in scratch. Finish content/maps before validation; do not add per-entry unit tests or temporary browser scripts.
 5. Prepare local `status: "published"` and `publishedAt`, run scoped `pnpm links:check --slug <slug>` and one `pnpm verify`, then `pnpm test:prompt <slug> --checks <json>`. Review its saved desktop/mobile screenshots before commit/push. `verify` already checks all combinations and builds; entry E2E reuses that build. Batch entries share one verify/server. Requested drafts use `IPB_PREVIEW_DRAFTS=1 pnpm dev` and the runner's `--url` option.
 6. Commit explicit task files and push after preview passes. CI runs verify and browser tests. Check CI and the live page; link an originating issue in the commit when applicable.
 
@@ -77,6 +77,8 @@ Content rules:
 - Commit messages: conventional prefix (`feat:`, `fix:`, `style:`, `content:`, `docs:` …), short imperative English.
 
 ### Documentation protocol (code and docs must stay isomorphic)
+
+`docs/` is private local material. Keep new reports, requirements, analytics and SEO data there; never stage or force-add it. Historical commits remain unchanged. Public builds, CI and pages must work without this directory. Put public credits in `content/ACKNOWLEDGEMENTS.md`, README assets in `.github/assets/`, and independent prompt-only test baselines in `tests/fixtures/`. Module README maps and source contracts remain tracked alongside their code.
 
 | Layer | Where | Update when |
 | --- | --- | --- |

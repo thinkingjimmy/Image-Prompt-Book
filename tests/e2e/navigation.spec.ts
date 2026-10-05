@@ -1,6 +1,6 @@
 /**
  * [INPUT]: Shared hydrated browser fixtures, desktop/mobile navigation access, filesystem evidence and axe accessibility checks.
- * [OUTPUT]: Bilingual text/About navigation, language-menu keyboard/touch/runtime checks, compact left-aligned X/GitHub/language/About utilities, footer and removed-submission E2E evidence.
+ * [OUTPUT]: Bilingual text/About navigation and public acknowledgements, language-menu keyboard/touch/runtime checks, compact left-aligned X/GitHub/language/About utilities, footer and removed-submission E2E evidence.
  * [POS]: Focused site-shell acceptance; runtime checks also support an existing local server with real content.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -165,7 +165,7 @@ test("navigation language menu supports keyboard selection and Escape focus @smo
   await info.attach("language-menu-evidence", { body: JSON.stringify({ isMobile, url: page.url(), currentLanguageReloads }), contentType: "application/json" });
 });
 
-test("navigation utilities work by keyboard and About has no submission action @smoke", async ({ page }) => {
+test("navigation utilities work by keyboard and About links public acknowledgements @smoke", async ({ page }, info) => {
   await page.goto("/en");
   const root = await navigationRoot(page);
   const about = root.getByRole("link", { name: "About", exact: true });
@@ -177,6 +177,24 @@ test("navigation utilities work by keyboard and About has no submission action @
   const tools = (await navigationRoot(page)).getByRole("group", { name: "Site tools" });
   await expect(tools.getByRole("link", { name: "About", exact: true })).toHaveAttribute("aria-current", "page");
   await expect(page.locator('a[href*="source-lead.yml"], a[href*="/contribute"]')).toHaveCount(0);
+  if (await page.getByRole("dialog").isVisible()) {
+    await page.keyboard.press("Escape");
+    await expect(page.getByRole("dialog")).toHaveCount(0);
+  }
+  const visits: { locale: string; href: string; screenshot: string }[] = [];
+  for (const locale of ["en", "zh-CN"]) {
+    if (locale !== "en") await page.goto(`/${locale}/about`);
+    const link = page.getByRole("main").getByRole("link", { name: locale === "en" ? "Acknowledgements" : "查看致谢名单", exact: true });
+    const href = "https://github.com/thinkingjimmy/Image-Prompt-Book/blob/main/content/ACKNOWLEDGEMENTS.md";
+    await expect(link).toHaveAttribute("href", href);
+    await link.scrollIntoViewIfNeeded();
+    const screenshot = info.outputPath(`about-${locale}.png`);
+    await page.screenshot({ path: screenshot });
+    visits.push({ locale, href, screenshot });
+  }
+  const evidence = info.outputPath("acknowledgements-evidence.json");
+  await writeFile(evidence, JSON.stringify({ visits }, null, 2));
+  await info.attach("acknowledgements-evidence", { path: evidence, contentType: "application/json" });
 });
 
 test("navigation footer is a single license link and retired contribution routes return 404", async ({ page, request }, info) => {

@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <img src="./docs/images/readme.webp" alt="Image Prompt Book 画廊">
+  <img src="./.github/assets/readme.webp" alt="Image Prompt Book 画廊">
 </p>
 
 这是一个个人策展的合集。收录完全按照我个人的品味，只上线我认为真正好的 Prompt——所以推荐的内容不一定会被收录，这并不代表对你作品的评价。
@@ -50,7 +50,7 @@
 
 ## 致谢
 
-每个 Prompt 都署名了我们认为的原创者，各案例作者见 [docs/ACKNOWLEDGEMENTS.md](./docs/ACKNOWLEDGEMENTS.md)。
+每个 Prompt 都署名了我们认为的原创者，各案例作者见 [content/ACKNOWLEDGEMENTS.md](./content/ACKNOWLEDGEMENTS.md)。
 
 ## 来源与下架
 
@@ -75,7 +75,7 @@ Prompt 的版权很难追溯到最初的作者。本站收录的内容大多来�
 | 内容 | 位置 | 许可 |
 | --- | --- | --- |
 | 第三方 Prompt 原文 | `content/prompts/*/original.*.txt` | 作者的许可，记录在各条目 `meta.json` 与 `ATTRIBUTION.md` |
-| 这些 Prompt 的翻译与可调版本 | `content/prompts/*/` 下的模板、选项与页面文案，`docs/appendix/` | 与原文相同的许可，并标注为改编 |
+| 这些 Prompt 的翻译与可调版本 | `content/prompts/*/` 下的模板、选项与页面文案，`tests/fixtures/grokbot-capsule-icon/` 来源基线 | 与原文相同的许可，并标注为改编 |
 | 案例图片 | `content/prompts/*/images/` | 逐张记录在 `examples.json`，不因 Prompt 的许可而默认授权 |
 
 除非条目自身记录另有说明，本仓库内容均不提供无条件商用授权。推荐内容即确认你有权分享，或其许可允许分享。

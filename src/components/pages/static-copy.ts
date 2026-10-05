@@ -1,5 +1,5 @@
 /**
- * [INPUT]: Locale/StaticPage contracts and repository/rights-request URLs.
+ * [INPUT]: Locale/StaticPage contracts, repository/rights-request URLs and the public content acknowledgements path.
  * [OUTPUT]: Bilingual STATIC_COPY for About/Licenses and StaticLink/StaticSection/StaticCopy types.
  * [POS]: Complete authored static-page copy, including sidebar language guidance and source/rights attribution.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
@@ -13,7 +13,7 @@ export type StaticSection = { heading: string; paragraphs?: string[]; items?: st
 export type StaticCopy = { lead: string; sections: StaticSection[] };
 
 const LICENSE = `${REPO_URL}/blob/main/LICENSE`;
-const ACKNOWLEDGEMENTS = `${REPO_URL}/blob/main/docs/ACKNOWLEDGEMENTS.md`;
+const ACKNOWLEDGEMENTS = `${REPO_URL}/blob/main/content/ACKNOWLEDGEMENTS.md`;
 
 export const STATIC_COPY: Record<StaticPage, Record<Locale, StaticCopy>> = {
   about: {

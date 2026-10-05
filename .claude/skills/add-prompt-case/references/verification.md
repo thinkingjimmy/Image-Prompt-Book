@@ -54,7 +54,7 @@ Use only for requested drafts or blockers; omit from the normal published path. 
 
 Content/app edits require a fresh verify and affected-entry preview. Retry link errors without rebuilding. Diagnose UI failures before retrying.
 
-Fetch main before checking git log origin/main..main. Stage explicit task paths. Another session's unpushed commits require the owner's decision. Commit/push after preview; check CI/deployment for that commit with backoff.
+Fetch main before checking git log origin/main..main. Stage explicit public task paths and inspect `git diff --cached --name-only`; never stage or force-add `docs/`, which holds private maintainer data. Another session's unpushed commits require the owner's decision. Commit/push after preview; check CI/deployment for that commit with backoff.
 
 ChatGPT prefill is checked as a complete encoded URL only. Remote ChatGPT behavior and image generation are not exercised.
 

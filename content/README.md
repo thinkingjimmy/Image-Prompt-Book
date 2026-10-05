@@ -5,6 +5,7 @@
 Git-maintained prompt library. Every file here is data: validated by `src/lib/content/load.ts` at build time (`pnpm content:check`), never executed. Code is MIT; everything in this folder keeps the license recorded per entry — see the License section of [`../README.md`](../README.md#license).
 
 成员清单
+ACKNOWLEDGEMENTS.md: Public bilingual author credits, source links and licenses; updated by `prompt:prepare`.
 taxonomy.json: 分类与标签词表，`categories[].labels/descriptions` 与 `tags[].labels` 均需 en/zh-CN；条目只能引用这里声明的 ID
 prompts/README.md: 条目目录地图，列出每个 Prompt 的职责与分类
 prompts/<slug>/: 单个条目目录，目录名 = id = slug，稳定且跨语言共享；文本、选项、署名与案例图（images/）都在这一个目录里；完整清单见 prompts/README.md
@@ -36,6 +37,6 @@ Slugs are permanent. If one must change, add the old slug to `redirectFrom` in t
 
 ## Importing from a spec appendix
 
-`pnpm content:import <slug>` copies the normative appendix `docs/appendix/<slug>.md` into this folder byte for byte; `tests/unit/prompts/<category>/<slug>.test.ts` re-checks the import.
+`pnpm content:import <slug>` is a local maintainer tool that copies the private appendix `docs/appendix/<slug>.md` into this folder byte for byte. Public checkouts do not include `docs/`; existing import-fidelity tests use frozen prompt-only source data in `tests/fixtures/grokbot-capsule-icon/` instead.
 
 [PROTOCOL]: Update this header when making changes, then check README.md.

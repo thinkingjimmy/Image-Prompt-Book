@@ -11,6 +11,8 @@ tests/test-results/
 tests/fixtures/.generated/
 .vercel
 .seo-cache/
+# Private maintainer documents and data; public references live in their owning modules
+/docs/
 # Local agent/editor settings; project skills are shared
 .claude/*
 !.claude/README.md

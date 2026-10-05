@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <img src="./docs/images/readme.webp" alt="Image Prompt Book gallery">
+  <img src="./.github/assets/readme.webp" alt="Image Prompt Book gallery">
 </p>
 
 This is a personal, curated collection. Every prompt is picked purely by my own taste, and only the ones I think are genuinely good go live — so a suggestion may not be added, and that's no judgment of your work.
@@ -50,7 +50,7 @@ A maintainer checks the license, writes the English and Chinese versions, picks 
 
 ## Acknowledgements
 
-Each prompt is credited to the person we believe created it. See [docs/ACKNOWLEDGEMENTS.md](./docs/ACKNOWLEDGEMENTS.md) for who made each one.
+Each prompt is credited to the person we believe created it. See [content/ACKNOWLEDGEMENTS.md](./content/ACKNOWLEDGEMENTS.md) for who made each one.
 
 ## Sources and takedowns
 
@@ -75,7 +75,7 @@ It does **not** cover the content the site shows:
 | Material | Where | License |
 | --- | --- | --- |
 | Third-party prompts (original text) | `content/prompts/*/original.*.txt` | The author's license, recorded in each entry's `meta.json` and `ATTRIBUTION.md` |
-| Translations and adjustable versions of those prompts | `content/prompts/*/` templates, options and page copy, `docs/appendix/` | Same license as the original, marked as adapted |
+| Translations and adjustable versions of those prompts | `content/prompts/*/` templates, options and page copy, `tests/fixtures/grokbot-capsule-icon/` source baselines | Same license as the original, marked as adapted |
 | Example images | `content/prompts/*/images/` | Recorded per image in `examples.json`; never implied by the prompt's license |
 
 Nothing here is offered for unconditional commercial use unless its own record says so. By suggesting content you confirm you have the right to share it, or that its license allows sharing.

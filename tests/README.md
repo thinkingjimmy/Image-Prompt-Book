@@ -14,14 +14,15 @@ unit/helpers.ts: 共享工具——真实 content/ 的 library、promptEntry()�
 unit/content.test.ts: 内容通用套件——每个条目每个版本的全部组合 × 输出语言完整、单语言、互不相同；校验闸门拒绝各类坏内容（临时副本注入错误）
 unit/lib.test.ts: 纯逻辑——模板引擎、分享 hash、搜索/筛选/排序/分页
 unit/i18n.test.ts: 界面文案键与 ICU 占位符在各语言一致；说明页双语结构一致
-unit/prompts/<category>/<slug>.test.ts: 条目专属语义，按条目分类分子目录（avatars / photo-art/{diptych,redraw} / posters/{type-led,illustrated}），每层不超过 8 个文件，超出再按类型拆分——原文哈希、默认值复现作者原文、选项之间无矛盾；grokbot 另含附录导入保真与 golden（由附录独立替换计算，不存文件）
+unit/prompts/<category>/<slug>.test.ts: 条目专属语义，按条目分类分子目录（avatars / photo-art/{diptych,redraw} / posters/{type-led,illustrated}），每层不超过 8 个文件，超出再按类型拆分——原文哈希、默认值复现作者原文、选项之间无矛盾；grokbot 使用 fixtures/ 的公开 Prompt 来源基线验证导入保真与 golden，不读取私有 docs/
 e2e/helpers.ts: Hydrated fixtures, desktop/mobile navigation, language/tag menus and expandable search, per-context analytics blocking, clipboard/storage injection and prompt expectations (see e2e/README.md).
 e2e/gallery.spec.ts: Bilingual listing/search/tag dropdown/sort/pagination checks, prompt/collection modals with nested scroll/focus restoration, history/refresh/new tabs, locale switching, layered Escape and image comparisons.
 e2e/editor.spec.ts: 选项编辑、复制、分享链接、版本切换、存储/剪贴板失败、Use in ChatGPT
 e2e/seo.spec.ts: 服务端 HTML（含“关于这个 Prompt”全部字段）、画廊 H1 可见且在页脚首段、无 JS 阅读、canonical/hreflang/robots、sitemap（含专题）、专题/详情双向链接与 Article ItemList、JSON-LD 与可见内容一致（摘要、图片署名、不声称图片许可）
 e2e/layout.spec.ts: Canvas surface/alignment/Line footer, expandable search and keyboard focus, custom-scrolled filters and selection limits, axe WCAG A/AA, responsive columns and mobile dialogs/overflow; saved screenshots and geometry evidence.
-e2e/navigation.spec.ts: Shared icon-led browsing and X/GitHub/language/text About utilities, locale dropdown/history, keyboard/touch, 32px controls with verified 44px hit areas, license footer and retired contribution routes; saved screenshots and JSON evidence.
+e2e/navigation.spec.ts: Shared icon-led browsing and X/GitHub/language/text About utilities, public bilingual acknowledgements links, locale dropdown/history, keyboard/touch, 32px controls with verified 44px hit areas, license footer and retired contribution routes; saved screenshots and JSON evidence.
 fixtures/build.ts: 生成 fixtures/.generated/（git 忽略，全部 fixture:true，生产内容根拒绝）；fixture-sample-02 带 input 原图，覆盖对比视图；一篇三条成员的 fixture-collection；Vitest globalSetup 与 E2E webServer 各调用一次
+fixtures/grokbot-capsule-icon/: Frozen prompt-only source baselines for existing fidelity tests; public verification works without private docs/.
 
 ## Adding a prompt
 

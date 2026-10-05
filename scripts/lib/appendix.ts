@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖 node:fs 读取 docs/appendix/<slug>.md
- * [OUTPUT]: 对外提供 readAppendix()，按章节标题提取附录中的 JSON/text code fence（默认版本读 §12 v2 短版，完整版读 §12.11–12.13 v1.1.0）
- * [POS]: scripts/lib 的附录解析器，被 import-appendix 与 tests/unit/prompts 的导入保真测试共用，保证“导入”与“校验”读取同一基线
+ * [INPUT]: node:fs and private local docs/appendix/<slug>.md source appendices.
+ * [OUTPUT]: readAppendix() extracts short/full source data from section-specific JSON/text fences.
+ * [POS]: scripts/lib local maintainer parser for import-appendix; public tests use frozen source fixtures.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
 import { readFileSync } from "node:fs";
