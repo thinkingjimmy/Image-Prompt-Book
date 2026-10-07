@@ -1,0 +1,28 @@
+{
+  "title": "Oversized Geometric Character Posters",
+  "summary": "Build an editorial poster from bold asymmetric characters, oversized objects, hot pink and cobalt, soft spray shading, and fine ink grain. Choose one of four scene briefs by Vigo Zhao.",
+  "seoTitle": "Oversized Geometric Character Poster Prompt",
+  "seoDescription": "Create a 9:16 geometric character poster with bold pink and cobalt shapes, fine ink grain, and a small English caption. Choose gardening, diving, chess, or carrying boxes.",
+  "inputRequirement": "Choose a scene and use the complete text prompt. The source describes direct illustration generation and does not require a reference image.",
+  "howToUse": [
+    "Choose one of the four source scenes. The caption, character, pose, and shape idea change together.",
+    "Copy the complete prompt into your image generator. Keep the 9:16 frame, warm off-white paper, fixed six-color palette, and geometric character proportions.",
+    "Keep the English caption small and uppercase, with space around it. The caption should not become a headline.",
+    "Check the object’s role in the silhouette, the cut-paper face, and the fine print grain. To make your own scene, edit the four scene fields after copying."
+  ],
+  "exampleNotice": "Four complete posters from Vigo Zhao’s source post are shown. They were reduced to a maximum 1600 px long edge and re-encoded without cropping. Their exact generation settings were not supplied.",
+  "verificationNotice": "The source labels the examples as AI-made but does not name the model. This project has not independently generated or model-verified them.",
+  "adaptationNotice": "The generic prompt and all four scene briefs are preserved verbatim in the original. The selector fills the four source fields from the matching author brief. Pose wording is taken from the same brief without adding a new emotion. Chinese is a complete translation; English captions and color codes stay unchanged.",
+  "licenseNotice": "The source states no prompt or image license. Rights remain with Vigo Zhao or the relevant holders, and commercial-use permission is unknown.",
+  "parameterLabels": {
+    "scene": "Scene"
+  },
+  "keywords": [
+    "VISUAL OS 071",
+    "oversized shapes",
+    "geometric character",
+    "hot pink",
+    "cobalt",
+    "Vigo Zhao"
+  ]
+}

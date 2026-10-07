@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": "oversized-geometric-character-posters",
+  "slug": "oversized-geometric-character-posters",
+  "templateVersion": "1.0.0",
+  "status": "published",
+  "createdAt": "2026-10-08",
+  "updatedAt": "2026-10-08",
+  "publishedAt": "2026-10-08T00:39:16+08:00",
+  "category": "posters",
+  "tags": [
+    "2d",
+    "geometric",
+    "editorial",
+    "minimal"
+  ],
+  "originalLocale": "en",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.en.txt",
+  "templatePaths": {
+    "en": "templates/template.en.txt",
+    "zh-CN": "templates/template.zh-CN.txt"
+  },
+  "parametersPath": "templates/parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": false,
+  "sourceRecommendedTools": [],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "prompt-reply",
+      "type": "x",
+      "role": "original",
+      "title": "Vigo Zhao on X — geometric character prompt (2026-10-02)",
+      "url": "https://x.com/VigoCreativeAI/status/2106024230638989615",
+      "author": {
+        "name": "Vigo Zhao",
+        "handle": "@VigoCreativeAI",
+        "url": "https://x.com/VigoCreativeAI"
+      },
+      "checkedAt": "2026-10-08"
+    },
+    {
+      "id": "scene-briefs",
+      "type": "x",
+      "role": "supplementary",
+      "title": "Vigo Zhao on X — four scene briefs (2026-10-02)",
+      "url": "https://x.com/VigoCreativeAI/status/2106024302436855817",
+      "author": {
+        "name": "Vigo Zhao",
+        "handle": "@VigoCreativeAI",
+        "url": "https://x.com/VigoCreativeAI"
+      },
+      "checkedAt": "2026-10-08"
+    },
+    {
+      "id": "example-post",
+      "type": "x",
+      "role": "supplementary",
+      "title": "Vigo Zhao on X — VISUAL OS 071 examples (2026-10-02)",
+      "url": "https://x.com/VigoCreativeAI/status/2106024136745361777",
+      "author": {
+        "name": "Vigo Zhao",
+        "handle": "@VigoCreativeAI",
+        "url": "https://x.com/VigoCreativeAI"
+      },
+      "checkedAt": "2026-10-08"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/VigoCreativeAI/status/2106024230638989615",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown"
+  }
+}

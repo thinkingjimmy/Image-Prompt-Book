@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "scene",
+      "type": "select",
+      "renderAs": "block",
+      "default": "room-to-grow",
+      "options": [
+        {
+          "id": "room-to-grow",
+          "labels": {
+            "en": "Room to grow",
+            "zh-CN": "修剪绿篱"
+          },
+          "replacements": {
+            "en": "Caption: \"ROOM TO GROW\"\nCharacter & Object: open shears · emerald topiary. Gardener with a curved pink back bending in, both hands on big cobalt shears around one leafy tip.\nGesture & Emotion: bending in, both hands on big cobalt shears around one leafy tip.\nShape Idea: the crescent back answers the hedge's curling crown; the open blades cut a white gap between them.",
+            "zh-CN": "短句：\"ROOM TO GROW\"\n人物与物件：张开的剪刀 · 祖母绿造型绿篱。一位园丁弯曲着粉色后背，俯身用双手握住巨大的钴蓝色剪刀，围住一处叶尖。\n姿态与情绪：俯身，双手握住巨大的钴蓝色剪刀，围住一处叶尖。\n形态构思：新月形的后背呼应绿篱卷曲的树冠；张开的刀刃在两者之间切出一道白色空隙。"
+          }
+        },
+        {
+          "id": "follow-the-flow",
+          "labels": {
+            "en": "Follow the flow",
+            "zh-CN": "随流潜泳"
+          },
+          "replacements": {
+            "en": "Caption: \"FOLLOW THE FLOW\"\nCharacter & Object: blue S-ribbon · weightless glide. Freediver in a pink suit and emerald fins diving headfirst, arms together, weaving through one broad cobalt curve.\nGesture & Emotion: diving headfirst, arms together, weaving through one broad cobalt curve.\nShape Idea: pink body and blue water ribbon interlace as two flowing lines.",
+            "zh-CN": "短句：\"FOLLOW THE FLOW\"\n人物与物件：蓝色 S 形水带 · 轻盈滑行。一位穿粉色泳装、戴祖母绿色脚蹼的自由潜水者头朝下潜入，双臂并拢，穿过一道宽阔的钴蓝色曲线。\n姿态与情绪：头朝下潜入，双臂并拢，穿过一道宽阔的钴蓝色曲线。\n形态构思：粉色身体与蓝色水带交织，形成两道流动的线条。"
+          }
+        },
+        {
+          "id": "think-ahead",
+          "labels": {
+            "en": "Think ahead",
+            "zh-CN": "棋局先行"
+          },
+          "replacements": {
+            "en": "Caption: \"THINK AHEAD\"\nCharacter & Object: lifted knight · low emerald table. Chess player resting a cheek on one arm, the other huge pink hand lifting a sculptural cobalt knight off the table.\nGesture & Emotion: resting a cheek on one arm, the other huge pink hand lifting a sculptural cobalt knight off the table.\nShape Idea: the blue horse head is the focal point; a thin paper gap under its base marks the move.",
+            "zh-CN": "短句：\"THINK AHEAD\"\n人物与物件：提起的马棋子 · 低矮祖母绿桌面。一位棋手用一条手臂托着脸颊，另一只巨大的粉色手把雕塑般的钴蓝色马棋子从桌面提起。\n姿态与情绪：用一条手臂托着脸颊，另一只巨大的粉色手把雕塑般的钴蓝色马棋子从桌面提起。\n形态构思：蓝色马头是视觉焦点；棋子底座下方一道细窄的纸色空隙表现出这一步移动。"
+          }
+        },
+        {
+          "id": "carry-the-day",
+          "labels": {
+            "en": "Carry the day",
+            "zh-CN": "抱箱跨步"
+          },
+          "replacements": {
+            "en": "Caption: \"CARRY THE DAY\"\nCharacter & Object: stacked parcels · wide stride. Mover in a huge pink coat walking low under a cobalt, emerald and red box stack, one eye peeking around the side.\nGesture & Emotion: walking low under a cobalt, emerald and red box stack, one eye peeking around the side.\nShape Idea: square boxes against rounded back and bent legs.",
+            "zh-CN": "短句：\"CARRY THE DAY\"\n人物与物件：堆叠包裹 · 大步跨行。一位穿巨大粉色外套的搬运者压低身体行走，抱着钴蓝、祖母绿与红色箱子堆，一只眼睛从侧面探出。\n姿态与情绪：压低身体行走，抱着钴蓝、祖母绿与红色箱子堆，一只眼睛从侧面探出。\n形态构思：方形箱子与圆弧形后背、弯曲双腿形成对比。"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+Create a finished editorial character poster, 9:16, edge-to-edge warm off-white paper. Flat geometric illustration, exaggerated asymmetric proportions, soft airbrushed shading, fine print grain.
+
+One adult character built from a few oversized, asymmetric shapes: small head, long capsule limbs, simple mitten hands. One large object is part of the pose and changes the silhouette. Black cut-paper facial features: crescent eyes, minimal mouth. The emotion reads from the whole-body gesture.
+
+Palette: off-white #F3F1EB, near-black #10100F, hot pink #F553D2, warm red #F42726, cobalt #293EA1, emerald #13785D. Flat color blocks with crisp edges; soft dark-to-color spray gradients where shapes overlap. Fine stipple grain sits mostly inside the ink areas, barely visible on the paper.
+
+One short caption in small bold black uppercase sans-serif, set in an open paper pocket. Not a headline.
+
+{{scene}}
+
+No extra text, no logos, no outlined cartoon look, no glossy 3D, no realistic skin, no coarse canvas texture, no busy background, no extra limbs.

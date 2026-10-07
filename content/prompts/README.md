@@ -17,6 +17,7 @@ japanese-flat-photo-poster/: Photo to Japanese Flat Poster; photo-art entry, com
 material-type-campaign-poster/: Material × Giant Type Campaign Poster; posters entry, source text, bilingual templates, options, attribution, and local examples.
 mid-century-modern-cover/: Mid-Century Modern Cover; posters entry, source text, bilingual templates, options, attribution, and local examples.
 neo-vintage-engraving-cover/: Neo-Vintage Engraving Cover; posters entry, verbatim Chinese article prompt, complete bilingual templates, four option groups, and four local examples.
+oversized-geometric-character-posters/: Oversized Geometric Character Posters; posters entry with complete bilingual prompts, reviewed options, attribution, and local examples.
 papercut-layered-illustration/: Photo to Paper-Cut Layered Illustration; photo-art entry, source text, bilingual templates, options, attribution, and local examples.
 perler-bead-travel-editorial/: Perler Bead Travel Editorial; posters entry, source text, bilingual templates, options, attribution, and local examples.
 photo-abstract-editorial/: Photo + Abstract Memory Panel; photo-art entry, source text, bilingual templates, options, attribution, and local examples.
