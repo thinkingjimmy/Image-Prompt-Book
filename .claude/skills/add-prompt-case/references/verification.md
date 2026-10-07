@@ -31,13 +31,16 @@ Finish content/maps/credits and prepare local published metadata:
 
 ```bash
 pnpm links:check --slug <slug>
-pnpm verify
-pnpm test:prompt <slug> --checks /tmp/<task>/checks.json
+pnpm verify:prompt --checks /tmp/<task>/checks.json
 ```
 
-Links and verify can run concurrently. One unchanged verify runs lint, typecheck, existing unit suites, content validation, production build. Do not repeat components or build fixtures for content-only previews. The runner refuses absent/stale builds and manages one loopback server.
+Fetch origin/main before choosing the path. Links and `verify:prompt` can run concurrently. The guarded command includes staged/unstaged/untracked changes and accepts only published prompt data plus maps/credits. It validates source hashes and full bilingual defaults before build, runs the existing content suite, builds once and checks all changed entries against that build. Do not repeat components or build fixtures. The browser runner refuses absent/stale builds and manages its own loopback server.
 
-For several entries, repeat --slug for links, run verify once, pass every slug to test:prompt, and put their expectations in the same JSON.
+For a batch, repeat --slug for links and put every entry's expectations in one JSON. One fast run shares its build/server.
+
+If the guard refuses code, shared taxonomy/collections, deletion/rename, draft or unsupported changes, use `pnpm verify` and the relevant E2E module. Published affected entries can use `test:prompt --checks` against that completed build; requested drafts use the dev preview below. A refusal is not permission to bypass the guard with another base ref.
+
+CI uses the latest successful ancestor run as its baseline, so cancelled/failed code changes cannot be hidden by later content commits. Content mode checks combinations, builds once and installs only Chromium headless shell for affected-entry acceptance. Other changes, uncertain baselines and manual/release runs retain full validation and the cross-browser fixture suite.
 
 Artifacts: tests/test-results/prompt-import/<timestamp>/report.json, server log, bilingual per-variant desktop/mobile screenshots, gallery screenshots, traces. The inputs/ snapshot retains independent defaults and expectations; the replay command uses that snapshot rather than scratch files. English and Chinese browser checks run in separate parallel contexts. Inspect screenshots before commit. Reports distinguish independent expectations from checks not supplied.
 
@@ -52,9 +55,9 @@ Use only for requested drafts or blockers; omit from the normal published path. 
 
 ## Fixes and shipping
 
-Content/app edits require a fresh verify and affected-entry preview. Retry link errors without rebuilding. Diagnose UI failures before retrying.
+Content edits require a fresh guarded run; app/shared edits require a fresh full verify and affected-module preview. Retry link errors without rebuilding. Diagnose UI failures before retrying.
 
-Fetch main before checking git log origin/main..main. Stage explicit public task paths and inspect `git diff --cached --name-only`; never stage or force-add `docs/`, which holds private maintainer data. Another session's unpushed commits require the owner's decision. Commit/push after preview; check CI/deployment for that commit with backoff.
+Fetch main before checking git log origin/main..main. Stage explicit public task paths and inspect `git diff --cached --name-only`; never stage or force-add `docs/`, which holds private maintainer data. Another session's unpushed commits require the owner's decision. Commit/push after preview; watch the one required CI job for that commit with one process and check the live page. Keep failed network push attempts in requested timing records; retry transport failures without rebuilding or changing content.
 
 ChatGPT prefill is checked as a complete encoded URL only. Remote ChatGPT behavior and image generation are not exercised.
 

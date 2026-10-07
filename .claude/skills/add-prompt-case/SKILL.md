@@ -5,7 +5,7 @@ description: Import and publish a prompt in Image Prompt Book from a source link
 
 # Add a prompt case
 
-Deliver a published entry, source credit, and a checked live URL. Apply the owner's existing authorization; ask only when an actual blocker remains. Read `content/README.md` once. Translation, rights, options, and image selection require judgment; file generation, measurement, and verification use the shared tools.
+Deliver a published entry, source credit and a checked live URL. Apply the owner's existing authorization; ask only when an actual blocker remains. Read `content/README.md` once. Keep editorial decisions in one manifest; use the shared tools for file generation, measurement and verification.
 
 ## Reusable tools
 
@@ -15,13 +15,13 @@ When timing/token records are requested, use `prompt:profile`; never rebuild a p
 
 ## Default path
 
-1. **Capture once.** Check whether the requested source is already imported. Save the complete extracted prompt as a UTF-8 scratch file immediately, then save metadata and image URLs beside it and reuse them. If the caption points to comments, inspect the author's prompt reply directly. An X long-note ID is not the body: expand the author reply in the browser when public metadata omits its full text. Do not reconstruct captures from session logs. If access is blocked, ask the necessary question early while continuing independent preparation. Hash the exact source without the project's added final newline. Read [sources.md](references/sources.md) only for the relevant source type.
+1. **Capture once.** Check for an existing import. Read [sources.md](references/sources.md) for the matching source type. For X, locate the author's prompt-bearing reply and open its observed status URL directly. Read the whole visible prompt container; automatic links can split it into several text nodes. Save the complete UTF-8 body immediately, then reuse it with captured metadata/image URLs. A long-note ID is not the body. If access is blocked, ask early while preparing independent work. Hash source text without the added final newline; do not restore source captures from chat logs.
 2. **Record rights.** Credit the source author and link; unknown stays unknown. Unstated terms use `LicenseRef-Unspecified`, `sourceLicenseUrl: null`, `commercialUse: "unknown"`, and the author's retained-rights notice, covered by the owner's standing policy. For custom terms, conflicts, or image transformations, read [rights-and-images.md](references/rights-and-images.md).
 3. **Prepare examples.** Download permitted source assets concurrently, view every small preview, and record real dimensions and bilingual alt text. Retain a full collage/photo-art comparison when the prompt itself asks for that composition. Separate a genuine input/result pair only when it shows two separate stages. Re-encode without enlarging; cover first. Source examples use `provenance: "source-reported"`, `recipe: null`.
 4. **Write the manifest.** Save verbatim original and independent full en/zh-CN defaults before adding tokens. Supply complete bilingual page copy, source-supported choices, image/rights records, and attribution. Run `prompt:prepare --dry-run`, then generate the entry and maps. Never summarize translations or invent source evidence.
 5. **Review choices.** Expose only choices supported by the source, with 2–6 options each. Defaults reproduce source wording. Check the entire text for contradictory fixed clauses. Preserve required input, identity/composition constraints, exclusions, and complete instructions in both languages.
 6. **Prepare local publication.** Finish data/maps/credits, then set local `status: "published"` and offset `publishedAt`. Production preview must pass before commit/push; editing these fields does not ship the entry. Use a draft dev preview only for requested drafts or unresolved publication blockers.
-7. **Verify once, ship.** Run the commands below. Fix failures and rerun only checks invalidated by the fix. Reuse existing comparison checks; extend shared tools only for a demonstrated missing requirement. Stage explicit public task files; never stage or force-add private `docs/` data. Check `git diff --cached --name-only` before committing, then push the authorized main branch. Check CI and the live page, then finish; report formatting does not trigger another validation pass.
+7. **Verify once, ship.** Use the guarded content command below after fetching main. A refusal means code/shared changes need the full path in [verification.md](references/verification.md). Fix failures and rerun only invalidated checks. Stage explicit public task files, inspect `git diff --cached --name-only`, then push authorized main. Check the one CI job and live page, then finish. Private `docs/` data stays outside the public commit; report formatting does not trigger more validation.
 
 ```text
 content/prompts/<slug>/
@@ -47,17 +47,16 @@ Write independent expectations from the captured source before template generati
 
 ```bash
 pnpm links:check --slug <slug>
-pnpm verify
-pnpm test:prompt <slug> --checks /tmp/<task>/checks.json
+pnpm verify:prompt --checks /tmp/<task>/checks.json
 ```
 
-Links and `verify` are independent and can run concurrently. `verify` includes content validation, existing unit suites, and one production build. `test:prompt` reuses that build, manages its own server, and saves screenshots, traces, timings, and a report. Inspect desktop/mobile screenshots before commit. It checks real bilingual content, every variant/option, copy/share/reset, media, reference notices, attribution, gallery/sitemap, and mobile overflow.
+Links and `verify:prompt` can run concurrently. The fast command guards the entire tracked/untracked diff, checks source/default expectations before build, runs all content combinations, builds once and checks every affected bilingual entry. It saves desktop/mobile screenshots, traces and timings for options, copy/share/reset, media, attribution, gallery/sitemap and overflow. Inspect screenshots before commit.
 
-- For multiple entries, finish them all, run `verify` once, and pass all slugs to `test:prompt`; repeat `--slug` for links.
+- For a batch, finish all entries and include all their expectations in one JSON. One fast run shares the build/server; repeat `--slug` for links.
 - Do not add per-entry unit tests or temporary browser scripts. The generic suite renders every combination; independent source/default/required-text expectations cover entry-specific invariants.
 - Do not run full fixture E2E locally for a content-only import. UI/loader/rendering changes also need the relevant existing E2E module.
-- Do not rerun `content:check`, `test`, or a second build after an unchanged successful `verify`. Use `content:check` early only to diagnose content errors.
-- Content/app edits require a fresh `verify` before production preview. Screenshot/trace review does not invalidate a build.
+- Do not repeat validation components, E2E or build after an unchanged successful fast run. Use `content:check` early only to diagnose errors.
+- New content edits invalidate its fast run; code/shared edits require the full path. Screenshot/trace review does not invalidate a build.
 - Stay draft only for missing images, an owner-requested draft, or a genuine publication blocker. Do not generate placeholder sample art.
 
 ## Real blockers

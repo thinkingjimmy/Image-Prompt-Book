@@ -4,7 +4,7 @@
 
 Members
 
-SKILL.md: Reviewed-manifest imports, public content credits, private-doc exclusion, reusable timing/token records and one validation pass.
+SKILL.md: One source capture, reviewed manifests, guarded prompt-only verification, public credits and reusable timing/token records.
 references/: Tool/manifest contract, conditional source/rights procedures, and historical examples.
 
 [PROTOCOL]: Update this header when making changes, then check README.md.

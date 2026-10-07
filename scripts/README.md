@@ -9,5 +9,6 @@ check-links.ts: `pnpm links:check [--slug <slug>...] [--strict]`，全站或指�
 measure-vitals.ts: `pnpm vitals [baseUrl]`，在固定移动设备/网络/CPU 条件下记录 LCP、CLS、请求与体积，浏览器阻断 GA 防止合成流量上报
 lib/: Local appendix parsing for the optional maintainer import command; public tests use frozen prompt fixtures.
 prompts/: `prompt:prepare` 生成已审阅条目骨架与独立期望，`prompt:profile` 记录实际时间/token，`test:prompt` 复用 verify 构建检查真实条目并保存截图/trace
+ci/: Guarded prompt-only local/CI verification, successful-baseline routing and safe affected-entry arguments.
 
 [PROTOCOL]: Update this header when making changes, then check README.md.

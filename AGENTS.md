@@ -38,7 +38,9 @@ Open http://localhost:3000. Draft entries appear with `IPB_PREVIEW_DRAFTS=1 pnpm
 | --- | --- |
 | `pnpm test` | Unit tests (fixtures rebuilt automatically); watch mode: `pnpm exec vitest -c tests/vitest.config.mts` |
 | `pnpm typecheck` | Generate Next.js declarations, then check TypeScript — also works in a fresh checkout |
-| `pnpm verify` | Lint, typecheck, unit tests, content check and production build — run before every push |
+| `pnpm verify` | Lint, typecheck, unit tests, content check and production build — required for code or shared-data changes |
+| `pnpm verify:prompt --checks <json>` | Guard a published prompt-only diff, check source/defaults, run the content suite, build once and check affected bilingual entries |
+| `pnpm test:ci [--pipeline --checks <json>]` | Console E2E for verification routing; optional complete fast-path acceptance in an isolated public checkout |
 | `pnpm test:e2e` | Playwright on an isolated fixture build (Chromium, mobile, Firefox, WebKit) |
 | `pnpm test:analytics` | Focused fixture/production-origin analytics E2E; intercept Google traffic and retain JSON, traces and screenshots |
 | `pnpm content:check` | Validate every entry and print why it is or isn't public |
@@ -59,8 +61,8 @@ Coding agents: use the project skill [`.claude/skills/add-prompt-case`](./.claud
 2. Create `content/prompts/<slug>/` with metadata, original, bilingual page copy, examples and attribution. Put templates and parameters in `templates/`, images in `images/`, and include README maps so each folder stays within eight files. Keep `status: "draft"` while authoring.
 3. Put example images in `content/prompts/<slug>/images/`; record true size, bilingual alt text, source and rights in `examples.json`.
 4. Credit the author in `content/ACKNOWLEDGEMENTS.md` and record independent source/default expectations in scratch. Finish content/maps before validation; do not add per-entry unit tests or temporary browser scripts.
-5. Prepare local `status: "published"` and `publishedAt`, run scoped `pnpm links:check --slug <slug>` and one `pnpm verify`, then `pnpm test:prompt <slug> --checks <json>`. Review its saved desktop/mobile screenshots before commit/push. `verify` already checks all combinations and builds; entry E2E reuses that build. Batch entries share one verify/server. Requested drafts use `IPB_PREVIEW_DRAFTS=1 pnpm dev` and the runner's `--url` option.
-6. Commit explicit task files and push after preview passes. CI runs verify and browser tests. Check CI and the live page; link an originating issue in the commit when applicable.
+5. Prepare local `status: "published"` and `publishedAt`, fetch origin/main, then run scoped `pnpm links:check --slug <slug>` and `pnpm verify:prompt --checks <json>` concurrently. The guarded fast path accepts published prompt data plus its maps/credits, checks independent expectations, runs all content combinations, builds once and checks every affected bilingual entry. Review saved desktop/mobile screenshots before commit/push. Code, taxonomy, collections, deleted/renamed files or unsupported changes require `pnpm verify` and the relevant E2E module. Batch entries share one build. Requested drafts use `IPB_PREVIEW_DRAFTS=1 pnpm dev` and the runner's `--url` option.
+6. Commit explicit task files and push after preview passes. CI compares against successful ancestor verification: published prompt-only changes run content/build/affected-entry checks; other changes and manual/release runs use the full browser matrix. Unknown baselines select full verification. Check CI and the live page; link an originating issue in the commit when applicable.
 
 Content rules:
 

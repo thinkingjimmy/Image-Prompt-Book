@@ -46,21 +46,21 @@ pnpm prompt:prepare /tmp/<task>/manifest.json --dry-run
 pnpm prompt:prepare /tmp/<task>/manifest.json
 ```
 
-The result prints its independent checks path. Review decisions, set local published metadata, then run scoped links and one verify concurrently; run `test:prompt --checks <printed path>`, inspect saved screenshots, and ship. Existing-entry or expectation output fails rather than overwriting files.
+The result prints its independent checks path. Review decisions, set local published metadata and fetch main, then run scoped links and `verify:prompt --checks <printed path>` concurrently. That guarded command includes source validation, one build and affected-entry E2E. Inspect saved screenshots and ship. Code/shared changes require the full path in verification.md. Existing-entry or expectation output fails rather than overwriting files.
 
 ## Profiling
 
 ```bash
 pnpm prompt:profile start --out tests/test-results/import-profile/<run> --source <URL>
 pnpm prompt:profile mark --out tests/test-results/import-profile/<run> --phase "Source capture" --scope import
-pnpm prompt:profile run --out tests/test-results/import-profile/<run> --step verify -- pnpm verify
+pnpm prompt:profile run --out tests/test-results/import-profile/<run> --step verify-prompt -- pnpm verify:prompt --checks <path>
 pnpm prompt:profile run --out tests/test-results/import-profile/<run> --step links -- pnpm links:check --slug <slug>
-pnpm prompt:profile mark --out tests/test-results/import-profile/<run> --phase "Entry E2E"
-pnpm prompt:profile run --out tests/test-results/import-profile/<run> --step entry-e2e -- pnpm test:prompt <slug> --checks <path>
 pnpm prompt:profile report --out tests/test-results/import-profile/<run>
 ```
 
 `start` finds this task's session through CODEX_THREAD_ID, or accepts `--session <absolute log>`. Initial scope is development; ordinary imports can start with `--scope import --phase "Preparation"`. Marks partition workflow time; command wrappers measure monotonic subprocess duration and retain exit status. Distinct names preserve retries. Independent command files allow concurrent links/verify without shared-state writes.
+
+The fast command retains its source/build/E2E step timings, so do not run those components again to profile them separately.
 
 At completion, start one report process with `--follow-terminal --timeout 600`; it scans once and reads appended bytes until the current turn ends, then allows three seconds for final accounting. Use `--baseline <prior report.json>` only for reports with activeSeconds and tokens. A snapshot is explicitly incomplete until final accounting. Cached input/reasoning are subsets; missing accounting is unavailable. Phase allocation follows model-response boundaries and never invents token shares for parallel commands.
 

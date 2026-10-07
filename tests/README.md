@@ -9,6 +9,7 @@ vitest.config.mts: 单元测试配置（pnpm test 以 -c 指向），root 指回
 playwright.config.ts: E2E configuration with an isolated fixture server by default; IPB_E2E_BASE_URL accepts an existing HTTP loopback origin for focused runtime checks. Preserves sibling analytics/import artifacts; HTML reports live in tests/playwright-report.
 playwright.analytics.config.ts: pnpm test:analytics 的统计专项入口，fixture 与真实内容生产构建同时验证，Google 请求拦截，JSON/trace/截图写入 tests/test-results/analytics
 images/: Real-content static WebP HTTP/browser acceptance on desktop/mobile, reuses the verified build and saves response sizes/screenshots/traces (see images/README.md)
+ci/: Console E2E for conservative Git routing and the complete prompt-only verification pipeline in an isolated public checkout (see ci/README.md).
 analytics/: 统计隔离、UTM 与 copy/open/share/option 事件的独立 E2E，以及所有浏览器验证共用的请求阻断器（见 analytics/README.md）
 unit/helpers.ts: 共享工具——真实 content/ 的 library、promptEntry()、combinations()、composer()
 unit/content.test.ts: 内容通用套件——每个条目每个版本的全部组合 × 输出语言完整、单语言、互不相同；校验闸门拒绝各类坏内容（临时副本注入错误）
@@ -26,7 +27,7 @@ fixtures/grokbot-capsule-icon/: Frozen prompt-only source baselines for existing
 
 ## Adding a prompt
 
-The generic suite in `unit/content.test.ts` covers every new entry automatically. Do not add per-entry unit tests. Record independent source hashes, normalized defaults, and required clauses in a scratch expectation JSON, then run `pnpm test:prompt <slug...> --checks <json>` after one `pnpm verify`. The real-entry runner in `scripts/prompts/` reuses the production build, checks every bilingual variant/option, copy/share/reset, images, attribution, gallery/sitemap and mobile layout, and saves repeatable artifacts under `tests/test-results/prompt-import/<timestamp>/`. Use `--url <local URL>` for an already running draft dev server. Full fixture E2E is reserved locally for app changes or release validation.
+The generic suite in `unit/content.test.ts` covers every new entry automatically. Do not add per-entry unit tests. Record independent source hashes, normalized defaults and required clauses in a scratch expectation JSON. Published prompt-only changes use `pnpm verify:prompt --checks <json>` after fetching origin/main; it guards the complete local diff, checks source expectations before build, runs the content suite, builds once and checks every affected entry. Code/shared-data changes use `pnpm verify` plus the relevant E2E module. The real-entry runner in `scripts/prompts/` reuses the production build, checks every bilingual variant/option, copy/share/reset, images, attribution, gallery/sitemap and mobile layout, and saves repeatable artifacts under `tests/test-results/prompt-import/<timestamp>/`. Use `--url <local URL>` for an already running draft dev server. Full fixture E2E is reserved locally for app changes or release validation.
 
 ## E2E projects
 

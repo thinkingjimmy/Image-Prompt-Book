@@ -1,17 +1,20 @@
-# [INPUT]: pnpm, Node, Playwright and the real-content production build.
-# [OUTPUT]: Verification, image delivery evidence and cross-browser fixture acceptance.
-# [POS]: Read-only CI for main pushes and ordinary pull requests.
+# [INPUT]: Git history, successful ancestor CI, pnpm, Node and Playwright.
+# [OUTPUT]: Guarded prompt-only acceptance or full verification, with saved evidence.
+# [POS]: One read-only required job for main pushes, pull requests and manual/release checks.
 # [PROTOCOL]: Update this header when making changes, then check README.md.
 name: CI
 
 on:
+  workflow_dispatch:
   pull_request:
   push:
     branches: [main]
+    tags: ['v*']
 
 # Read-only token; `pull_request` (not `pull_request_target`) so fork PRs never receive secrets.
 permissions:
   contents: read
+  actions: read
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -25,23 +28,58 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
       - name: Enable pnpm (pinned by packageManager)
         run: corepack enable
+      - name: Select verification scope
+        id: scope
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/ci/scope.mjs --ci --github-output --out tests/test-results/ci/scope.json
       - name: Install
         run: pnpm install --frozen-lockfile
+      - name: Check verification routing
+        if: steps.scope.outputs.mode == 'full'
+        run: pnpm test:ci
       - name: Verify (lint, typecheck, unit tests, content check, build)
+        if: steps.scope.outputs.mode == 'full'
         run: pnpm verify
-      - name: Install Playwright browsers
-        run: pnpm exec playwright install --with-deps chromium firefox webkit
+      - name: Check all content combinations
+        if: steps.scope.outputs.mode == 'content'
+        run: pnpm exec vitest run -c tests/vitest.config.mts tests/unit/content.test.ts
+      - name: Build real content once
+        if: steps.scope.outputs.mode == 'content'
+        run: pnpm build
+      - name: Install Chromium headless shell
+        if: steps.scope.outputs.mode == 'content'
+        run: pnpm exec playwright install --with-deps --only-shell chromium
+      - name: Install full browser matrix
+        if: steps.scope.outputs.mode == 'full'
+        run: pnpm exec playwright install --with-deps --only-shell chromium firefox webkit
       - name: Real-image delivery tests
+        if: steps.scope.outputs.mode == 'full'
         run: pnpm exec playwright test -c tests/images/playwright.config.ts
       - name: End-to-end tests
+        if: steps.scope.outputs.mode == 'full'
         run: pnpm test:e2e
+      - name: Check affected bilingual prompts
+        if: steps.scope.outputs.mode == 'content'
+        env:
+          IPB_CHANGED_PROMPTS: ${{ steps.scope.outputs.slugs }}
+        run: node scripts/ci/entries.mjs
       - uses: actions/upload-artifact@v4
         if: always()
+        with:
+          name: verification-scope-and-prompt-evidence
+          path: |
+            tests/test-results/ci
+            tests/test-results/prompt-import
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.scope.outputs.mode == 'full'
         with:
           name: image-delivery-evidence
           path: tests/test-results/images

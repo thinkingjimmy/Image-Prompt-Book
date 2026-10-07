@@ -4,7 +4,7 @@
 
 Members
 
-check.ts: `pnpm test:prompt <slug...> [--checks <json>] [--url <local URL>]`; reads real entries and independent source expectations, records timings and browser artifacts, and reuses the completed production build.
+check.ts: `pnpm test:prompt <slug...> [--checks <json>] [--url <local URL>] [--validate-only]`; validates real source/default expectations before build or records browser artifacts against the completed build.
 browser.ts: Bilingual entry E2E with isolated analytics requests and saved network evidence; checks variants, options, copy/share/reset, media, attribution, comparison controls, gallery/sitemap and 375 px layout.
 server.ts: Starts one production server on a free loopback port and stops only that child process; never builds or replaces an existing server.
 prepare.ts: `pnpm prompt:prepare <manifest> [--dry-run]`; validates captured source/defaults and writes an entry, measured images, maps, public content acknowledgements and independent E2E expectations without private docs.
@@ -32,7 +32,7 @@ Import-tool failure inventory, recorded before implementation:
 - Concurrent command logs must not overwrite one another; failures retain timings and exit status, and report output stays under ignored tests/test-results.
 - Final accounting must use one incremental reader with a bounded lifetime; missing usage is unavailable, never an invented zero.
 
-The generic content suite already renders every combination in both languages during `pnpm verify`. This runner checks each option through the UI instead of repeating that Cartesian product in a browser. Optional independent expectations add source hashes, default text, and required clauses without per-entry test code.
+The generic content suite renders every combination in both languages during `pnpm verify` or the guarded `pnpm verify:prompt --checks <json>` fast path. This runner checks each option through the UI instead of repeating that Cartesian product in a browser. Independent expectations add source hashes, default text and required clauses without per-entry test code. `--validate-only` requires a source hash and complete bilingual defaults for every variant, and runs without a build or browser.
 
 Expectation files and independent default text are copied into the run's inputs/ directory; the replay command uses that snapshot rather than temporary scratch files.
 

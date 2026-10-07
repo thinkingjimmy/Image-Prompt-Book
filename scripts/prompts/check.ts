@@ -1,6 +1,6 @@
 /**
  * [INPUT]: Real content, optional independent source expectations, and Playwright Chromium.
- * [OUTPUT]: test:prompt CLI with source/default/constraint checks, browser artifacts, and timings.
+ * [OUTPUT]: test:prompt CLI with optional validation-only source checks, browser artifacts and timings.
  * [POS]: scripts/prompts entry point; shares one verified production server across requested entries.
  * [PROTOCOL]: Update this header when making changes, then check README.md.
  */
@@ -82,8 +82,8 @@ function saveExpectations(artifact: string, checks: Record<string, PromptChecks>
 }
 
 async function main() {
-  const { positionals, values } = parseArgs({ allowPositionals: true, options: { url: { type: "string" }, checks: { type: "string" } } });
-  assert(positionals.length > 0, "Usage: pnpm test:prompt <slug...> [--checks <json>] [--url <local URL>]");
+  const { positionals, values } = parseArgs({ allowPositionals: true, options: { url: { type: "string" }, checks: { type: "string" }, "validate-only": { type: "boolean" } } });
+  assert(positionals.length > 0, "Usage: pnpm test:prompt <slug...> [--checks <json>] [--url <local URL>] [--validate-only]");
   assert(positionals.every((slug) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)), "Use prompt slugs, not paths");
   const slugs = [...new Set(positionals)];
   const library = loadContentLibrary({ root: path.resolve("content"), allowFixtures: false });
@@ -97,12 +97,23 @@ async function main() {
   });
   const checks: Record<string, PromptChecks> = values.checks ? checksSchema.parse(JSON.parse(readFileSync(values.checks, "utf8"))) : {};
   if (values.checks) for (const slug of slugs) assert(checks[slug], `${slug}: missing independent expectations in --checks`);
+  if (values["validate-only"]) {
+    assert(values.checks, "--validate-only requires independent source/default expectations");
+    for (const entry of entries) {
+      const rules = checks[entry.meta.slug]!;
+      assert(rules.originalSha256, `${entry.meta.slug}: missing independent source hash`);
+      for (const variant of entry.variants) for (const locale of LOCALES) {
+        assert(rules.variants?.[variant.id]?.defaultPaths?.[locale], `${entry.meta.slug}/${variant.id}/${locale}: missing independent default`);
+      }
+    }
+  }
   const checksDir = values.checks ? path.dirname(path.resolve(values.checks)) : process.cwd();
   const sources = entries.map((entry) => ({ slug: entry.meta.slug, ...checkSource(entry, checks[entry.meta.slug], checksDir) }));
   if (values.url) {
     const url = new URL(values.url);
     assert(["http:", "https:"].includes(url.protocol) && ["localhost", "127.0.0.1", "[::1]"].includes(url.hostname), "--url must be a local preview URL");
   }
+  if (values["validate-only"]) { console.log(JSON.stringify({ slugs, sources }, null, 2)); return; }
 
   const artifact = path.resolve("tests/test-results/prompt-import", new Date().toISOString().replace(/[:.]/g, "-"));
   mkdirSync(artifact, { recursive: true });

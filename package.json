@@ -22,6 +22,8 @@
     "test:prompt": "tsx scripts/prompts/check.ts",
     "prompt:prepare": "node --import tsx scripts/prompts/prepare.ts",
     "prompt:profile": "node --import tsx scripts/prompts/profile.ts",
+    "verify:prompt": "node scripts/ci/verify.mjs",
+    "test:ci": "node tests/ci/acceptance.mjs",
     "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm build",
     "vitals": "tsx scripts/measure-vitals.ts"
   },
