@@ -1,0 +1,70 @@
+[
+  {
+    "id": "example-01",
+    "src": "images/example-01.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "A desert photograph continues into ivory paper as a narrow hand-drawn path that ends at a small pencil, with the caption “a little more road.”",
+      "zh-CN": "沙漠照片中的路径向下延伸到象牙白纸上，成为通向一支小铅笔的手绘线条，旁边写着“a little more road.”。"
+    },
+    "sourceUrl": "https://x.com/Sukiea1008/status/2107363303920140592",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Example posted by Su (@Sukiea1008). No image license or original creator credit is stated; rights remain with their holders. Imported with source credit under the project owner’s standing inclusion policy. Re-encoded as JPEG quality 82 at the original 1086 × 1448 dimensions, without resizing, cropping, or enlargement.",
+      "evidence": "https://x.com/Sukiea1008/status/2107363303920140592"
+    },
+    "recipe": null
+  },
+  {
+    "id": "example-02",
+    "src": "images/example-02.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "A mountain photograph framed by flowering branches continues into paper, where a tiny line figure sits on a pink swing attached to a branch, captioned “spring break.”",
+      "zh-CN": "开花树枝框住雪山照片，其中一根树枝延伸到纸上，微小线条人物坐在枝条连接的粉色秋千上，旁边写着“spring break.”。"
+    },
+    "sourceUrl": "https://x.com/Sukiea1008/status/2107363303920140592",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Example posted by Su (@Sukiea1008). No image license or original creator credit is stated; rights remain with their holders. Imported with source credit under the project owner’s standing inclusion policy. Re-encoded as JPEG quality 82 at the original 1086 × 1448 dimensions, without resizing, cropping, or enlargement.",
+      "evidence": "https://x.com/Sukiea1008/status/2107363303920140592"
+    },
+    "recipe": null
+  },
+  {
+    "id": "example-03",
+    "src": "images/example-03.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "A canal photograph between white buildings continues into a curved flap of water on ivory paper, lifted by a tiny line figure beside “what’s under here?”",
+      "zh-CN": "白墙建筑间的运河照片向下延伸，在象牙白纸上形成弯起的水面边缘，被微小线条人物掀开，旁边写着“what’s under here?”。"
+    },
+    "sourceUrl": "https://x.com/Sukiea1008/status/2107363303920140592",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Example posted by Su (@Sukiea1008). No image license or original creator credit is stated; rights remain with their holders. Imported with source credit under the project owner’s standing inclusion policy. Re-encoded as JPEG quality 82 at the original 1086 × 1448 dimensions, without resizing, cropping, or enlargement.",
+      "evidence": "https://x.com/Sukiea1008/status/2107363303920140592"
+    },
+    "recipe": null
+  },
+  {
+    "id": "example-04",
+    "src": "images/example-04.jpg",
+    "width": 1086,
+    "height": 1448,
+    "alt": {
+      "en": "A dusk harbor photograph continues into ivory paper through a thin line pulled by a tiny figure, with the handwritten caption “just a little tug.”",
+      "zh-CN": "暮色港口照片通过一条细线向下延伸到象牙白纸上，微小线条人物拉着细线，旁边写着“just a little tug.”。"
+    },
+    "sourceUrl": "https://x.com/Sukiea1008/status/2107363303920140592",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Example posted by Su (@Sukiea1008). No image license or original creator credit is stated; rights remain with their holders. Imported with source credit under the project owner’s standing inclusion policy. Re-encoded as JPEG quality 82 at the original 1086 × 1448 dimensions, without resizing, cropping, or enlargement.",
+      "evidence": "https://x.com/Sukiea1008/status/2107363303920140592"
+    },
+    "recipe": null
+  }
+]

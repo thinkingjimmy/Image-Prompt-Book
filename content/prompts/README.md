@@ -26,6 +26,7 @@ photo-intaglio-study-poster/: Photo × Intaglio Study Poster; photo-art entry, v
 photo-memory-card/: Photo Memory Card — Crayon Sketch; photo-art entry, source text, bilingual templates, options, attribution, and local examples.
 photo-modernist-poster/: Photo × Modernist Poster Diptych; photo-art entry, source text, bilingual templates, options, attribution, and local examples.
 research-report-cover/: Research Report Cover — Anthropic-Inspired; posters entry, source text, bilingual templates, options, attribution, and local examples.
+second-world-photo-continuation/: Second World Photo Continuation; photo-art entry with complete bilingual prompts, reviewed options, attribution, and local examples.
 selective-color-sunglasses-portrait/: Black-and-White Portrait with Orange Sunglasses; photo-art entry, source text, bilingual templates, options, attribution, and local examples.
 showa-absurd-character-poster/: Showa Absurd Character Poster; posters entry, source text, bilingual templates, options, attribution, and local examples.
 storybook-character-portrait/: Storybook Character Portrait; avatars entry, source text, bilingual templates, options, attribution, and local examples.

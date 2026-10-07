@@ -1,0 +1,28 @@
+{
+  "title": "Second World Photo Continuation",
+  "summary": "Keep the upper half photographic and extend a road, branch, reflection, or other source structure into a quiet paper world below. Tiny line figures interact with that same structure.",
+  "seoTitle": "Second World Photo Continuation Prompt",
+  "seoDescription": "Extend your photo into a paper-and-doodle second world. Preserve the original scene, connect both halves, and choose how many tiny line figures may appear.",
+  "inputRequirement": "Upload one photo. Make a separate poster for each upload; do not combine photos.",
+  "howToUse": [
+    "Choose the line-figure limit, then copy the complete prompt and upload one photo to an image editor.",
+    "Use a vertical 3:4 canvas. Keep the upper half faithful to the photo and connect one source structure through the center into the lower half.",
+    "Keep the figure count within the selected limit. Add figures only when they help the interaction; add none if the photo already has strong human action.",
+    "Check the connection at the center, the preserved photo colors, the restrained paper world, and the short handwritten English caption."
+  ],
+  "exampleNotice": "Four complete posters from Su’s X post are shown without cropping. The photo-and-paper layout is part of each result. Separate input photos and exact generation settings were not supplied.",
+  "verificationNotice": "The source does not name the model used for these examples. This project has not independently generated or model-verified them.",
+  "adaptationNotice": "The full English prompt is retained, with spacing and paragraph breaks restored for reading. Chinese is a complete translation. The figure selector only narrows the source’s 0–3 range; all scene, continuity, caption, and exclusion rules remain.",
+  "licenseNotice": "Su shared the prompt and examples; original prompt authorship is not confirmed. No prompt or image license is stated. Rights remain with their holders, and commercial-use permission is unknown.",
+  "parameterLabels": {
+    "figureCount": "Line-figure limit"
+  },
+  "keywords": [
+    "Second World",
+    "photo continuation",
+    "paper collage",
+    "line figures",
+    "Su",
+    "Sukiea1008"
+  ]
+}

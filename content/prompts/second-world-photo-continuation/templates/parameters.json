@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "figureCount",
+      "type": "select",
+      "renderAs": "inline",
+      "default": "source",
+      "options": [
+        {
+          "id": "source",
+          "labels": {
+            "en": "Automatic · 0–3",
+            "zh-CN": "自动：0–3"
+          },
+          "replacements": {
+            "en": "0–3",
+            "zh-CN": "0–3"
+          }
+        },
+        {
+          "id": "none",
+          "labels": {
+            "en": "No line figures",
+            "zh-CN": "不添加人物"
+          },
+          "replacements": {
+            "en": "0",
+            "zh-CN": "0"
+          }
+        },
+        {
+          "id": "one",
+          "labels": {
+            "en": "At most 1",
+            "zh-CN": "最多 1 个"
+          },
+          "replacements": {
+            "en": "0–1",
+            "zh-CN": "0–1"
+          }
+        },
+        {
+          "id": "two",
+          "labels": {
+            "en": "At most 2",
+            "zh-CN": "最多 2 个"
+          },
+          "replacements": {
+            "en": "0–2",
+            "zh-CN": "0–2"
+          }
+        }
+      ]
+    }
+  ]
+}
