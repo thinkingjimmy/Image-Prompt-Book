@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "parameters": [
+    {
+      "id": "scene",
+      "type": "select",
+      "renderAs": "block",
+      "default": "custom",
+      "options": [
+        {
+          "id": "custom",
+          "labels": {
+            "en": "Custom city",
+            "zh-CN": "自定义城市"
+          },
+          "replacements": {
+            "en": "Minimalist vintage watercolor travel poster illustration of [CITY NAME], [COUNTRY], rendered entirely in elegant monochromatic [COLOR] watercolor and fine ink linework.\n\nAspect ratio: 4:5 vertical composition optimized for poster and social media presentation.\n\nA peaceful early-morning streetscape featuring the iconic [PRIMARY LANDMARK] and [SECONDARY LANDMARK/LOCATION] in the foreground, viewed from a slightly low pedestrian-level perspective. Historic local architecture, elegant facades, ornate details, arched windows, decorative cornices, and traditional street elements line the spacious surroundings, creating a timeless urban atmosphere. A classic [LOCAL STREET ELEMENT OR LAMP STYLE] stands prominently on the left side, while mature leafy trees frame portions of the scene, their foliage painted with soft watercolor washes and delicate splatter textures. In the distance, [DISTANT LANDMARK OR SKYLINE FEATURE] rises gracefully against the skyline, serving as a recognizable cultural landmark. A vintage [LOCAL VEHICLE] or a few small pedestrians add subtle life and scale without disturbing the tranquil mood.\n\nThe composition includes large areas of clean white negative space, soft cloudy watercolor textures in the sky, delicate paper grain, and subtle watercolor blooms. The paving, street, or plaza stretches dramatically across the foreground, leading the viewer’s eye toward the landmark ensemble. Typography in the upper-left corner reads “[CITY NAME], [COUNTRY]” in a refined serif font, styled like a sophisticated travel journal or collectible city poster.",
+            "zh-CN": "[城市名称]，[国家]的极简复古水彩旅行海报插画，全部以优雅的单色[颜色]水彩和精细墨线绘制。\n\n宽高比：4:5 竖版构图，适合海报和社交媒体展示。\n\n描绘宁静的清晨街景，标志性的[主要地标]与[前景中的次要地标或地点]位于前景，以略低的行人视角观看。当地历史建筑、优雅立面、精致装饰、拱形窗户、装饰檐口和传统街道元素分布在宽敞的周边环境中，营造历久弥新的城市氛围。一座经典的[当地街道元素或路灯样式]醒目地立在画面左侧，成熟茂密的树木为部分场景形成框景，树叶用柔和的水彩晕染和细腻飞溅纹理描绘。远处，[远景地标或天际线特征]优雅地耸立于天际线，成为可辨识的文化地标。一辆复古的[当地交通工具]或几位小小的行人，为画面增添轻微的生气和尺度感，同时不打破宁静氛围。\n\n构图包含大面积干净的白色留白、天空中柔和的云状水彩纹理、细腻纸纹和轻微水彩晕开效果。铺地、街道或广场在前景中大幅延展，引导视线走向地标群。左上角的文字写着“[城市名称]，[国家]”，采用精致的衬线字体，呈现高级旅行手记或可收藏城市海报的风格。"
+          }
+        },
+        {
+          "id": "tokyo",
+          "labels": {
+            "en": "Tokyo · Blue",
+            "zh-CN": "东京 · 蓝色"
+          },
+          "replacements": {
+            "en": "Minimalist vintage watercolor travel poster illustration of Tokyo, Japan, rendered entirely in elegant monochromatic deep blue watercolor and fine ink linework.\n\nAspect ratio: 4:5 vertical composition optimized for poster and social media presentation.\n\nA peaceful early-morning streetscape featuring the iconic traditional temple gate and temple pagoda and old shopping street in the foreground, viewed from a slightly low pedestrian-level perspective. Historic local architecture, elegant facades, ornate details, arched windows, decorative cornices, and traditional street elements line the spacious surroundings, creating a timeless urban atmosphere. A classic ornate metal street lamp stands prominently on the left side, while mature leafy trees frame portions of the scene, their foliage painted with soft watercolor washes and delicate splatter textures. In the distance, a slender broadcasting tower rises gracefully against the skyline, serving as a recognizable cultural landmark. A vintage Japanese compact car or a few small pedestrians add subtle life and scale without disturbing the tranquil mood.\n\nThe composition includes large areas of clean white negative space, soft cloudy watercolor textures in the sky, delicate paper grain, and subtle watercolor blooms. The paving, street, or plaza stretches dramatically across the foreground, leading the viewer’s eye toward the landmark ensemble. Typography in the upper-left corner reads “Tokyo, Japan” in a refined serif font, styled like a sophisticated travel journal or collectible city poster.",
+            "zh-CN": "东京，日本的极简复古水彩旅行海报插画，全部以优雅的单色深蓝色水彩和精细墨线绘制。\n\n宽高比：4:5 竖版构图，适合海报和社交媒体展示。\n\n描绘宁静的清晨街景，标志性的传统寺庙大门与寺庙宝塔与老商店街位于前景，以略低的行人视角观看。当地历史建筑、优雅立面、精致装饰、拱形窗户、装饰檐口和传统街道元素分布在宽敞的周边环境中，营造历久弥新的城市氛围。一座经典的装饰精美的金属路灯醒目地立在画面左侧，成熟茂密的树木为部分场景形成框景，树叶用柔和的水彩晕染和细腻飞溅纹理描绘。远处，一座细长的广播塔优雅地耸立于天际线，成为可辨识的文化地标。一辆复古的日本小型汽车或几位小小的行人，为画面增添轻微的生气和尺度感，同时不打破宁静氛围。\n\n构图包含大面积干净的白色留白、天空中柔和的云状水彩纹理、细腻纸纹和轻微水彩晕开效果。铺地、街道或广场在前景中大幅延展，引导视线走向地标群。左上角的文字写着“东京，日本”，采用精致的衬线字体，呈现高级旅行手记或可收藏城市海报的风格。"
+          }
+        },
+        {
+          "id": "seoul",
+          "labels": {
+            "en": "Seoul · Blue",
+            "zh-CN": "首尔 · 蓝色"
+          },
+          "replacements": {
+            "en": "Minimalist vintage watercolor travel poster illustration of Seoul, South Korea, rendered entirely in elegant monochromatic deep blue watercolor and fine ink linework.\n\nAspect ratio: 4:5 vertical composition optimized for poster and social media presentation.\n\nA peaceful early-morning streetscape featuring the iconic traditional hanok houses and sloping old-town lane in the foreground, viewed from a slightly low pedestrian-level perspective. Historic local architecture, elegant facades, ornate details, arched windows, decorative cornices, and traditional street elements line the spacious surroundings, creating a timeless urban atmosphere. A classic ornate metal street lamp stands prominently on the left side, while mature leafy trees frame portions of the scene, their foliage painted with soft watercolor washes and delicate splatter textures. In the distance, a hilltop observation tower rises gracefully against the skyline, serving as a recognizable cultural landmark. A vintage Korean compact car or a few small pedestrians add subtle life and scale without disturbing the tranquil mood.\n\nThe composition includes large areas of clean white negative space, soft cloudy watercolor textures in the sky, delicate paper grain, and subtle watercolor blooms. The paving, street, or plaza stretches dramatically across the foreground, leading the viewer’s eye toward the landmark ensemble. Typography in the upper-left corner reads “Seoul, South Korea” in a refined serif font, styled like a sophisticated travel journal or collectible city poster.",
+            "zh-CN": "首尔，韩国的极简复古水彩旅行海报插画，全部以优雅的单色深蓝色水彩和精细墨线绘制。\n\n宽高比：4:5 竖版构图，适合海报和社交媒体展示。\n\n描绘宁静的清晨街景，标志性的传统韩屋与倾斜的老城巷道位于前景，以略低的行人视角观看。当地历史建筑、优雅立面、精致装饰、拱形窗户、装饰檐口和传统街道元素分布在宽敞的周边环境中，营造历久弥新的城市氛围。一座经典的装饰精美的金属路灯醒目地立在画面左侧，成熟茂密的树木为部分场景形成框景，树叶用柔和的水彩晕染和细腻飞溅纹理描绘。远处，一座山顶观景塔优雅地耸立于天际线，成为可辨识的文化地标。一辆复古的韩国小型汽车或几位小小的行人，为画面增添轻微的生气和尺度感，同时不打破宁静氛围。\n\n构图包含大面积干净的白色留白、天空中柔和的云状水彩纹理、细腻纸纹和轻微水彩晕开效果。铺地、街道或广场在前景中大幅延展，引导视线走向地标群。左上角的文字写着“首尔，韩国”，采用精致的衬线字体，呈现高级旅行手记或可收藏城市海报的风格。"
+          }
+        },
+        {
+          "id": "singapore",
+          "labels": {
+            "en": "Singapore · Blue",
+            "zh-CN": "新加坡 · 蓝色"
+          },
+          "replacements": {
+            "en": "Minimalist vintage watercolor travel poster illustration of Singapore, Republic of Singapore, rendered entirely in elegant monochromatic deep blue watercolor and fine ink linework.\n\nAspect ratio: 4:5 vertical composition optimized for poster and social media presentation.\n\nA peaceful early-morning streetscape featuring the iconic Merlion statue and waterfront promenade in the foreground, viewed from a slightly low pedestrian-level perspective. Historic local architecture, elegant facades, ornate details, arched windows, decorative cornices, and traditional street elements line the spacious surroundings, creating a timeless urban atmosphere. A classic ornate metal street lamp stands prominently on the left side, while mature leafy trees frame portions of the scene, their foliage painted with soft watercolor washes and delicate splatter textures. In the distance, the bay skyline with a three-tower hotel rises gracefully against the skyline, serving as a recognizable cultural landmark. A vintage Singapore taxi or a few small pedestrians add subtle life and scale without disturbing the tranquil mood.\n\nThe composition includes large areas of clean white negative space, soft cloudy watercolor textures in the sky, delicate paper grain, and subtle watercolor blooms. The paving, street, or plaza stretches dramatically across the foreground, leading the viewer’s eye toward the landmark ensemble. Typography in the upper-left corner reads “Singapore, Republic of Singapore” in a refined serif font, styled like a sophisticated travel journal or collectible city poster.",
+            "zh-CN": "新加坡，新加坡共和国的极简复古水彩旅行海报插画，全部以优雅的单色深蓝色水彩和精细墨线绘制。\n\n宽高比：4:5 竖版构图，适合海报和社交媒体展示。\n\n描绘宁静的清晨街景，标志性的鱼尾狮雕像与滨水步道位于前景，以略低的行人视角观看。当地历史建筑、优雅立面、精致装饰、拱形窗户、装饰檐口和传统街道元素分布在宽敞的周边环境中，营造历久弥新的城市氛围。一座经典的装饰精美的金属路灯醒目地立在画面左侧，成熟茂密的树木为部分场景形成框景，树叶用柔和的水彩晕染和细腻飞溅纹理描绘。远处，带有三座塔楼酒店的海湾天际线优雅地耸立于天际线，成为可辨识的文化地标。一辆复古的新加坡出租车或几位小小的行人，为画面增添轻微的生气和尺度感，同时不打破宁静氛围。\n\n构图包含大面积干净的白色留白、天空中柔和的云状水彩纹理、细腻纸纹和轻微水彩晕开效果。铺地、街道或广场在前景中大幅延展，引导视线走向地标群。左上角的文字写着“新加坡，新加坡共和国”，采用精致的衬线字体，呈现高级旅行手记或可收藏城市海报的风格。"
+          }
+        },
+        {
+          "id": "istanbul",
+          "labels": {
+            "en": "Istanbul · Blue",
+            "zh-CN": "伊斯坦布尔 · 蓝色"
+          },
+          "replacements": {
+            "en": "Minimalist vintage watercolor travel poster illustration of Istanbul, Türkiye, rendered entirely in elegant monochromatic deep blue watercolor and fine ink linework.\n\nAspect ratio: 4:5 vertical composition optimized for poster and social media presentation.\n\nA peaceful early-morning streetscape featuring the iconic historic domed mosque and old tram street in the foreground, viewed from a slightly low pedestrian-level perspective. Historic local architecture, elegant facades, ornate details, arched windows, decorative cornices, and traditional street elements line the spacious surroundings, creating a timeless urban atmosphere. A classic ornate metal street lamp stands prominently on the left side, while mature leafy trees frame portions of the scene, their foliage painted with soft watercolor washes and delicate splatter textures. In the distance, a skyline of domes and slender minarets rises gracefully against the skyline, serving as a recognizable cultural landmark. A vintage Istanbul tram or a few small pedestrians add subtle life and scale without disturbing the tranquil mood.\n\nThe composition includes large areas of clean white negative space, soft cloudy watercolor textures in the sky, delicate paper grain, and subtle watercolor blooms. The paving, street, or plaza stretches dramatically across the foreground, leading the viewer’s eye toward the landmark ensemble. Typography in the upper-left corner reads “Istanbul, Türkiye” in a refined serif font, styled like a sophisticated travel journal or collectible city poster.",
+            "zh-CN": "伊斯坦布尔，土耳其的极简复古水彩旅行海报插画，全部以优雅的单色深蓝色水彩和精细墨线绘制。\n\n宽高比：4:5 竖版构图，适合海报和社交媒体展示。\n\n描绘宁静的清晨街景，标志性的历史悠久的穹顶清真寺与老电车街道位于前景，以略低的行人视角观看。当地历史建筑、优雅立面、精致装饰、拱形窗户、装饰檐口和传统街道元素分布在宽敞的周边环境中，营造历久弥新的城市氛围。一座经典的装饰精美的金属路灯醒目地立在画面左侧，成熟茂密的树木为部分场景形成框景，树叶用柔和的水彩晕染和细腻飞溅纹理描绘。远处，由穹顶和细长宣礼塔组成的天际线优雅地耸立于天际线，成为可辨识的文化地标。一辆复古的伊斯坦布尔有轨电车或几位小小的行人，为画面增添轻微的生气和尺度感，同时不打破宁静氛围。\n\n构图包含大面积干净的白色留白、天空中柔和的云状水彩纹理、细腻纸纹和轻微水彩晕开效果。铺地、街道或广场在前景中大幅延展，引导视线走向地标群。左上角的文字写着“伊斯坦布尔，土耳其”，采用精致的衬线字体，呈现高级旅行手记或可收藏城市海报的风格。"
+          }
+        }
+      ]
+    }
+  ]
+}

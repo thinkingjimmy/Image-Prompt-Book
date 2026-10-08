@@ -1,0 +1,70 @@
+[
+  {
+    "id": "tokyo",
+    "src": "images/tokyo.jpg",
+    "width": 1122,
+    "height": 1402,
+    "alt": {
+      "en": "Blue watercolor Tokyo poster with a temple gate, pagoda, tall tower, street lamp, and vintage car beneath a serif city title.",
+      "zh-CN": "蓝色水彩东京海报，衬线城市标题下绘有寺庙大门、宝塔、高塔、路灯和复古汽车。"
+    },
+    "sourceUrl": "https://x.com/Goodmanprotocol/status/2062564327140503787",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Example posted by Saul Goodman (@Goodmanprotocol) in the linked X post and imported at the owner's request. No image license is stated; rights remain with the relevant holders. Re-encoded at original dimensions without cropping.",
+      "evidence": "https://x.com/Goodmanprotocol/status/2062564327140503787"
+    },
+    "recipe": null
+  },
+  {
+    "id": "seoul",
+    "src": "images/seoul.jpg",
+    "width": 1122,
+    "height": 1402,
+    "alt": {
+      "en": "Blue watercolor Seoul poster with a sloping lane, traditional tiled-roof houses, street lamp, pedestrians, and distant hilltop tower.",
+      "zh-CN": "蓝色水彩首尔海报，描绘倾斜巷道、传统瓦顶房屋、路灯、行人与远处山顶高塔。"
+    },
+    "sourceUrl": "https://x.com/Goodmanprotocol/status/2062564327140503787",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Example posted by Saul Goodman (@Goodmanprotocol) in the linked X post and imported at the owner's request. No image license is stated; rights remain with the relevant holders. Re-encoded at original dimensions without cropping.",
+      "evidence": "https://x.com/Goodmanprotocol/status/2062564327140503787"
+    },
+    "recipe": null
+  },
+  {
+    "id": "singapore",
+    "src": "images/singapore.jpg",
+    "width": 1122,
+    "height": 1402,
+    "alt": {
+      "en": "Blue watercolor Singapore poster with the Merlion, waterfront walkway, a three-tower hotel, street lamp, and trees.",
+      "zh-CN": "蓝色水彩新加坡海报，描绘鱼尾狮、滨水步道、三座塔楼的酒店、路灯与树木。"
+    },
+    "sourceUrl": "https://x.com/Goodmanprotocol/status/2062564327140503787",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Example posted by Saul Goodman (@Goodmanprotocol) in the linked X post and imported at the owner's request. No image license is stated; rights remain with the relevant holders. Re-encoded at original dimensions without cropping.",
+      "evidence": "https://x.com/Goodmanprotocol/status/2062564327140503787"
+    },
+    "recipe": null
+  },
+  {
+    "id": "istanbul",
+    "src": "images/istanbul.jpg",
+    "width": 1122,
+    "height": 1402,
+    "alt": {
+      "en": "Blue watercolor Istanbul poster with a domed mosque, slender minarets, vintage tram, street lamp, pedestrians, and leafy branches.",
+      "zh-CN": "蓝色水彩伊斯坦布尔海报，描绘穹顶清真寺、细长宣礼塔、复古电车、路灯、行人与树枝。"
+    },
+    "sourceUrl": "https://x.com/Goodmanprotocol/status/2062564327140503787",
+    "provenance": "source-reported",
+    "rights": {
+      "basis": "Example posted by Saul Goodman (@Goodmanprotocol) in the linked X post and imported at the owner's request. No image license is stated; rights remain with the relevant holders. Re-encoded at original dimensions without cropping.",
+      "evidence": "https://x.com/Goodmanprotocol/status/2062564327140503787"
+    },
+    "recipe": null
+  }
+]

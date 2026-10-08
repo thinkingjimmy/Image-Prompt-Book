@@ -36,6 +36,7 @@ Image Prompt Book 的每个案例都来自作者的公开分享，感谢他们�
 | Tilted Character Travel Editorial<br>歪头角色旅行杂志海报 | VoxCat ([@VoxcatAI](https://x.com/VoxcatAI)) | [VoxCat on X — complete prompt (2026-09-24)](https://x.com/VoxcatAI/status/2102949894457799154) | [No license stated / 未声明许可](https://x.com/VoxcatAI/status/2102949894457799154) |
 | Second World Photo Continuation<br>照片下的第二世界 | Su ([@Sukiea1008](https://x.com/Sukiea1008)) | [Su on X — shared Second World prompt (2026-10-06)](https://x.com/Sukiea1008/status/2107363309846675598) | [No license stated / 未声明许可](https://x.com/Sukiea1008/status/2107363309846675598) |
 | Oversized Geometric Character Posters<br>夸张几何人物海报 | Vigo Zhao ([@VigoCreativeAI](https://x.com/VigoCreativeAI)) | [Vigo Zhao on X — geometric character prompt (2026-10-02)](https://x.com/VigoCreativeAI/status/2106024230638989615) | [No license stated / 未声明许可](https://x.com/VigoCreativeAI/status/2106024230638989615) |
+| Monochrome Watercolor Travel Poster<br>单色水彩旅行海报 | Saul Goodman ([@Goodmanprotocol](https://x.com/Goodmanprotocol)) | [Saul Goodman on X (2026-06-04)](https://x.com/Goodmanprotocol/status/2062564327140503787) | [No license stated / 未声明许可](https://x.com/Goodmanprotocol/status/2062564327140503787) |
 
 The English and Chinese versions and the adjustable options on this site are our adaptations; they are not endorsed by the authors. See the [License](../README.md#license) section for what each license allows.
 

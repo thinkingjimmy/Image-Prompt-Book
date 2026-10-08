@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "monochrome-watercolor-travel-poster",
+  "slug": "monochrome-watercolor-travel-poster",
+  "templateVersion": "1.0.0",
+  "status": "published",
+  "createdAt": "2026-10-08",
+  "updatedAt": "2026-10-08",
+  "publishedAt": "2026-10-08T09:38:36+08:00",
+  "category": "posters",
+  "tags": [
+    "travel",
+    "sketch",
+    "minimal",
+    "typography"
+  ],
+  "originalLocale": "en",
+  "contentLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "outputLocales": [
+    "en",
+    "zh-CN"
+  ],
+  "originalPath": "original.en.txt",
+  "templatePaths": {
+    "en": "templates/template.en.txt",
+    "zh-CN": "templates/template.zh-CN.txt"
+  },
+  "parametersPath": "templates/parameters.json",
+  "examplesPath": "examples.json",
+  "requiresReferenceImage": false,
+  "sourceRecommendedTools": [
+    "GPT Image 2 on ChatGPT"
+  ],
+  "verifiedModels": [],
+  "sources": [
+    {
+      "id": "x-post",
+      "type": "x",
+      "role": "original",
+      "title": "Saul Goodman on X (2026-06-04)",
+      "url": "https://x.com/Goodmanprotocol/status/2062564327140503787",
+      "author": {
+        "name": "Saul Goodman",
+        "handle": "@Goodmanprotocol",
+        "url": "https://x.com/Goodmanprotocol"
+      },
+      "checkedAt": "2026-10-08"
+    }
+  ],
+  "rights": {
+    "promptLicense": "LicenseRef-Unspecified",
+    "licenseUrl": "https://x.com/Goodmanprotocol/status/2062564327140503787",
+    "sourceLicenseUrl": null,
+    "commercialUse": "unknown"
+  }
+}

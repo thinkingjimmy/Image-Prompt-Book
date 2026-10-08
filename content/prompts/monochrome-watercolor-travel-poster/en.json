@@ -1,0 +1,31 @@
+{
+  "title": "Monochrome Watercolor Travel Poster",
+  "summary": "Create a 4:5 city poster with fine ink architecture, soft monochrome watercolor, white space, and a small serif city title. Use the source fields or choose a prepared blue scene for Tokyo, Seoul, Singapore, or Istanbul.",
+  "seoTitle": "Monochrome Watercolor Travel Poster Prompt",
+  "seoDescription": "Create a 4:5 watercolor city poster with fine ink linework and a serif title. Choose Tokyo, Seoul, Singapore, Istanbul, or fill the original city fields.",
+  "inputRequirement": "No reference image is required. Choose a prepared city scene, or use Custom city and fill every bracketed field after copying.",
+  "howToUse": [
+    "Choose a blue city scene, or keep Custom city to use the original fields. The prepared scenes change the city, country, landmarks, street lamp, vehicle, and title together.",
+    "For Custom city, replace every bracketed field after copying. Use the same city and country in the opening and title, and choose one watercolor color.",
+    "Copy the complete prompt into your image generator. The source recommends GPT Image 2 on ChatGPT; this project has not tested that model.",
+    "Keep the 4:5 frame, fine ink linework, white space, quiet morning light, and small serif title. To try another color, edit the color phrase after copying."
+  ],
+  "exampleNotice": "Four complete city posters from the source post are shown. They were re-encoded as JPEGs at their original 1122 × 1402 size without cropping. The author's exact field values were not supplied.",
+  "verificationNotice": "The source names GPT Image 2 on ChatGPT. These are source-reported examples; Image Prompt Book has not independently generated them or verified the model.",
+  "adaptationNotice": "The English original is preserved verbatim, and Custom city reproduces it in full. Chinese is a complete translation. The four blue city presets fill the source fields using the cities and street details in the examples; they are project adaptations, not the author's recorded generation settings.",
+  "licenseNotice": "The source states no prompt or image license. Rights remain with the author or relevant holders, and commercial-use permission is unknown. This page provides credit and a link to the original post.",
+  "parameterLabels": {
+    "scene": "City scene"
+  },
+  "keywords": [
+    "watercolor",
+    "monochrome",
+    "city poster",
+    "architectural sketch",
+    "Tokyo",
+    "Seoul",
+    "Singapore",
+    "Istanbul",
+    "Saul Goodman"
+  ]
+}
